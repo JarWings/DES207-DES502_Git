@@ -11,6 +11,8 @@ public class PlayerCharacter : MonoBehaviour
 
     Transform checkGround;
 
+    public AudioClip jumpSound;
+
     public float speed = 3.0f;
     public float jumpspeed = 6.0f;
 
@@ -52,6 +54,7 @@ public class PlayerCharacter : MonoBehaviour
         float vy = rigid.velocity.y;
         if (jump && isGround)
         {
+            AudioManager.PlayAudio(jumpSound, null, transform.position, transform, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Jump");
             vy = jumpspeed;
         }
