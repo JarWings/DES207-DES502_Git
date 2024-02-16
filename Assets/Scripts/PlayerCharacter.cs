@@ -15,9 +15,14 @@ public class PlayerCharacter : MonoBehaviour
 
     public float speed = 3.0f;
     public float jumpspeed = 6.0f;
+    public int maxHp = 5;
+    int hp;
 
     bool jump = false;
     bool isGround = false;
+    bool faceLeft = true;
+    //失去控制的时间(物理帧)
+    float outControlTime = 0;
 
     void Start()
     {
@@ -25,9 +30,9 @@ public class PlayerCharacter : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         checkGround = transform.Find("CheckGround");
+        hp = maxHp;
     }
 
-    
     void Update()
     {
         if (controller.jump)
@@ -39,17 +44,36 @@ public class PlayerCharacter : MonoBehaviour
         //update anim state
         anim.SetBool("IsGround", isGround);
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
+        if (controller.attack)
+        {
+            anim.SetTrigger("Attack");
+        }
     }
 
     private void FixedUpdate()
     {
         CheckGround();
-        Move(controller.h);
+        if (!isAttacking())
+        {
+            Move(controller.h);
+        }
         jump = false;
+        outControlTime--;
+    }
+
+    bool isAttacking()
+    {
+        AnimatorStateInfo asi = anim.GetCurrentAnimatorStateInfo(0);
+        return asi.IsName("Attack1") || asi.IsName("Attack2") || asi.IsName("Attack3");
     }
 
     private void Move(float h)
     {
+        if (outControlTime > 0)
+        {
+            return;
+        }
+
         Flip(h);
         float vy = rigid.velocity.y;
         if (jump && isGround)
@@ -58,6 +82,7 @@ public class PlayerCharacter : MonoBehaviour
             anim.SetTrigger("Jump");
             vy = jumpspeed;
         }
+
         rigid.velocity = new Vector2(h * speed, vy);
     }
 
@@ -72,11 +97,47 @@ public class PlayerCharacter : MonoBehaviour
         Vector3 scaleRight = new Vector3(-1, 1, 1);
         if (h > 0.1f)
         {
+            faceLeft = false;
             transform.localScale = scaleRight;
         }
         else if (h < -0.1f)
         {
+            faceLeft = true;
             transform.localScale = scaleLeft;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("BossHit"))
+        {
+            GetHit(1);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("BossHit"))
+        {
+            GetHit(1);
+        }
+    }
+
+    void GetHit(int damage)
+    {
+        hp -= damage;
+        if (hp < 0) { hp = 0; }
+        BarUIManager.Instance.SetPlayerHp(hp, maxHp);
+        //受伤动画
+        anim.SetTrigger("GetHit");
+        //受伤时，向反方向弹飞
+        Vector2 force = new Vector2(200, 200);
+        if (!faceLeft)
+        {
+            force.x *= -1;
+        }
+        rigid.AddForce(force);
+
+        outControlTime = 30;
     }
 }

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     PlayerCharacter player;
     public float h, v;
     public bool jump;
+    public bool attack;
 
     void Start()
     {
@@ -20,5 +21,6 @@ public class PlayerController : MonoBehaviour
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
         jump = Input.GetButtonDown("Jump");
+        attack = Input.GetKeyDown(KeyCode.J);
     }
 }
