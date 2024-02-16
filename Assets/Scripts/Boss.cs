@@ -147,6 +147,7 @@ public class Boss : MonoBehaviour
         }
     }
 
+    //test   001
     void Flip()
     {
         faceRight = !faceRight;
