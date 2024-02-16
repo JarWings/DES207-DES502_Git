@@ -1625,6 +1625,7 @@ GameObject:
   - component: {fileID: 407279242}
   - component: {fileID: 407279241}
   - component: {fileID: 407279243}
+  - component: {fileID: 407279244}
   m_Layer: 0
   m_Name: GlobalManager
   m_TagString: Global
@@ -1644,6 +1645,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d21360e7719f041898c9a801b9d0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainAudioMix: {fileID: 24100000, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+  fxGroup: {fileID: -4175256358240704890, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+  musicGroup: {fileID: -248899661474714330, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+  uiGroup: {fileID: -6368736702470399730, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
 --- !u!4 &407279242
 Transform:
   m_ObjectHideFlags: 0
@@ -1669,6 +1674,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f155434c04a0b74e842a8b5fcdf5aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &407279244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407279240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cac63fea5c9c4144afad47f78f23a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &409133909
@@ -2439,7 +2456,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1

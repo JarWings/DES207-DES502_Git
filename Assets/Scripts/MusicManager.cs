@@ -88,7 +88,7 @@ public class MusicManager : MonoBehaviour
             globalTransform = GameObject.FindWithTag("Global").transform;
         }
 
-        currentTrack = AudioManager.PlayAudio(track, null, Vector2.zero, null, 1f, 1f, 0f, 0f, 0f, loop);
+        currentTrack = AudioManager.PlayAudio(AudioType.music, track, null, Vector2.zero, globalTransform, 1f, 1f, 0f, 0f, 0f, loop);
         curTime = track.length;
     }
 }

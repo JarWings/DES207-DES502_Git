@@ -14,3 +14,8 @@ I used free materials to build the player's state machine, completing the logic 
 --Michael
 ver.0.0.2
 Basic audio and music system implemented. Trigger audio effects with MusicManager.PlayAudio(). Music with ChangeTrack(), or StartPlaylist(). This is the first implementation and will be further expanded with comments, features required by the audio designer, and better overall code.
+
+16/02/24
+--Michael
+ver.0.0.4
+Implemented main menu functionality, with a play button, options, credits, and quitting.

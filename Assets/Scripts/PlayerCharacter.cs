@@ -78,7 +78,7 @@ public class PlayerCharacter : MonoBehaviour
         float vy = rigid.velocity.y;
         if (jump && isGround)
         {
-            AudioManager.PlayAudio(jumpSound, null, transform.position, transform, 1, Random.Range(.9f, 1.1f));
+            AudioManager.PlayAudio(AudioType.soundFX, jumpSound, null, transform.position, transform, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Jump");
             vy = jumpspeed;
         }
