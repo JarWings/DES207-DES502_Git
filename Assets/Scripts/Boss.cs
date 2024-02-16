@@ -138,12 +138,12 @@ public class Boss : MonoBehaviour
         if (hp == 0)
         {
             anim.SetTrigger("Die");
+            rigid.isKinematic = true;
             Collider2D[] colliders = GetComponents<Collider2D>();
             foreach (var c in colliders)
             {
                 c.enabled = false;
             }
-            rigid.isKinematic = true;
         }
     }
 
