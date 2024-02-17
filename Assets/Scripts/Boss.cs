@@ -19,6 +19,7 @@ public class Boss : MonoBehaviour
     public int maxHp = 20;
     public float speed = 8;
     public FireBall prefabFireBall;
+    public FireRain prefabFireRain;
     int hp;
 
     BossState state;
@@ -46,7 +47,7 @@ public class Boss : MonoBehaviour
                     if (Time.time - lastChangeStateTime > 3)
                     {
                         //暂时只开启12行为
-                        int r = Random.Range(1, 3);
+                        int r = Random.Range(1, 4);
 
                         if (r == 1)
                         {
@@ -63,7 +64,7 @@ public class Boss : MonoBehaviour
                         {
                             state = BossState.Skill_FireRain;
                             // 开启火雨协程
-                            //StartCoroutine(CoFireRainState());
+                            StartCoroutine(CoFireRainState());
                         }
 
                         // 随机切换不同的状态（不同技能）
@@ -76,7 +77,7 @@ public class Boss : MonoBehaviour
             case BossState.Run:
                 {
                     // 状态转移条件
-                    if (faceRight && transform.position.x >= 8 || !faceRight && transform.position.x < -8)
+                    if (faceRight && transform.position.x >= 20 || !faceRight && transform.position.x < -20)
                     {
                         Flip();
                         state = BossState.Idle;
@@ -120,11 +121,35 @@ public class Boss : MonoBehaviour
 
     public void FireBall()
     {
-        FireBall ball = Instantiate(prefabFireBall, firePoint.position, Quaternion.identity);
-        if (!faceRight)
+        if(state != BossState.Skill_FireBall)
         {
-            ball.transform.right = Vector3.left;
+            for (int j = 0; j < 10; j++)
+            {
+                float r = Random.Range(-15, 15);
+                FireRain firerain = Instantiate(prefabFireRain, new Vector3(r, 11, 0), Quaternion.identity);
+            }
         }
+        if(state == BossState.Skill_FireBall)
+        {
+            FireBall ball = Instantiate(prefabFireBall, firePoint.position, Quaternion.identity);
+            if (!faceRight)
+            {
+                ball.transform.right = Vector3.left;
+            }
+            Destroy(ball.gameObject, 5f);
+        }
+    }
+
+    IEnumerator CoFireRainState()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            anim.SetTrigger("Attack");
+            // Attack动画播放时，通过动画帧事件调用Fire函数
+            yield return new WaitForSeconds(1.5f);
+        }
+        state = BossState.Idle;
+        lastChangeStateTime = Time.time;
     }
 
 
@@ -147,7 +172,6 @@ public class Boss : MonoBehaviour
         }
     }
 
-    //test   001
     void Flip()
     {
         faceRight = !faceRight;

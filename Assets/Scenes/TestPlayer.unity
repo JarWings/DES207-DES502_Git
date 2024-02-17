@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314669652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.76, y: 1.68, z: 0}
+  m_LocalPosition: {x: -20, y: 1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   maxHp: 3
   speed: 8
   prefabFireBall: {fileID: 844805940912364816, guid: 6773e4b773640b64ebc34604d44c1dfe, type: 3}
+  prefabFireRain: {fileID: 465546105492910813, guid: 9bd45cf17fe04b1459ad3ffcf93d8b96, type: 3}
 --- !u!1 &327578014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380441640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.67, y: -7.33, z: 5}
+  m_LocalPosition: {x: 16.67, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
