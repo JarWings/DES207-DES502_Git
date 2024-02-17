@@ -3,12 +3,12 @@ hello world! this is a test.
 09/02/24
 --Jiancheng
 ver.0.0.0 
-I added some free art resources and downloaded the necessary packages.
+Added some free art resources and downloaded the necessary packages.
 
 13/02/24
 --Jiancheng
 ver.0.0.1
-I used free materials to build the player's state machine, completing the logic for movement and jumping.
+Used free materials to build the player's state machine, completing the logic for movement and jumping.
 
 15/02/24
 --Michael
@@ -24,3 +24,8 @@ Implemented main menu functionality, with a play button, options, credits, and q
 --Michael
 ver.0.0.5
 Fixed bug with global manager being replaced by scene changes, also fixes issue with music not crossfading between scenes. Added menu slider images, error sound, & highlight button option.
+
+17/02/24
+--Jiancheng
+ver0.0.5
+Fixed the bug, increased the boss state machine to three types, tried the third skill, and some special effects. Determined the scaling size of the assets.
