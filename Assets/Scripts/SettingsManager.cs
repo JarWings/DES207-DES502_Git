@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class SettingsManager : MonoBehaviour
@@ -14,6 +15,20 @@ public class SettingsManager : MonoBehaviour
     public static bool isFullscreen = true;
 
     public static bool simpleFont = false;
+    public static bool menuHighlight = false;
+
+    private void Update()
+    {
+        if (!Application.isEditor)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            SceneChangeManager.LoadScene("MainMenu");
+        }
+    }
 
     public static void LoadResolutions()
     {

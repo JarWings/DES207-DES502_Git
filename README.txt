@@ -19,3 +19,8 @@ Basic audio and music system implemented. Trigger audio effects with MusicManage
 --Michael
 ver.0.0.4
 Implemented main menu functionality, with a play button, options, credits, and quitting.
+
+17/02/24
+--Michael
+ver.0.0.5
+Fixed bug with global manager being replaced by scene changes, also fixes issue with music not crossfading between scenes. Added menu slider images, error sound, & highlight button option.

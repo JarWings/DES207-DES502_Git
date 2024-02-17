@@ -12,26 +12,6 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup fxGroup, musicGroup, uiGroup;
     private static Transform cameraTransform;
 
-    private void Start()
-    {
-        AliveBetweenScenes();
-    }
-
-    void AliveBetweenScenes()
-    {
-        GameObject[] obj = GameObject.FindGameObjectsWithTag("Global");
-
-        for(int i = 0; i < obj.Length; i++)
-        {
-            if (obj[i] != null && obj[i] != gameObject)
-            {
-                Destroy(obj[i]);
-            }
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-
     private static void FindCamera()
     {
         cameraTransform = GameObject.FindWithTag("MainCamera").transform;
@@ -40,7 +20,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// For randomisation use Random.Range(min, max). For 2D sounds set spatial to 0f. Volume, pitch, spatial, stereo are have a 0 to 1 range. Clip will be ignored if randomClipSet is not populated.
     /// </summary>
-    public static AudioSource PlayAudio(AudioType type, AudioClip clip, AudioClip[] randomClipSet, Vector2 origin, Transform parent = null, float vol = 1f, float pitch = 1f, float spatial = 1f, float stereoPan = 0, float distance = 2600f, bool loop = false)
+    public static AudioSource PlayAudio(AudioType type, AudioClip clip, AudioClip[] randomClipSet, Vector2 origin, Transform parent = null, float vol = 1f, float pitch = 1f, float spatial = 1f, float stereoPan = 0, float distance = 2600f, bool loop = false, float delay = 0f)
     {
         if (clip == null && randomClipSet == null)
         {
@@ -82,9 +62,6 @@ public class AudioManager : MonoBehaviour
                 break;
         }
 
-
-        Debug.DrawRay(origin, Vector3.up, Color.magenta, 2f);
-
         audioSource.transform.position = origin;
 
         audioSource.playOnAwake = false;
@@ -111,11 +88,11 @@ public class AudioManager : MonoBehaviour
             audioObj.transform.parent = parent;
         }
 
-        audioSource.Play();
+        audioSource.PlayDelayed(delay);
 
         if (!loop)
         {
-            Destroy(audioObj, clip.length / audioSource.pitch);
+            Destroy(audioObj, (clip.length / audioSource.pitch) + delay);
         }
 
         return audioSource;

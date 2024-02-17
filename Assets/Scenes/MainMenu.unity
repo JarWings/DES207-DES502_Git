@@ -223,6 +223,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f155434c04a0b74e842a8b5fcdf5aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentTrack: {fileID: 0}
+  newTrack: {fileID: 0}
+  currentPlaylist: []
+  changingTrack: 0
+  curTime: 0
+  curLoop: 0
+  curFadeSpeed: 2
 --- !u!114 &617513578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +651,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Options
       buttonDesc: Customise visual, audio, and gameplay settings.
       SelectEvent:
@@ -667,6 +677,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Credits
       buttonDesc: View the members of team Orion!
       SelectEvent:
@@ -690,6 +703,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Quit
       buttonDesc: Close this application.
       SelectEvent:
@@ -713,6 +729,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     currentButtonIndex: 0
   - MenuName: Options
     menuButtons:
@@ -739,6 +758,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Visual
       buttonDesc: 
       SelectEvent:
@@ -762,6 +784,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Gameplay
       buttonDesc: 
       SelectEvent:
@@ -773,6 +798,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Back
       buttonDesc: Return to the main menu.
       SelectEvent:
@@ -796,6 +824,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     currentButtonIndex: 0
   - MenuName: Team Orion
     menuButtons:
@@ -810,6 +841,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Jenna Black
       buttonDesc: Lead Artist & Character Design
       SelectEvent:
@@ -821,6 +855,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Steph Richard
       buttonDesc: Environmental Artist & Ui Artist
       SelectEvent:
@@ -832,6 +869,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Vladyslava Liaskovska
       buttonDesc: Animator & Concept Artist
       SelectEvent:
@@ -843,6 +883,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: David Esezobor
       buttonDesc: Level Design
       SelectEvent:
@@ -854,6 +897,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Fraser Neilson
       buttonDesc: Audio Design & Producer
       SelectEvent:
@@ -865,6 +911,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Michael Eaton
       buttonDesc: Programmer & Documentation
       SelectEvent:
@@ -876,6 +925,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: "Nicklas \xD8vrelid"
       buttonDesc: Narrative Design, Dialogue, & Enemy Gameplay Design
       SelectEvent:
@@ -887,6 +939,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Kristofer Rossvoll-Booth
       buttonDesc: Narrative Designer
       SelectEvent:
@@ -898,6 +953,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Back
       buttonDesc: Return to the main menu.
       SelectEvent:
@@ -921,6 +979,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     currentButtonIndex: 0
   - MenuName: Quit?
     menuButtons:
@@ -935,6 +996,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Yes
       buttonDesc: Returns to Windows.
       SelectEvent:
@@ -958,6 +1022,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: No
       buttonDesc: Returns to the main menu.
       SelectEvent:
@@ -981,6 +1048,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     currentButtonIndex: 0
   - MenuName: Audio Options
     menuButtons:
@@ -1019,6 +1089,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 1
     - buttonName: 'Sound FX volume: <fxvol>'
       buttonDesc: Change the volume of the sound FX.
       SelectEvent:
@@ -1054,6 +1127,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 1
+      sliderMaxValue: 100
+      displaySlider: 1
     - buttonName: 'Music volume: <musicvol>'
       buttonDesc: Change the volume of the music.
       SelectEvent:
@@ -1089,6 +1165,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 2
+      sliderMaxValue: 100
+      displaySlider: 1
     - buttonName: 'Ui volume: <uivol>'
       buttonDesc: Change the volume of the ui sound FX.
       SelectEvent:
@@ -1124,6 +1203,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 3
+      sliderMaxValue: 100
+      displaySlider: 1
     - buttonName: Back
       buttonDesc: Returns to the options menu.
       SelectEvent:
@@ -1147,6 +1229,9 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     currentButtonIndex: 0
   - MenuName: Visual Options
     menuButtons:
@@ -1185,6 +1270,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 4
+      sliderMaxValue: 100
+      displaySlider: 1
     - buttonName: 'Fullscreen: <fullscreen>'
       buttonDesc: Toggle between windowed and fullscreen.
       SelectEvent:
@@ -1220,6 +1308,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: 'V-Sync: <vsync>'
       buttonDesc: Toggle v-sync.
       SelectEvent:
@@ -1255,6 +1346,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: 'Simple Font: <font>'
       buttonDesc: Toggle between stylised or system font.
       SelectEvent:
@@ -1290,6 +1384,47 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: 'Menu Highlight: <highlight>'
+      buttonDesc: Toggle highlighting which button you have selected.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleHighlight
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleHighlight
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Back
       buttonDesc: Returns to the options menu.
       SelectEvent:
@@ -1313,18 +1448,25 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     currentButtonIndex: 0
   menuButtonPrefab: {fileID: 5165103811292100994, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+  menuSliderPrefab: {fileID: 3257673792151611256, guid: 3235a1752f7f04a40867c2dd4d1b2586, type: 3}
   buttonParent: {fileID: 2062616132}
   pageTitleText: {fileID: 1575753950}
   buttonDescText: {fileID: 1887202458}
+  highlightSprite: {fileID: 21300000, guid: 76d1cec968d54e84b8c83b2ac517c7ec, type: 3}
   menuMusic: {fileID: 8300000, guid: e1be44ec7855f4d44b1def0663045977, type: 3}
   levelMusic: {fileID: 8300000, guid: db4407abc514cba408b06a39d26f0a1f, type: 3}
   highlightSound: {fileID: 8300000, guid: 60ffabcb154803946bde846ee1676bc8, type: 3}
   activateSound: {fileID: 8300000, guid: 872faafc925a6164c8d18041232bf64b, type: 3}
   sliderUseSound: {fileID: 8300000, guid: 9a23c2845d870484885218c4b8e0723c, type: 3}
+  errorSound: {fileID: 8300000, guid: cdbb1f26539dfd847813f08994233947, type: 3}
   defaultButtonFont: {fileID: 11400000, guid: f2b5c540ccfcee94ea6a3ac4a15a5856, type: 2}
   simpleButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  sliderValue: 0
 --- !u!1 &1887202456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4, y: -4.0000305}
+  m_AnchoredPosition: {x: 4, y: -4}
   m_SizeDelta: {x: -8, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062616132
