@@ -1,0 +1,1776 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &82883695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 82883698}
+  - component: {fileID: 82883697}
+  - component: {fileID: 82883696}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &82883696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82883695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &82883697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82883695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &82883698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82883695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &617513576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617513579}
+  - component: {fileID: 617513578}
+  - component: {fileID: 617513577}
+  - component: {fileID: 617513580}
+  - component: {fileID: 617513581}
+  m_Layer: 0
+  m_Name: GlobalManager
+  m_TagString: Global
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &617513577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617513576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f155434c04a0b74e842a8b5fcdf5aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTrack: {fileID: 0}
+  newTrack: {fileID: 0}
+  currentPlaylist: []
+  changingTrack: 0
+  curTime: 0
+  curLoop: 0
+  curFadeSpeed: 2
+--- !u!114 &617513578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617513576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d21360e7719f041898c9a801b9d0d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainAudioMix: {fileID: 24100000, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+  fxGroup: {fileID: -4175256358240704890, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+  musicGroup: {fileID: -248899661474714330, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+  uiGroup: {fileID: -6368736702470399730, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
+--- !u!4 &617513579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617513576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &617513580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617513576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cac63fea5c9c4144afad47f78f23a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &617513581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617513576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d621b862de3c24a931b31a5c0c90f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1110789906 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+  m_PrefabInstance: {fileID: 5165103810252748435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1561496915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561496918}
+  - component: {fileID: 1561496917}
+  - component: {fileID: 1561496916}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1561496916
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561496915}
+  m_Enabled: 1
+--- !u!20 &1561496917
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561496915}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1561496918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561496915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1575753948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1575753949}
+  - component: {fileID: 1575753951}
+  - component: {fileID: 1575753950}
+  m_Layer: 5
+  m_Name: PageTitle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1575753949
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575753948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1643622307}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -213.24063, y: 78.395}
+  m_SizeDelta: {x: 426.4813, y: 103.05}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1575753950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575753948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Page Title
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: f2b5c540ccfcee94ea6a3ac4a15a5856, type: 2}
+  m_sharedMaterial: {fileID: -2223645812003751966, guid: f2b5c540ccfcee94ea6a3ac4a15a5856, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 1778384895
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.4117647}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 8, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1575753951
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575753948}
+  m_CullTransparentMesh: 1
+--- !u!1 &1643622303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643622307}
+  - component: {fileID: 1643622306}
+  - component: {fileID: 1643622305}
+  - component: {fileID: 1643622304}
+  - component: {fileID: 1643622308}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1643622304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643622303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1643622305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643622303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0.5
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1643622306
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643622303}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1643622307
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643622303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2062616131}
+  - {fileID: 1575753949}
+  - {fileID: 1887202457}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1643622308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643622303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572adb327cf2ff6459e0dbaa5a02b119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pages:
+  - MenuName: Main
+    menuButtons:
+    - buttonName: Play
+      buttonDesc: Start playing!
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: LoadScene
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: TestPlayer
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Options
+      buttonDesc: Customise visual, audio, and gameplay settings.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Credits
+      buttonDesc: View the members of team Orion!
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Quit
+      buttonDesc: Close this application.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 3
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  - MenuName: Options
+    menuButtons:
+    - buttonName: Audio
+      buttonDesc: Change game audio levels.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 4
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Visual
+      buttonDesc: 
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 5
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Gameplay
+      buttonDesc: 
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Back
+      buttonDesc: Return to the main menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  - MenuName: Team Orion
+    menuButtons:
+    - buttonName: Jiancheng Feng
+      buttonDesc: Lead Programmer & Support Designer
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Jenna Black
+      buttonDesc: Lead Artist & Character Design
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Steph Richard
+      buttonDesc: Environmental Artist & Ui Artist
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Vladyslava Liaskovska
+      buttonDesc: Animator & Concept Artist
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: David Esezobor
+      buttonDesc: Level Design
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Fraser Neilson
+      buttonDesc: Audio Design & Producer
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Michael Eaton
+      buttonDesc: Programmer & Documentation
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: "Nicklas \xD8vrelid"
+      buttonDesc: Narrative Design, Dialogue, & Enemy Gameplay Design
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Kristofer Rossvoll-Booth
+      buttonDesc: Narrative Designer
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Back
+      buttonDesc: Return to the main menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  - MenuName: Quit?
+    menuButtons:
+    - buttonName: Are you sure?
+      buttonDesc: 
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Yes
+      buttonDesc: Returns to Windows.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: QuitGame
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: No
+      buttonDesc: Returns to the main menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  - MenuName: Audio Options
+    menuButtons:
+    - buttonName: 'Master volume: <mastervol>'
+      buttonDesc: Change the volume of the game audio.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumeNegative
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumePositive
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 1
+    - buttonName: 'Sound FX volume: <fxvol>'
+      buttonDesc: Change the volume of the sound FX.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumeNegative
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumePositive
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 1
+      sliderMaxValue: 100
+      displaySlider: 1
+    - buttonName: 'Music volume: <musicvol>'
+      buttonDesc: Change the volume of the music.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumeNegative
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumePositive
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 2
+      sliderMaxValue: 100
+      displaySlider: 1
+    - buttonName: 'Ui volume: <uivol>'
+      buttonDesc: Change the volume of the ui sound FX.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumeNegative
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 3
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: UpdateVolumePositive
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 3
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 3
+      sliderMaxValue: 100
+      displaySlider: 1
+    - buttonName: Back
+      buttonDesc: Returns to the options menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  - MenuName: Visual Options
+    menuButtons:
+    - buttonName: 'Resolution: <resolution>'
+      buttonDesc: Change the resolution of the game window.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangeResolution
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: -1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangeResolution
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 4
+      sliderMaxValue: 100
+      displaySlider: 1
+    - buttonName: 'Fullscreen: <fullscreen>'
+      buttonDesc: Toggle between windowed and fullscreen.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleFullscreen
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleFullscreen
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: 'V-Sync: <vsync>'
+      buttonDesc: Toggle v-sync.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleVsync
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleVsync
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: 'Simple Font: <font>'
+      buttonDesc: Toggle between stylised or system font.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleSimpleFont
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleSimpleFont
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: 'Menu Highlight: <highlight>'
+      buttonDesc: Toggle highlighting which button you have selected.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleHighlight
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ToggleHighlight
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Back
+      buttonDesc: Returns to the options menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  menuButtonPrefab: {fileID: 5165103811292100994, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+  menuSliderPrefab: {fileID: 3257673792151611256, guid: 3235a1752f7f04a40867c2dd4d1b2586, type: 3}
+  buttonParent: {fileID: 2062616132}
+  pageTitleText: {fileID: 1575753950}
+  buttonDescText: {fileID: 1887202458}
+  highlightSprite: {fileID: 21300000, guid: 76d1cec968d54e84b8c83b2ac517c7ec, type: 3}
+  menuMusic: {fileID: 8300000, guid: e1be44ec7855f4d44b1def0663045977, type: 3}
+  levelMusic: {fileID: 8300000, guid: db4407abc514cba408b06a39d26f0a1f, type: 3}
+  highlightSound: {fileID: 8300000, guid: 60ffabcb154803946bde846ee1676bc8, type: 3}
+  activateSound: {fileID: 8300000, guid: 872faafc925a6164c8d18041232bf64b, type: 3}
+  sliderUseSound: {fileID: 8300000, guid: 9a23c2845d870484885218c4b8e0723c, type: 3}
+  errorSound: {fileID: 8300000, guid: cdbb1f26539dfd847813f08994233947, type: 3}
+  defaultButtonFont: {fileID: 11400000, guid: f2b5c540ccfcee94ea6a3ac4a15a5856, type: 2}
+  simpleButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  sliderValue: 0
+--- !u!1 &1887202456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887202457}
+  - component: {fileID: 1887202459}
+  - component: {fileID: 1887202458}
+  m_Layer: 5
+  m_Name: buttonDesc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1887202457
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887202456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1643622307}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -213.24066, y: 13.435913}
+  m_SizeDelta: {x: 426.4813, y: 26.8729}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1887202458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887202456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Button Description...
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: f2b5c540ccfcee94ea6a3ac4a15a5856, type: 2}
+  m_sharedMaterial: {fileID: -2223645812003751966, guid: f2b5c540ccfcee94ea6a3ac4a15a5856, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 3355443199
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.78039217}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 16
+  m_fontSizeBase: 16
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 8, w: 8}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1887202459
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887202456}
+  m_CullTransparentMesh: 1
+--- !u!1 &2062616130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062616131}
+  - component: {fileID: 2062616133}
+  - component: {fileID: 2062616132}
+  m_Layer: 5
+  m_Name: mainButtonsPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2062616131
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062616130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1110789906}
+  m_Father: {fileID: 1643622307}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 4, y: -4}
+  m_SizeDelta: {x: -8, y: -8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2062616132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062616130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 800, y: 32}
+  m_Spacing: {x: 8, y: 8}
+  m_Constraint: 1
+  m_ConstraintCount: 1
+--- !u!222 &2062616133
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062616130}
+  m_CullTransparentMesh: 1
+--- !u!1001 &5165103810252748435
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2062616131}
+    m_Modifications:
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100994, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_Name
+      value: menuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5165103811292100994, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}

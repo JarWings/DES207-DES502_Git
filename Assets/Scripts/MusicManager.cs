@@ -3,17 +3,14 @@ using System.Collections.Generic;
 
 public class MusicManager : MonoBehaviour
 {
-    private static AudioSource currentTrack;
-    private static AudioClip newTrack;
-    private static List<AudioClip> currentPlaylist;
+    public AudioSource currentTrack;
+    public AudioClip newTrack;
+    public List<AudioClip> currentPlaylist;
 
-    private static float curTime = 0f;
-
-    private static bool changingTrack = false;
-    private static bool curLoop = false;
-    private static float curFadeSpeed = 2f;
-
-    private static Transform globalTransform;
+    public bool changingTrack = false;
+    public float curTime = 0f;
+    public bool curLoop = false;
+    public float curFadeSpeed = 2f;
 
     private void Update()
     {
@@ -21,7 +18,7 @@ public class MusicManager : MonoBehaviour
         {
             if (currentTrack != null && currentTrack.volume > 0)
             {
-                currentTrack.volume -= Time.deltaTime * curFadeSpeed;
+                currentTrack.volume -= Time.unscaledDeltaTime * curFadeSpeed;
             }
             else
             {
@@ -41,7 +38,7 @@ public class MusicManager : MonoBehaviour
         }
         else
         {
-            if (currentPlaylist != null)
+            if (currentPlaylist != null && currentPlaylist.Count > 0)
             {
                 curTime -= Time.unscaledDeltaTime;
 
@@ -62,33 +59,38 @@ public class MusicManager : MonoBehaviour
 
     public static void StartPlaylist(List<AudioClip> playlist)
     {
-        currentPlaylist = playlist;
-        curTime = 0f;
+        MusicManager globalMusicManager = GetMusicManager();
+
+        globalMusicManager.currentPlaylist = playlist;
+        globalMusicManager.curTime = 0f;
     }
 
     public static void ChangeTrack(AudioClip track, bool loop, float fadeSpeed = .6f)
     {
-        curFadeSpeed = fadeSpeed;
-        curLoop = loop;
+        MusicManager globalMusicManager = GetMusicManager();
 
-        if (currentPlaylist != null && !currentPlaylist.Contains(track))
+        globalMusicManager.curFadeSpeed = fadeSpeed;
+        globalMusicManager.curLoop = loop;
+
+        if (globalMusicManager.currentPlaylist != null && !globalMusicManager.currentPlaylist.Contains(track))
         {
-            currentPlaylist = null;
+            globalMusicManager.currentPlaylist = null;
         }
 
-        if (currentTrack != null)
+        if (globalMusicManager.currentTrack != null)
         {
-            newTrack = track;
-            changingTrack = true;
+            globalMusicManager.newTrack = track;
+            globalMusicManager.changingTrack = true;
             return;
         }
 
-        if (globalTransform == null)
-        {
-            globalTransform = GameObject.FindWithTag("Global").transform;
-        }
 
-        currentTrack = AudioManager.PlayAudio(track, null, Vector2.zero, null, 1f, 1f, 0f, 0f, 0f, loop);
-        curTime = track.length;
+        globalMusicManager.currentTrack = AudioManager.PlayAudio(AudioType.music, track, null, Vector2.zero, globalMusicManager.transform, 1f, 1f, 0f, 0f, 0f, loop);
+        globalMusicManager.curTime = track.length;
+    }
+
+    public static MusicManager GetMusicManager()
+    {
+        return GameObject.FindWithTag("Global").GetComponent<MusicManager>();
     }
 }
