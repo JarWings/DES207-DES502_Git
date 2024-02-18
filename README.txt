@@ -29,3 +29,6 @@ Fixed bug with global manager being replaced by scene changes, also fixes issue 
 --Jiancheng
 ver0.0.5
 Fixed the bug, increased the boss state machine to three types, tried the third skill, and some special effects. Determined the scaling size of the assets.
+
+18/02/24
+Important modification, unifying the version to 2021.3.35f1 LTS.
