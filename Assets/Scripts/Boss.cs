@@ -39,6 +39,11 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
+
         switch (state)
         {
             case BossState.Idle:
@@ -155,20 +160,28 @@ public class Boss : MonoBehaviour
 
     public void GetHit(int damage)
     {
+        if (hp <= 0)
+        {
+            return;
+        }
+
         hp -= damage;
-        if (hp < 0) { hp = 0; }
+        //if (hp < 0) { hp = 0; }
         BarUIManager.Instance.SetBossHp(hp, maxHp);
         anim.SetTrigger("GetHit");
 
-        if (hp == 0)
+        if (hp <= 0)
         {
             anim.SetTrigger("Die");
             rigid.isKinematic = true;
+            rigid.velocity = Vector2.zero; // 停止所有运动
+            state = BossState.Idle;
             Collider2D[] colliders = GetComponents<Collider2D>();
             foreach (var c in colliders)
             {
                 c.enabled = false;
             }
+            this.enabled = false;
         }
     }
 

@@ -32,3 +32,7 @@ Fixed the bug, increased the boss state machine to three types, tried the third 
 
 18/02/24
 Important modification, unifying the version to 2021.3.35f1 LTS.
+
+18/02/24
+--Jiancheng
+Fixed all known bugs related to the camera, boss, and map. The number of bugs to be resolved is 0.
