@@ -1,21 +1,26 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.IO;
+[System.Serializable]
+public class SettingsData
+{
+    // AUDIO
+    [Range(0f, 100f)] public float masterVol = 0f, musicVol = 0f, fxVol = 0f, uiVol = 0f;
+
+    // VIDEO
+    public int curResIndex = 0;
+    public bool vsync = true;
+    public bool isFullscreen = true;
+
+    public bool simpleFont = false;
+    public bool menuHighlight = false;
+}
 
 public class SettingsManager : MonoBehaviour
 {
-    // AUDIO
-    [Range(0f, 100f)] public static float masterVol = 0f, musicVol = 0f, fxVol = 0f, uiVol = 0f;
-    public static float minVol = -80f, maxVol = 0f;
-
-    // VIDEO
-    public static int curResIndex = 0;
+    public static SettingsData data = new();
     public static Resolution[] resolutions;
-    public static bool vsync = true;
-    public static bool isFullscreen = true;
-
-    public static bool simpleFont = false;
-    public static bool menuHighlight = false;
+    public static float minVol = -80f, maxVol = 0f;
 
     private void Update()
     {
@@ -30,36 +35,51 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    public static void LoadResolutions()
+    private void Start()
+    {
+        LoadSettings();
+    }
+
+    public static void LoadResolutions(bool selectCurrentRes)
     {
         resolutions = Screen.resolutions;
+
+        if (!selectCurrentRes)
+        {
+            return;
+        }
 
         for(int i = 0; i < resolutions.Length; i++)
         {
             if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
-                curResIndex = i;
+                data.curResIndex = i;
             }
         }
     }
 
     public static void SetResolution(int index)
     {
-        curResIndex += index;
-
-        if(curResIndex > resolutions.Length - 1)
+        if(resolutions == null || resolutions.Length <= 0)
         {
-            curResIndex = 0;
-        }
-        else if (curResIndex < 0)
-        {
-            curResIndex = resolutions.Length - 1;
+            LoadResolutions(false);
         }
 
-        Screen.SetResolution(resolutions[curResIndex].width, resolutions[curResIndex].height, isFullscreen, resolutions[curResIndex].refreshRate);
+        data.curResIndex += index;
+
+        if(data.curResIndex > resolutions.Length - 1)
+        {
+            data.curResIndex = 0;
+        }
+        else if (data.curResIndex < 0)
+        {
+            data.curResIndex = resolutions.Length - 1;
+        }
+
+        Screen.SetResolution(resolutions[data.curResIndex].width, resolutions[data.curResIndex].height, data.isFullscreen, resolutions[data.curResIndex].refreshRate);
 
         int vsyncCount = 0;
-        if (vsync)
+        if (data.vsync)
         {
             vsyncCount = 1;
         }
@@ -73,20 +93,20 @@ public class SettingsManager : MonoBehaviour
         switch (type)
         {
             case AudioType.master:
-                masterVol = AdditionCheck(masterVol, volume, addition);
-                mix.SetFloat("Master", masterVol);
+                data.masterVol = AdditionCheck(data.masterVol, volume, addition);
+                mix.SetFloat("Master", data.masterVol);
                 break;
             case AudioType.soundFX:
-                fxVol = AdditionCheck(fxVol, volume, addition);
-                mix.SetFloat("Sound FX", fxVol);
+                data.fxVol = AdditionCheck(data.fxVol, volume, addition);
+                mix.SetFloat("Sound FX", data.fxVol);
                 break;
             case AudioType.music:
-                musicVol = AdditionCheck(musicVol, volume, addition);
-                mix.SetFloat("Music", musicVol);
+                data.musicVol = AdditionCheck(data.musicVol, volume, addition);
+                mix.SetFloat("Music", data.musicVol);
                 break;
             case AudioType.ui:
-                uiVol = AdditionCheck(uiVol, volume, addition);
-                mix.SetFloat("Ui", uiVol);
+                data.uiVol = AdditionCheck(data.uiVol, volume, addition);
+                mix.SetFloat("Ui", data.uiVol);
                 break;
         }
     }
@@ -109,5 +129,40 @@ public class SettingsManager : MonoBehaviour
         }
 
         return tempVol;
+    }
+
+    public static void SaveSettings()
+    {
+        string path = Application.persistentDataPath + "/gamesettings.json";
+
+        string jsonData = JsonUtility.ToJson(data, true);
+        File.WriteAllText(path, jsonData);
+    }
+
+    public static void LoadSettings()
+    {
+        string path = Application.persistentDataPath + "/gamesettings.json";
+
+        if (!File.Exists(path))
+        {
+            LoadResolutions(true);
+            UpdateSettings();
+            return;
+        }
+
+        string jsonData = File.ReadAllText(path);
+        data = JsonUtility.FromJson<SettingsData>(jsonData);
+
+        UpdateSettings();
+    }
+
+    public static void UpdateSettings()
+    {
+        SetResolution(0);
+
+        UpdateVolume(AudioType.master, 0, true);
+        UpdateVolume(AudioType.soundFX, 0, true);
+        UpdateVolume(AudioType.music, 0, true);
+        UpdateVolume(AudioType.ui, 0, true);
     }
 }

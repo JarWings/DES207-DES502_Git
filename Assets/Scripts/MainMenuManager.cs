@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.IO;
 public enum SliderValue
 {
     master, soundFX, music, ui, res
@@ -70,7 +71,10 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         MusicManager.ChangeTrack(menuMusic, true);
-        SettingsManager.LoadResolutions();
+        SettingsManager.LoadResolutions(false);
+
+        UpdateMenuFonts();
+        UpdateHighlightDisplay();
 
         ChangePage(0);
     }
@@ -167,11 +171,11 @@ public class MainMenuManager : MonoBehaviour
             buttonText.text = buttonText.text.Replace("<uivol>", ReturnVolumeString(AudioType.ui));
 
             // video labels
-            buttonText.text = buttonText.text.Replace("<resolution>", SettingsManager.resolutions[SettingsManager.curResIndex].ToString());
-            buttonText.text = buttonText.text.Replace("<fullscreen>", SettingsManager.isFullscreen.ToString());
-            buttonText.text = buttonText.text.Replace("<vsync>", SettingsManager.vsync.ToString());
-            buttonText.text = buttonText.text.Replace("<font>", SettingsManager.simpleFont.ToString());
-            buttonText.text = buttonText.text.Replace("<highlight>", SettingsManager.menuHighlight.ToString());
+            buttonText.text = buttonText.text.Replace("<resolution>", SettingsManager.resolutions[SettingsManager.data.curResIndex].ToString());
+            buttonText.text = buttonText.text.Replace("<fullscreen>", SettingsManager.data.isFullscreen.ToString());
+            buttonText.text = buttonText.text.Replace("<vsync>", SettingsManager.data.vsync.ToString());
+            buttonText.text = buttonText.text.Replace("<font>", SettingsManager.data.simpleFont.ToString());
+            buttonText.text = buttonText.text.Replace("<highlight>", SettingsManager.data.menuHighlight.ToString());
 
             if (curButton.LeftEvent.GetPersistentEventCount() > 0)
             {
@@ -185,7 +189,7 @@ public class MainMenuManager : MonoBehaviour
 
             if (selected)
             {
-                if (SettingsManager.menuHighlight)
+                if (SettingsManager.data.menuHighlight)
                 {
                     if(highlightImage == null)
                     {
@@ -204,19 +208,19 @@ public class MainMenuManager : MonoBehaviour
                     switch (curButton.sliderValueType)
                     {
                         case SliderValue.master:
-                            sliderVal = (SettingsManager.masterVol + 80f) * 1.25f;
+                            sliderVal = (SettingsManager.data.masterVol + 80f) * 1.25f;
                             break;
                         case SliderValue.soundFX:
-                            sliderVal = (SettingsManager.fxVol + 80f) * 1.25f;
+                            sliderVal = (SettingsManager.data.fxVol + 80f) * 1.25f;
                             break;
                         case SliderValue.music:
-                            sliderVal = (SettingsManager.musicVol + 80f) * 1.25f;
+                            sliderVal = (SettingsManager.data.musicVol + 80f) * 1.25f;
                             break;
                         case SliderValue.ui:
-                            sliderVal = (SettingsManager.uiVol + 80f) * 1.25f;
+                            sliderVal = (SettingsManager.data.uiVol + 80f) * 1.25f;
                             break;
                         case SliderValue.res:
-                            sliderVal = SettingsManager.curResIndex + 1;
+                            sliderVal = SettingsManager.data.curResIndex + 1;
                             curButton.sliderMaxValue = SettingsManager.resolutions.Length;
                             break;
                     }
@@ -251,16 +255,16 @@ public class MainMenuManager : MonoBehaviour
         switch (type)
         {
             case AudioType.master:
-                vol = SettingsManager.masterVol;
+                vol = SettingsManager.data.masterVol;
                 break;
             case AudioType.soundFX:
-                vol = SettingsManager.fxVol;
+                vol = SettingsManager.data.fxVol;
                 break;
             case AudioType.music:
-                vol = SettingsManager.musicVol;
+                vol = SettingsManager.data.musicVol;
                 break;
             case AudioType.ui:
-                vol = SettingsManager.uiVol;
+                vol = SettingsManager.data.uiVol;
                 break;
         }
 
@@ -322,25 +326,51 @@ public class MainMenuManager : MonoBehaviour
 
     public void ToggleFullscreen()
     {
-        SettingsManager.isFullscreen = !SettingsManager.isFullscreen;
+        SettingsManager.data.isFullscreen = !SettingsManager.data.isFullscreen;
         SettingsManager.SetResolution(0);
     }
 
     public void ToggleVsync()
     {
-        SettingsManager.vsync = !SettingsManager.vsync;
+        SettingsManager.data.vsync = !SettingsManager.data.vsync;
         SettingsManager.SetResolution(0);
+    }
+
+    public void SaveSettings()
+    {
+        SettingsManager.SaveSettings();
+    }
+
+    public void ResetSettings()
+    {
+        string path = Application.persistentDataPath + "/gamesettings.json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+
+        SettingsManager.data = new();
+        SettingsManager.LoadSettings();
+
+        UpdateMenuFonts();
+        UpdateHighlightDisplay();
+        SpawnButtons();
     }
 
     public void ToggleSimpleFont()
     {
-        SettingsManager.simpleFont = !SettingsManager.simpleFont;
+        SettingsManager.data.simpleFont = !SettingsManager.data.simpleFont;
+        UpdateMenuFonts();
+    }
 
+    private void UpdateMenuFonts()
+    {
         menuButtonPrefab.GetComponent<TMP_Text>().font = defaultButtonFont;
         pageTitleText.font = defaultButtonFont;
         buttonDescText.font = defaultButtonFont;
 
-        if (SettingsManager.simpleFont)
+        if (SettingsManager.data.simpleFont)
         {
             menuButtonPrefab.GetComponent<TMP_Text>().font = simpleButtonFont;
             pageTitleText.font = simpleButtonFont;
@@ -350,11 +380,16 @@ public class MainMenuManager : MonoBehaviour
 
     public void ToggleHighlight()
     {
-        SettingsManager.menuHighlight = !SettingsManager.menuHighlight;
+        SettingsManager.data.menuHighlight = !SettingsManager.data.menuHighlight;
 
-        if(highlightImage != null)
+        UpdateHighlightDisplay();
+    }
+
+    private void UpdateHighlightDisplay()
+    {
+        if (highlightImage != null)
         {
-            highlightImage.enabled = SettingsManager.menuHighlight;
+            highlightImage.enabled = SettingsManager.data.menuHighlight;
         }
     }
 

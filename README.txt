@@ -36,3 +36,8 @@ Important modification, unifying the version to 2021.3.35f1 LTS.
 18/02/24
 --Jiancheng
 Fixed all known bugs related to the camera, boss, and map. The number of bugs to be resolved is 0.
+
+19/02/24
+--Michael
+ver.0.0.6
+Added saving and loading for all menu settings & option to revert to default settings.

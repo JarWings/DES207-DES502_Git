@@ -191,100 +191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &617513576
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 617513579}
-  - component: {fileID: 617513578}
-  - component: {fileID: 617513577}
-  - component: {fileID: 617513580}
-  - component: {fileID: 617513581}
-  m_Layer: 0
-  m_Name: GlobalManager
-  m_TagString: Global
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &617513577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617513576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f155434c04a0b74e842a8b5fcdf5aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTrack: {fileID: 0}
-  newTrack: {fileID: 0}
-  currentPlaylist: []
-  changingTrack: 0
-  curTime: 0
-  curLoop: 0
-  curFadeSpeed: 2
---- !u!114 &617513578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617513576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97d21360e7719f041898c9a801b9d0d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainAudioMix: {fileID: 24100000, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
-  fxGroup: {fileID: -4175256358240704890, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
-  musicGroup: {fileID: -248899661474714330, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
-  uiGroup: {fileID: -6368736702470399730, guid: 822a8ef21f58b774bbb02a8c344e3ee4, type: 2}
---- !u!4 &617513579
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617513576}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &617513580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617513576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cac63fea5c9c4144afad47f78f23a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &617513581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617513576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d621b862de3c24a931b31a5c0c90f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1110789906 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
@@ -586,6 +492,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -801,11 +708,49 @@ MonoBehaviour:
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
+    - buttonName: Revert All Settings
+      buttonDesc: Resets all the settings to default values.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ResetSettings
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Back
       buttonDesc: Return to the main menu.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: SaveSettings
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
           - m_Target: {fileID: 1643622308}
             m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
             m_MethodName: ChangePage
@@ -1638,7 +1583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4, y: -4}
+  m_AnchoredPosition: {x: 4, y: -4.0000305}
   m_SizeDelta: {x: -8, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062616132
@@ -1774,3 +1719,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+--- !u!1001 &6165610044432691173
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6165610043949657485, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_Name
+      value: GlobalManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165610043949657486, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
