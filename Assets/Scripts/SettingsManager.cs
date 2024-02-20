@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using System.IO;
+
+public enum DifficultySettings
+{
+    easy, medium, hard, insane
+}
+
 [System.Serializable]
 public class SettingsData
 {
@@ -14,6 +20,9 @@ public class SettingsData
 
     public bool simpleFont = false;
     public bool menuHighlight = false;
+
+    // GAMEPLAY
+    public DifficultySettings difficulty = DifficultySettings.medium;
 }
 
 public class SettingsManager : MonoBehaviour
@@ -85,6 +94,23 @@ public class SettingsManager : MonoBehaviour
         }
 
         QualitySettings.vSyncCount = vsyncCount;
+    }
+
+    public static void SetDifficulty(int index)
+    {
+        int curDifficulty = (int)data.difficulty;
+        curDifficulty += index;
+
+        if(curDifficulty > 3)
+        {
+            curDifficulty = 0;
+        }
+        else if(curDifficulty < 0)
+        {
+            curDifficulty = 3;
+        }
+
+        data.difficulty = (DifficultySettings)curDifficulty;
     }
 
     public static void UpdateVolume(AudioType type, float volume, bool addition)

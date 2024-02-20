@@ -41,3 +41,8 @@ Fixed all known bugs related to the camera, boss, and map. The number of bugs to
 --Michael
 ver.0.0.6
 Added saving and loading for all menu settings & option to revert to default settings.
+
+20/02/24
+--Michael
+ver.0.0.7
+Added leaderboard functionality for saving player times and viewing the times in the menu & added controller support to the menu.

@@ -125,7 +125,25 @@ public class PlayerCharacter : MonoBehaviour
 
     void GetHit(int damage)
     {
-        hp -= damage;
+        int difficultyMultiplier = 1;
+
+        switch (SettingsManager.data.difficulty)
+        {
+            case DifficultySettings.easy:
+                difficultyMultiplier = 1;
+                break;
+            case DifficultySettings.medium:
+                difficultyMultiplier = 2;
+                break;
+            case DifficultySettings.hard:
+                difficultyMultiplier = 3;
+                break;
+            case DifficultySettings.insane:
+                difficultyMultiplier = 4;
+                break;
+        }
+
+        hp -= damage * difficultyMultiplier;
         if (hp < 0) { hp = 0; }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
         //ÊÜÉË¶¯»­

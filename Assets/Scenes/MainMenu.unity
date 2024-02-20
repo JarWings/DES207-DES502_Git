@@ -191,6 +191,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &843332415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6165610043949657485, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+  m_PrefabInstance: {fileID: 6165610044432691173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &843332421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843332415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cd05f9bfd6daf46a0587f2b94bb754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1110789906 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
@@ -313,10 +330,10 @@ RectTransform:
   m_Father: {fileID: 1643622307}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -213.24063, y: 78.395}
-  m_SizeDelta: {x: 426.4813, y: 103.05}
+  m_AnchoredPosition: {x: 0.14001465, y: 78.395}
+  m_SizeDelta: {x: -0.2800293, y: 103.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575753950
 MonoBehaviour:
@@ -561,6 +578,20 @@ MonoBehaviour:
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
+    - buttonName: Enemy Profiles
+      buttonDesc: View information about any enemies you've encountered.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
     - buttonName: Options
       buttonDesc: Customise visual, audio, and gameplay settings.
       SelectEvent:
@@ -574,6 +605,44 @@ MonoBehaviour:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
               m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Leaderboard
+      buttonDesc: View highscores.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 7
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: DisplayScores
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -698,7 +767,19 @@ MonoBehaviour:
       buttonDesc: 
       SelectEvent:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 6
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       LeftEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -1397,6 +1478,103 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
     currentButtonIndex: 0
+  - MenuName: Gameplay Options
+    menuButtons:
+    - buttonName: 'Difficulty: <difficulty>'
+      buttonDesc: Change how hard the game is, affects how much damage you take per
+        hit.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangeDifficulty
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: -1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangeDifficulty
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    - buttonName: Back
+      buttonDesc: Returns to the options menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
+  - MenuName: Leaderboard
+    menuButtons:
+    - buttonName: Back
+      buttonDesc: Returns to the main menu.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangePage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+    currentButtonIndex: 0
   menuButtonPrefab: {fileID: 5165103811292100994, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
   menuSliderPrefab: {fileID: 3257673792151611256, guid: 3235a1752f7f04a40867c2dd4d1b2586, type: 3}
   buttonParent: {fileID: 2062616132}
@@ -1445,10 +1623,10 @@ RectTransform:
   m_Father: {fileID: 1643622307}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -213.24066, y: 13.435913}
-  m_SizeDelta: {x: 426.4813, y: 26.8729}
+  m_AnchoredPosition: {x: 0.14001465, y: 13.435913}
+  m_SizeDelta: {x: -0.2800293, y: 26.8729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887202458
 MonoBehaviour:
@@ -1583,7 +1761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4, y: -4.0000305}
+  m_AnchoredPosition: {x: 4, y: -4}
   m_SizeDelta: {x: -8, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062616132

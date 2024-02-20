@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System;
 using System.IO;
 public enum SliderValue
 {
@@ -67,6 +68,7 @@ public class MainMenuManager : MonoBehaviour
     [HideInInspector] public float sliderValue;
 
     private Image sliderImage;
+    private bool vertHeld = false, hozHeld = false;
 
     private void Start()
     {
@@ -81,27 +83,40 @@ public class MainMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        float vertInput = Input.GetAxisRaw("Vertical");
+        float hozInput = Input.GetAxisRaw("Horizontal");
+
+        if (vertInput > .5f)
         {
             UpdateSelection(-1);
+            vertHeld = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (vertInput < -.5f)
         {
             UpdateSelection(1);
+            vertHeld = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else
         {
-            SliderUse(-1);
+            vertHeld = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (hozInput > .5f)
         {
             SliderUse(1);
+            hozHeld = true;
+        }
+        else if (hozInput < -.5f)
+        {
+            SliderUse(-1);
+            hozHeld = true;
+        }
+        else
+        {
+            hozHeld = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Jump"))
         {
             ActivateSelection();
         }
@@ -156,7 +171,7 @@ public class MainMenuManager : MonoBehaviour
 
             buttonText.text = curButton.buttonName;
 
-            if (curButton.SelectEvent.GetPersistentEventCount() == 0) // Button has no logic, probably being used as a header or "slider" (left/right events)
+            if (curButton.SelectEvent == null || curButton.SelectEvent.GetPersistentEventCount() == 0) // Button has no logic, probably being used as a header or "slider" (left/right events)
             {
                 buttonText.color = Color.white;
             }
@@ -177,12 +192,15 @@ public class MainMenuManager : MonoBehaviour
             buttonText.text = buttonText.text.Replace("<font>", SettingsManager.data.simpleFont.ToString());
             buttonText.text = buttonText.text.Replace("<highlight>", SettingsManager.data.menuHighlight.ToString());
 
-            if (curButton.LeftEvent.GetPersistentEventCount() > 0)
+            // gameplay labels
+            buttonText.text = buttonText.text.Replace("<difficulty>", SettingsManager.data.difficulty.ToString());
+
+            if (curButton.LeftEvent != null && curButton.LeftEvent.GetPersistentEventCount() > 0)
             {
                 buttonText.text = "< " + buttonText.text;
             }
 
-            if (curButton.RightEvent.GetPersistentEventCount() > 0)
+            if (curButton.LeftEvent != null && curButton.RightEvent.GetPersistentEventCount() > 0)
             {
                 buttonText.text += " >";
             }
@@ -287,10 +305,15 @@ public class MainMenuManager : MonoBehaviour
 
     void SliderUse(int index)
     {
+        if (hozHeld)
+        {
+            return;
+        }
+
         MenuPage curPage = Pages[currentPageIndex];
         MenuButton curButton = curPage.menuButtons[curPage.currentButtonIndex];
 
-        if ((curButton.LeftEvent.GetPersistentEventCount() == 0 && index == -1) || (curButton.RightEvent.GetPersistentEventCount() == 0 && index == 1))
+        if ((curButton.LeftEvent != null && curButton.LeftEvent.GetPersistentEventCount() == 0 && index == -1) || (curButton.RightEvent != null && curButton.RightEvent.GetPersistentEventCount() == 0 && index == 1))
         {
             return;
         }
@@ -322,6 +345,11 @@ public class MainMenuManager : MonoBehaviour
     public void ChangeResolution(int index)
     {
         SettingsManager.SetResolution(index);
+    }
+
+    public void ChangeDifficulty(int index)
+    {
+        SettingsManager.SetDifficulty(index);
     }
 
     public void ToggleFullscreen()
@@ -395,6 +423,11 @@ public class MainMenuManager : MonoBehaviour
 
     void UpdateSelection(int index)
     {
+        if (vertHeld)
+        {
+            return;
+        }
+
         MenuPage curPage = Pages[currentPageIndex];
 
         curPage.currentButtonIndex += index;
@@ -414,6 +447,32 @@ public class MainMenuManager : MonoBehaviour
         AudioManager.PlayAudio(AudioType.ui, highlightSound, null, Vector2.zero, null, 1, 1 + (.05f * curPage.currentButtonIndex), 0);
 
         SpawnButtons();
+    }
+
+    public void DisplayScores()
+    {
+        List<MenuButton> scoreButtons = Pages[7].menuButtons;
+        scoreButtons.Clear();
+
+        LeaderboardManager.LoadScores();
+
+        LeaderboardManager leaderboardObj = LeaderboardManager.GetLeaderboardObj();
+
+        for (int i = 0; i < leaderboardObj.scoreList.scores.Count; i++)
+        {
+            Score currentScore = leaderboardObj.scoreList.scores[i];
+
+            MenuButton newScore = new();
+            newScore.buttonName = currentScore.playerName + "   -  " + TimeSpan.FromSeconds(currentScore.time).ToString(@"hh\:mm\:ss\:ff");
+            newScore.buttonDesc = currentScore.playDate;
+
+            scoreButtons.Insert(0, newScore);
+        }
+
+        scoreButtons.Add(Pages[1].menuButtons[Pages[1].menuButtons.Count - 1]);
+
+        SpawnButtons();
+        ChangePage(7);
     }
 
     public void ChangePage(int page)
@@ -438,7 +497,7 @@ public class MainMenuManager : MonoBehaviour
         MenuButton button = curMenu.menuButtons[curMenu.currentButtonIndex];
 
         AudioClip tempButtonSound = errorSound;
-        if(button.SelectEvent.GetPersistentEventCount() > 0)
+        if(button.SelectEvent != null && button.SelectEvent.GetPersistentEventCount() > 0)
         {
             button.SelectEvent.Invoke();
             tempButtonSound = activateSound;
