@@ -45,4 +45,4 @@ Added saving and loading for all menu settings & option to revert to default set
 20/02/24
 --Michael
 ver.0.0.7
-Added leaderboard functionality for saving player times and viewing the times in the menu & added controller support to the menu.
+Added leaderboard functionality for saving player times and viewing the times in the menu & added controller support to the menu. Also added difficulty option that scales the amount of damage you recieve.

@@ -313,7 +313,7 @@ public class MainMenuManager : MonoBehaviour
         MenuPage curPage = Pages[currentPageIndex];
         MenuButton curButton = curPage.menuButtons[curPage.currentButtonIndex];
 
-        if ((curButton.LeftEvent != null && curButton.LeftEvent.GetPersistentEventCount() == 0 && index == -1) || (curButton.RightEvent != null && curButton.RightEvent.GetPersistentEventCount() == 0 && index == 1))
+        if (((curButton.LeftEvent != null || curButton.LeftEvent.GetPersistentEventCount() == 0) && index == -1) || ((curButton.RightEvent != null || curButton.RightEvent.GetPersistentEventCount() == 0) && index == 1))
         {
             return;
         }
