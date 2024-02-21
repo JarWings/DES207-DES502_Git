@@ -46,3 +46,8 @@ Added saving and loading for all menu settings & option to revert to default set
 --Michael
 ver.0.0.7
 Added leaderboard functionality for saving player times and viewing the times in the menu & added controller support to the menu. Also added difficulty option that scales the amount of damage you recieve.
+
+21/02/24
+--Michael
+ver.0.0.8
+Main menu has temp art assets to replicate book theme, with page turning animations, sounds, and a new temp font.
