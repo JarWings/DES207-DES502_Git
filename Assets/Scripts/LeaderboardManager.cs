@@ -91,8 +91,6 @@ public class LeaderboardManager : MonoBehaviour
         string path = Application.persistentDataPath + "/scores.json";
         string jsonData = JsonUtility.ToJson(leaderboardObj.scoreList, true);
 
-        Debug.Log("before: " + leaderboardObj.scoreList + ", json: " + jsonData);
-
         File.WriteAllText(path, jsonData);
     }
 

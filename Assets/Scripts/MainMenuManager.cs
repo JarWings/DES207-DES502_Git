@@ -25,6 +25,7 @@ public class MenuButton
     public SliderValue sliderValueType;
     public float sliderMaxValue = 100f;
     public bool displaySlider = false;
+    public bool playSounds = true;
 }
 
 [System.Serializable]
@@ -40,18 +41,23 @@ public class MenuPage
 public class MainMenuManager : MonoBehaviour
 {
     public List<MenuPage> Pages = new();
-    private int currentPageIndex = 0;
+    private int currentPageIndex = -1;
 
     public GameObject menuButtonPrefab, menuSliderPrefab;
     public GridLayoutGroup buttonParent;
 
     private List<GameObject> spawnedMenuButtons = new();
 
+    public float pageFlipSpeed = 320f;
     public TMP_Text pageTitleText;
     public TMP_Text buttonDescText;
 
+    public Color buttonColour, headerColour;
+
     public Sprite highlightSprite;
     private Image highlightImage;
+
+    public RectTransform leftPageParent, rightPageParent;
 
     [Header("Audio")]
     public AudioClip menuMusic;
@@ -60,6 +66,7 @@ public class MainMenuManager : MonoBehaviour
     public AudioClip activateSound;
     public AudioClip sliderUseSound;
     public AudioClip errorSound;
+    public AudioClip pageChangeSound;
 
     [Header("Video")]
     public TMP_FontAsset defaultButtonFont;
@@ -68,7 +75,8 @@ public class MainMenuManager : MonoBehaviour
     [HideInInspector] public float sliderValue;
 
     private Image sliderImage;
-    private bool vertHeld = false, hozHeld = false;
+    private bool vertHeld = false, hozHeld = false, pageTurning = false;
+    private RectTransform leftPageDupe, rightPageDupe;
 
     private void Start()
     {
@@ -122,9 +130,20 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    IEnumerator MenuHighlightMove(RectTransform targetRect)
+    private void MenuHighlightMove(RectTransform targetRect)
     {
+        if(targetRect == null || !SettingsManager.data.menuHighlight)
+        {
+            return;
+        }
+
+        if(highlightImage == null)
+        {
+            CreateHighlightSprite();
+        }
+
         highlightImage.transform.SetParent(targetRect);
+        highlightImage.transform.localRotation = Quaternion.Euler(Vector3.zero);
 
         highlightImage.color = Color.clear;
         highlightImage.transform.localPosition = Vector3.zero;
@@ -134,11 +153,7 @@ public class MainMenuManager : MonoBehaviour
         highlightImage.rectTransform.anchorMin = Vector2.zero;
         highlightImage.rectTransform.anchorMax = Vector2.one;
 
-        while (highlightImage.color != Color.yellow)
-        {
-            highlightImage.color = Color.Lerp(highlightImage.color, Color.yellow, Time.deltaTime * 10f);
-            yield return new WaitForEndOfFrame();
-        }
+        highlightImage.color = Color.yellow;
     }
 
     void RemoveButtons()
@@ -170,10 +185,11 @@ public class MainMenuManager : MonoBehaviour
             TMP_Text buttonText = tempButton.GetComponent<TMP_Text>();
 
             buttonText.text = curButton.buttonName;
+            buttonText.color = buttonColour;
 
-            if (curButton.SelectEvent == null || curButton.SelectEvent.GetPersistentEventCount() == 0) // Button has no logic, probably being used as a header or "slider" (left/right events)
+            if ((curButton.SelectEvent == null || curButton.SelectEvent.GetPersistentEventCount() == 0) && (curButton.LeftEvent == null || curButton.LeftEvent.GetPersistentEventCount() == 0) && (curButton.RightEvent == null || curButton.RightEvent.GetPersistentEventCount() == 0)) // Button has no logic, probably being used as a header or "slider" (left/right events)
             {
-                buttonText.color = Color.white;
+                buttonText.color = headerColour;
             }
 
             int index = i;
@@ -186,7 +202,8 @@ public class MainMenuManager : MonoBehaviour
             buttonText.text = buttonText.text.Replace("<uivol>", ReturnVolumeString(AudioType.ui));
 
             // video labels
-            buttonText.text = buttonText.text.Replace("<resolution>", SettingsManager.resolutions[SettingsManager.data.curResIndex].ToString());
+            Resolution currentRes = SettingsManager.resolutions[SettingsManager.data.curResIndex];
+            buttonText.text = buttonText.text.Replace("<resolution>", (currentRes.width + " x " + currentRes.height + ", " + currentRes.refreshRate + "hz").ToString());
             buttonText.text = buttonText.text.Replace("<fullscreen>", SettingsManager.data.isFullscreen.ToString());
             buttonText.text = buttonText.text.Replace("<vsync>", SettingsManager.data.vsync.ToString());
             buttonText.text = buttonText.text.Replace("<font>", SettingsManager.data.simpleFont.ToString());
@@ -214,8 +231,7 @@ public class MainMenuManager : MonoBehaviour
                         CreateHighlightSprite();
                     }
 
-                    StopAllCoroutines();
-                    StartCoroutine(MenuHighlightMove(tempButton.GetComponent<RectTransform>()));
+                    MenuHighlightMove(tempButton.GetComponent<RectTransform>());
                 }
 
                 if (curButton.displaySlider) // This solution sucks and i'll hopefully change it soon...
@@ -248,8 +264,8 @@ public class MainMenuManager : MonoBehaviour
             }
             else
             {
-                buttonText.color /= 1.6f;
-                buttonText.fontSize /= 1.4f;
+                buttonText.color /= 1.4f;
+                buttonText.fontSize /= 1.6f;
             }
 
             spawnedMenuButtons.Add(tempButton);
@@ -260,6 +276,8 @@ public class MainMenuManager : MonoBehaviour
     {
         highlightImage = new GameObject().AddComponent<Image>();
         highlightImage.gameObject.name = "HighlightSprite";
+
+        highlightImage.rectTransform.rotation = Quaternion.Euler(Vector3.zero);
 
         highlightImage.raycastTarget = false;
         highlightImage.sprite = highlightSprite;
@@ -305,7 +323,7 @@ public class MainMenuManager : MonoBehaviour
 
     void SliderUse(int index)
     {
-        if (hozHeld)
+        if (hozHeld || pageTurning)
         {
             return;
         }
@@ -313,7 +331,7 @@ public class MainMenuManager : MonoBehaviour
         MenuPage curPage = Pages[currentPageIndex];
         MenuButton curButton = curPage.menuButtons[curPage.currentButtonIndex];
 
-        if (((curButton.LeftEvent != null || curButton.LeftEvent.GetPersistentEventCount() == 0) && index == -1) || ((curButton.RightEvent != null || curButton.RightEvent.GetPersistentEventCount() == 0) && index == 1))
+        if (((curButton.LeftEvent == null || curButton.LeftEvent.GetPersistentEventCount() == 0) && index == -1) || ((curButton.RightEvent == null || curButton.RightEvent.GetPersistentEventCount() == 0) && index == 1))
         {
             return;
         }
@@ -327,9 +345,17 @@ public class MainMenuManager : MonoBehaviour
             curButton.LeftEvent.Invoke();
         }
 
-        AudioManager.PlayAudio(AudioType.ui, sliderUseSound, null, Vector2.zero, null, 1, 1 + (.05f * index), 0);
+        if (curButton.playSounds)
+        {
+            AudioManager.PlayAudio(AudioType.ui, sliderUseSound, null, Vector2.zero, null, 1, 1 + (.05f * index), 0);
+        }
 
         SpawnButtons();
+    }
+
+    public void PlaySoundFX(AudioClip fx)
+    {
+        AudioManager.PlayAudio(AudioType.soundFX, fx, null, Vector2.zero, null, 1, 1, 0, 0);
     }
 
     public void UpdateVolumePositive(int type)
@@ -451,6 +477,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void DisplayScores()
     {
+        ChangePage(7);
+
         List<MenuButton> scoreButtons = Pages[7].menuButtons;
         scoreButtons.Clear();
 
@@ -472,7 +500,6 @@ public class MainMenuManager : MonoBehaviour
         scoreButtons.Add(Pages[1].menuButtons[Pages[1].menuButtons.Count - 1]);
 
         SpawnButtons();
-        ChangePage(7);
     }
 
     public void ChangePage(int page)
@@ -481,6 +508,25 @@ public class MainMenuManager : MonoBehaviour
         {
             return;
         }
+
+        if (leftPageDupe != null)
+        {
+            Destroy(leftPageDupe.gameObject);
+        }
+        if (rightPageDupe != null)
+        {
+            Destroy(rightPageDupe.gameObject);
+        }
+
+        if (highlightImage != null && highlightImage.transform.parent != null)
+        {
+            highlightImage.transform.SetParent(null);
+        }
+
+        StopAllCoroutines();
+        StartCoroutine(PageAnimation(page));
+
+        AudioManager.PlayAudio(AudioType.soundFX, pageChangeSound, null, Vector2.zero, null, UnityEngine.Random.Range(.9f, 1.1f), UnityEngine.Random.Range(.9f, 1.1f), 0);
 
         currentPageIndex = page;
         SpawnButtons();
@@ -491,19 +537,85 @@ public class MainMenuManager : MonoBehaviour
         buttonDescText.text = curPage.menuButtons[curPage.currentButtonIndex].buttonDesc;
     }
 
+    IEnumerator PageAnimation(int page)
+    {
+        pageTurning = true;
+
+        if (page > currentPageIndex) // turn page right
+        {
+            leftPageDupe = Instantiate(leftPageParent, leftPageParent.parent);
+            leftPageDupe.transform.SetAsFirstSibling();
+
+            leftPageParent.localRotation = Quaternion.Euler(0f, -90f, 0f);
+            rightPageDupe = Instantiate(rightPageParent, rightPageParent.parent);
+            while (rightPageDupe.localRotation != Quaternion.Euler(0, -90f, 0) || leftPageDupe.localRotation != Quaternion.Euler(0f, 0f, 0f))
+            {
+                rightPageDupe.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(rightPageDupe.localRotation.eulerAngles.y, -90f, Time.deltaTime * pageFlipSpeed), 0f);
+                leftPageDupe.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(leftPageDupe.localRotation.eulerAngles.y, 0f, Time.deltaTime * pageFlipSpeed), 0f);
+
+                yield return new WaitForEndOfFrame();
+            }
+            Destroy(rightPageDupe.gameObject);
+
+
+            while (leftPageParent.localRotation != Quaternion.Euler(0f, 0f, 0f) || rightPageParent.localRotation != Quaternion.Euler(0f, 0f, 0f))
+            {
+                leftPageParent.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(leftPageParent.localRotation.eulerAngles.y, 0f, Time.deltaTime * pageFlipSpeed), 0f);
+                rightPageParent.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(rightPageParent.localRotation.eulerAngles.y, 0f, Time.deltaTime * pageFlipSpeed), 0f);
+                yield return new WaitForEndOfFrame();
+            }
+            Destroy(leftPageDupe.gameObject);
+        }
+        else // turn page left
+        {
+            rightPageDupe = Instantiate(rightPageParent, rightPageParent.parent);
+            rightPageDupe.transform.SetAsFirstSibling();
+
+            rightPageParent.localRotation = Quaternion.Euler(0f, -90f, 0f);
+
+            leftPageDupe = Instantiate(leftPageParent, leftPageParent.parent);
+            while (leftPageDupe.localRotation != Quaternion.Euler(0f, -90f, 0f) || rightPageDupe.localRotation != Quaternion.Euler(0f, 0f, 0f))
+            {
+                leftPageDupe.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(leftPageDupe.localRotation.eulerAngles.y, -90f, Time.deltaTime * pageFlipSpeed), 0f);
+                rightPageDupe.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(rightPageDupe.localRotation.eulerAngles.y, 0f, Time.deltaTime * pageFlipSpeed), 0f);
+
+                yield return new WaitForEndOfFrame();
+            }
+            Destroy(leftPageDupe.gameObject);
+
+            while (rightPageParent.localRotation != Quaternion.Euler(0f, 0f, 0f) || leftPageParent.localRotation != Quaternion.Euler(0f, 0f, 0f))
+            {
+                rightPageParent.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(rightPageParent.localRotation.eulerAngles.y, 0f, Time.deltaTime * pageFlipSpeed), 0f);
+                leftPageParent.localRotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(leftPageParent.localRotation.eulerAngles.y, 0f, Time.deltaTime * pageFlipSpeed), 0f);
+                yield return new WaitForEndOfFrame();
+            }
+            Destroy(rightPageDupe.gameObject);
+        }
+
+        MenuHighlightMove(spawnedMenuButtons[Pages[currentPageIndex].currentButtonIndex].GetComponent<RectTransform>());
+        pageTurning = false;
+    }
+
     void ActivateSelection()
     {
+        if (pageTurning)
+        {
+            return;
+        }
+
         MenuPage curMenu = Pages[currentPageIndex];
         MenuButton button = curMenu.menuButtons[curMenu.currentButtonIndex];
 
         AudioClip tempButtonSound = errorSound;
-        if(button.SelectEvent != null && button.SelectEvent.GetPersistentEventCount() > 0)
+        if (button.SelectEvent != null && button.SelectEvent.GetPersistentEventCount() > 0)
         {
             button.SelectEvent.Invoke();
             tempButtonSound = activateSound;
         }
-
-        AudioManager.PlayAudio(AudioType.ui, tempButtonSound, null, Vector2.zero, null, 1, 1, 0);
+        if (button.playSounds)
+        {
+            AudioManager.PlayAudio(AudioType.ui, tempButtonSound, null, Vector2.zero, null, 1, 1, 0);
+        }
     }
 
     public void LoadScene(string scene)
