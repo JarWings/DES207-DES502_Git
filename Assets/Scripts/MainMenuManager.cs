@@ -500,6 +500,43 @@ public class MainMenuManager : MonoBehaviour
         scoreButtons.Add(Pages[1].menuButtons[Pages[1].menuButtons.Count - 1]);
 
         SpawnButtons();
+        buttonDescText.text = Pages[7].menuButtons[Pages[7].currentButtonIndex].buttonDesc;
+    }
+    public void DisplayJournalEntries()
+    {
+        ChangePage(8);
+
+        List<MenuButton> entryButtons = Pages[8].menuButtons;
+        entryButtons.Clear();
+
+        JournalManager.LoadEntries();
+
+        JournalManager journalObj = JournalManager.GetJournalObj();
+
+        for (int i = 0; i < journalObj.EntryContainer.Entries.Count; i++)
+        {
+            JournalEntry currentEntry = journalObj.EntryContainer.Entries[i];
+            MenuButton newEntry = new();
+
+            string buttonName =  new string('?', currentEntry.Title.Length);
+            string buttonDesc = new string('?', currentEntry.Description.Length);
+
+            if (currentEntry.Owned)
+            {
+                buttonName = currentEntry.Title;
+                buttonDesc = currentEntry.Description;
+            }
+
+            newEntry.buttonName = buttonName;
+            newEntry.buttonDesc = buttonDesc;
+
+            entryButtons.Insert(0, newEntry);
+        }
+
+        entryButtons.Add(Pages[1].menuButtons[Pages[1].menuButtons.Count - 1]);
+
+        SpawnButtons();
+        buttonDescText.text = Pages[8].menuButtons[Pages[8].currentButtonIndex].buttonDesc;
     }
 
     public void ChangePage(int page)
@@ -627,5 +664,22 @@ public class MainMenuManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void DeleteAllData()
+    {
+        string path = Application.persistentDataPath;
+
+        if(File.Exists(path + "/journal.json"))
+        {
+            File.Delete(path + "/journal.json");
+        }
+
+        if (File.Exists(path + "/scores.json"))
+        {
+            File.Delete(path + "/scores.json");
+        }
+
+        ChangePage(0);
     }
 }

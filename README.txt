@@ -51,3 +51,8 @@ Added leaderboard functionality for saving player times and viewing the times in
 --Michael
 ver.0.0.8
 Main menu has temp art assets to replicate book theme, with page turning animations, sounds, and a new temp font.
+
+22/02/24
+--Michael
+ver.0.0.9
+Journal system, fixed bug with button description not updating when opening the leaderboard, added delete data option, leaderboard now sorted from shorted to longest time.

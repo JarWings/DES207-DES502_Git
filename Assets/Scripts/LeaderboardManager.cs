@@ -82,6 +82,7 @@ public class LeaderboardManager : MonoBehaviour
 
         string jsonData = File.ReadAllText(path);
         leaderboardObj.scoreList = JsonUtility.FromJson<SerializableList>(jsonData);
+        leaderboardObj.scoreList.scores.Sort((y, x) => x.time.CompareTo(y.time));
     }
 
     public static void SaveScores()
