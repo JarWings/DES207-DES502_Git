@@ -56,3 +56,8 @@ Main menu has temp art assets to replicate book theme, with page turning animati
 --Michael
 ver.0.0.9
 Journal system, fixed bug with button description not updating when opening the leaderboard, added delete data option, leaderboard now sorted from shorted to longest time.
+
+22/02/24
+--Michael
+ver.0.0.10
+Imported many visual assets from the team. Started constructing the TestMap scene. Added multiple "sub page" functionality, for when there are more buttons than space on the main menu. Improved journal layout and fixed bugs. Added option to load either the TestPlayer or TestMap scene from the main menu for testing.

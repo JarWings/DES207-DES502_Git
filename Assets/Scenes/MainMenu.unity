@@ -297,7 +297,10 @@ RectTransform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2001977835}
+  - {fileID: 417649566}
   - {fileID: 2062616131}
+  - {fileID: 914088174}
   m_Father: {fileID: 1113216911}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -390,26 +393,293 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307998621}
   m_CullTransparentMesh: 1
---- !u!1 &843332415 stripped
+--- !u!1 &417649565
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6165610043949657485, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-  m_PrefabInstance: {fileID: 6165610044432691173}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &843332421
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417649566}
+  - component: {fileID: 417649568}
+  - component: {fileID: 417649567}
+  m_Layer: 5
+  m_Name: downArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &417649566
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417649565}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128721922}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -17.08, y: -214.11}
+  m_SizeDelta: {x: 32, y: 32}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &417649567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843332415}
+  m_GameObject: {fileID: 417649565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13cd05f9bfd6daf46a0587f2b94bb754, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreList:
-    scores: []
-  currentTime: 0
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &417649568
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417649565}
+  m_CullTransparentMesh: 1
+--- !u!1 &745651156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745651157}
+  - component: {fileID: 745651159}
+  - component: {fileID: 745651158}
+  m_Layer: 5
+  m_Name: pageImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &745651157
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745651156}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1243308823}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -27.059, y: 114.52415}
+  m_SizeDelta: {x: 206.9623, y: 206.9623}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &745651158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745651156}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &745651159
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745651156}
+  m_CullTransparentMesh: 1
+--- !u!1 &914088173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914088174}
+  - component: {fileID: 914088176}
+  - component: {fileID: 914088175}
+  m_Layer: 5
+  m_Name: subPageNumber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &914088174
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914088173}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128721922}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 86.9, y: -214.11}
+  m_SizeDelta: {x: 169.5541, y: 32}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &914088175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914088173}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 1/8
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
+  m_sharedMaterial: {fileID: 8742826138126900317, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 1024
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 4, y: 0, z: 0, w: 4}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &914088176
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914088173}
+  m_CullTransparentMesh: 1
 --- !u!224 &1110789906 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
@@ -493,6 +763,7 @@ RectTransform:
   m_Children:
   - {fileID: 1575753949}
   - {fileID: 1887202457}
+  - {fileID: 745651157}
   m_Father: {fileID: 307998622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -696,7 +967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -27.059, y: 294.2}
+  m_AnchoredPosition: {x: -27.059021, y: 294.2}
   m_SizeDelta: {x: -66.898895, y: 46.5564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575753950
@@ -915,7 +1186,7 @@ MonoBehaviour:
   Pages:
   - MenuName: Main
     menuButtons:
-    - buttonName: Play
+    - buttonName: Play TestPlayer
       buttonDesc: Start playing!
       SelectEvent:
         m_PersistentCalls:
@@ -938,6 +1209,37 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+      playSounds: 1
+    - buttonName: Play TestMap
+      buttonDesc: Start playing!
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: LoadScene
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: TestMap
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -965,6 +1267,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -992,6 +1296,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1019,6 +1325,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1046,6 +1354,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1073,11 +1383,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Options
     menuButtons:
     - buttonName: Audio
@@ -1103,6 +1417,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1130,6 +1446,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1157,6 +1475,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1184,6 +1504,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1211,6 +1533,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1250,11 +1574,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Team Orion
     menuButtons:
     - buttonName: Jiancheng Feng
@@ -1268,6 +1596,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1283,6 +1613,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1298,6 +1630,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1313,6 +1647,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1328,6 +1664,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1343,6 +1681,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1358,6 +1698,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1373,6 +1715,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1388,6 +1732,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1415,11 +1761,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Quit?
     menuButtons:
     - buttonName: Are you sure?
@@ -1433,6 +1783,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1460,6 +1812,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1487,11 +1841,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Audio Options
     menuButtons:
     - buttonName: 'Master volume: <mastervol>'
@@ -1529,6 +1887,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 1
@@ -1592,6 +1952,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 1
       sliderMaxValue: 100
       displaySlider: 1
@@ -1631,6 +1993,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 2
       sliderMaxValue: 100
       displaySlider: 1
@@ -1670,6 +2034,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 3
       sliderMaxValue: 100
       displaySlider: 1
@@ -1697,11 +2063,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Visual Options
     menuButtons:
     - buttonName: 'Resolution: <resolution>'
@@ -1739,6 +2109,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 4
       sliderMaxValue: 100
       displaySlider: 1
@@ -1778,6 +2150,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1817,6 +2191,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1856,6 +2232,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1895,6 +2273,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1922,11 +2302,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Gameplay Options
     menuButtons:
     - buttonName: 'Difficulty: <difficulty>'
@@ -1965,6 +2349,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -1992,11 +2378,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Leaderboard
     menuButtons:
     - buttonName: Back
@@ -2022,11 +2412,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
   - MenuName: Journal Entries
     menuButtons:
     - buttonName: Back
@@ -2052,11 +2446,15 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 0
+    displayImage: 1
   - MenuName: Delete all data?
     menuButtons:
     - buttonName: Are you sure?
@@ -2070,6 +2468,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -2097,6 +2497,8 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
@@ -2124,17 +2526,26 @@ MonoBehaviour:
       RightEvent:
         m_PersistentCalls:
           m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
       sliderValueType: 0
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
     currentButtonIndex: 0
+    displayTitle: 1
+    displayImage: 0
+  maxButtonsPerPage: 10
   menuButtonPrefab: {fileID: 5165103811292100994, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
   menuSliderPrefab: {fileID: 3257673792151611256, guid: 3235a1752f7f04a40867c2dd4d1b2586, type: 3}
   buttonParent: {fileID: 2062616132}
-  pageFlipSpeed: 320
+  pageFlipSpeed: 560
+  upArrow: {fileID: 2001977836}
+  downArrow: {fileID: 417649567}
+  pageImage: {fileID: 745651158}
   pageTitleText: {fileID: 1575753950}
   buttonDescText: {fileID: 1887202458}
+  subPageNumberText: {fileID: 914088175}
   buttonColour: {r: 0, g: 0, b: 0, a: 1}
   headerColour: {r: 0.38679248, g: 0.18914129, b: 0.12224101, a: 1}
   highlightSprite: {fileID: 21300000, guid: 76d1cec968d54e84b8c83b2ac517c7ec, type: 3}
@@ -2185,8 +2596,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -27.06215, y: 157.3364}
-  m_SizeDelta: {x: -66.8921, y: 203.2432}
+  m_AnchoredPosition: {x: -27.06215, y: 153.07913}
+  m_SizeDelta: {x: -66.8921, y: 211.7577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887202458
 MonoBehaviour:
@@ -2239,7 +2650,7 @@ MonoBehaviour:
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 14
+  m_fontSizeMin: 10
   m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -2253,7 +2664,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -2284,6 +2695,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887202456}
+  m_CullTransparentMesh: 1
+--- !u!1 &2001977834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2001977835}
+  - component: {fileID: 2001977837}
+  - component: {fileID: 2001977836}
+  m_Layer: 5
+  m_Name: upArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2001977835
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001977834}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: -1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128721922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -17.080002, y: 214.10999}
+  m_SizeDelta: {x: 32, y: 32}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2001977836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001977834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2001977837
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001977834}
   m_CullTransparentMesh: 1
 --- !u!1 &2062616130
 GameObject:
@@ -2317,12 +2804,12 @@ RectTransform:
   m_Children:
   - {fileID: 1110789906}
   m_Father: {fileID: 128721922}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.200623, y: -6.0839844}
-  m_SizeDelta: {x: -87.5989, y: -91.3392}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -16.200623, y: 1.885498}
+  m_SizeDelta: {x: 374.4011, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062616132
 MonoBehaviour:
@@ -2464,135 +2951,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: Entries.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[0].Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[1].Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[2].Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[3].Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[4].Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[0].Owned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[0].Title
-      value: "Stuart Mitchell\u200B"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[1].Owned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[1].Title
-      value: Measured Might
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[2].Title
-      value: Snackers
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[3].Title
-      value: "Mrs. Dorothy Schroter\u200B"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[4].Title
-      value: "Paper-Airplane\u200B"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[0].Picture
-      value: 
-      objectReference: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[1].Picture
-      value: 
-      objectReference: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[2].Picture
-      value: 
-      objectReference: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[3].Picture
-      value: 
-      objectReference: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[4].Picture
-      value: 
-      objectReference: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[0].Description
-      value: "Alignment: Chaotic-Good\u200B\r\n\r\nDescription: In times of great
-        strife, a hero emerges! Instead, we got this guy. Introducing Stuart Mitchell
-        a wannabe hero-type who has risen above a regular nobody into a somebody.
-        \u200B\r\n\r\nAdvice:  Stuart is equipped with a mean swing, combined with
-        his trusty blade he's a force to be feared. It is heavily advised to strike
-        from range then strike fast and hard... rumor also has it his greatest weakness
-        is his inability digest dairy products...\u200B\r"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[1].Description
-      value: "Alignment: Neutral-Good\u200B\r\n\r\nDescription: Unlike its fellow
-        brethren of the Googly-eyed variety this being has dedicated itself to fighting
-        back the forces of evil which reside in the school, equipped with a worthy
-        hero or close enough he shall thwart all that oppose the good of all!\u200B\r\n\r\nAdvice:
-        This mighty weapon, pun intended, has limited range in combat so keep distance
-        should you not want to feel its strikes. "
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[2].Description
-      value: "Alignment: Chaotic-Evil\u200B\r\n\r\nDescription: The Snackers were
-        rumored to be born from the desperate howls of students calling out for something
-        delicious once the lunch hall had stopped serving delicious pudding, from
-        that anguish they came but they were not kind creatures but ones of terror
-        seeking not to satiate the students but instead to feast upon them. Beware,
-        for once you hear the crinkling of crisp packets and the rattling of change
-        it is to late!\u200B\r\n\r\nAdvice: Despite their large frame of size they
-        show incredible swiftness once prey is near, capable of being upon victims
-        in a matter of seconds. It is also known they will primarily take the form
-        of vending machines, while they won't be every machine they very well could
-        be...\u200B"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[3].Description
-      value: "Alignment: Lawful-Evil\u200B\r\n\r\nDescription: An ancient and powerful
-        practitioner of the dark arts; Math. Once destined to reach great heights
-        only to fall low, never able to retain her glory she harshly punishes those
-        who show a modicum amount of talent for this ancient powers like she once
-        did. Be wary of her spontaneous nature to embarrass students by giving them,
-        so-called, simplistic equations.\u200B\r\n\r\nAdvice: Always hand in your
-        homework on time and show your working, if you don't? Only the Gods can save
-        you from her cold wrathful gaze. \u200B"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
-      propertyPath: EntryContainer.Entries.Array.data[4].Description
-      value: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: Once said to be the
-        might of Gaia manifested these annoyances seek to make the lives of students
-        unbearable. Do not be fooled by their goofy exterior for inside only evil
-        exists.\u200B\r\n\r\nAdvice: While having incredibly weak constitution these
-        creatures are still vastly dangerous when in large groups, it would be wise
-        to pick them off one-by-one from a distance.\u200B"
-      objectReference: {fileID: 0}
     - target: {fileID: 6165610043949657485, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
       propertyPath: m_Name
       value: GlobalManager

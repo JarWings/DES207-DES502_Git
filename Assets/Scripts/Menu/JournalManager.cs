@@ -4,7 +4,7 @@ using System.IO;
 
 public enum EntryType
 {
-    enemy, misc
+    enemy, item, misc
 }
 
 [System.Serializable]
@@ -14,9 +14,9 @@ public class JournalEntry
     public bool Owned = false;
 
     public EntryType Type;
-    [TextArea(5, 20)]
+    [TextArea(5, 34)]
     public string Description;
-    public Sprite Picture;
+    public Sprite Picture, missingImage;
 }
 
 [System.Serializable]
@@ -32,6 +32,13 @@ public class JournalManager : MonoBehaviour
     private void Start()
     {
         LoadEntries();
+    }
+
+    public static JournalEntry ReturnEntry(int index)
+    {
+        JournalManager manager = GetJournalObj();
+
+        return manager.EntryContainer.Entries[index];
     }
 
     public static void FindEntry(int index)
@@ -53,7 +60,7 @@ public class JournalManager : MonoBehaviour
         JournalManager manager = GetJournalObj();
         string path = Application.persistentDataPath + "/journal.json";
 
-        for (int i = 0; i < manager.EntryContainer.Entries.Count; i++)
+        for (int i = 1; i < manager.EntryContainer.Entries.Count; i++)
         {
             manager.EntryContainer.Entries[i].Owned = false;
         }

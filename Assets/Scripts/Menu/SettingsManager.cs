@@ -22,7 +22,7 @@ public class SettingsData
     public bool menuHighlight = false;
 
     // GAMEPLAY
-    public DifficultySettings difficulty = DifficultySettings.medium;
+    public DifficultySettings difficulty = DifficultySettings.easy;
 }
 
 public class SettingsManager : MonoBehaviour

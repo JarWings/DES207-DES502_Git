@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6165610043949657481}
   - component: {fileID: 6165610043949657480}
   - component: {fileID: 5793490230942507784}
+  - component: {fileID: 843332421}
   m_Layer: 0
   m_Name: GlobalManager
   m_TagString: Global
@@ -107,3 +108,115 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600877b6e254adf46948f72f234e6b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntryContainer:
+    Entries:
+    - Title: "Stuart Mitchell\u200B"
+      Owned: 1
+      Type: 1
+      Description: "Alignment: Chaotic-Good\u200B\r\n\r\nDescription: In times of
+        great strife, a hero emerges! Instead, we got this guy. Introducing Stuart
+        Mitchell a wannabe hero-type who has risen above a regular nobody into a
+        somebody. \u200B\r\n\r\nAdvice:  Stuart is equipped with a mean swing, combined
+        with his trusty blade he's a force to be feared. It is heavily advised to
+        strike from range then strike fast and hard... rumor also has it his greatest
+        weakness is his inability digest dairy products...\u200B\r"
+      Picture: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
+      missingImage: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
+    - Title: Measured Might
+      Owned: 0
+      Type: 0
+      Description: "Alignment: Neutral-Good\u200B\r\n\r\nDescription: Unlike its
+        fellow brethren of the Googly-eyed variety this being has dedicated itself
+        to fighting back the forces of evil which reside in the school, equipped
+        with a worthy hero or close enough he shall thwart all that oppose the good
+        of all!\u200B\r\n\r\nAdvice: This mighty weapon, pun intended, has limited
+        range in combat so keep distance should you not want to feel its strikes. "
+      Picture: {fileID: 235108047, guid: 22e0b6a77b208ca4f9cb4d575fbdd6b5, type: 3}
+      missingImage: {fileID: 997674389, guid: 22e0b6a77b208ca4f9cb4d575fbdd6b5, type: 3}
+    - Title: Snackers
+      Owned: 0
+      Type: 0
+      Description: "Alignment: Chaotic-Evil\u200B\r\n\r\nDescription: The Snackers
+        were rumored to be born from the desperate howls of students calling out
+        for something delicious once the lunch hall had stopped serving delicious
+        pudding, from that anguish they came but they were not kind creatures but
+        ones of terror seeking not to satiate the students but instead to feast upon
+        them. Beware, for once you hear the crinkling of crisp packets and the rattling
+        of change it is to late!\u200B\r\n\r\nAdvice: Despite their large frame of
+        size they show incredible swiftness once prey is near, capable of being upon
+        victims in a matter of seconds. It is also known they will primarily take
+        the form of vending machines, while they won't be every machine they very
+        well could be...\u200B"
+      Picture: {fileID: 21300000, guid: a7289cedd338308419b249bb948801cf, type: 3}
+      missingImage: {fileID: 21300000, guid: a7289cedd338308419b249bb948801cf, type: 3}
+    - Title: "Mrs. Dorothy Schroter\u200B"
+      Owned: 0
+      Type: 0
+      Description: "Alignment: Lawful-Evil\u200B\r\n\r\nDescription: An ancient and
+        powerful practitioner of the dark arts; Math. Once destined to reach great
+        heights only to fall low, never able to retain her glory she harshly punishes
+        those who show a modicum amount of talent for this ancient powers like she
+        once did. Be wary of her spontaneous nature to embarrass students by giving
+        them, so-called, simplistic equations.\u200B\r\n\r\nAdvice: Always hand in
+        your homework on time and show your working, if you don't? Only the Gods
+        can save you from her cold wrathful gaze. \u200B"
+      Picture: {fileID: 21300000, guid: 7c44e5b05a34f904ead2952bc2d7f659, type: 3}
+      missingImage: {fileID: 21300000, guid: 7c44e5b05a34f904ead2952bc2d7f659, type: 3}
+    - Title: "Paper-Airplane\u200B"
+      Owned: 0
+      Type: 0
+      Description: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: Once said to
+        be the might of Gaia manifested these annoyances seek to make the lives of
+        students unbearable. Do not be fooled by their goofy exterior for inside
+        only evil exists.\u200B\r\n\r\nAdvice: While having incredibly weak constitution
+        these creatures are still vastly dangerous when in large groups, it would
+        be wise to pick them off one-by-one from a distance.\u200B"
+      Picture: {fileID: 0}
+      missingImage: {fileID: 0}
+    - Title: "Headteacher Seymore Butts\u200B"
+      Owned: 0
+      Type: 0
+      Description: "Alignment: Lawful-Evil\u200B\r\n\r\nDescription: Long ago this
+        Headmaster was a humble, kind man, until the years of servitude took its
+        toll on his mind twisting him into nothing more than a cruel monster. Now
+        he gathers the forces of evil to his side to ensure that this place of education
+        is nothing more than a pit of despair and anguish.\u200B\r\n\r\nAdvice: ...It's
+        already too late..."
+      Picture: {fileID: 0}
+      missingImage: {fileID: 0}
+    - Title: Chocolate Milk
+      Owned: 0
+      Type: 1
+      Description: "This substance of chocolatey goodness is rumored to be manufactured
+        by using the life essence of chocolate slimes where they were sliced, diced
+        and condensed into these moderately sized cartons.\u200B"
+      Picture: {fileID: 21300000, guid: 12ec87d1800cb1a438ceb1c23887c766, type: 3}
+      missingImage: {fileID: 21300000, guid: 12ec87d1800cb1a438ceb1c23887c766, type: 3}
+    - Title: Square Pizza
+      Owned: 0
+      Type: 1
+      Description: Would you like some pizza with that grease?
+      Picture: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
+      missingImage: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
+    - Title: Spit Balls
+      Owned: 0
+      Type: 1
+      Description: These deadly projectiles were drenched in the tears of the tortured
+        students of Butts Wynde Academy for maximum damage.
+      Picture: {fileID: -1894098996, guid: ebe5f0071e0eda345bda0f050aff50ac, type: 3}
+      missingImage: {fileID: 100158481, guid: ebe5f0071e0eda345bda0f050aff50ac, type: 3}
+--- !u!114 &843332421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165610043949657485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cd05f9bfd6daf46a0587f2b94bb754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreList:
+    scores: []
+  currentTime: 0

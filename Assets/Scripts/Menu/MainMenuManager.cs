@@ -22,6 +22,9 @@ public class MenuButton
     public UnityEvent LeftEvent;
     public UnityEvent RightEvent;
 
+    public Sprite HighlightImage;
+    public Color imageColour;
+
     public SliderValue sliderValueType;
     public float sliderMaxValue = 100f;
     public bool displaySlider = false;
@@ -35,13 +38,18 @@ public class MenuPage
     public List<MenuButton> menuButtons = new();
 
     [HideInInspector] public int currentButtonIndex = 0;
+
+    public bool displayTitle = true;
+    public bool displayImage = false;
 }
 
 
 public class MainMenuManager : MonoBehaviour
 {
     public List<MenuPage> Pages = new();
+    public int maxButtonsPerPage = 10;
     private int currentPageIndex = -1;
+    private int currentSubPageIndex = 0;
 
     public GameObject menuButtonPrefab, menuSliderPrefab;
     public GridLayoutGroup buttonParent;
@@ -49,8 +57,13 @@ public class MainMenuManager : MonoBehaviour
     private List<GameObject> spawnedMenuButtons = new();
 
     public float pageFlipSpeed = 320f;
+
+    public Image upArrow, downArrow;
+
+    public Image pageImage;
     public TMP_Text pageTitleText;
     public TMP_Text buttonDescText;
+    public TMP_Text subPageNumberText;
 
     public Color buttonColour, headerColour;
 
@@ -124,9 +137,14 @@ public class MainMenuManager : MonoBehaviour
             hozHeld = false;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Submit"))
         {
             ActivateSelection();
+        }
+
+        if (Input.GetButtonDown("Cancel") && currentPageIndex != 0)
+        {
+            ChangePage(0);
         }
     }
 
@@ -177,7 +195,24 @@ public class MainMenuManager : MonoBehaviour
 
         MenuPage curPage = Pages[currentPageIndex];
 
-        for (int i = 0; i < curPage.menuButtons.Count; i++)
+        if(curPage.menuButtons.Count <= maxButtonsPerPage)
+        {
+            currentSubPageIndex = 0;
+        }
+
+        int startIndex = currentSubPageIndex * maxButtonsPerPage;
+        int endIndex = startIndex + maxButtonsPerPage;
+
+        upArrow.enabled = startIndex > 0;
+        downArrow.enabled = endIndex < curPage.menuButtons.Count;
+
+        subPageNumberText.enabled = (upArrow.enabled || downArrow.enabled);
+
+        subPageNumberText.text = (currentSubPageIndex + 1) + "/" + Mathf.Ceil((float)curPage.menuButtons.Count / (float)maxButtonsPerPage).ToString();
+
+        endIndex = Mathf.Clamp(endIndex, 0, curPage.menuButtons.Count);
+
+        for (int i = startIndex; i < endIndex; i++)
         {
             MenuButton curButton = curPage.menuButtons[i];
 
@@ -458,16 +493,40 @@ public class MainMenuManager : MonoBehaviour
 
         curPage.currentButtonIndex += index;
 
-        if (curPage.currentButtonIndex > curPage.menuButtons.Count - 1)
+        int startIndex = currentSubPageIndex * maxButtonsPerPage;
+        int endIndex = startIndex + maxButtonsPerPage;
+
+        endIndex = Mathf.Clamp(endIndex, 0, curPage.menuButtons.Count);
+
+        if (curPage.currentButtonIndex > endIndex - 1)
         {
-            curPage.currentButtonIndex = 0;
+            if(curPage.currentButtonIndex < curPage.menuButtons.Count)
+            {
+                currentSubPageIndex++;
+            }
+            else
+            {
+                curPage.currentButtonIndex = startIndex;
+            }
         }
-        else if (curPage.currentButtonIndex < 0)
+        else if (curPage.currentButtonIndex < startIndex)
         {
-            curPage.currentButtonIndex = curPage.menuButtons.Count - 1;
+            if(curPage.currentButtonIndex > 0)
+            {
+                currentSubPageIndex--;
+            }
+            else
+            {
+                curPage.currentButtonIndex = endIndex - 1;
+            }
         }
 
-        buttonDescText.text = curPage.menuButtons[curPage.currentButtonIndex].buttonDesc;
+        curPage.currentButtonIndex = Mathf.Clamp(curPage.currentButtonIndex, 0, curPage.menuButtons.Count - 1);
+
+        MenuButton currentButton = curPage.menuButtons[curPage.currentButtonIndex];
+
+        buttonDescText.text = currentButton.buttonDesc;
+        DisplayImage(currentButton.HighlightImage, currentButton.imageColour);
 
         // Highlight sound pitches up as you move down the menu
         AudioManager.PlayAudio(AudioType.ui, highlightSound, null, Vector2.zero, null, 1, 1 + (.05f * curPage.currentButtonIndex), 0);
@@ -502,6 +561,20 @@ public class MainMenuManager : MonoBehaviour
         SpawnButtons();
         buttonDescText.text = Pages[7].menuButtons[Pages[7].currentButtonIndex].buttonDesc;
     }
+
+    public void DisplayImage(Sprite img, Color colour)
+    {
+        pageImage.enabled = img != null && Pages[currentPageIndex].displayImage;
+
+        if (img == null)
+        {
+            return;
+        }
+
+        pageImage.sprite = img;
+        pageImage.color = colour;
+    }
+
     public void DisplayJournalEntries()
     {
         ChangePage(8);
@@ -518,17 +591,25 @@ public class MainMenuManager : MonoBehaviour
             JournalEntry currentEntry = journalObj.EntryContainer.Entries[i];
             MenuButton newEntry = new();
 
-            string buttonName =  new string('?', currentEntry.Title.Length);
+            string buttonName = new string('?', currentEntry.Title.Length);
             string buttonDesc = new string('?', currentEntry.Description.Length);
+
+            Sprite tempImage = currentEntry.missingImage;
+            Color tempColour = Color.black;
 
             if (currentEntry.Owned)
             {
                 buttonName = currentEntry.Title;
                 buttonDesc = currentEntry.Description;
+
+                tempImage = currentEntry.Picture;
+                tempColour = Color.white;
             }
 
             newEntry.buttonName = buttonName;
             newEntry.buttonDesc = buttonDesc;
+            newEntry.HighlightImage = tempImage;
+            newEntry.imageColour = tempColour;
 
             entryButtons.Insert(0, newEntry);
         }
@@ -536,7 +617,10 @@ public class MainMenuManager : MonoBehaviour
         entryButtons.Add(Pages[1].menuButtons[Pages[1].menuButtons.Count - 1]);
 
         SpawnButtons();
-        buttonDescText.text = Pages[8].menuButtons[Pages[8].currentButtonIndex].buttonDesc;
+
+        MenuButton button = Pages[8].menuButtons[Pages[8].currentButtonIndex];
+        buttonDescText.text = button.buttonDesc;
+        DisplayImage(button.HighlightImage, button.imageColour);
     }
 
     public void ChangePage(int page)
@@ -546,6 +630,8 @@ public class MainMenuManager : MonoBehaviour
             return;
         }
 
+        currentSubPageIndex = 0;
+
         if (leftPageDupe != null)
         {
             Destroy(leftPageDupe.gameObject);
@@ -554,6 +640,7 @@ public class MainMenuManager : MonoBehaviour
         {
             Destroy(rightPageDupe.gameObject);
         }
+
 
         if (highlightImage != null && highlightImage.transform.parent != null)
         {
@@ -570,8 +657,18 @@ public class MainMenuManager : MonoBehaviour
 
         MenuPage curPage = Pages[currentPageIndex];
 
+        UpdateSelection(0);
+
+        pageTitleText.enabled = curPage.displayTitle;
+        pageImage.enabled = curPage.displayImage;
+
         pageTitleText.text = curPage.MenuName;
         buttonDescText.text = curPage.menuButtons[curPage.currentButtonIndex].buttonDesc;
+
+        int startIndex = currentSubPageIndex * maxButtonsPerPage;
+        int endIndex = startIndex + maxButtonsPerPage;
+
+        curPage.currentButtonIndex = Mathf.Clamp(curPage.currentButtonIndex, startIndex, endIndex);
     }
 
     IEnumerator PageAnimation(int page)
@@ -629,7 +726,6 @@ public class MainMenuManager : MonoBehaviour
             Destroy(rightPageDupe.gameObject);
         }
 
-        MenuHighlightMove(spawnedMenuButtons[Pages[currentPageIndex].currentButtonIndex].GetComponent<RectTransform>());
         pageTurning = false;
     }
 
