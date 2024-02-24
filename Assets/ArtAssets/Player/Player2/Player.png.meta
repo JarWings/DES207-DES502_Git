@@ -378,7 +378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_13
+      name: Attack1-1
       rect:
         serializedVersion: 2
         x: 504
@@ -399,11 +399,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_14
+      name: Attack1-2
       rect:
         serializedVersion: 2
         x: 672
-        y: 1296
+        y: 1297
         width: 168
         height: 162
       alignment: 0
@@ -420,7 +420,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_15
+      name: Attack1-3
       rect:
         serializedVersion: 2
         x: 840
@@ -441,11 +441,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_16
+      name: Attack1-4
       rect:
         serializedVersion: 2
         x: 1008
-        y: 1296
+        y: 1298
         width: 168
         height: 162
       alignment: 0
@@ -462,7 +462,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_17
+      name: Attack1-5
       rect:
         serializedVersion: 2
         x: 1176
@@ -483,7 +483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_18
+      name: Attack2-1
       rect:
         serializedVersion: 2
         x: 1344
@@ -504,11 +504,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_19
+      name: Attack2-2
       rect:
         serializedVersion: 2
         x: 1512
-        y: 1296
+        y: 1297
         width: 168
         height: 162
       alignment: 0
@@ -525,7 +525,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_20
+      name: Attack2-3
       rect:
         serializedVersion: 2
         x: 0
@@ -1701,7 +1701,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_76
+      name: getHit01
       rect:
         serializedVersion: 2
         x: 1008
@@ -1722,7 +1722,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_77
+      name: getHit02
       rect:
         serializedVersion: 2
         x: 1176
@@ -1743,7 +1743,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_78
+      name: getHit03
       rect:
         serializedVersion: 2
         x: 1344
@@ -2131,18 +2131,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Attack1-1: -1662441302
+      Attack1-2: -1476698495
+      Attack1-3: -1404006144
+      Attack1-4: -662903367
+      Attack1-5: -745899779
+      Attack2-1: 1537862152
+      Attack2-2: -355162911
+      Attack2-3: -1572690092
       Idle01: -2056960125
       Idle02: -1491162835
       Idle03: 23822666
       Idle04: -848461329
-      Player_13: -1662441302
-      Player_14: -1476698495
-      Player_15: -1404006144
-      Player_16: -662903367
-      Player_17: -745899779
-      Player_18: 1537862152
-      Player_19: -355162911
-      Player_20: -1572690092
       Player_21: 1886243948
       Player_22: -1057842944
       Player_23: -324585826
@@ -2194,9 +2194,6 @@ TextureImporter:
       Player_73: -1520118108
       Player_74: 1527928550
       Player_75: 1483921284
-      Player_76: 260976015
-      Player_77: 1936018904
-      Player_78: -649514967
       Player_79: -1388098491
       Player_80: -34236131
       Player_81: 861033464
@@ -2214,6 +2211,9 @@ TextureImporter:
       Player_93: -1694874345
       Player_94: 266029636
       Player_95: 910019594
+      getHit01: 260976015
+      getHit02: 1936018904
+      getHit03: -649514967
       run1: 1103220190
       run2: -1981435887
       run3: -1052798905

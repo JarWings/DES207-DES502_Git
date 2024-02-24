@@ -51,7 +51,8 @@ public class Boss : MonoBehaviour
                     // 在合适的时机切换状态
                     if (Time.time - lastChangeStateTime > 3)
                     {
-                        int r = Random.Range(1, 4);
+                        //int r = Random.Range(1, 4);
+                        int r = 3;
 
                         if (r == 1)
                         {
@@ -61,14 +62,14 @@ public class Boss : MonoBehaviour
                         {
                             state = BossState.Skill_FireBall;
                             // 开启吐火球协程
-                            StartCoroutine(CoFireBallState());
+                            //StartCoroutine(CoFireBallState());
                             
                         }
                         else if (r == 3)
                         {
                             state = BossState.Skill_FireRain;
                             // 开启火雨协程
-                            StartCoroutine(CoFireRainState());
+                            //StartCoroutine(CoFireRainState());
                         }
 
                         // 随机切换不同的状态（不同技能）

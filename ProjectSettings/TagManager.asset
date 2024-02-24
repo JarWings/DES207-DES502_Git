@@ -8,6 +8,7 @@ TagManager:
   - Boss
   - BossHit
   - HealthItem
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
