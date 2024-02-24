@@ -27,7 +27,7 @@ Fixed bug with global manager being replaced by scene changes, also fixes issue 
 
 17/02/24
 --Jiancheng
-ver0.0.5
+ver.0.0.5
 Fixed the bug, increased the boss state machine to three types, tried the third skill, and some special effects. Determined the scaling size of the assets.
 
 18/02/24
@@ -61,3 +61,9 @@ Journal system, fixed bug with button description not updating when opening the 
 --Michael
 ver.0.0.10
 Imported many visual assets from the team. Started constructing the TestMap scene. Added multiple "sub page" functionality, for when there are more buttons than space on the main menu. Improved journal layout and fixed bugs. Added option to load either the TestPlayer or TestMap scene from the main menu for testing.
+
+24/02/24
+--Jiancheng
+ver.0.1.0
+Replaced the protagonist with a free resource that is closer to our actual protagonist, changed the jump to a dash, and tried adding some special effects, but it caused an unknown bug, so it was temporarily removed. This is the current effect, a bug-free dash.
+
