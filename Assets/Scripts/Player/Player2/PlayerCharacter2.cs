@@ -24,7 +24,12 @@ public class PlayerCharacter2 : MonoBehaviour
     private float lastDash=-10.0f;//上一次冲锋时间点
     public float dashCoolDown;
     public float dashSpeed;
-    bool isDashing = false;
+    private bool isDashing = false;
+
+    [Header("无敌时间参数")]
+    public float invincibilityDuration; // 无敌持续时间，单位为秒
+    private float invincibleTimer = 0; // 无敌时间计时器
+    private bool isInvincible = false; // 是否处于无敌状态
 
     void Start()
     {
@@ -36,6 +41,15 @@ public class PlayerCharacter2 : MonoBehaviour
 
     void Update()
     {
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer <= 0)
+            {
+                isInvincible = false; // 无敌时间结束
+            }
+        }
+
         if (controller.dash && (Time.time >= (lastDash + dashCoolDown))) 
         {
             ReadyToDash();
@@ -166,7 +180,7 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("BossHit"))
+        if (collision.transform.CompareTag("Boss"))
         {
             if (this.CompareTag("Player"))
             {
@@ -178,12 +192,9 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("BossHit"))
+        if (collision.CompareTag("BossHit"))
         {
-            if (this.CompareTag("Player"))
-            {
-                GetHit(1);
-            }
+            GetHit(1);
         }
 
         if (collision.transform.CompareTag("HealthItem"))
@@ -194,6 +205,8 @@ public class PlayerCharacter2 : MonoBehaviour
 
     void GetHit(int damage)
     {
+        if (isInvincible) return; // 如果处于无敌状态，则不执行以下受伤逻辑
+
         int difficultyMultiplier = 1;
 
         switch (SettingsManager.data.difficulty)
@@ -211,18 +224,22 @@ public class PlayerCharacter2 : MonoBehaviour
                 difficultyMultiplier = 4;
                 break;
         }
-        rigid.velocity = new Vector2(0, 0);
-        hp -= damage * difficultyMultiplier;
-        if (hp < 0) { hp = 0; }
-        BarUIManager.Instance.SetPlayerHp(hp, maxHp);
+
+        // 受伤后进入无敌状态
+        isInvincible = true;
+        invincibleTimer = invincibilityDuration;
+        // 其他受伤逻辑...
         //受伤动画
         anim.SetTrigger("GetHit");
+        rigid.velocity = new Vector2(0, 0);
+
+        hp -= damage * difficultyMultiplier;
+
+        if (hp < 0) { hp = 0; }
+        BarUIManager.Instance.SetPlayerHp(hp, maxHp);
+
         //受伤时，向反方向弹飞
-        Vector2 force = new Vector2(50, 50);
-        if (!faceLeft)
-        {
-            force.x *= -1;
-        }
+        Vector2 force = new Vector2(50 * HorizontalDir(faceLeft), 50);
         rigid.AddForce(force);
 
         outControlTime = 30;
@@ -234,7 +251,4 @@ public class PlayerCharacter2 : MonoBehaviour
         if (hp > maxHp) { hp = maxHp; }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
     }
-
-    
-
 }

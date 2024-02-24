@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   h: 0
   v: 0
-  crush: 0
+  dash: 0
   attack: 0
   getHurt: 0
 --- !u!114 &979783264
@@ -251,3 +251,7 @@ MonoBehaviour:
   speed: 16
   crushSpeed: 800
   maxHp: 50
+  dashTime: 0.15
+  dashCoolDown: 0.5
+  dashSpeed: 80
+  invincibilityDuration: 2

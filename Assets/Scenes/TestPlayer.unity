@@ -3968,22 +3968,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 840568601, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: m_TagString
-      value: PlayerAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: dashTime
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: dashSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: dashCoolDown
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2956334580159221889, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4801,18 +4785,6 @@ PrefabInstance:
     - target: {fileID: 8508742194304039736, guid: de574a95d75328840bb6f3abe7aacc00, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508742194304039738, guid: de574a95d75328840bb6f3abe7aacc00, type: 3}
-      propertyPath: m_Size.x
-      value: 1.4598465
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508742194304039738, guid: de574a95d75328840bb6f3abe7aacc00, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.89630127
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508742194304039738, guid: de574a95d75328840bb6f3abe7aacc00, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de574a95d75328840bb6f3abe7aacc00, type: 3}
