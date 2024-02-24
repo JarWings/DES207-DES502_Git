@@ -67,3 +67,8 @@ Imported many visual assets from the team. Started constructing the TestMap scen
 ver.0.1.0
 Replaced the protagonist with a free resource that is closer to our actual protagonist, changed the jump to a dash, and tried adding some special effects, but it caused an unknown bug, so it was temporarily removed. This is the current effect, a bug-free dash.
 
+24/02/24
+--Jiancheng
+ver.0.1.1
+Added pizza, Mimic Enemy.To ensure item drops after an enemy's death, added the ItemManager script to GlobalManager.
+

@@ -21,5 +21,9 @@ public class HitBox : MonoBehaviour
         {
             collision.transform.GetComponent<Boss>().GetHit(1);
         }
+        else if(collision.CompareTag("Mimic"))
+        {
+            collision.transform.GetComponent<Mimic>().GetHit(1);
+        }
     }
 }

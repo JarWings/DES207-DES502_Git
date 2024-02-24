@@ -9,6 +9,7 @@ TagManager:
   - BossHit
   - HealthItem
   - PlayerAttack
+  - Mimic
   layers:
   - Default
   - TransparentFX

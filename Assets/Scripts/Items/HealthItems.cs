@@ -30,9 +30,9 @@ public class HealthItems : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject HealthItem = Instantiate(prefabItem);
-        float x = Random.Range(-10f, 10f);
-        HealthItem.transform.position = new Vector2(x, 0.9f);
+        //GameObject HealthItem = Instantiate(prefabItem);
+        //float x = Random.Range(-10f, 10f);
+        //HealthItem.transform.position = new Vector2(x, 0.9f);
         Destroy(this.gameObject);
     }
 }

@@ -16,8 +16,8 @@ public class Boss : MonoBehaviour
     Animator anim;
     Rigidbody2D rigid;
 
-    public int maxHp = 20;
-    public float speed = 8;
+    public int maxHp;
+    public float speed;
     public FireBall prefabFireBall;
     public FireRain prefabFireRain;
     int hp;

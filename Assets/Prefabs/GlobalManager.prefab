@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6165610043949657480}
   - component: {fileID: 5793490230942507784}
   - component: {fileID: 843332421}
+  - component: {fileID: 692122460}
   m_Layer: 0
   m_Name: GlobalManager
   m_TagString: Global
@@ -220,3 +221,15 @@ MonoBehaviour:
   scoreList:
     scores: []
   currentTime: 0
+--- !u!114 &692122460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165610043949657485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3ba1174ab0be0439b8a34bdbc07ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
