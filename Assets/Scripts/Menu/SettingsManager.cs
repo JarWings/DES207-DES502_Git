@@ -33,11 +33,6 @@ public class SettingsManager : MonoBehaviour
 
     private void Update()
     {
-        if (!Application.isEditor)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.F4))
         {
             SceneChangeManager.LoadScene("MainMenu");
