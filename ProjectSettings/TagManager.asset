@@ -10,6 +10,7 @@ TagManager:
   - HealthItem
   - PlayerAttack
   - Mimic
+  - Item
   layers:
   - Default
   - TransparentFX

@@ -72,3 +72,8 @@ Replaced the protagonist with a free resource that is closer to our actual prota
 ver.0.1.1
 Added pizza, Mimic Enemy.To ensure item drops after an enemy's death, added the ItemManager script to GlobalManager.
 
+26/02/24
+--Jiancheng
+ver.0.1.2
+Completed the initial version of the inventory system, utilizing a database to store objects.
+
