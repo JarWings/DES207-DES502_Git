@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 577728275831312912}
   - component: {fileID: 577728275831312913}
   - component: {fileID: 577728275831312917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BASKETBALL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,5 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collideSounds:
   - {fileID: 8300000, guid: 9a4b954e080f6984aad6ff70186d4cfa, type: 3}
-  forceRequirement: 5
-  minRestTime: 0.6
+  forceRequirement: 4.4
+  minRestTime: 0.3

@@ -38,7 +38,7 @@ public class CollisionSound : MonoBehaviour
                 mult = 1f * Mathf.Clamp(rbody.velocity.magnitude / 6f, .8f, 1.4f);
             }
 
-            AudioManager.PlayAudio(AudioType.soundFX, null, collideSounds, transform.position, transform, 1, Random.Range(.9f, 1.1f) * mult, 1, 0, 500);
+            AudioManager.PlayAudio(AudioType.soundFX, null, collideSounds, transform.position, transform, 1, Random.Range(.9f, 1.1f) * mult, 1, 0, 60);
             lastSoundTime = minRestTime;
         }
     }

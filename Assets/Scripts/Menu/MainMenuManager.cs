@@ -529,7 +529,7 @@ public class MainMenuManager : MonoBehaviour
         DisplayImage(currentButton.HighlightImage, currentButton.imageColour);
 
         // Highlight sound pitches up as you move down the menu
-        AudioManager.PlayAudio(AudioType.ui, highlightSound, null, Vector2.zero, null, 1, 1 + (.05f * curPage.currentButtonIndex), 0);
+        AudioManager.PlayAudio(AudioType.ui, highlightSound, null, Vector2.zero, null, 1, 1 + (.05f * (curPage.currentButtonIndex - startIndex)), 0);
 
         SpawnButtons();
     }

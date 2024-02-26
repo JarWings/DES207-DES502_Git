@@ -77,3 +77,7 @@ Added pizza, Mimic Enemy.To ensure item drops after an enemy's death, added the 
 ver.0.1.2
 Completed the initial version of the inventory system, utilizing a database to store objects.
 
+26/02/24
+--Michael
+ver.0.1.3
+Implemented the first version of the level. Fixed bug with menu button sound pitch getting too high when going across subpages.
