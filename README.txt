@@ -81,3 +81,8 @@ Completed the initial version of the inventory system, utilizing a database to s
 --Michael
 ver.0.1.3
 Implemented the first version of the level. Fixed bug with menu button sound pitch getting too high when going across subpages.
+
+27/02/24
+--Michael
+ver.0.1.4
+Added individual classrooms, added more map details, added door functionality.
