@@ -86,3 +86,8 @@ Implemented the first version of the level. Fixed bug with menu button sound pit
 --Michael
 ver.0.1.4
 Added individual classrooms, added more map details, added door functionality.
+
+28/02/24
+--Michael
+ver.0.1.5
+Added journal entries for items, fixed some bugs.
