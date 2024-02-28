@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthItems : MonoBehaviour
 {
-
+    public int journalEntry = -1; // leave at -1 if there is no entry for this item
     public float amplitude = 5f; // 旋转的振幅大小
     public float frequency = 5f; // 旋转的频率
     private float timer = 0; // 计时器，用于控制旋转的频率
@@ -30,6 +30,7 @@ public class HealthItems : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        JournalManager.FindEntry(journalEntry);
         //GameObject HealthItem = Instantiate(prefabItem);
         //float x = Random.Range(-10f, 10f);
         //HealthItem.transform.position = new Vector2(x, 0.9f);

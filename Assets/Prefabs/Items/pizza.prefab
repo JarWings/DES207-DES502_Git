@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3f8cad7af4b7a4da2b2e45738ba9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  journalEntry: 7
   amplitude: 10
   frequency: 8
   prefabItem: {fileID: 3715704909599009970}

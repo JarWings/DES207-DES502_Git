@@ -222,7 +222,7 @@ public class MainMenuManager : MonoBehaviour
             buttonText.text = curButton.buttonName;
             buttonText.color = buttonColour;
 
-            if ((curButton.SelectEvent == null || curButton.SelectEvent.GetPersistentEventCount() == 0) && (curButton.LeftEvent == null || curButton.LeftEvent.GetPersistentEventCount() == 0) && (curButton.RightEvent == null || curButton.RightEvent.GetPersistentEventCount() == 0)) // Button has no logic, probably being used as a header or "slider" (left/right events)
+            if (curButton.SelectEvent == null || HasEvents(curButton)) // Button has no logic, probably being used as a header or "slider" (left/right events)
             {
                 buttonText.color = headerColour;
             }
@@ -777,5 +777,10 @@ public class MainMenuManager : MonoBehaviour
         }
 
         ChangePage(0);
+    }
+
+    private bool HasEvents(MenuButton button)
+    {
+        return (button.SelectEvent != null && button.SelectEvent.GetPersistentEventCount() > 0) && (button.LeftEvent != null && button.LeftEvent.GetPersistentEventCount() > 0) && (button.RightEvent != null && button.RightEvent.GetPersistentEventCount() > 0);
     }
 }

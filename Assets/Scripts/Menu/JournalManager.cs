@@ -50,7 +50,7 @@ public class JournalManager : MonoBehaviour
             return;
         }
 
-        manager.EntryContainer.Entries[index].Owned = !manager.EntryContainer.Entries[index].Owned;
+        manager.EntryContainer.Entries[index].Owned = true;
 
         SaveEntries();
     }
