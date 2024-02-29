@@ -79,6 +79,7 @@ public class PlayerCharacter2 : MonoBehaviour
         // quick fix for falling out of the map, temporary for the gamejam demo
         if(transform.position.y < -300f)
         {
+            rigid.velocity = Vector2.zero;
             transform.position = startPos;
         }
     }
@@ -162,6 +163,8 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private void ToggleCollider(bool enabled)
     {
+        return; // temp for game jam testing
+
         Collider2D collider = GetComponent<Collider2D>();
         if (collider != null)
         {

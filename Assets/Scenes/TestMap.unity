@@ -24056,9 +24056,9 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Controller:
 
-        Right Joystick Left/Right = Movement
+        Left Joystick Left/Right = Movement
 
-        Right
+        Left
         Joystick Up = Door
 
         B Button = Attack
@@ -26029,7 +26029,7 @@ PrefabInstance:
 
         J = Attack
 
-        K
+        Space
         = Dash
 
         F4 = Menu'

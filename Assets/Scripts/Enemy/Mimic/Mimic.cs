@@ -24,12 +24,16 @@ public class Mimic : MonoBehaviour
     float lastChangeStateTime = 0;
     bool faceRight = false;
 
+    Vector2 startPos;
+
     void Start()
     {
         hp = maxHp;
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         lastChangeStateTime = Time.time;
+
+        startPos = transform.position;
     }
 
 
@@ -69,7 +73,7 @@ public class Mimic : MonoBehaviour
             case MimicState.Run:
                 {
                     // ×´Ì¬×ªÒÆÌõ¼þ
-                    if (faceRight && transform.position.x >= 20 || !faceRight && transform.position.x < -20)
+                    if ((faceRight && transform.position.x >= startPos.x + 5f || !faceRight && transform.position.x < startPos.x - 5f))
                     {
                         Flip();
                         state = MimicState.Idle;
