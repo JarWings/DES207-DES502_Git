@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ItemType { Useable, Key, Weapon, Armor }
+//public enum ItemType { Useable, Key, Weapon, Armor }
+public enum ItemType { Useable, Key}
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item Data")] 
 public class ItemData_SO : ScriptableObject
 {
@@ -11,6 +12,10 @@ public class ItemData_SO : ScriptableObject
     public Sprite itemIcon;
     public int itemAmount;
     public bool stackable;
+
     [TextArea]
     public string description = "";
+
+    [Header("Usable Item")]
+    public UseableItemData_SO itemData;
 }

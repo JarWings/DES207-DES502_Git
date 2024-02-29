@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad1b85b142c42842a70cfc06b4cbc2e, type: 3}
+  m_Name: PIZZA
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: Pizza
+  itemIcon: {fileID: 21300000, guid: 7f7c082b2c912654dba242993bcfc82f, type: 3}
+  itemAmount: 1
+  stackable: 1
+  description: The Square Mini Pizza, a rare find baked with mastery, offers a slice
+    of strength.
+  itemData: {fileID: 11400000, guid: c0ad338c63c7f884db23c81a54747d40, type: 2}
