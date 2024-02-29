@@ -753,6 +753,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadScene(string scene)
     {
+        LeaderboardManager.ResetTime();
         MusicManager.ChangeTrack(levelMusic, true);
         SceneChangeManager.LoadScene(scene);
     }
@@ -777,6 +778,7 @@ public class MainMenuManager : MonoBehaviour
         }
 
         ChangePage(0);
+        LeaderboardManager.LoadScores();
     }
 
     private bool HasEvents(MenuButton button)

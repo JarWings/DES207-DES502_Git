@@ -29,6 +29,11 @@ public class SceneChangeManager : MonoBehaviour
     /// </summary>
     public static void LoadScene(string sceneName)
     {
+        if(SceneManager.GetActiveScene().name == sceneName)
+        {
+            return;
+        }
+
         SceneManager.LoadScene(sceneName);
     }
 }

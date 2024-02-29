@@ -990,7 +990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hall Pass Riot
+  m_text: Anarchy Academy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
   m_sharedMaterial: {fileID: 8742826138126900317, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
@@ -1186,36 +1186,7 @@ MonoBehaviour:
   Pages:
   - MenuName: Main
     menuButtons:
-    - buttonName: Play TestPlayer
-      buttonDesc: Start playing!
-      SelectEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1643622308}
-            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-            m_MethodName: LoadScene
-            m_Mode: 5
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: TestPlayer
-              m_BoolArgument: 0
-            m_CallState: 2
-      LeftEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      RightEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      HighlightImage: {fileID: 0}
-      imageColour: {r: 0, g: 0, b: 0, a: 0}
-      sliderValueType: 0
-      sliderMaxValue: 100
-      displaySlider: 0
-      playSounds: 1
-    - buttonName: Play TestMap
+    - buttonName: Play!
       buttonDesc: Start playing!
       SelectEvent:
         m_PersistentCalls:

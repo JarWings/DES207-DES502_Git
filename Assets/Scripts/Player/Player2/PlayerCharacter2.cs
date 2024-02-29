@@ -30,12 +30,20 @@ public class PlayerCharacter2 : MonoBehaviour
     private float invincibleTimer = 0; // 无敌时间计时器
     private bool isInvincible = false; // 是否处于无敌状态
 
+
+    [Header("Audio")]
+    public AudioClip[] swingSounds;
+
+    private Vector2 startPos;
+
     void Start()
     {
         controller = GetComponent<PlayerController2>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         hp = maxHp;
+
+        startPos = transform.position;
     }
 
     void Update()
@@ -58,6 +66,7 @@ public class PlayerCharacter2 : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack)
         {
+            AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Attack");
         }
 
@@ -65,6 +74,13 @@ public class PlayerCharacter2 : MonoBehaviour
         if (controller.getHurt)
         {
             GetHit(25);
+        }
+
+        // quick fix for falling out of the map, temporary for the gamejam demo
+        if(transform.position.y < -300f)
+        {
+            rigid.velocity = Vector2.zero;
+            transform.position = startPos;
         }
     }
 
@@ -117,7 +133,7 @@ public class PlayerCharacter2 : MonoBehaviour
             {
                 anim.SetBool("isDashing", true); // 开始冲刺动画
                 // 关闭重力加速度
-                rigid.gravityScale = 0;
+                rigid.gravityScale = 10;
                 // 禁用碰撞体
                 ToggleCollider(false);
                 rigid.velocity = new Vector2(dashSpeed * HorizontalDir(faceLeft), rigid.velocity.y);
@@ -147,6 +163,8 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private void ToggleCollider(bool enabled)
     {
+        return; // temp for game jam testing
+
         Collider2D collider = GetComponent<Collider2D>();
         if (collider != null)
         {
@@ -157,7 +175,7 @@ public class PlayerCharacter2 : MonoBehaviour
     private void ResetAfterDash()
     {
         ToggleCollider(true);
-        rigid.gravityScale = 1; // 假设1是默认的重力加速度比例
+        rigid.gravityScale = 10; // 假设1是默认的重力加速度比例
         rigid.velocity = Vector2.zero; // 可能需要停止冲刺后的额外移动
     }
 
@@ -179,11 +197,11 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Boss"))
+        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("Mimic"))
         {
             if (this.CompareTag("Player"))
             {
-                GetHit(1);
+                GetHit(10);
             }
         }
 
@@ -236,6 +254,11 @@ public class PlayerCharacter2 : MonoBehaviour
 
         if (hp < 0) { hp = 0; }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
+
+        if(hp <= 0)
+        {
+            SceneChangeManager.LoadScene("MainMenu");
+        }
 
         //受伤时，向反方向弹飞
         Vector2 force = new Vector2(50 * HorizontalDir(faceLeft), 50);
