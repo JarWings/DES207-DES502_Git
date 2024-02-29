@@ -30,6 +30,12 @@ public class LeaderboardManager : MonoBehaviour
         }
     }
 
+    public static void ResetTime()
+    {
+        LeaderboardManager leaderboardObj = GetLeaderboardObj();
+        leaderboardObj.currentTime = 0f;
+    }
+
     public static void AddScore(string playerName)
     {
         LeaderboardManager leaderboardObj = GetLeaderboardObj();

@@ -753,6 +753,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadScene(string scene)
     {
+        LeaderboardManager.ResetTime();
         MusicManager.ChangeTrack(levelMusic, true);
         SceneChangeManager.LoadScene(scene);
     }
