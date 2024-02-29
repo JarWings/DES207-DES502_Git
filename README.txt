@@ -91,3 +91,8 @@ Added individual classrooms, added more map details, added door functionality.
 --Michael
 ver.0.1.5
 Added journal entries for items, fixed some bugs.
+
+29/02/24
+--Michael
+ver.0.1.6
+Bug fixes for the game jam test session. Added end level trigger, mimics now do damage, replaced health bar with new one in testmap level (not implemented fully), changed leaderboard logic, added swing sounds.

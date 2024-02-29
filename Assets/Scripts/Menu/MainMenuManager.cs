@@ -777,6 +777,7 @@ public class MainMenuManager : MonoBehaviour
         }
 
         ChangePage(0);
+        LeaderboardManager.LoadScores();
     }
 
     private bool HasEvents(MenuButton button)

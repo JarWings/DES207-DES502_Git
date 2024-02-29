@@ -990,7 +990,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hall Pass Riot
+  m_text: Anarchy Academy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
   m_sharedMaterial: {fileID: 8742826138126900317, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}

@@ -33,4 +33,15 @@ public class Trigger : MonoBehaviour
             triggered = true;
         }
     }
+
+    public void EndLevel()
+    {
+        LeaderboardManager.AddScore("");
+        SceneChangeManager.LoadScene("MainMenu");
+    }
+
+    public void ChangeMusic(AudioClip track)
+    {
+        MusicManager.ChangeTrack(track, true);
+    }
 }

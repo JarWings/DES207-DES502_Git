@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Score
@@ -23,23 +24,21 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.F5)) // temp
+        if(SceneManager.GetActiveScene().buildIndex != 0)
         {
-            AddScore("Test" + Random.Range(1, 9999), currentTime);
-            currentTime = 0f;
-            SaveScores();
+            currentTime += Time.deltaTime;
         }
     }
 
-    public static void AddScore(string playerName, float time)
+    public static void AddScore(string playerName)
     {
         LeaderboardManager leaderboardObj = GetLeaderboardObj();
 
+        float time = leaderboardObj.currentTime;
+
         if (playerName.Length <= 0)
         {
-            return;
+            playerName = "Player" + leaderboardObj.scoreList.scores.Count;
         }
         
         Score newScore = new();
@@ -68,6 +67,7 @@ public class LeaderboardManager : MonoBehaviour
         }
 
         leaderboardObj.scoreList.scores.Add(newScore);
+        SaveScores();
     }
 
     public static void LoadScores()
@@ -82,7 +82,7 @@ public class LeaderboardManager : MonoBehaviour
 
         string jsonData = File.ReadAllText(path);
         leaderboardObj.scoreList = JsonUtility.FromJson<SerializableList>(jsonData);
-        leaderboardObj.scoreList.scores.Sort((y, x) => x.time.CompareTo(y.time));
+        leaderboardObj.scoreList.scores.Sort((x, y) => y.time.CompareTo(x.time));
     }
 
     public static void SaveScores()
