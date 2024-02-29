@@ -96,3 +96,8 @@ Added journal entries for items, fixed some bugs.
 --Michael
 ver.0.1.6
 Bug fixes for the game jam test session. Added end level trigger, mimics now do damage, replaced health bar with new one in testmap level (not implemented fully), changed leaderboard logic, added swing sounds.
+
+29/02/24
+--Jiancheng
+ver.0.1.7
+Completed the inventory system, implemented features such as item storage and retrieval, drag-and-drop, item stacking, and preventing items that do not meet the requirements from being dragged into the toolbar. The text description and item usage parts will be completed next week.

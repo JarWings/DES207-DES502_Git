@@ -165,11 +165,11 @@ public class PlayerCharacter2 : MonoBehaviour
     {
         return; // temp for game jam testing
 
-        Collider2D collider = GetComponent<Collider2D>();
-        if (collider != null)
-        {
-            collider.enabled = enabled;
-        }
+        //Collider2D collider = GetComponent<Collider2D>();
+        //if (collider != null)
+        //{
+        //    collider.enabled = enabled;
+        //}
     }
 
     private void ResetAfterDash()
