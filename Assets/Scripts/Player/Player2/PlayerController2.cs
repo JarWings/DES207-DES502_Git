@@ -21,8 +21,8 @@ public class PlayerController2 : MonoBehaviour
     {
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
-        dash = Input.GetKeyDown(KeyCode.K);
-        attack = Input.GetKeyDown(KeyCode.J);
+        dash = Input.GetButtonDown("Dash");
+        attack = Input.GetButtonDown("Attack");
         getHurt = Input.GetKeyDown(KeyCode.H);
     }
 }

@@ -33,7 +33,7 @@ public class SettingsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F4))
+        if (Input.GetButtonDown("Pause"))
         {
             SceneChangeManager.LoadScene("MainMenu");
         }

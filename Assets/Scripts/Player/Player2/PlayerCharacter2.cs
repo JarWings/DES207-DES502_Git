@@ -30,12 +30,16 @@ public class PlayerCharacter2 : MonoBehaviour
     private float invincibleTimer = 0; // 无敌时间计时器
     private bool isInvincible = false; // 是否处于无敌状态
 
+    private Vector2 startPos;
+
     void Start()
     {
         controller = GetComponent<PlayerController2>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         hp = maxHp;
+
+        startPos = transform.position;
     }
 
     void Update()
@@ -65,6 +69,12 @@ public class PlayerCharacter2 : MonoBehaviour
         if (controller.getHurt)
         {
             GetHit(25);
+        }
+
+        // quick fix for falling out of the map, temporary for the gamejam demo
+        if(transform.position.y < -300f)
+        {
+            transform.position = startPos;
         }
     }
 
