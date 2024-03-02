@@ -87,13 +87,21 @@ public class MainMenuManager : MonoBehaviour
 
     [HideInInspector] public float sliderValue;
 
+    public GameObject splashParent;
+
     private Image sliderImage;
     private bool vertHeld = false, hozHeld = false, pageTurning = false;
     private RectTransform leftPageDupe, rightPageDupe;
 
+    public Image splashImage;
+    private bool displayingSplash = true, splashChanging = false;
+
+    private float idleTime = 0f;
+
     private void Start()
     {
-        MusicManager.ChangeTrack(menuMusic, true);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SettingsManager.LoadResolutions(false);
 
         UpdateMenuFonts();
@@ -106,6 +114,24 @@ public class MainMenuManager : MonoBehaviour
     {
         float vertInput = Input.GetAxisRaw("Vertical");
         float hozInput = Input.GetAxisRaw("Horizontal");
+
+        if (displayingSplash)
+        {
+            if (Input.GetButtonDown("Jump") && !splashChanging)
+            {
+                splashChanging = true;
+                StartCoroutine(ImageFill(splashImage, 0f));
+            }
+            return;
+        }
+
+        idleTime += Time.deltaTime;
+
+        if(idleTime > 30 && !displayingSplash && !splashChanging)
+        {
+            splashChanging = true;
+            StartCoroutine(ImageFill(splashImage, 1f));
+        }
 
         if (vertInput > .5f)
         {
@@ -146,6 +172,31 @@ public class MainMenuManager : MonoBehaviour
         {
             ChangePage(0);
         }
+    }
+
+    IEnumerator ImageFill(Image img, float fillAmount)
+    {
+        idleTime = 0f;
+
+        while (img.fillAmount != fillAmount)
+        {
+            img.fillAmount = Mathf.MoveTowards(img.fillAmount, fillAmount, Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        displayingSplash = fillAmount == 1f;
+
+        if (displayingSplash)
+        {
+            MusicManager.ChangeTrack(null, false);
+        }
+        else
+        {
+            MusicManager.ChangeTrack(menuMusic, true);
+        }
+
+        splashParent.SetActive(displayingSplash);
+        splashChanging = false;
     }
 
     private void MenuHighlightMove(RectTransform targetRect)
@@ -192,6 +243,8 @@ public class MainMenuManager : MonoBehaviour
     void SpawnButtons()
     {
         RemoveButtons();
+
+        idleTime = 0f;
 
         MenuPage curPage = Pages[currentPageIndex];
 
