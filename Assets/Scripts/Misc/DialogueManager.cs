@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     public Image playerAvatar, npcAvatar;
 
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
 

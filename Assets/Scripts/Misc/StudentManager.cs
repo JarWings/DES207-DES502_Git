@@ -8,7 +8,7 @@ public class StudentManager : MonoBehaviour
     public TMP_Text studentCounterText;
     public int foundStudents = 0, totalStudents = 0;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
