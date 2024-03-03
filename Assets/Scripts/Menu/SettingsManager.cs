@@ -31,6 +31,8 @@ public class SettingsManager : MonoBehaviour
     public static Resolution[] resolutions;
     public static float minVol = -80f, maxVol = 0f;
 
+    public static bool firstBoot = true;
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))

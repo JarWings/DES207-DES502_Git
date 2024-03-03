@@ -57,14 +57,14 @@ public class PlayerCharacter2 : MonoBehaviour
             }
         }
 
-        if (controller.dash && (Time.time >= (lastDash + dashCoolDown))) 
+        if (controller.dash && (Time.time >= (lastDash + dashCoolDown)) && !DialogueManager.inDialogue) 
         {
             ReadyToDash();
         }
 
         // ¸üÐÂ¶¯»­×´Ì¬
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
-        if (controller.attack)
+        if (controller.attack && !DialogueManager.inDialogue)
         {
             AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Attack");

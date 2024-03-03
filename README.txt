@@ -106,3 +106,8 @@ Completed the inventory system, implemented features such as item storage and re
 --Michael
 ver.0.1.8
 Added title screen to the main menu, and the first implementation of the dialogue system. Replaced menu book art with copyright free version until final art is implemented.
+
+03/03/24
+--Michael
+ver.0.1.9
+Added students that can be rescued with a ui counter, added dialogue triggers, fixed healthbar not aligning correctly, fixed title screen only displaying when the game is first loaded, fixed bug with reflections.

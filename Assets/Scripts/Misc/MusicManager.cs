@@ -69,6 +69,11 @@ public class MusicManager : MonoBehaviour
     {
         MusicManager globalMusicManager = GetMusicManager();
 
+        if (track == null && globalMusicManager.currentTrack == null)
+        {
+            return;
+        }
+
         globalMusicManager.curFadeSpeed = fadeSpeed;
         globalMusicManager.curLoop = loop;
 

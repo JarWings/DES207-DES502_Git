@@ -107,6 +107,16 @@ public class MainMenuManager : MonoBehaviour
         UpdateMenuFonts();
         UpdateHighlightDisplay();
 
+        float fillAmount = 0f;
+        if (SettingsManager.firstBoot)
+        {
+            fillAmount = 1f;
+        }
+
+        splashImage.fillAmount = fillAmount;
+        StartCoroutine(ImageFill(splashImage, fillAmount));
+        SettingsManager.firstBoot = false;
+
         ChangePage(0);
     }
 
@@ -119,7 +129,6 @@ public class MainMenuManager : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && !splashChanging)
             {
-                splashChanging = true;
                 StartCoroutine(ImageFill(splashImage, 0f));
             }
             return;
@@ -129,7 +138,6 @@ public class MainMenuManager : MonoBehaviour
 
         if(idleTime > 30 && !displayingSplash && !splashChanging)
         {
-            splashChanging = true;
             StartCoroutine(ImageFill(splashImage, 1f));
         }
 
@@ -176,6 +184,8 @@ public class MainMenuManager : MonoBehaviour
 
     IEnumerator ImageFill(Image img, float fillAmount)
     {
+        splashChanging = true;
+
         idleTime = 0f;
 
         while (img.fillAmount != fillAmount)

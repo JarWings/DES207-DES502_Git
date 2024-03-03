@@ -19,13 +19,15 @@ public class Line
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager instance { get; private set; }
+
     public int lineIndex = 0;
     public float characterDelay = .06f;
     public float openSpeed = 800f;
 
     private List<Line> currentDialogueLines = new();
 
-    private bool inDialogue = false;
+    public static bool inDialogue = false;
     private int currentPriority;
 
     private AudioSource dialogueSoundSource;
@@ -38,8 +40,11 @@ public class DialogueManager : MonoBehaviour
     public Image fadePanel;
     public Image playerAvatar, npcAvatar;
 
+
     private void Start()
     {
+        instance = this;
+
         dialogueBox.anchoredPosition = new Vector2(0, -180f);
         fadePanel.color = Color.clear;
         playerAvatar.color = Color.clear;
@@ -81,12 +86,12 @@ public class DialogueManager : MonoBehaviour
                 {
                     if (currentLine.talkSprite != null)
                     {
-                        playerAvatar.color = Color.grey;
+                        npcAvatar.color = Color.white;
                     }
 
-                    if (npcAvatar.sprite != null)
+                    if (playerAvatar.sprite != null)
                     {
-                        npcAvatar.color = Color.white;
+                        playerAvatar.color = Color.grey;
                     }
                 }
 
@@ -99,20 +104,22 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void DisplayDialogue(List<Line> lines, int priority)
+    public static void DisplayDialogue(List<Line> lines, int priority)
     {
-        if((inDialogue && priority < currentPriority) || lines == currentDialogueLines)
+        if((inDialogue && priority < instance.currentPriority) || lines == instance.currentDialogueLines)
         {
             return;
         }
 
-        playerAvatar.sprite = null;
-        npcAvatar.sprite = null;
+        instance.playerAvatar.sprite = null;
+        instance.npcAvatar.sprite = null;
 
-        lineIndex = 0;
-        currentDialogueLines = lines;
-        DisplayLine();
+        instance.lineIndex = 0;
+        instance.currentDialogueLines = lines;
+        instance.DisplayLine();
         inDialogue = true;
+
+        Time.timeScale = .0001f;
     }
 
     private void DisplayLine()
@@ -205,6 +212,8 @@ public class DialogueManager : MonoBehaviour
 
         currentDialogueLines = null;
 
+        Time.timeScale = 1f;
+
         inDialogue = false;
     }
 
@@ -225,7 +234,7 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < characters.Length; i++)
         {
             textRef.text += characters[i];
-            yield return new WaitForSeconds(characterDelay);
+            yield return new WaitForSecondsRealtime(characterDelay);
         }
     }
 
@@ -239,7 +248,7 @@ public class DialogueManager : MonoBehaviour
 
         while(dialogueBox.anchoredPosition != new Vector2(0, posY))
         {
-            dialogueBox.anchoredPosition = new Vector2(0, Mathf.MoveTowards(dialogueBox.anchoredPosition.y, posY, openSpeed * Time.deltaTime));
+            dialogueBox.anchoredPosition = new Vector2(0, Mathf.MoveTowards(dialogueBox.anchoredPosition.y, posY, openSpeed * Time.unscaledDeltaTime));
             yield return new WaitForEndOfFrame();
         }
     }
