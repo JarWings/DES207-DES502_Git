@@ -2470,6 +2470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: milk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8138127831495733800, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3427,6 +3431,10 @@ PrefabInstance:
     - target: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
       propertyPath: m_Name
       value: milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8138127831495733800, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
       propertyPath: m_RootOrder
@@ -6847,6 +6855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pizza
       objectReference: {fileID: 0}
+    - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6383098804080236976, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -8776,6 +8788,10 @@ PrefabInstance:
     - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_Name
       value: pizza
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6383098804080236976, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_RootOrder
@@ -12262,6 +12278,10 @@ PrefabInstance:
     - target: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
       propertyPath: m_Name
       value: milk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8138127831495733800, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
       propertyPath: m_RootOrder
@@ -16950,6 +16970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: milk
       objectReference: {fileID: 0}
+    - target: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8138127831495733800, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -17078,6 +17102,10 @@ PrefabInstance:
     - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_Name
       value: pizza (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115010822497856174, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_FlipX
@@ -22282,6 +22310,10 @@ PrefabInstance:
     - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_Name
       value: pizza (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115010822497856174, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
       propertyPath: m_FlipX
