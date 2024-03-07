@@ -1,14 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 //public enum SlotType { BAG,USEABLE,KEY,ACTION}
 public enum SlotType {BAG, ACTION }
 
-public class SlotHolder : MonoBehaviour
+public class SlotHolder : MonoBehaviour,IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler
 {
     public SlotType slotType;
     public ItemUI itemUI;
+    public PlayerCharacter2 player;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.clickCount % 2 == 0)
+        {
+            UseItem();
+        }
+    }
+
+    public void UseItem()
+    {
+        if(itemUI.GetItem() != null)
+        {
+            if (itemUI.GetItem().itemType == ItemType.Useable && itemUI.Bag.items[itemUI.Index].amount > 0)
+            {
+                //有时间进行修改，改为全局单例模式
+                PlayerCharacter2.Instance.Health(itemUI.GetItem().useableData.healthPoint);
+                itemUI.Bag.items[itemUI.Index].amount -= 1;
+            }
+        }
+        UpdateItem();
+    }
 
     public void UpdateItem()
     {
@@ -20,13 +44,28 @@ public class SlotHolder : MonoBehaviour
             case SlotType.ACTION:
                 itemUI.Bag = InventoryManager.Instance.actionData;
                 break;
-            //case SlotType.USEABLE:
-                //break;
-            //case SlotType.KEY:
-                //break;
         }
 
         var item = itemUI.Bag.items[itemUI.Index];
         itemUI.SetupItemUI(item.ItemData, item.amount);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (itemUI.GetItem())
+        {
+            InventoryManager.Instance.tooltip.SetupTooltip(itemUI.GetItem());
+            InventoryManager.Instance.tooltip.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        InventoryManager.Instance.tooltip.gameObject.SetActive(false);
+    }
+
+    void OnDisable()
+    {
+        InventoryManager.Instance.tooltip.gameObject.SetActive(false);
     }
 }

@@ -17,5 +17,5 @@ public class ItemData_SO : ScriptableObject
     public string description = "";
 
     [Header("Usable Item")]
-    public UseableItemData_SO itemData;
+    public UseableItemData_SO useableData;
 }

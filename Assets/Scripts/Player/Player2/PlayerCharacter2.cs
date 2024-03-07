@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerCharacter2 : MonoBehaviour
 {
+    public static PlayerCharacter2 Instance { get; private set; } // 单例模式的静态实例
+
+
     PlayerController2 controller;
     Rigidbody2D rigid;
     Animator anim;
@@ -35,6 +38,19 @@ public class PlayerCharacter2 : MonoBehaviour
     public AudioClip[] swingSounds;
 
     private Vector2 startPos;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); 
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject); 
+        }
+    }
 
     void Start()
     {
@@ -267,7 +283,7 @@ public class PlayerCharacter2 : MonoBehaviour
         outControlTime = 30;
     }
 
-    void Health(int health)
+    public void Health(int health)
     {
         hp += health;
         if (hp > maxHp) { hp = maxHp; }

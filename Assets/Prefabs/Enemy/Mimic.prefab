@@ -160,5 +160,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1
   speed: 20
-  prefabItem1: {fileID: 2014788277881227050, guid: bc8e68e94ca520f42b6536b08df6634c, type: 3}
-  prefabItem2: {fileID: 3715704909599009970, guid: 747388c9565ec0242bae180f98b19d21, type: 3}
+  prefabItem1: {fileID: 7172754897724219128, guid: 2c1965c2d45b8e046923fcc3759c2a76, type: 3}
+  prefabItem2: {fileID: 1192473809148084774, guid: 22303a075a361de45ac516c10d5e17c0, type: 3}

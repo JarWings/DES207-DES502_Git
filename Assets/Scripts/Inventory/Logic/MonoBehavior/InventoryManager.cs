@@ -30,6 +30,10 @@ public class InventoryManager : Singleton<InventoryManager>
 
     bool isOpen = false;
 
+
+    [Header("Tooltip")]
+    public ItemTooltip tooltip;
+
     void Start()
     {
         inventoryUI.RefreshUI();
