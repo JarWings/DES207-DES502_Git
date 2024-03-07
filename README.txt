@@ -116,3 +116,8 @@ Added students that can be rescued with a ui counter, added dialogue triggers, f
 --Jiancheng
 ver.0.2.0
 Completed the double-click use of items in the Inventory, the binding of keys in the Action Bar, the display of item information when hovering the mouse, and eliminated some bugs.
+
+03/03/24
+--Michael
+ver.0.2.1
+Maths teacher.

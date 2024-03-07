@@ -236,7 +236,7 @@ public class PlayerCharacter2 : MonoBehaviour
         }
     }
 
-    void GetHit(int damage)
+    public void GetHit(int damage)
     {
         if (isInvincible) return; // 如果处于无敌状态，则不执行以下受伤逻辑
 

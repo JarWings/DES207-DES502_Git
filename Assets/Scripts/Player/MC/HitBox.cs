@@ -25,5 +25,9 @@ public class HitBox : MonoBehaviour
         {
             collision.transform.GetComponent<Mimic>().GetHit(1);
         }
+        else if (collision.CompareTag("Maths Teacher"))
+        {
+            collision.transform.GetComponent<MathsTeacher>().GetHit(1);
+        }
     }
 }

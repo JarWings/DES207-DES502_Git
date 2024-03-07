@@ -11,6 +11,7 @@ TagManager:
   - PlayerAttack
   - Mimic
   - Item
+  - Maths Teacher
   layers:
   - Default
   - TransparentFX
