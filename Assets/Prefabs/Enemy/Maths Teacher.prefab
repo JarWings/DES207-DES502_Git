@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5524085162963070081}
   m_Layer: 0
   m_Name: Maths Teacher
-  m_TagString: Mimic
+  m_TagString: Maths Teacher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,3 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04fa9cbca823d3d4d831614ca7cf9535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
+  walkSpeed: 10
+  attackDamage: 20
+  attackRange: 4
+  viewRange: 10
+  alertSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  dieSound: {fileID: 0}
