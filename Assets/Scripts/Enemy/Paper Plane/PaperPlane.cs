@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PaperPlane : MonoBehaviour
+public class PaperPlane : Enemy
 {
     public float detectRange = 10f;
     public float flySpeed = 10f;

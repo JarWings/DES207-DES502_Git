@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MathsTeacher : MonoBehaviour
+public class MathsTeacher : Enemy
 {
     public int health = 3;
 
@@ -44,7 +44,7 @@ public class MathsTeacher : MonoBehaviour
         attackDelay = Mathf.MoveTowards(attackDelay, 0f, Time.deltaTime);
         attackTime = Mathf.MoveTowards(attackTime, 0f, Time.deltaTime);
 
-        pushModifier = Vector2.MoveTowards(pushModifier, Vector2.zero, Time.deltaTime * 100f);
+        pushModifier = Vector2.MoveTowards(pushModifier, Vector2.zero, Time.deltaTime * 80f);
 
         DestinationCheck();
         Walk();
@@ -127,7 +127,7 @@ public class MathsTeacher : MonoBehaviour
         return hit.transform != null;
     }
 
-    public void GetHit(int hits)
+    public override void GetHit(int hits)
     {
         if (dead)
         {
@@ -137,7 +137,7 @@ public class MathsTeacher : MonoBehaviour
         attackDelay = 1f;
         health -= hits;
 
-        float xForce = 30f;
+        float xForce = 24f;
 
         if (spriteRender.flipX)
         {
