@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 833738142612683336}
   - component: {fileID: 833738142612683335}
-  - component: {fileID: 833738142612683334}
+  - component: {fileID: 5693033173173798202}
   m_Layer: 9
-  m_Name: PaperPlane
+  m_Name: Magic Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 833738142612683333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -28.46, y: 0.02, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,18 +74,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da63f7f7e4bb2f04196634c837b1000f, type: 3}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &833738142612683334
+--- !u!114 &5693033173173798202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,15 +94,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 833738142612683333}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d8d648d3b46e44bbec35e2091df5dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a22bca8e4f3bbb41b58970f98b15f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   detectRange: 10
-  flySpeed: 10
-  hitRange: 0.1
+  flySpeed: 5
+  hitRange: 1
   hitDamage: 10
-  fallSprite: {fileID: 21300000, guid: fd1d4d467f180fc4286e2f18b7de2c38, type: 3}
-  hitSprite: {fileID: 21300000, guid: 87475f0d1f0803d4d88ea6c878558005, type: 3}
   detectSound: {fileID: 0}
+  attackSound: {fileID: 0}
   hitSound: {fileID: 0}
-  missSound: {fileID: 0}

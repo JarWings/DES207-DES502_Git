@@ -19,6 +19,7 @@ public class MathsTeacher : MonoBehaviour
 
     private Transform playerTransform;
     private bool chasing = false;
+    private bool dead = false;
     private float idleTime = 0f;
 
     private float attackTime = 0f;
@@ -27,11 +28,15 @@ public class MathsTeacher : MonoBehaviour
     private float destination;
     private SpriteRenderer spriteRender;
     private Rigidbody2D rbody;
+    private Animator anim;
+
+    private Vector2 pushModifier;
 
     private void Start()
     {
         TryGetComponent(out spriteRender);
         TryGetComponent(out rbody);
+        TryGetComponent(out anim);
     }
 
     private void Update()
@@ -39,12 +44,19 @@ public class MathsTeacher : MonoBehaviour
         attackDelay = Mathf.MoveTowards(attackDelay, 0f, Time.deltaTime);
         attackTime = Mathf.MoveTowards(attackTime, 0f, Time.deltaTime);
 
+        pushModifier = Vector2.MoveTowards(pushModifier, Vector2.zero, Time.deltaTime * 100f);
+
         DestinationCheck();
         Walk();
     }
 
     private void DestinationCheck()
     {
+        if (dead)
+        {
+            return;
+        }
+
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, viewRange, Vector2.up, viewRange, LayerMask.GetMask("Player"));
         if (hit.transform != null && !chasing)
         {
@@ -77,7 +89,12 @@ public class MathsTeacher : MonoBehaviour
         }
 
         bool targetRight = destination > transform.position.x;
-        spriteRender.flipX = targetRight;
+
+        if(IsGrounded() && !dead)
+        {
+            spriteRender.flipX = targetRight;
+        }
+
         float speed = walkSpeed;
 
         if (!targetRight)
@@ -87,7 +104,7 @@ public class MathsTeacher : MonoBehaviour
 
         bool inRange = Vector2.Distance(new Vector2(destination, transform.position.y), transform.position) < attackRange;
 
-        if (inRange || attackTime > 0f)
+        if (inRange || attackTime > 0f || dead || !IsGrounded())
         {
             speed = 0f;
 
@@ -97,32 +114,78 @@ public class MathsTeacher : MonoBehaviour
             }
         }
 
-        Vector2 move = new(speed, Physics2D.gravity.y);
+        anim.SetFloat("Speed", Mathf.Abs(speed));
+
+        Vector2 move = new Vector2(speed, Physics2D.gravity.y) + pushModifier;
 
         rbody.velocity = move;
     }
 
+    private bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.CircleCast((Vector2)transform.position - new Vector2(0f, 2f), .8f, Vector2.down, .5f, ~LayerMask.GetMask("Player", "Enemy", "IgnorePlayer"));
+        return hit.transform != null;
+    }
+
     public void GetHit(int hits)
     {
-        attackDelay = 2f;
+        if (dead)
+        {
+            return;
+        }
+
+        attackDelay = 1f;
         health -= hits;
+
+        float xForce = 30f;
+
+        if (spriteRender.flipX)
+        {
+            xForce = -xForce;
+        }
+
+        pushModifier = new(xForce, 40f);
 
         if (health <= 0)
         {
-            AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
-
-            Destroy(gameObject);
+            Die();
             return;
         }
+
+        anim.SetTrigger("GetHit");
 
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
     }
 
+    private void Die()
+    {
+        dead = true;
+
+        gameObject.layer = 8;
+
+        JournalManager.FindEntry(3);
+        AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
+
+        anim.SetFloat("Speed", 0f);
+        anim.SetTrigger("GetHit");
+
+        Destroy(gameObject, 2);
+    }
+
     private void Attack()
     {
+        if (dead || !IsGrounded())
+        {
+            return;
+        }
+
         destination = transform.position.x;
-        attackTime = 3f; // attack time
+        attackTime = 2f; // attack time
         attackDelay = attackTime * 2f;
+
+        anim.SetTrigger("Attack");
+
+        pushModifier = new(-transform.right.x * 30f, 0f);
 
         AudioManager.PlayAudio(AudioType.soundFX, attackSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
 
