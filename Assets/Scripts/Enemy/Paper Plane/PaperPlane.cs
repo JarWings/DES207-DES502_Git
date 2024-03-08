@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PaperPlane : MonoBehaviour
@@ -8,6 +7,8 @@ public class PaperPlane : MonoBehaviour
     public float flySpeed = 10f;
     public float hitRange = 1f;
     public int hitDamage = 10;
+
+    public Sprite fallSprite, hitSprite;
 
     [Header("Audio")]
     public AudioClip detectSound;
@@ -54,6 +55,7 @@ public class PaperPlane : MonoBehaviour
 
         if (hit.transform != null)
         {
+            sprite.sprite = fallSprite;
             AudioManager.PlayAudio(AudioType.soundFX, detectSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
             falling = true;
         }
@@ -93,6 +95,8 @@ public class PaperPlane : MonoBehaviour
 
     void Hit(Transform player)
     {
+        sprite.sprite = hitSprite;
+
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
         player.GetComponent<PlayerCharacter2>().GetHit(hitDamage);
         falling = false;
@@ -106,6 +110,8 @@ public class PaperPlane : MonoBehaviour
 
     void Miss()
     {
+        sprite.sprite = hitSprite;
+
         falling = false;
         hit = true;
 

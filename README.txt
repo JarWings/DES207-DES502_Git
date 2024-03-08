@@ -122,3 +122,7 @@ Completed the double-click use of items in the Inventory, the binding of keys in
 ver.0.2.1
 Maths teacher & paper planes.
 
+04/03/24
+--Michael
+ver.0.2.2
+Added animation to maths teacher and impact physics, added temp art. fixed bugs.
