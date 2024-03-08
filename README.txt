@@ -131,3 +131,8 @@ Added animation to maths teacher and impact physics, added temp art. fixed bugs.
 --Steph
 ver.0.2.3
 Beginning to assemble assets for the Tutorial Classroom :)
+
+04/03/24
+--Steph
+ver.0.2.4
+Continued development to tutorial classroom.
