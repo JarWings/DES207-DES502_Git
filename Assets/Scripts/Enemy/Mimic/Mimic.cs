@@ -8,21 +8,25 @@ public enum MimicState
     Run,
 }
 
-public class Mimic : MonoBehaviour
+public class Mimic : Enemy
 {
     Animator anim;
     Rigidbody2D rigid;
 
-    public int maxHp;
+    public int hp=1000;
+    public int maxHp=1000;
     public float speed;
     public GameObject prefabItem1;
     public GameObject prefabItem2;
 
-    int hp;
-
     MimicState state;
     float lastChangeStateTime = 0;
     bool faceRight = false;
+
+    [Header("无敌时间参数")]
+    public float invincibilityDuration; // 无敌持续时间，单位为秒
+    private float invincibleTimer = 0; // 无敌时间计时器
+    private bool isInvincible = false; // 是否处于无敌状态
 
     Vector2 startPos;
 
@@ -32,7 +36,6 @@ public class Mimic : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         lastChangeStateTime = Time.time;
-
         startPos = transform.position;
     }
 
@@ -42,6 +45,15 @@ public class Mimic : MonoBehaviour
         if (hp <= 0)
         {
             return;
+        }
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer <= 0)
+            {
+                isInvincible = false; // 无敌时间结束
+            }
         }
 
         switch (state)
@@ -95,9 +107,9 @@ public class Mimic : MonoBehaviour
 
 
 
-    public void GetHit(int damage)
+    public  override void GetHit(int damage)
     {
-        if (hp <= 0)
+        if (isInvincible || hp <= 0)
         {
             return;
         }
@@ -126,6 +138,12 @@ public class Mimic : MonoBehaviour
                 ItemManager.Instance.StartCoroutine(ItemManager.Instance.DelaySpawnItem(transform.position, itemToSpawn));
             }
             Destroy(gameObject); // 销毁敌人
+        }
+        else
+        {
+            isInvincible = true;
+            invincibleTimer = invincibilityDuration;
+            // 可以在这里添加受伤动画或效果
         }
     }
 

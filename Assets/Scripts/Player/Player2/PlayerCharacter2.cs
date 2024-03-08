@@ -16,6 +16,8 @@ public class PlayerCharacter2 : MonoBehaviour
     public float crushSpeed = 100.0f;
     public int maxHp = 50;
     int hp;
+    public int attackDamage = 20;
+    public float attackRange = 6f;
 
     bool faceLeft = true;
     float outControlTime = 0;
@@ -39,6 +41,11 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private Vector2 startPos;
 
+    [Header("Dash Layer")]
+    private int playerLayer = 6;
+    private int enemyLayer = 9;
+    private int enemyHitLayer = 10;
+
     void Awake()
     {
         if (Instance == null)
@@ -60,6 +67,9 @@ public class PlayerCharacter2 : MonoBehaviour
         hp = maxHp;
 
         startPos = transform.position;
+
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, false);
     }
 
     void Update()
@@ -82,8 +92,9 @@ public class PlayerCharacter2 : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack && !DialogueManager.inDialogue)
         {
-            AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
+            //AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Attack");
+            Attack();
         }
 
         // 测试功能
@@ -151,14 +162,18 @@ public class PlayerCharacter2 : MonoBehaviour
                 // 关闭重力加速度
                 rigid.gravityScale = 10;
                 // 禁用碰撞体
-                ToggleCollider(false);
+                //ToggleCollider(false);
+                Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+                Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, true);
                 rigid.velocity = new Vector2(dashSpeed * HorizontalDir(faceLeft), rigid.velocity.y);
                 dashTimeLeft -= Time.deltaTime;
             }
             else
             {
                 isDashing = false;
-                anim.SetBool("isDashing", false); 
+                anim.SetBool("isDashing", false);
+                Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
+                Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, false);
                 ResetAfterDash();
             }
         }
@@ -213,7 +228,7 @@ public class PlayerCharacter2 : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("Mimic"))
+        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("Enemy"))
         {
             if (this.CompareTag("Player"))
             {
@@ -228,11 +243,6 @@ public class PlayerCharacter2 : MonoBehaviour
         if (collision.CompareTag("BossHit"))
         {
             GetHit(1);
-        }
-
-        if (collision.transform.CompareTag("HealthItem"))
-        {
-            Health(25);
         }
     }
 
@@ -289,4 +299,18 @@ public class PlayerCharacter2 : MonoBehaviour
         if (hp > maxHp) { hp = maxHp; }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
     }
+
+    void Attack()
+    {
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, attackRange, Vector2.up, attackRange, LayerMask.GetMask("Enemy"));
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        {
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.GetHit(attackDamage);
+            }
+        }
+    }
+
 }
