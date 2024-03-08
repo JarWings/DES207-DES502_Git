@@ -126,3 +126,8 @@ Maths teacher & paper planes.
 --Michael
 ver.0.2.2
 Added animation to maths teacher and impact physics, added temp art. fixed bugs.
+
+04/03/24
+--Steph
+ver.0.2.3
+Beginning to assemble assets for the Tutorial Classroom :)
