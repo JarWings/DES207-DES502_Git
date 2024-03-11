@@ -75,4 +75,17 @@ public class Door : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, destinationDoor.transform.position);
     }
+
+    public void SpawnObject(GameObject obj)
+    {
+        GameObject spawnedobj = Instantiate(obj, transform.position, obj.transform.rotation);
+
+        Rigidbody2D[] rigids = spawnedobj.GetComponentsInChildren<Rigidbody2D>();
+
+        for(int i = 0; i < rigids.Length; i++)
+        {
+            rigids[i].transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            rigids[i].AddForce(Random.insideUnitCircle.normalized * 5f, ForceMode2D.Impulse);
+        }
+    }
 }

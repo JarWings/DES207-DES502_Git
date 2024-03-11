@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
 
         float listenerDistance = (origin - (Vector2)cameraTransform.position).magnitude;
 
-        if (listenerDistance > distance && spatial > 0f) // too far from the camera to hear, ignored if the sound is 2D
+        if (listenerDistance > distance && spatial > 0f && !loop) // too far from the camera to hear, ignored if the sound is 2D
         {
             return null;
         }

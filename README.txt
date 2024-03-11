@@ -136,3 +136,9 @@ Beginning to assemble assets for the Tutorial Classroom :)
 --Steph
 ver.0.2.4
 Continued development to tutorial classroom.
+
+11/03/24
+--Michael
+ver.0.2.5
+Fixed bug with mouse locking, added boss music as temporary level music, added light effects with optional flickering, improved audio of basketball, made locker objects spawn from prefab instead of activating an object, added random physics and rotation to locker object spawns, improved math teacher ai.
+NOTE: The player sprites order in layer has changed to 0 in order to get the lighting working, i've adjusted the objects in testmap to work with this.

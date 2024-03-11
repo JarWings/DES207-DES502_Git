@@ -115,7 +115,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 6
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -138,5 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collideSounds:
   - {fileID: 8300000, guid: 9a4b954e080f6984aad6ff70186d4cfa, type: 3}
-  forceRequirement: 4.4
-  minRestTime: 0.3
+  forceRequirement: 0.2
+  minRestTime: 0.2

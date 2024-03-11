@@ -121,10 +121,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.11, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.18, y: 0.5}
     oldSize: {x: 16.004631, y: 9}
     newSize: {x: 16, y: 9.003906}
     adaptiveTilingThreshold: 0.5
@@ -146,8 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39524fefca3131946a0df6aec84e5eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinationDoor: {fileID: 0}
   anim: {fileID: 4184740237818358890}
   oneTimeEvent: 1
+  inputHeld: 0
   openEvent:
     m_PersistentCalls:
       m_Calls:
@@ -163,3 +165,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  playerRbody: {fileID: 0}
+  spawnObj: {fileID: 0}

@@ -161,7 +161,7 @@ MonoBehaviour:
   health: 80
   walkSpeed: 12
   attackDamage: 20
-  attackRange: 4
+  attackRange: 2
   viewRange: 10
   alertSound: {fileID: 0}
   attackSound: {fileID: 0}
