@@ -25,7 +25,7 @@ public class Reflection : MonoBehaviour
         spriteRender.transform.localScale = TargetSprite.transform.localScale;
         spriteRender.sprite = TargetSprite.sprite;
 
-        Vector2 pos = new Vector2(TargetSprite.transform.position.x, -(TargetSprite.transform.position.y - groundLevel));
+        Vector3 pos = new Vector3(TargetSprite.transform.position.x, -(TargetSprite.transform.position.y - groundLevel), TargetSprite.transform.position.z);
         transform.position = pos;
     }
 }

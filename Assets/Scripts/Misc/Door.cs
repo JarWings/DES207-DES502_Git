@@ -3,12 +3,24 @@ using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
+    public Sprite interactSprite;
     public Door destinationDoor;
     public Animator anim;
-    public bool oneTimeEvent = true, inputHeld = false;
+    public bool oneTimeEvent = true, inputHeld = false, keyTriggersEvent = false;
     public UnityEvent openEvent;
     private bool triggered = false, atDoor = false;
     public Rigidbody2D playerRbody;
+
+    public AudioClip openSound;
+    public AudioClip closeSound;
+
+    private SpriteRenderer spriteRenderer, interactIcon;
+
+    private void Start()
+    {
+        TryGetComponent(out spriteRenderer);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag != "Player")
@@ -16,7 +28,7 @@ public class Door : MonoBehaviour
             return;
         }
 
-        if(!triggered || !oneTimeEvent)
+        if((!triggered || !oneTimeEvent) && !keyTriggersEvent)
         {
             openEvent.Invoke();
             triggered = true;
@@ -28,7 +40,23 @@ public class Door : MonoBehaviour
         }
 
         atDoor = true;
-        anim.SetTrigger("Open");
+
+        if(!triggered || destinationDoor != null)
+        {
+            if(interactIcon == null)
+            {
+                interactIcon = IconManager.CreateSprite();
+            }
+
+            IconManager.UpdateInteractIcon(interactIcon, transform.position + new Vector3(0f, 2f), interactSprite);
+        }
+
+        if (!keyTriggersEvent)
+        {
+            AudioManager.PlayAudio(AudioType.soundFX, openSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 1, 0, 40);
+            anim.SetTrigger("Open");
+            spriteRenderer.sortingOrder = -2;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -38,7 +66,15 @@ public class Door : MonoBehaviour
             return;
         }
         atDoor = false;
-        anim.SetTrigger("Close");
+
+        if(!keyTriggersEvent)
+        {
+            AudioManager.PlayAudio(AudioType.soundFX, closeSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 1, 0, 40);
+            anim.SetTrigger("Close");
+            spriteRenderer.sortingOrder = -3;
+        }
+
+        IconManager.UpdateInteractIcon(interactIcon, Vector2.zero, null);
     }
 
     private void Update()
@@ -57,7 +93,24 @@ public class Door : MonoBehaviour
 
     private void UseDoor()
     {
-        if(destinationDoor == null || !atDoor || playerRbody == null || inputHeld)
+        if(!atDoor || playerRbody == null || inputHeld)
+        {
+            return;
+        }
+
+        if(keyTriggersEvent && !triggered)
+        {
+            AudioManager.PlayAudio(AudioType.soundFX, openSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 1, 0, 40);
+            anim.SetTrigger("Open");
+            spriteRenderer.sortingOrder = -2;
+
+            openEvent.Invoke();
+            triggered = true;
+
+            IconManager.UpdateInteractIcon(interactIcon, Vector2.zero, null);
+        }
+
+        if (destinationDoor == null)
         {
             return;
         }
@@ -79,6 +132,7 @@ public class Door : MonoBehaviour
     public void SpawnObject(GameObject obj)
     {
         GameObject spawnedobj = Instantiate(obj, transform.position, obj.transform.rotation);
+        spawnedobj.transform.position = new Vector3(spawnedobj.transform.position.x, spawnedobj.transform.position.y, 0f);
 
         Rigidbody2D[] rigids = spawnedobj.GetComponentsInChildren<Rigidbody2D>();
 
