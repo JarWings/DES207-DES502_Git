@@ -10,7 +10,6 @@ public class ItemUI : MonoBehaviour
     public Text amount = null;
 
     public InventoryData_SO Bag { get; set; }
-    //public InventoryData_SO Action { get; set; }
     public int Index { get; set; } = -1;
 
     public void SetupItemUI(ItemData_SO item, int itemAmount)

@@ -201,7 +201,7 @@ public class MathsTeacher : Enemy
 
         if (hit.transform != null)
         {
-            hit.transform.GetComponent<PlayerCharacter2>().GetHit(1);
+            hit.transform.GetComponent<PlayerCharacter>().GetHit(1);
         }
     }
 }

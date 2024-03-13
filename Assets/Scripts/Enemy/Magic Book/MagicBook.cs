@@ -63,7 +63,7 @@ public class MagicBook : MonoBehaviour
     void Hit(Transform player)
     {
         AudioManager.PlayAudio(AudioType.soundFX, attackSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
-        player.GetComponent<PlayerCharacter2>().GetHit(hitDamage);
+        player.GetComponent<PlayerCharacter>().GetHit(hitDamage);
 
         hitCooldown = 2f;
     }

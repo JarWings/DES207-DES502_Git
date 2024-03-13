@@ -147,3 +147,8 @@ NOTE: The player sprites order in layer has changed to 0 in order to get the lig
 --Michael
 ver.0.2.6
 Added depth to testmap, made lockers interactable with the key, added interact icons, added temp sounds for doors and lockers.
+
+13/03/24
+--Jiancheng
+ver.0.2.7
+Switched the main character's materials to our own creations. 

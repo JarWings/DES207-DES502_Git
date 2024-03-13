@@ -98,7 +98,7 @@ public class PaperPlane : Enemy
         sprite.sprite = hitSprite;
 
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
-        player.GetComponent<PlayerCharacter2>().GetHit(hitDamage);
+        player.GetComponent<PlayerCharacter>().GetHit(hitDamage);
         falling = false;
         hit = true;
 

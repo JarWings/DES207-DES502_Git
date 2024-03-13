@@ -10,7 +10,7 @@ public class SlotHolder : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
 {
     public SlotType slotType;
     public ItemUI itemUI;
-    public PlayerCharacter2 player;
+    public PlayerCharacter player;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -27,7 +27,7 @@ public class SlotHolder : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
             if (itemUI.GetItem().itemType == ItemType.Useable && itemUI.Bag.items[itemUI.Index].amount > 0)
             {
                 //有时间进行修改，改为全局单例模式
-                PlayerCharacter2.Instance.Health(itemUI.GetItem().useableData.healthPoint);
+                PlayerCharacter.Instance.Health(itemUI.GetItem().useableData.healthPoint);
                 itemUI.Bag.items[itemUI.Index].amount -= 1;
             }
         }
