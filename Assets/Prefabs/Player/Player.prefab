@@ -176,13 +176,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3706bdf9bfe93224198a5e9a0a4cdf48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 16
-  crushSpeed: 800
   maxHp: 50
+  hp: 0
   attackDamage: 20
-  attackRange: 5
+  attackRange: 6
+  speed: 16
+  faceLeft: 0
   dashTime: 0.15
   dashCoolDown: 0.5
   dashSpeed: 80
   invincibilityDuration: 2
-  swingSounds: []
+  swingSounds:
+  - {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
+  - {fileID: 8300000, guid: b4a457efd33e7e044878de18359dbba1, type: 3}

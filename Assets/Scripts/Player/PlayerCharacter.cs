@@ -7,20 +7,17 @@ public class PlayerCharacter : MonoBehaviour
 {
     public static PlayerCharacter Instance { get; private set; } // 单例模式的静态实例
 
-
     PlayerController controller;
     Rigidbody2D rigid;
     Animator anim;
 
+    [Header("基本参数")]
+    public int maxHp;
+    public int hp;
+    public int attackDamage;
+    public float attackRange;
     public float speed = 8.0f;
-    public float crushSpeed = 100.0f;
-    public int maxHp = 50;
-    int hp;
-    public int attackDamage = 20;
-    public float attackRange = 4f;
-
-    bool faceLeft = false;
-    float outControlTime = 0;
+    public bool faceLeft = false;
 
     [Header("Dash参数")]
     public float dashTime;//dash时长
@@ -30,7 +27,13 @@ public class PlayerCharacter : MonoBehaviour
     public float dashSpeed;
     private bool isDashing = false;
 
+    [Header("Dash Layer")]
+    private int playerLayer = 6;
+    private int enemyLayer = 9;
+    private int enemyHitLayer = 10;
+
     [Header("无敌时间参数")]
+    private float outControlTime = 0;
     public float invincibilityDuration; // 无敌持续时间，单位为秒
     private float invincibleTimer = 0; // 无敌时间计时器
     private bool isInvincible = false; // 是否处于无敌状态
@@ -39,12 +42,6 @@ public class PlayerCharacter : MonoBehaviour
     [Header("Audio")]
     public AudioClip[] swingSounds;
 
-    private Vector2 startPos;
-
-    [Header("Dash Layer")]
-    private int playerLayer = 6;
-    private int enemyLayer = 9;
-    private int enemyHitLayer = 10;
 
     void Awake()
     {
@@ -65,8 +62,6 @@ public class PlayerCharacter : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         hp = maxHp;
-
-        startPos = transform.position;
 
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, false);
@@ -92,7 +87,7 @@ public class PlayerCharacter : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack && !DialogueManager.inDialogue)
         {
-            //AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
+            AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Attack");
             Attack();
         }
@@ -101,13 +96,6 @@ public class PlayerCharacter : MonoBehaviour
         if (controller.getHurt)
         {
             GetHit(25);
-        }
-
-        // quick fix for falling out of the map, temporary for the gamejam demo
-        if(transform.position.y < -300f)
-        {
-            rigid.velocity = Vector2.zero;
-            transform.position = startPos;
         }
     }
 
@@ -143,13 +131,12 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+#region Dash
     private void ReadyToDash()
     {
         isDashing = true;
         dashTimeLeft = dashTime;
-        lastDash = Time.time;
-
-        
+        lastDash = Time.time; 
     }
 
     void Dash()
@@ -178,6 +165,7 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+#endregion
 
     private void Move(float h)
     {
@@ -190,22 +178,6 @@ public class PlayerCharacter : MonoBehaviour
         float vx = h * speed;
         rigid.velocity = new Vector2(vx, rigid.velocity.y);
     }
-
-    //void Flip(float h)
-    //{
-    //    Vector3 scaleLeft = new Vector3(1, 1, 1);
-    //    Vector3 scaleRight = new Vector3(-1, 1, 1);
-    //    if (h > 0.1f)
-    //    {
-    //        faceLeft = false;
-    //        transform.localScale = scaleRight;
-    //    }
-    //    else if (h < -0.1f)
-    //    {
-    //        faceLeft = true;
-    //        transform.localScale = scaleLeft;
-    //    }
-    //}
 
     void Flip(float h)
     {
@@ -223,25 +195,7 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("Enemy"))
-        {
-            if (this.CompareTag("Player"))
-            {
-                GetHit(10);
-            }
-        }
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("BossHit"))
-        {
-            GetHit(1);
-        }
-    }
+    
 
     public void GetHit(int damage)
     {
@@ -307,6 +261,26 @@ public class PlayerCharacter : MonoBehaviour
             {
                 enemy.GetHit(attackDamage);
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("Enemy"))
+        {
+            if (this.CompareTag("Player"))
+            {
+                GetHit(10);
+            }
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BossHit"))
+        {
+            GetHit(1);
         }
     }
 

@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    PlayerCharacter player;
     public float h, v;
     public bool dash;
     public bool attack;
+
     //testing function
     public bool getHurt;
-
-    void Start()
-    {
-        player = GetComponent<PlayerCharacter>();
-    }
-
 
     void Update()
     {
@@ -23,6 +17,8 @@ public class PlayerController : MonoBehaviour
         v = Input.GetAxis("Vertical");
         dash = Input.GetButtonDown("Dash");
         attack = Input.GetButtonDown("Attack");
+
+        //test function
         getHurt = Input.GetKeyDown(KeyCode.H);
     }
 }
