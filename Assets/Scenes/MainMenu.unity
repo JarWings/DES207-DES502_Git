@@ -2919,6 +2919,7 @@ MonoBehaviour:
   highlightSprite: {fileID: 21300000, guid: 76d1cec968d54e84b8c83b2ac517c7ec, type: 3}
   leftPageParent: {fileID: 1113216911}
   rightPageParent: {fileID: 307998622}
+  splashMusic: {fileID: 8300000, guid: 99cd6ec347478614ea484f8e0aa2c6d3, type: 3}
   menuMusic: {fileID: 8300000, guid: 498b7e4bc68dc3a45a3dfba781373ac3, type: 3}
   levelMusic: {fileID: 8300000, guid: 1122c2165b03dfa46a6bfaad156c15af, type: 3}
   highlightSound: {fileID: 8300000, guid: 60ffabcb154803946bde846ee1676bc8, type: 3}

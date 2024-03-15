@@ -34,6 +34,10 @@ public class SceneChangeManager : MonoBehaviour
             return;
         }
 
+        PlayerCharacter.ResetPosition();
+
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Door : MonoBehaviour
 {
+    public Sprite liftSprite;
     public Sprite interactSprite;
     public Door destinationDoor;
     public Animator anim;
@@ -180,6 +181,13 @@ public class Door : MonoBehaviour
         SpriteRenderer playerSprite = playerRbody.GetComponent<SpriteRenderer>();
         Collider2D playerCol = playerRbody.GetComponent<Collider2D>();
 
+        GameObject elevatorObj = new();
+        SpriteRenderer elevatorSprite = elevatorObj.AddComponent<SpriteRenderer>();
+        elevatorSprite.sprite = liftSprite;
+        elevatorSprite.sortingOrder = -100;
+        elevatorObj.transform.position = playerRbody.position;
+        elevatorObj.transform.localScale = Vector3.one * .8f;
+
         playerCol.enabled = false;
         playerSprite.enabled = false;
         playerRbody.isKinematic = true;
@@ -188,9 +196,13 @@ public class Door : MonoBehaviour
 
         while (playerRbody.position != (Vector2)destinationDoor.transform.position)
         {
-            playerRbody.position = Vector2.MoveTowards(playerRbody.position, destinationDoor.transform.position, Time.deltaTime * transitionSpeed);
-            yield return new WaitForEndOfFrame();
+            Vector2 movePos = Vector2.MoveTowards(playerRbody.position, destinationDoor.transform.position, Time.deltaTime * transitionSpeed);
+            elevatorObj.transform.position = movePos;
+            playerRbody.position = movePos;
+            yield return new WaitForFixedUpdate();
         }
+
+        Destroy(elevatorObj);
 
         playerCol.enabled = true;
         playerSprite.enabled = true;
