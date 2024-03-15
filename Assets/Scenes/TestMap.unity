@@ -5073,10 +5073,6 @@ PrefabInstance:
       propertyPath: destinationDoor
       value: 
       objectReference: {fileID: 1565054317}
-    - target: {fileID: 1401074677995055698, guid: 88bbaca87fb383d489ea3d10bb2b0d12, type: 3}
-      propertyPath: transitionSpeed
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 1401074677995055699, guid: 88bbaca87fb383d489ea3d10bb2b0d12, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 16
@@ -22265,6 +22261,10 @@ PrefabInstance:
     - target: {fileID: 1401074677995055696, guid: 88bbaca87fb383d489ea3d10bb2b0d12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401074677995055698, guid: 88bbaca87fb383d489ea3d10bb2b0d12, type: 3}
+      propertyPath: transition
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1401074677995055698, guid: 88bbaca87fb383d489ea3d10bb2b0d12, type: 3}
       propertyPath: interactSprite

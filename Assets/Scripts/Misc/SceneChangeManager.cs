@@ -35,7 +35,12 @@ public class SceneChangeManager : MonoBehaviour
         }
 
         PlayerCharacter.ResetPosition();
-        PlayerCharacter.Instance.hp = PlayerCharacter.Instance.maxHp;
+
+        if(PlayerCharacter.Instance != null)
+        {
+            PlayerCharacter.Instance.hp = PlayerCharacter.Instance.maxHp;
+        }
+
         Time.timeScale = 1f;
 
         SceneManager.LoadScene(sceneName);

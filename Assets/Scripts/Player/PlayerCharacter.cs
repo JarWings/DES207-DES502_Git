@@ -282,7 +282,7 @@ public class PlayerCharacter : MonoBehaviour
     {
         if (collision.transform.CompareTag("Boss") || collision.transform.CompareTag("Enemy"))
         {
-            if (this.CompareTag("Player"))
+            if (this.CompareTag("Player") && !isDashing)
             {
                 GetHit(10);
             }
