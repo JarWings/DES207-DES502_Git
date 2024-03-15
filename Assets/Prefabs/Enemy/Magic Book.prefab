@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 833738142612683336}
   - component: {fileID: 833738142612683335}
   - component: {fileID: 5693033173173798202}
+  - component: {fileID: 7653600648521572824}
   m_Layer: 9
   m_Name: Magic Book
   m_TagString: Untagged
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 389592852, guid: ae44116f463f71f41b7e523fd565d2f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,10 +98,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a22bca8e4f3bbb41b58970f98b15f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRange: 10
-  flySpeed: 5
+  spawnPosition: {x: 0, y: 0, z: 0}
+  detectRange: 5
+  flySpeed: 150
   hitRange: 1
   hitDamage: 10
   detectSound: {fileID: 0}
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}
+--- !u!50 &7653600648521572824
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833738142612683333}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0.2
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

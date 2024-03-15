@@ -268,8 +268,8 @@ public class PlayerCharacter : MonoBehaviour
 
     void Attack()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, attackRange, Vector2.up, attackRange, LayerMask.GetMask("Enemy"));
-        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, attackRange, Vector2.up, attackRange, LayerMask.GetMask("Enemy", "Destructible"));
+        if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible")))
         {
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)

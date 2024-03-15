@@ -15,13 +15,19 @@ public class MagicBook : Enemy
 
     private Transform playerTransform;
     private SpriteRenderer sprite;
-    private float hitCooldown = 0;
+    private Rigidbody2D rbody;
+
+    private float hitCooldown = 0, idleTime = 0f;
+
+    private Vector2 destination;
 
     private void Start()
     {
         TryGetComponent(out sprite);
+        TryGetComponent(out rbody);
 
         spawnPosition = transform.position;
+        NewRandomDest();
     }
 
     private void Update()
@@ -38,7 +44,37 @@ public class MagicBook : Enemy
             {
                 playerTransform = null;
             }
+            else
+            {
+                destination = playerTransform.position;
+            }
         }
+
+        Fly();
+    }
+
+    void Fly()
+    {
+        if(Vector2.Distance(transform.position, destination) > hitRange * 2f && hitCooldown <= 0)
+        {
+            sprite.flipX = !(destination.x > transform.position.x);
+            rbody.AddForce((destination - (Vector2)transform.position).normalized * flySpeed * Time.deltaTime, ForceMode2D.Force);
+        }
+        else
+        {
+            idleTime -= Time.deltaTime;
+
+            if(idleTime <= 0)
+            {
+                NewRandomDest();
+            }
+        }
+    }
+
+    void NewRandomDest()
+    {
+        destination = (Vector2)spawnPosition + Random.insideUnitCircle * Random.Range(detectRange / 2f, detectRange);
+        idleTime = 4f;
     }
 
     void CheckIfInRange()
@@ -68,5 +104,12 @@ public class MagicBook : Enemy
         player.GetComponent<PlayerCharacter>().GetHit(hitDamage);
 
         hitCooldown = 2f;
+    }
+
+    public override void GetHit(int damage)
+    {
+        base.GetHit(damage);
+
+        hitCooldown = 4f;
     }
 }

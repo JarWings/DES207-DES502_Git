@@ -110,7 +110,7 @@ public class MathsTeacher : Enemy
         {
             speed = 0f;
 
-            if (inRange && attackDelay <= 0f && attackTime <= 0f)
+            if (inRange && attackDelay <= 0f && attackTime <= 0f && chasing)
             {
                 Attack();
             }
