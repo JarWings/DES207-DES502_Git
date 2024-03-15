@@ -213,6 +213,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void GetHit(int damage)
     {
+        if (isDashing) return;
         if (isInvincible) return; // 如果处于无敌状态，则不执行以下受伤逻辑
 
         int difficultyMultiplier = 1;
