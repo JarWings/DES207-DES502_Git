@@ -34,6 +34,8 @@ public class MathsTeacher : Enemy
 
     private void Start()
     {
+        spawnPosition = transform.position;
+
         TryGetComponent(out spriteRender);
         TryGetComponent(out rbody);
         TryGetComponent(out anim);
@@ -92,7 +94,7 @@ public class MathsTeacher : Enemy
 
         if(IsGrounded() && !dead && attackTime <= 0f)
         {
-            spriteRender.flipX = targetRight;
+            spriteRender.flipX = !targetRight;
         }
 
         float speed = walkSpeed;
@@ -187,7 +189,7 @@ public class MathsTeacher : Enemy
 
         float xForce = -44f;
         float xAttackOffset = -2f;
-        if (spriteRender.flipX)
+        if (!spriteRender.flipX)
         {
             xForce = -xForce;
             xAttackOffset = -xAttackOffset;

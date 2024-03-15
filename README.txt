@@ -157,3 +157,8 @@ Switched the main character's materials to our own creations.
 --Jiancheng
 ver.0.2.8
 Completed the controller adaptation for the Inventory and made adjustments to the Inventory functionality, removing the Action Bar.
+
+15/03/24
+--Michael
+ver.0.2.9
+Added lift system, reset enemy positions when you enter a door.

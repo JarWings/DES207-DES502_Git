@@ -1,18 +1,21 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class Door : MonoBehaviour
 {
     public Sprite interactSprite;
     public Door destinationDoor;
     public Animator anim;
-    public bool oneTimeEvent = true, inputHeld = false, keyTriggersEvent = false;
+    public bool oneTimeEvent = true, inputHeld = false, keyTriggersEvent = false, transition = false;
+    public float transitionSpeed = 10f;
     public UnityEvent openEvent;
     private bool triggered = false, atDoor = false;
     public Rigidbody2D playerRbody;
 
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip transitionSound;
 
     private SpriteRenderer spriteRenderer, interactIcon;
 
@@ -115,7 +118,17 @@ public class Door : MonoBehaviour
             return;
         }
 
-        playerRbody.position = destinationDoor.transform.position;
+        MoveEnemies();
+
+        if (transition)
+        {
+            StartCoroutine(Transition(playerRbody));
+        }
+        else
+        {
+            playerRbody.position = destinationDoor.transform.position;
+        }
+
         destinationDoor.inputHeld = true;
     }
 
@@ -140,6 +153,54 @@ public class Door : MonoBehaviour
         {
             rigids[i].transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             rigids[i].AddForce(Random.insideUnitCircle.normalized * 5f, ForceMode2D.Impulse);
+        }
+    }
+
+    private void MoveEnemies()
+    {
+        if(destinationDoor == null)
+        {
+            return;
+        }
+
+        Vector2 exitPos = destinationDoor.transform.position;
+        RaycastHit2D[] enemies = Physics2D.CircleCastAll(exitPos, 5f, Vector2.up, 5f, LayerMask.GetMask("Enemy"));
+
+        for(int i = 0; i < enemies.Length; i++)
+        {
+            Enemy enemy = enemies[i].transform.GetComponent<Enemy>();
+            enemy.ResetPosition();
+        }
+    }
+
+    IEnumerator Transition(Rigidbody2D playerRbody)
+    {
+        AudioSource transitionSource = AudioManager.PlayAudio(AudioType.soundFX, transitionSound, null, Vector2.zero, null, 1, 1, 0, 0, 2600f, true);
+
+        SpriteRenderer playerSprite = playerRbody.GetComponent<SpriteRenderer>();
+        Collider2D playerCol = playerRbody.GetComponent<Collider2D>();
+
+        playerCol.enabled = false;
+        playerSprite.enabled = false;
+        playerRbody.isKinematic = true;
+
+        playerRbody.constraints = RigidbodyConstraints2D.FreezePosition;
+
+        while (playerRbody.position != (Vector2)destinationDoor.transform.position)
+        {
+            playerRbody.position = Vector2.MoveTowards(playerRbody.position, destinationDoor.transform.position, Time.deltaTime * transitionSpeed);
+            yield return new WaitForEndOfFrame();
+        }
+
+        playerCol.enabled = true;
+        playerSprite.enabled = true;
+        playerRbody.isKinematic = false;
+
+        playerRbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        if (transitionSource != null)
+        {
+            Destroy(transitionSource.gameObject);
         }
     }
 }

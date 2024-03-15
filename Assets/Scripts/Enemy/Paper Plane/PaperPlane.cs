@@ -35,6 +35,8 @@ public class PaperPlane : Enemy
         {
             floorLevel = transform.position.y - 10f;
         }
+
+        spawnPosition = transform.position;
     }
 
     private void Update()

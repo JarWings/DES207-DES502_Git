@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MagicBook : MonoBehaviour
+public class MagicBook : Enemy
 {
     public float detectRange = 10f;
     public float flySpeed = 10f;
@@ -20,6 +20,8 @@ public class MagicBook : MonoBehaviour
     private void Start()
     {
         TryGetComponent(out sprite);
+
+        spawnPosition = transform.position;
     }
 
     private void Update()

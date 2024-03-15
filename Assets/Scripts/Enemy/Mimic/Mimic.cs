@@ -37,6 +37,8 @@ public class Mimic : Enemy
         anim = GetComponent<Animator>();
         lastChangeStateTime = Time.time;
         startPos = transform.position;
+
+        spawnPosition = startPos;
     }
 
 
