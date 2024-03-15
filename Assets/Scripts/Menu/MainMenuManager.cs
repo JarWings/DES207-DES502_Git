@@ -73,6 +73,7 @@ public class MainMenuManager : MonoBehaviour
     public RectTransform leftPageParent, rightPageParent;
 
     [Header("Audio")]
+    public AudioClip splashMusic;
     public AudioClip menuMusic;
     public AudioClip levelMusic;
     public AudioClip highlightSound;
@@ -111,6 +112,7 @@ public class MainMenuManager : MonoBehaviour
         float fillAmount = 0f;
         if (SettingsManager.firstBoot)
         {
+            //MusicManager.ChangeTrack(splashMusic, true);
             fillAmount = 1f;
         }
 
@@ -199,7 +201,7 @@ public class MainMenuManager : MonoBehaviour
 
         if (displayingSplash)
         {
-            MusicManager.ChangeTrack(null, false);
+            MusicManager.ChangeTrack(splashMusic, true);
         }
         else
         {
