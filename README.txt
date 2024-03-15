@@ -162,3 +162,8 @@ Completed the controller adaptation for the Inventory and made adjustments to th
 --Michael
 ver.0.2.9
 Added lift system, reset enemy positions when you enter a door.
+
+15/03/24
+--Michael	
+ver.0.3.0
+Added some of the math teacher animations, fixed bugs.
