@@ -42,6 +42,8 @@ public class PlayerCharacter : MonoBehaviour
     [Header("Audio")]
     public AudioClip[] swingSounds;
 
+    public  Vector3 startPos;
+
 
     void Awake()
     {
@@ -65,6 +67,8 @@ public class PlayerCharacter : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, false);
+
+        startPos = transform.position;
     }
 
     void Update()
@@ -111,6 +115,11 @@ public class PlayerCharacter : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
         }
         outControlTime--;
+    }
+
+    public static void ResetPosition()
+    {
+        Instance.transform.position = Instance.startPos;
     }
 
     bool isAttacking()
