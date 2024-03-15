@@ -152,3 +152,8 @@ Added depth to testmap, made lockers interactable with the key, added interact i
 --Jiancheng
 ver.0.2.7
 Switched the main character's materials to our own creations. 
+
+15/03/24
+--Jiancheng
+ver.0.2.8
+Completed the controller adaptation for the Inventory and made adjustments to the Inventory functionality, removing the Action Bar.

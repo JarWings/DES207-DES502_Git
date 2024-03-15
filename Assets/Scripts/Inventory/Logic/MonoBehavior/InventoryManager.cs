@@ -28,7 +28,7 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("UI Panel")]
     public GameObject bagPanel;
 
-    bool isOpen = false;
+    //bool isOpen = false;
 
 
     [Header("Tooltip")]
@@ -37,16 +37,16 @@ public class InventoryManager : Singleton<InventoryManager>
     void Start()
     {
         inventoryUI.RefreshUI();
-        actionUI.RefreshUI();
+        //actionUI.RefreshUI();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            isOpen = !isOpen;
-            bagPanel.SetActive(isOpen);
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    isOpen = !isOpen;
+        //    bagPanel.SetActive(isOpen);
+        //}
     }
 
     #region 检查拖拽物品是否在一个Slot范围内

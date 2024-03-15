@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Key
   itemIcon: {fileID: 21300000, guid: f51145dd85d33dd4e85ef0f058db99d0, type: 3}
   itemAmount: 1
-  stackable: 0
-  description: "A key to unlock who-knows-what? \nBest stash it away for now\u2014schools\n
-    are full of doors begging to be opened, after all."
+  stackable: 1
+  description: "A key to unlock who-knows-what? \nBest stash it away for now\u2014schools\nare
+    full of doors begging to be opened, after all."
   useableData: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ActionButton : MonoBehaviour
 {
     public KeyCode actionKey;
+    public KeyCode controllerKey;
     private SlotHolder currentSlotHolder;
 
     private void Awake()
@@ -14,7 +15,7 @@ public class ActionButton : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(actionKey) && currentSlotHolder.itemUI.GetItem())
+        if ((Input.GetKeyDown(actionKey) || Input.GetKeyDown(controllerKey)) && currentSlotHolder.itemUI.GetItem()) 
         {
             currentSlotHolder.UseItem();
         }
