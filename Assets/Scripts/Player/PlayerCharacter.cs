@@ -119,6 +119,11 @@ public class PlayerCharacter : MonoBehaviour
 
     public static void ResetPosition()
     {
+        if(Instance == null)
+        {
+            return;
+        }
+
         Instance.transform.position = Instance.startPos;
     }
 

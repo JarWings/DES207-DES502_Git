@@ -57,6 +57,13 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public static AudioClip GetCurrentTrack()
+    {
+        MusicManager globalMusicManager = GetMusicManager();
+
+        return globalMusicManager.newTrack;
+    }
+
     public static void StartPlaylist(List<AudioClip> playlist)
     {
         MusicManager globalMusicManager = GetMusicManager();

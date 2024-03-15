@@ -176,7 +176,8 @@ public class Door : MonoBehaviour
 
     IEnumerator Transition(Rigidbody2D playerRbody)
     {
-        AudioSource transitionSource = AudioManager.PlayAudio(AudioType.soundFX, transitionSound, null, Vector2.zero, null, 1, 1, 0, 0, 2600f, true);
+        AudioClip lastTrack = MusicManager.GetCurrentTrack();
+        MusicManager.ChangeTrack(transitionSound, true, 1f);
 
         SpriteRenderer playerSprite = playerRbody.GetComponent<SpriteRenderer>();
         Collider2D playerCol = playerRbody.GetComponent<Collider2D>();
@@ -210,9 +211,6 @@ public class Door : MonoBehaviour
 
         playerRbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        if (transitionSource != null)
-        {
-            Destroy(transitionSource.gameObject);
-        }
+        MusicManager.ChangeTrack(lastTrack, true, 1f);
     }
 }
