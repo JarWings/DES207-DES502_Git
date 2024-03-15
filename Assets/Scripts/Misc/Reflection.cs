@@ -10,8 +10,10 @@ public class Reflection : MonoBehaviour
     {
         if (TargetSprite == null)
         {
-            spriteRender.sortingOrder = TargetSprite.sortingOrder;
+            TargetSprite = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
         }
+
+        spriteRender.sortingOrder = TargetSprite.sortingOrder;
     }
 
     private void Update()
