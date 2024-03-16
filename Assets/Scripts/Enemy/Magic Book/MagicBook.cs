@@ -1,23 +1,27 @@
-using System.Collections;
 using UnityEngine;
 
 public class MagicBook : Enemy
 {
-    public float detectRange = 10f;
-    public float flySpeed = 10f;
-    public float hitRange = 1f;
+    public int health = 50;
+
+    public float detectRange = 5f;
+    public float flySpeed = 150f;
+    public float hitRange = 2f;
     public int hitDamage = 10;
 
     [Header("Audio")]
     public AudioClip detectSound;
     public AudioClip attackSound;
     public AudioClip hitSound;
+    public AudioClip dieSound;
 
     private Transform playerTransform;
     private SpriteRenderer sprite;
     private Rigidbody2D rbody;
+    private Collider2D col;
 
     private float hitCooldown = 0, idleTime = 0f;
+    private bool dead = false;
 
     private Vector2 destination;
 
@@ -25,6 +29,7 @@ public class MagicBook : Enemy
     {
         TryGetComponent(out sprite);
         TryGetComponent(out rbody);
+        TryGetComponent(out col);
 
         spawnPosition = transform.position;
         NewRandomDest();
@@ -32,6 +37,11 @@ public class MagicBook : Enemy
 
     private void Update()
     {
+        if (dead)
+        {
+            return;
+        }
+
         hitCooldown = Mathf.MoveTowards(hitCooldown, 0f, Time.deltaTime);
 
         if (playerTransform == null)
@@ -55,9 +65,9 @@ public class MagicBook : Enemy
 
     void Fly()
     {
-        if(Vector2.Distance(transform.position, destination) > hitRange * 2f && hitCooldown <= 0)
+        if(Vector2.Distance(transform.position, destination) > hitRange && hitCooldown <= 0)
         {
-            sprite.flipX = !(destination.x > transform.position.x);
+            sprite.flipX = (destination.x > transform.position.x);
             rbody.AddForce((destination - (Vector2)transform.position).normalized * flySpeed * Time.deltaTime, ForceMode2D.Force);
         }
         else
@@ -68,6 +78,8 @@ public class MagicBook : Enemy
             {
                 NewRandomDest();
             }
+
+            DetectHits();
         }
     }
 
@@ -108,8 +120,37 @@ public class MagicBook : Enemy
 
     public override void GetHit(int damage)
     {
+        if (dead)
+        {
+            return;
+        }
+
         base.GetHit(damage);
 
         hitCooldown = 4f;
+        health -= damage;
+
+        if(health <= 0)
+        {
+            Die();
+            return;
+        }
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
+    }
+
+    private void Die()
+    {
+        AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
+        dead = true;
+
+        rbody.constraints = RigidbodyConstraints2D.None;
+        rbody.gravityScale = 1f;
+
+        rbody.AddForce(transform.up * Random.Range(6f, 8f), ForceMode2D.Impulse);
+        rbody.AddTorque(Random.Range(40f, 80f));
+
+        col.enabled = false;
+
+        Destroy(gameObject, 2f);
     }
 }

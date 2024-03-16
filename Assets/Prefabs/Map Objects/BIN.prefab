@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
-  health: 400
+  health: 200
+  destroyPrefab: {fileID: 3224616714980580839, guid: e342c193ba8a3d943b4e8513e0a2e174, type: 3}
   hitSound: {fileID: 0}
   destroySound: {fileID: 0}

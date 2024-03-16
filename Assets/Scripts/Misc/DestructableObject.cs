@@ -8,6 +8,7 @@ public class DestructableObject : Enemy
     private Collider2D col;
     private SpriteRenderer spriteRenderer;
 
+    public GameObject destroyPrefab;
     public AudioClip hitSound, destroySound;
 
     private void Start()
@@ -29,6 +30,7 @@ public class DestructableObject : Enemy
             return;
         }
 
+        StopAllCoroutines();
         StartCoroutine(HitShake());
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80);
     }
@@ -39,10 +41,15 @@ public class DestructableObject : Enemy
 
         Rigidbody2D rbody = gameObject.AddComponent<Rigidbody2D>();
 
-        rbody.AddForce(transform.up * Random.Range(4f, 12f), ForceMode2D.Impulse);
+        rbody.AddForce(transform.up * Random.Range(8f, 12f), ForceMode2D.Impulse);
         rbody.AddTorque(Random.Range(40f, 80f));
 
         AudioManager.PlayAudio(AudioType.soundFX, destroySound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80);
+
+        if(destroyPrefab != null)
+        {
+            Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+        }
 
         StopAllCoroutines();
         StartCoroutine(SpriteFade());
@@ -65,10 +72,18 @@ public class DestructableObject : Enemy
     IEnumerator HitShake()
     {
         int shakeCount = 0;
-        while (shakeCount < Random.Range(8, 14))
+        int totalShakes = Random.Range(8, 14);
+
+        while (shakeCount < totalShakes)
         {
-            Vector2 targetPos = (Vector2)spawnPosition + Random.insideUnitCircle * Random.Range(1f, 2f);
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, Time.deltaTime * 64f);
+            Vector3 targetPos = spawnPosition + (Vector3)Random.insideUnitCircle * Random.Range(.5f, 1f);
+
+            if(shakeCount >= totalShakes)
+            {
+                targetPos = spawnPosition;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 64f);
             shakeCount++;
 
             yield return new WaitForSeconds(.05f);

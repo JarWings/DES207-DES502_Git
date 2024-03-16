@@ -33,11 +33,19 @@ public class SettingsManager : MonoBehaviour
 
     public static bool firstBoot = true;
 
+    private bool cheatUsed = false;
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))
         {
             SceneChangeManager.LoadScene("MainMenu");
+        }
+
+        if(Input.GetKey(KeyCode.Alpha6) && Input.GetKey(KeyCode.Alpha9) && !cheatUsed)
+        {
+            DestructionCheat();
+            cheatUsed = true;
         }
     }
 
@@ -187,5 +195,26 @@ public class SettingsManager : MonoBehaviour
         UpdateVolume(AudioType.soundFX, 0, true);
         UpdateVolume(AudioType.music, 0, true);
         UpdateVolume(AudioType.ui, 0, true);
+    }
+    static void DestructionCheat()
+    {
+        Debug.Log("cheat activated!");
+
+        GameObject[] objs = FindObjectsOfType<GameObject>();
+
+        for (int i = 0; i < objs.Length; i++)
+        {
+            GameObject obj = objs[i];
+            if (!obj.GetComponent<Collider2D>() && obj.gameObject.tag == "Untagged" && obj.GetComponent<SpriteRenderer>())
+            {
+                obj.tag = "Destructible";
+                obj.layer = 11;
+
+                obj.AddComponent<BoxCollider2D>();
+
+                DestructableObject destructable = obj.AddComponent<DestructableObject>();
+                destructable.health = 50;
+            }
+        }
     }
 }

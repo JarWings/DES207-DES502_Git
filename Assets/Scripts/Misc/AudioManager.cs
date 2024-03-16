@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// For randomisation use Random.Range(min, max). For 2D sounds set spatial to 0f. Volume, pitch, spatial, stereo are have a 0 to 1 range. Clip will be ignored if randomClipSet is not populated.
     /// </summary>
-    public static AudioSource PlayAudio(AudioType type, AudioClip clip, AudioClip[] randomClipSet, Vector2 origin, Transform parent = null, float vol = 1f, float pitch = 1f, float spatial = 1f, float stereoPan = 0, float distance = 2600f, bool loop = false, float delay = 0f)
+    public static AudioSource PlayAudio(AudioType type, AudioClip clip, AudioClip[] randomClipSet, Vector2 origin, Transform parent = null, float vol = 1f, float pitch = 1f, float spatial = 1f, float stereoPan = 0, float distance = 2600f, bool loop = false, float delay = 0f, bool randomStart = false)
     {
         if (clip == null && randomClipSet == null)
         {
@@ -86,6 +86,11 @@ public class AudioManager : MonoBehaviour
         if (parent != null)
         {
             audioObj.transform.parent = parent;
+        }
+
+        if (randomStart)
+        {
+            audioSource.time = Random.Range(0f, clip.length);
         }
 
         audioSource.PlayDelayed(delay);

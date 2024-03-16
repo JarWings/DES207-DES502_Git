@@ -89,7 +89,7 @@ public class PaperPlane : Enemy
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, hitRange, Vector2.down, hitRange, LayerMask.GetMask("Player"));
         
-        if(hit.transform != null)
+        if(hit.transform != null && transform.position.y > hit.transform.position.y)
         {
             Hit(hit.transform);
         }

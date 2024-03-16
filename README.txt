@@ -167,3 +167,8 @@ Added lift system, reset enemy positions when you enter a door.
 --Michael	
 ver.0.3.0
 Added some of the math teacher animations, fixed bugs.
+
+16/03/24
+--Michael	
+ver.0.3.1
+Added logic for math book attacking and dying, paper plane now only damages when it hits the top of your head. Added function to change music volume midgame. Fixed issues with destructible objects, added cheat code, and added temporary magic book sprite.

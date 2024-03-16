@@ -101,6 +101,18 @@ public class MusicManager : MonoBehaviour
         globalMusicManager.curTime = track.length;
     }
 
+    public static void ChangeVolume(float vol)
+    {
+        MusicManager globalMusicManager = GetMusicManager();
+
+        if (globalMusicManager.currentTrack == null)
+        {
+            return;
+        }
+
+        globalMusicManager.currentTrack.volume = vol;
+    }
+
     public static MusicManager GetMusicManager()
     {
         return GameObject.FindWithTag("Global").GetComponent<MusicManager>();
