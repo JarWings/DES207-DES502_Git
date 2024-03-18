@@ -195,15 +195,27 @@ public class Door : MonoBehaviour
 
         playerRbody.constraints = RigidbodyConstraints2D.FreezePosition;
 
+        LoadingManager.StartLoad();
+
+        bool unloaded = false;
+
         while (playerRbody.position != (Vector2)destinationDoor.transform.position)
         {
             Vector2 movePos = Vector2.MoveTowards(playerRbody.position, destinationDoor.transform.position, Time.deltaTime * transitionSpeed);
             elevatorObj.transform.position = movePos;
             playerRbody.position = movePos;
+
+            if(Vector2.Distance(playerRbody.position, (Vector2)destinationDoor.transform.position) < 6f && !unloaded)
+            {
+                MoveEnemies();
+
+                LoadingManager.EndLoad();
+                unloaded = true;
+            }
+
             yield return new WaitForFixedUpdate();
         }
 
-        MoveEnemies();
 
         Destroy(elevatorObj);
 

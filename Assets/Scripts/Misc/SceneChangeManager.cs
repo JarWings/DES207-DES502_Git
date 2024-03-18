@@ -39,6 +39,13 @@ public class SceneChangeManager : MonoBehaviour
         if(PlayerCharacter.Instance != null)
         {
             PlayerCharacter.Instance.hp = PlayerCharacter.Instance.maxHp;
+            PlayerCharacter.Instance.transform.GetComponent<Collider2D>().enabled = true;
+            PlayerCharacter.Instance.transform.GetComponent<SpriteRenderer>().enabled = true;
+
+            Rigidbody2D rbody = PlayerCharacter.Instance.transform.GetComponent<Rigidbody2D>();
+
+            rbody.isKinematic = false;
+            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         Time.timeScale = 1f;

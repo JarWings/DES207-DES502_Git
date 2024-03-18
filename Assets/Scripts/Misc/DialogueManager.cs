@@ -12,7 +12,7 @@ public class Line
     [TextArea(4, 20)]
     public string message = "";
     public AudioClip voiceClip;
-    public Sprite talkSprite;
+    public Sprite talkSprite, recieveSprite;
     public bool isPlayer = false;
     public UnityEvent talkEvent;
 }
@@ -181,6 +181,12 @@ public class DialogueManager : MonoBehaviour
                 npcAvatar.sprite = currentLine.talkSprite;
                 StartCoroutine(ImageFade(npcAvatar, Color.white, 4f));
             }
+
+            if(currentLine.recieveSprite != null)
+            {
+                playerAvatar.sprite = currentLine.recieveSprite;
+            }
+
             if (playerAvatar.sprite != null)
             {
                 playerAvatar.rectTransform.anchoredPosition = new Vector2(500f, 20f);

@@ -1597,6 +1597,35 @@ MonoBehaviour:
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
               m_IntArgument: 0
               m_FloatArgument: 0
+              m_StringArgument: Level
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+      playSounds: 1
+    - buttonName: TestMap
+      buttonDesc: Start playing!
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: LoadScene
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
               m_StringArgument: TestMap
               m_BoolArgument: 0
             m_CallState: 2

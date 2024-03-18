@@ -175,6 +175,12 @@ Added logic for math book attacking and dying, paper plane now only damages when
 
 18/03/24
 --Jiancheng
+ver.0.3.2
 Fixed the bug that prevented attacking multiple enemies at the same time.
 Added an attack interval to prevent multiple attacks in a short period.
 Imported the attack animation.
+
+16/03/24
+--Michael	
+ver.0.3.3
+Fixed a bunch of bugs, added loading screen to elevator transition, made a separate scene for the final level, added dust particles to lights.
