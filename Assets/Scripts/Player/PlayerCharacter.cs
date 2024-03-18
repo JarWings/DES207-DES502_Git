@@ -11,15 +11,13 @@ public class PlayerCharacter : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
 
-    [Header("基本参数")]
+    [Header("Basic Parameters")]
     public int maxHp;
     public int hp;
-    public int attackDamage;
-    public float attackRange;
     public float speed = 8.0f;
     public bool faceLeft = false;
 
-    [Header("Dash参数")]
+    [Header("Dash Parameters")]
     public float dashTime;//dash时长
     private float dashTimeLeft;//冲锋剩余时长
     private float lastDash=-10.0f;//上一次冲锋时间点
@@ -32,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
     private int enemyLayer = 9;
     private int enemyHitLayer = 10;
 
-    [Header("无敌时间参数")]
+    [Header("Invincible Time Parameters")]
     private float outControlTime = 0;
     public float invincibilityDuration; // 无敌持续时间，单位为秒
     private float invincibleTimer = 0; // 无敌时间计时器
@@ -43,6 +41,12 @@ public class PlayerCharacter : MonoBehaviour
     public AudioClip[] swingSounds;
 
     public  Vector3 startPos;
+
+    [Header("Attack Parameters")]
+    public int attackDamage;
+    public float attackRange;
+    public float attackCooldown = 0.5f; // 攻击冷却时间
+    private float lastAttackTime = -1f; // 上一次攻击的时间
 
 
     void Awake()
@@ -266,12 +270,32 @@ public class PlayerCharacter : MonoBehaviour
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
     }
 
+    //void Attack()
+    //{
+    //    RaycastHit2D hit = Physics2D.CircleCast(transform.position, attackRange, Vector2.up, attackRange, LayerMask.GetMask("Enemy", "Destructible"));
+    //    if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible")))
+    //    {
+    //        Enemy enemy = hit.collider.GetComponent<Enemy>();
+    //        if (enemy != null)
+    //        {
+    //            enemy.GetHit(attackDamage);
+    //        }
+    //    }
+    //}
+
     void Attack()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, attackRange, Vector2.up, attackRange, LayerMask.GetMask("Enemy", "Destructible"));
-        if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible")))
+        // 检查是否超过冷却时间
+        if (Time.time - lastAttackTime < attackCooldown) return;
+
+        // 执行攻击，并更新上一次攻击时间
+        lastAttackTime = Time.time;
+
+        // 使用OverlapCircleAll来获取范围内的所有敌人
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Destructible"));
+        foreach (var hit in hits)
         {
-            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            Enemy enemy = hit.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.GetHit(attackDamage);

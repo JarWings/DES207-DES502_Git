@@ -178,8 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 50
   hp: 0
-  attackDamage: 20
-  attackRange: 6
   speed: 16
   faceLeft: 0
   dashTime: 0.15
@@ -189,3 +187,7 @@ MonoBehaviour:
   swingSounds:
   - {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
   - {fileID: 8300000, guid: b4a457efd33e7e044878de18359dbba1, type: 3}
+  startPos: {x: 0, y: 0, z: 0}
+  attackDamage: 20
+  attackRange: 4
+  attackCooldown: 0.5

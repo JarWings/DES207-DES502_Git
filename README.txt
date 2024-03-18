@@ -172,3 +172,9 @@ Added some of the math teacher animations, fixed bugs.
 --Michael	
 ver.0.3.1
 Added logic for math book attacking and dying, paper plane now only damages when it hits the top of your head. Added function to change music volume midgame. Fixed issues with destructible objects, added cheat code, and added temporary magic book sprite.
+
+18/03/24
+--Jiancheng
+Fixed the bug that prevented attacking multiple enemies at the same time.
+Added an attack interval to prevent multiple attacks in a short period.
+Imported the attack animation.
