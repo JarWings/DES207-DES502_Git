@@ -1239,7 +1239,7 @@ RectTransform:
   - {fileID: 555755165}
   - {fileID: 1098973795}
   m_Father: {fileID: 748219040}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1954,7 +1954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 833738142612683336, guid: 85fa6153d8317e64fb77760506655217, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.919867
+      value: 59.91
       objectReference: {fileID: 0}
     - target: {fileID: 833738142612683336, guid: 85fa6153d8317e64fb77760506655217, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2240,6 +2240,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -257264893598843092, guid: 85fa6153d8317e64fb77760506655217, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 833738142612683333, guid: 85fa6153d8317e64fb77760506655217, type: 3}
       propertyPath: m_Name
       value: Magic Book (2)
@@ -2549,7 +2553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2575379291168242037, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_Name
-      value: Maths Teacher
+      value: Maths Teacher (Encounter)
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_RootOrder
@@ -2557,7 +2561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.472713
+      value: 12.71
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2593,6 +2597,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524085162963070081, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4323,7 +4331,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 748219040}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6713,8 +6721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -50, y: 0}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &429163878
 Animator:
@@ -6759,7 +6767,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 0}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8203,7 +8211,7 @@ RectTransform:
   m_GameObject: {fileID: 555755164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 66133048}
@@ -11358,9 +11366,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 799223574}
-  - {fileID: 66133048}
   - {fileID: 855220783}
   - {fileID: 257410380}
+  - {fileID: 66133048}
   - {fileID: 1808808504}
   m_Father: {fileID: 152972502}
   m_RootOrder: 0
@@ -11481,8 +11489,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tips:
-  - Press Space to dodge attacks with the Dash move!
-  - Open lockers to find items.
+  - People die when they are killed.
+  - "Some lockers aren\u2019t locked, press up to open them."
+  - Remember to stay hydrated, chocolate milk will restore all your HP!
+  - Do people even read these?
+  - Walk up to the students in order to free them from detention.
+  - 'This would not be a problem if the education system accommodated more for different
+    students. Instead of assisting students that are falling behind they punish them.
+    This is especially bad for disabled students, who have to try twice as hard to
+    do the same amount of work, and get judged the same as everyone else. The education
+    system needs to be more flexible because everyone learns differently and forcing
+    everyone to fit into the same mold does not help. '
+  - "Oh heck yeah it\u2019s pizza day in the cafeteria!"
   fadePanel: {fileID: 1314763630}
   tipText: {fileID: 1438236985}
   loadIcon: {fileID: 429163879}
@@ -12274,9 +12292,9 @@ MonoBehaviour:
   m_fontSize: 64
   m_fontSizeBase: 64
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 64
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -13020,7 +13038,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 748219040}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -17385,6 +17403,108 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3584490512247608746, guid: ece849dd6a2fe13409bef470f6568336, type: 3}
   m_PrefabInstance: {fileID: 1182063722}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1182891848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575379291168242037, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
+  m_PrefabInstance: {fileID: 156588431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182891849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5524085162963070081, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
+  m_PrefabInstance: {fileID: 156588431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182891848}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fa9cbca823d3d4d831614ca7cf9535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1182891854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182891848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321106bbf5f8fda41bac7a954238b39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkRange: 5
+  Dialogue:
+  - senderName: Maths Teacher
+    message: Mister Mitchell!! What the devil do you think you're doing, return at
+      once to detention or so help me!
+    voiceClip: {fileID: 0}
+    talkSprite: {fileID: 21300000, guid: 7c44e5b05a34f904ead2952bc2d7f659, type: 3}
+    recieveSprite: {fileID: 21300000, guid: 2315cc7cc5215344eab453f4132ce89e, type: 3}
+    isPlayer: 0
+    talkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - senderName: 
+    message: "Or what!? I\u2019ve realized the truth, the truth that everything about
+      you and this school are pure evil, that it's about time someone put an end
+      to this farce! "
+    voiceClip: {fileID: 0}
+    talkSprite: {fileID: 21300000, guid: cfbf2b8d31d3d164596979bc21ed410f, type: 3}
+    recieveSprite: {fileID: 0}
+    isPlayer: 1
+    talkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - senderName: Maths Teacher
+    message: "An astute observation, a shame, much like when you're handing in your
+      homework however; you\u2019re too late!"
+    voiceClip: {fileID: 0}
+    talkSprite: {fileID: 21300000, guid: 83f44a666b4ab984e8f64668196099ed, type: 3}
+    recieveSprite: {fileID: 21300000, guid: 2315cc7cc5215344eab453f4132ce89e, type: 3}
+    isPlayer: 0
+    talkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - senderName: 
+    message: "We\u2019ll see about that, cause I\u2019m about to calculate my way
+      to victory!"
+    voiceClip: {fileID: 0}
+    talkSprite: {fileID: 21300000, guid: de85c5f7802477848b10f8a0b43c9198, type: 3}
+    recieveSprite: {fileID: 0}
+    isPlayer: 1
+    talkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - senderName: Maths Teacher
+    message: "That\u2019s strictly against school policy!"
+    voiceClip: {fileID: 0}
+    talkSprite: {fileID: 21300000, guid: 61c8aca28b613424c84810b1dbe492e1, type: 3}
+    recieveSprite: {fileID: 21300000, guid: 2315cc7cc5215344eab453f4132ce89e, type: 3}
+    isPlayer: 0
+    talkEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - senderName: 
+    message: Screw the rules, I have a sword! Beat that!
+    voiceClip: {fileID: 0}
+    talkSprite: {fileID: 21300000, guid: 161bda3e8ff2f21458aa0a67002f7dbc, type: 3}
+    recieveSprite: {fileID: 0}
+    isPlayer: 1
+    talkEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1182891849}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  priority: 0
 --- !u!1001 &1188509636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28204,7 +28324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6122479275883601593, guid: 41a71f246083cdb43a311466fb6155b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.23
+      value: -3.17
       objectReference: {fileID: 0}
     - target: {fileID: 6122479275883601593, guid: 41a71f246083cdb43a311466fb6155b8, type: 3}
       propertyPath: m_LocalPosition.z

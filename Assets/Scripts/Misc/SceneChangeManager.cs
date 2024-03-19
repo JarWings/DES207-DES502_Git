@@ -41,11 +41,20 @@ public class SceneChangeManager : MonoBehaviour
             PlayerCharacter.Instance.hp = PlayerCharacter.Instance.maxHp;
             PlayerCharacter.Instance.transform.GetComponent<Collider2D>().enabled = true;
             PlayerCharacter.Instance.transform.GetComponent<SpriteRenderer>().enabled = true;
+            PlayerCharacter.Instance.transform.GetComponent<PlayerController>().enabled = (sceneName != "MainMenu");
+
+            PlayerCharacter.Instance.dashFrames.Clear();
 
             Rigidbody2D rbody = PlayerCharacter.Instance.transform.GetComponent<Rigidbody2D>();
 
             rbody.isKinematic = false;
             rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+            if(sceneName == "MainMenu")
+            {
+                rbody.constraints = RigidbodyConstraints2D.FreezeAll;
+                rbody.velocity = Vector2.zero;
+            }
         }
 
         Time.timeScale = 1f;

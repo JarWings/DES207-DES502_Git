@@ -163,7 +163,7 @@ MonoBehaviour:
   walkSpeed: 10
   attackDamage: 20
   attackRange: 2
-  viewRange: 10
+  viewRange: 8
   alertSound: {fileID: 0}
   attackSound: {fileID: 0}
   hitSound: {fileID: 0}

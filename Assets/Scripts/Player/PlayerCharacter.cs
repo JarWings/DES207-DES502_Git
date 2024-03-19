@@ -7,6 +7,7 @@ public class PlayerCharacter : MonoBehaviour
 {
     public static PlayerCharacter Instance { get; private set; } // 单例模式的静态实例
 
+    SpriteRenderer playerSprite;
     PlayerController controller;
     Rigidbody2D rigid;
     Animator anim;
@@ -49,6 +50,8 @@ public class PlayerCharacter : MonoBehaviour
     private float lastAttackTime = -1f; // 上一次攻击的时间
 
 
+    public List<GameObject> dashFrames = new();
+
     void Awake()
     {
         if (Instance == null)
@@ -67,6 +70,7 @@ public class PlayerCharacter : MonoBehaviour
         controller = GetComponent<PlayerController>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerSprite = GetComponent<SpriteRenderer>();
         hp = maxHp;
 
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
@@ -95,7 +99,6 @@ public class PlayerCharacter : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack && !DialogueManager.inDialogue)
         {
-            AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
             anim.SetTrigger("Attack");
             Attack();
         }
@@ -154,7 +157,10 @@ public class PlayerCharacter : MonoBehaviour
     {
         isDashing = true;
         dashTimeLeft = dashTime;
-        lastDash = Time.time; 
+        lastDash = Time.time;
+
+        StopAllCoroutines();
+        StartCoroutine(DashEffect());
     }
 
     void Dash()
@@ -301,6 +307,8 @@ public class PlayerCharacter : MonoBehaviour
                 enemy.GetHit(attackDamage);
             }
         }
+
+        AudioManager.PlayAudio(AudioType.soundFX, null, swingSounds, transform.position, null, 1, Random.Range(.9f, 1.1f));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -323,4 +331,46 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+    IEnumerator DashEffect()
+    {
+        int frames = 0;
+
+        while (isDashing)
+        {
+            GameObject spriteObj;
+            SpriteRenderer dashFrame;
+
+            if (dashFrames.Count < 12)
+            {
+                spriteObj = new("DashFrame (" + frames + ")");
+                dashFrame = spriteObj.AddComponent<SpriteRenderer>();
+
+                dashFrames.Add(spriteObj);
+            }
+            else
+            {
+                spriteObj = dashFrames[frames];
+                dashFrame = dashFrames[frames].GetComponent<SpriteRenderer>();
+            }
+
+            spriteObj.transform.position = transform.position;
+            spriteObj.transform.localScale = transform.localScale;
+
+            dashFrame.sprite = playerSprite.sprite;
+            dashFrame.color = Color.white * (.5f * frames);
+
+            frames++;
+
+            StartCoroutine(SpriteFade(dashFrame, 16f));
+            yield return new WaitForSeconds(.03f);
+        }
+    } 
+    IEnumerator SpriteFade(SpriteRenderer sprite, float rate)
+    {
+        while(sprite != null && sprite.color.a > 0)
+        {
+            sprite.color = Color.Lerp(sprite.color, Color.clear, Time.deltaTime * rate);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }

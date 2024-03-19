@@ -181,6 +181,7 @@ public class Door : MonoBehaviour
 
         SpriteRenderer playerSprite = playerRbody.GetComponent<SpriteRenderer>();
         Collider2D playerCol = playerRbody.GetComponent<Collider2D>();
+        PlayerController playerController = playerRbody.GetComponent<PlayerController>();
 
         GameObject elevatorObj = new();
         SpriteRenderer elevatorSprite = elevatorObj.AddComponent<SpriteRenderer>();
@@ -189,6 +190,7 @@ public class Door : MonoBehaviour
         elevatorObj.transform.position = playerRbody.position;
         elevatorObj.transform.localScale = Vector3.one * .8f;
 
+        playerController.enabled = false;
         playerCol.enabled = false;
         playerSprite.enabled = false;
         playerRbody.isKinematic = true;
@@ -219,6 +221,7 @@ public class Door : MonoBehaviour
 
         Destroy(elevatorObj);
 
+        playerController.enabled = true;
         playerCol.enabled = true;
         playerSprite.enabled = true;
         playerRbody.isKinematic = false;

@@ -184,3 +184,8 @@ Imported the attack animation.
 --Michael	
 ver.0.3.3
 Fixed a bunch of bugs, added loading screen to elevator transition, made a separate scene for the final level, added dust particles to lights.
+
+17/03/24
+--Michael	
+ver.0.3.4
+Fixed bugs, added dash effect, added loading screen tips and animation.
