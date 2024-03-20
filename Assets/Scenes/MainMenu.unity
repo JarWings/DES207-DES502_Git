@@ -2951,10 +2951,10 @@ MonoBehaviour:
   splashMusic: {fileID: 8300000, guid: 99cd6ec347478614ea484f8e0aa2c6d3, type: 3}
   menuMusic: {fileID: 8300000, guid: 498b7e4bc68dc3a45a3dfba781373ac3, type: 3}
   levelMusic: {fileID: 8300000, guid: 1122c2165b03dfa46a6bfaad156c15af, type: 3}
-  highlightSound: {fileID: 8300000, guid: 60ffabcb154803946bde846ee1676bc8, type: 3}
-  activateSound: {fileID: 8300000, guid: 872faafc925a6164c8d18041232bf64b, type: 3}
+  highlightSound: {fileID: 8300000, guid: eb4cd019f7fad1e47a1674521338181f, type: 3}
+  activateSound: {fileID: 8300000, guid: d48573c157c00984daca77ecd10b353e, type: 3}
   sliderUseSound: {fileID: 8300000, guid: 9a23c2845d870484885218c4b8e0723c, type: 3}
-  errorSound: {fileID: 8300000, guid: cdbb1f26539dfd847813f08994233947, type: 3}
+  errorSound: {fileID: 8300000, guid: bec16409fe2cad743821d62884924307, type: 3}
   pageChangeSound: {fileID: 8300000, guid: 5bb08a5926f995d47a07f5407bb9cd6d, type: 3}
   defaultButtonFont: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
   simpleButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
