@@ -159,6 +159,7 @@ public class PlayerCharacter : MonoBehaviour
         dashTimeLeft = dashTime;
         lastDash = Time.time;
 
+        EmptyDashFrames();
         StopAllCoroutines();
         StartCoroutine(DashEffect());
     }
@@ -340,7 +341,7 @@ public class PlayerCharacter : MonoBehaviour
             GameObject spriteObj;
             SpriteRenderer dashFrame;
 
-            if (dashFrames.Count < 12)
+            if (dashFrames.Count < 12 || frames >= dashFrames.Count)
             {
                 spriteObj = new("DashFrame (" + frames + ")");
                 dashFrame = spriteObj.AddComponent<SpriteRenderer>();
@@ -349,6 +350,7 @@ public class PlayerCharacter : MonoBehaviour
             }
             else
             {
+                Debug.Log("frame: " + frames + ", total: " + dashFrames.Count);
                 spriteObj = dashFrames[frames];
                 dashFrame = dashFrames[frames].GetComponent<SpriteRenderer>();
             }
@@ -357,14 +359,15 @@ public class PlayerCharacter : MonoBehaviour
             spriteObj.transform.localScale = transform.localScale;
 
             dashFrame.sprite = playerSprite.sprite;
-            dashFrame.color = Color.white * (.5f * frames);
+            dashFrame.color = Color.white * (.8f * frames);
 
             frames++;
 
             StartCoroutine(SpriteFade(dashFrame, 16f));
             yield return new WaitForSeconds(.03f);
         }
-    } 
+    }
+
     IEnumerator SpriteFade(SpriteRenderer sprite, float rate)
     {
         while(sprite != null && sprite.color.a > 0)
@@ -372,5 +375,15 @@ public class PlayerCharacter : MonoBehaviour
             sprite.color = Color.Lerp(sprite.color, Color.clear, Time.deltaTime * rate);
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    private void EmptyDashFrames()
+    {
+        for(int i = 0; i < dashFrames.Count; i++)
+        {
+            Destroy(dashFrames[i]);
+        }
+
+        dashFrames.Clear();
     }
 }

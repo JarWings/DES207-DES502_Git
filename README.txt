@@ -189,3 +189,8 @@ Fixed a bunch of bugs, added loading screen to elevator transition, made a separ
 --Michael	
 ver.0.3.4
 Fixed bugs, added dash effect, added loading screen tips and animation.
+
+17/03/24
+--Michael	
+ver.0.3.5
+Fixed bugs, added item pickup sounds.
