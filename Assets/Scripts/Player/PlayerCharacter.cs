@@ -17,6 +17,7 @@ public class PlayerCharacter : MonoBehaviour
     public int hp;
     public float speed = 8.0f;
     public bool faceLeft = false;
+    public bool isFullHealth;
 
     [Header("Dash Parameters")]
     public float dashTime;//dash时长
@@ -63,6 +64,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             Destroy(gameObject); 
         }
+        isFullHealth = true;
     }
 
     void Start()
@@ -247,6 +249,7 @@ public class PlayerCharacter : MonoBehaviour
 
         // 受伤后进入无敌状态
         isInvincible = true;
+        isFullHealth = false;
         invincibleTimer = invincibilityDuration;
         // 其他受伤逻辑...
         //受伤动画
@@ -273,7 +276,11 @@ public class PlayerCharacter : MonoBehaviour
     public void Health(int health)
     {
         hp += health;
-        if (hp > maxHp) { hp = maxHp; }
+        if (hp > maxHp) 
+        { 
+            hp = maxHp; 
+            isFullHealth=true;
+        }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
     }
 

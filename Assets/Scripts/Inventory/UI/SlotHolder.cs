@@ -22,7 +22,7 @@ public class SlotHolder : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
 
     public void UseItem()
     {
-        if(itemUI.GetItem() != null)
+        if(itemUI.GetItem() != null && !PlayerCharacter.Instance.isFullHealth)
         {
             if (itemUI.GetItem().itemType == ItemType.Useable && itemUI.Bag.items[itemUI.Index].amount > 0)
             {

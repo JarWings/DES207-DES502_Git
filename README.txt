@@ -194,3 +194,8 @@ Fixed bugs, added dash effect, added loading screen tips and animation.
 --Michael	
 ver.0.3.5
 Fixed bugs, added item pickup sounds.
+
+21/03/24
+--Jiancheng
+ver.0.3.6
+Fixed bugs,can only use health recovery items when you are injured.
