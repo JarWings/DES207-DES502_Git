@@ -204,3 +204,8 @@ Fixed bugs,can only use health recovery items when you are injured.
 --Michael
 ver.0.3.7
 Added audio effect fading support, added interact icon, fixed bugs, started new level block-out.
+
+21/03/24
+--Jiancheng
+ver.0.3.8
+Added skill cooling effect

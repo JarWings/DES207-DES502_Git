@@ -12,6 +12,9 @@ public class PlayerCharacter : MonoBehaviour
     Rigidbody2D rigid;
     Animator anim;
 
+    [Header("CD")]
+    public Image CDImage;
+
     [Header("Basic Parameters")]
     public int maxHp;
     public int hp;
@@ -97,6 +100,8 @@ public class PlayerCharacter : MonoBehaviour
             ReadyToDash();
         }
 
+        CDImage.fillAmount -= 1.0f / dashCoolDown * Time.deltaTime;
+
         // ¸üÐÂ¶¯»­×´Ì¬
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack && !DialogueManager.inDialogue)
@@ -164,6 +169,8 @@ public class PlayerCharacter : MonoBehaviour
         EmptyDashFrames();
         StopAllCoroutines();
         StartCoroutine(DashEffect());
+
+        CDImage.fillAmount = 1;
     }
 
     void Dash()
