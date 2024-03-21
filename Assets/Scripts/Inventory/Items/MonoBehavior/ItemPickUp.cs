@@ -8,7 +8,7 @@ public class ItemPickUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            AudioManager.PlayAudio(AudioType.soundFX, pickupSound, null, Vector2.zero, null, 1, 1, 0, 0, 2600);
+            AudioManager.PlayAudio(AudioType.soundFX, pickupSound, null, Vector2.zero, null, .6f, 1, 0, 0, 2600);
 
             //TODO:将物品添加到背包
             InventoryManager.Instance.inventoryData.AddItem(itemData, itemData.itemAmount);

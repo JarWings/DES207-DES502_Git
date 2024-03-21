@@ -17,7 +17,7 @@ public class IconManager : MonoBehaviour
         return renderer;
     }
 
-    public static void UpdateInteractIcon(SpriteRenderer renderer, Vector3 position, Sprite icon, float scale = 4f)
+    public static void UpdateInteractIcon(SpriteRenderer renderer, Vector3 position, Sprite icon, float scale = .1f)
     {
         if(renderer == null)
         {

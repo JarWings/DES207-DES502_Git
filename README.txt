@@ -199,3 +199,8 @@ Fixed bugs, added item pickup sounds.
 --Jiancheng
 ver.0.3.6
 Fixed bugs,can only use health recovery items when you are injured.
+
+21/03/24
+--Michael
+ver.0.3.7
+Added audio effect fading support, added interact icon, fixed bugs, started new level block-out.

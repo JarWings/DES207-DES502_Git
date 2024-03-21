@@ -149,10 +149,7 @@ public class DialogueManager : MonoBehaviour
 
         StopAllCoroutines();
 
-        if(nameText.text != currentLine.senderName)
-        {
-            StartCoroutine(FillText(nameText, currentLine.senderName));
-        }
+        nameText.text = currentLine.senderName;
         StartCoroutine(FillText(lineText, currentLine.message));
 
         StartCoroutine(ToggleDialogueUi(true));

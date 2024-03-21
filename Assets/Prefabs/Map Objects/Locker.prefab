@@ -146,12 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39524fefca3131946a0df6aec84e5eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSprite: {fileID: 21300000, guid: ea4a9c4889157964ea64778839d97680, type: 3}
+  liftSprite: {fileID: 0}
+  interactSprite: {fileID: 21300000, guid: 799b3fe2c6c019a42b3267f6f3863092, type: 3}
   destinationDoor: {fileID: 0}
   anim: {fileID: 4184740237818358890}
   oneTimeEvent: 1
   inputHeld: 0
   keyTriggersEvent: 1
+  transition: 0
+  transitionSpeed: 10
   openEvent:
     m_PersistentCalls:
       m_Calls:
@@ -170,3 +173,4 @@ MonoBehaviour:
   playerRbody: {fileID: 0}
   openSound: {fileID: 8300000, guid: f7b22c382bbd5bb47bf4e079844e9170, type: 3}
   closeSound: {fileID: 0}
+  transitionSound: {fileID: 0}

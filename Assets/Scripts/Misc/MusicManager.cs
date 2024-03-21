@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class MusicManager : MonoBehaviour
 {
@@ -110,7 +111,8 @@ public class MusicManager : MonoBehaviour
             return;
         }
 
-        globalMusicManager.currentTrack.volume = vol;
+        globalMusicManager.StopAllCoroutines();
+        globalMusicManager.StartCoroutine(AudioManager.FadeSource(globalMusicManager.currentTrack, vol, 1f));
     }
 
     public static MusicManager GetMusicManager()

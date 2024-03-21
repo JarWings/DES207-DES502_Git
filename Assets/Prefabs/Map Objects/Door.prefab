@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liftSprite: {fileID: 21300000, guid: c262d5c2ba0d9ae4e9ce341be1014988, type: 3}
-  interactSprite: {fileID: 21300000, guid: 391f97da05cf45240a8ecdec752cd9be, type: 3}
+  interactSprite: {fileID: 21300000, guid: 799b3fe2c6c019a42b3267f6f3863092, type: 3}
   destinationDoor: {fileID: 0}
   anim: {fileID: 1401074677995055702}
   oneTimeEvent: 1

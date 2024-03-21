@@ -68,7 +68,7 @@ public class MagicBook : Enemy
         if(Vector2.Distance(transform.position, destination) > hitRange && hitCooldown <= 0)
         {
             sprite.flipX = (destination.x > transform.position.x);
-            rbody.AddForce((destination - (Vector2)transform.position).normalized * flySpeed * Time.deltaTime, ForceMode2D.Force);
+            rbody.AddForce(flySpeed * Time.deltaTime * (destination - (Vector2)transform.position).normalized, ForceMode2D.Force);
         }
         else
         {

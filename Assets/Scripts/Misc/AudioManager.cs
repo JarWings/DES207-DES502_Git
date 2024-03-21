@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
 
 public enum AudioType
 {
@@ -101,5 +102,19 @@ public class AudioManager : MonoBehaviour
         }
 
         return audioSource;
+    }
+
+    public static IEnumerator FadeSource(AudioSource source, float targetVolume, float speed = 2f, bool destroyOnEnd = false)
+    {
+        while(source.volume != targetVolume && source != null)
+        {
+            source.volume = Mathf.MoveTowards(source.volume, targetVolume, Time.deltaTime * speed);
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (destroyOnEnd && source != null)
+        {
+            Destroy(source.gameObject);
+        }
     }
 }
