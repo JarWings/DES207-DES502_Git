@@ -176,10 +176,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3706bdf9bfe93224198a5e9a0a4cdf48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DashCDImage: {fileID: 0}
+  GetHitCDImage: {fileID: 0}
   maxHp: 50
   hp: 0
   speed: 16
   faceLeft: 0
+  isFullHealth: 0
   dashTime: 0.15
   dashCoolDown: 0.5
   dashSpeed: 80
@@ -191,3 +194,4 @@ MonoBehaviour:
   attackDamage: 20
   attackRange: 4
   attackCooldown: 0.5
+  dashFrames: []

@@ -13,7 +13,8 @@ public class PlayerCharacter : MonoBehaviour
     Animator anim;
 
     [Header("CD")]
-    public Image CDImage;
+    public Image DashCDImage;
+    public Image GetHitCDImage;
 
     [Header("Basic Parameters")]
     public int maxHp;
@@ -100,7 +101,8 @@ public class PlayerCharacter : MonoBehaviour
             ReadyToDash();
         }
 
-        CDImage.fillAmount -= 1.0f / dashCoolDown * Time.deltaTime;
+        DashCDImage.fillAmount -= 1.0f / dashCoolDown * Time.deltaTime;
+        GetHitCDImage.fillAmount -= 1.0f / invincibilityDuration * Time.deltaTime;
 
         // 更新动画状态
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
@@ -170,7 +172,7 @@ public class PlayerCharacter : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(DashEffect());
 
-        CDImage.fillAmount = 1;
+        DashCDImage.fillAmount = 1;
     }
 
     void Dash()
@@ -254,6 +256,7 @@ public class PlayerCharacter : MonoBehaviour
                 break;
         }
 
+        GetHitCDImage.fillAmount = 1;
         // 受伤后进入无敌状态
         isInvincible = true;
         isFullHealth = false;
@@ -290,19 +293,6 @@ public class PlayerCharacter : MonoBehaviour
         }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
     }
-
-    //void Attack()
-    //{
-    //    RaycastHit2D hit = Physics2D.CircleCast(transform.position, attackRange, Vector2.up, attackRange, LayerMask.GetMask("Enemy", "Destructible"));
-    //    if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Destructible")))
-    //    {
-    //        Enemy enemy = hit.collider.GetComponent<Enemy>();
-    //        if (enemy != null)
-    //        {
-    //            enemy.GetHit(attackDamage);
-    //        }
-    //    }
-    //}
 
     void Attack()
     {

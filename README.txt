@@ -208,4 +208,9 @@ Added audio effect fading support, added interact icon, fixed bugs, started new 
 21/03/24
 --Jiancheng
 ver.0.3.8
-Added skill cooling effect
+Added dash skill cooling effect
+
+21/03/24
+--Jiancheng
+ver.0.3.9
+Added GetHit cooling effect
