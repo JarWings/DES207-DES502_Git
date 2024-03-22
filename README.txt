@@ -214,3 +214,8 @@ Added dash skill cooling effect
 --Jiancheng
 ver.0.3.9
 Added GetHit cooling effect
+
+21/03/24
+--Steph
+ver.0.4.0
+Added asset, Created rough gym layout in 'Level' Scene.
