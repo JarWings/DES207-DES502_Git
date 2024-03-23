@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MagicBook : Enemy
 {
@@ -21,9 +23,10 @@ public class MagicBook : Enemy
     private Collider2D col;
 
     private float hitCooldown = 0, idleTime = 0f;
-    private bool dead = false;
+    private bool dead = false, attacking = false;
 
     private Vector2 destination;
+    private List<GameObject> dashFrames = new();
 
     private void Start()
     {
@@ -65,10 +68,12 @@ public class MagicBook : Enemy
 
     void Fly()
     {
-        if(Vector2.Distance(transform.position, destination) > hitRange && hitCooldown <= 0)
+        if(Vector2.Distance(transform.position, destination) > hitRange)
         {
             sprite.flipX = (destination.x > transform.position.x);
             rbody.AddForce(flySpeed * Time.deltaTime * (destination - (Vector2)transform.position).normalized, ForceMode2D.Force);
+
+            attacking = false;
         }
         else
         {
@@ -79,7 +84,10 @@ public class MagicBook : Enemy
                 NewRandomDest();
             }
 
-            DetectHits();
+            if (!attacking && playerTransform != null)
+            {
+                Attack();
+            }
         }
     }
 
@@ -104,7 +112,7 @@ public class MagicBook : Enemy
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, hitRange, Vector2.down, hitRange, LayerMask.GetMask("Player"));
 
-        if (hit.transform != null && hitCooldown <= 0f)
+        if (hit.transform != null && hitCooldown <= 0f && attacking)
         {
             Hit(hit.transform);
         }
@@ -116,6 +124,7 @@ public class MagicBook : Enemy
         player.GetComponent<PlayerCharacter>().GetHit(hitDamage);
 
         hitCooldown = 2f;
+        attacking = false;
     }
 
     public override void GetHit(int damage)
@@ -130,12 +139,16 @@ public class MagicBook : Enemy
         hitCooldown = 4f;
         health -= damage;
 
-        if(health <= 0)
+        attacking = false;
+
+        if (health <= 0)
         {
             Die();
             return;
         }
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
+
+        rbody.AddForce(-destination.normalized * 5f, ForceMode2D.Impulse);
     }
 
     private void Die()
@@ -151,6 +164,83 @@ public class MagicBook : Enemy
 
         col.enabled = false;
 
-        Destroy(gameObject, 2f);
+        EmptyDashFrames();
+
+        StopAllCoroutines();
+        StartCoroutine(SpriteFade(sprite, .4f, true));
+    }
+
+    private void Attack()
+    {
+        attacking = true;
+        EmptyDashFrames();
+        StopAllCoroutines();
+        StartCoroutine(DashEffect());
+
+        destination = playerTransform.position;
+
+        rbody.velocity = Vector2.zero;
+        rbody.AddForce((destination - (Vector2)transform.position).normalized * 10f, ForceMode2D.Impulse);
+    }
+
+    IEnumerator DashEffect()
+    {
+        int frames = 0;
+
+        while (attacking)
+        {
+            GameObject spriteObj;
+            SpriteRenderer dashFrame;
+
+            if (dashFrames.Count < 12 || frames >= dashFrames.Count)
+            {
+                spriteObj = new("DashFrame (" + frames + ")");
+                dashFrame = spriteObj.AddComponent<SpriteRenderer>();
+
+                dashFrames.Add(spriteObj);
+            }
+            else
+            {
+                spriteObj = dashFrames[frames];
+                dashFrame = dashFrames[frames].GetComponent<SpriteRenderer>();
+            }
+
+            spriteObj.transform.position = transform.position;
+            spriteObj.transform.localScale = transform.localScale;
+
+            dashFrame.sprite = sprite.sprite;
+            dashFrame.color = Color.white * (.8f * frames);
+
+            frames++;
+
+            DetectHits();
+
+            StartCoroutine(SpriteFade(dashFrame, 16f));
+            yield return new WaitForSeconds(.05f);
+        }
+    }
+
+    IEnumerator SpriteFade(SpriteRenderer sprite, float rate, bool destroy = false)
+    {
+        while (sprite != null && sprite.color.a > 0)
+        {
+            sprite.color = Color.Lerp(sprite.color, Color.clear, Time.deltaTime * rate);
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (destroy)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void EmptyDashFrames()
+    {
+        for (int i = 0; i < dashFrames.Count; i++)
+        {
+            Destroy(dashFrames[i]);
+        }
+
+        dashFrames.Clear();
     }
 }

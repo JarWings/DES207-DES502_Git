@@ -9,8 +9,8 @@ public class LoadingManager : MonoBehaviour
     public List<string> Tips = new();
 
     [Header("UI")]
-    public Image fadePanel;
     public TMP_Text tipText;
+    public Image leftPanel, rightPanel;
     public Image loadIcon;
 
     public static LoadingManager Instance;
@@ -23,7 +23,8 @@ public class LoadingManager : MonoBehaviour
     public static void StartLoad()
     {
         Instance.StopAllCoroutines();
-        Instance.StartCoroutine(Instance.FadeImage(Instance.fadePanel, Color.black, 2f));
+        Instance.StartCoroutine(Instance.FillImage(Instance.leftPanel, 1f, 1f));
+        Instance.StartCoroutine(Instance.FillImage(Instance.rightPanel, 1f, 1f));
         Instance.StartCoroutine(Instance.FadeImage(Instance.loadIcon, Color.white, 1f));
 
         Instance.tipText.enabled = true;
@@ -33,7 +34,8 @@ public class LoadingManager : MonoBehaviour
     public static void EndLoad()
     {
         Instance.StopAllCoroutines();
-        Instance.StartCoroutine(Instance.FadeImage(Instance.fadePanel, Color.clear, 1f));
+        Instance.StartCoroutine(Instance.FillImage(Instance.leftPanel, 0f, 1f));
+        Instance.StartCoroutine(Instance.FillImage(Instance.rightPanel, 0f, 1f));
         Instance.StartCoroutine(Instance.FadeImage(Instance.loadIcon, Color.clear, 4f));
 
         Instance.tipText.enabled = false;
@@ -44,6 +46,15 @@ public class LoadingManager : MonoBehaviour
         while(img.color != target)
         {
             img.color = Color.Lerp(img.color, target, Time.deltaTime * speed);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator FillImage(Image img, float target, float speed)
+    {
+        while (img.fillAmount != target)
+        {
+            img.fillAmount = Mathf.MoveTowards(img.fillAmount, target, Time.deltaTime * speed);
             yield return new WaitForEndOfFrame();
         }
     }

@@ -219,3 +219,8 @@ Added GetHit cooling effect
 --Steph
 ver.0.4.0
 Added asset, Created rough gym layout in 'Level' Scene.
+
+23/03/24
+--Michael
+ver.0.4.1
+Added more behaviour to the magic book, changed loading screen transition, fixed bugs, added student sprite, added first version of level music.
