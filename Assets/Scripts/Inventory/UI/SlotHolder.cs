@@ -27,7 +27,11 @@ public class SlotHolder : MonoBehaviour,IPointerClickHandler,IPointerEnterHandle
             if (itemUI.GetItem().itemType == ItemType.Useable && itemUI.Bag.items[itemUI.Index].amount > 0)
             {
                 //有时间进行修改，改为全局单例模式
-                PlayerCharacter.Instance.Health(itemUI.GetItem().useableData.healthPoint);
+                GameObject player = GameObject.FindWithTag("Player");
+                PlayerCharacter playerchara = player.GetComponent<PlayerCharacter>();
+                playerchara.Health(itemUI.GetItem().useableData.healthPoint);
+                
+                //PlayerCharacter.Instance.Health(itemUI.GetItem().useableData.healthPoint);
                 itemUI.Bag.items[itemUI.Index].amount -= 1;
             }
         }
