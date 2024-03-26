@@ -57,6 +57,9 @@ public class PlayerCharacter : MonoBehaviour
 
     public List<GameObject> dashFrames = new();
 
+    private GameObject dashCDGameObject;
+    private GameObject getHitCDGameObject;
+
     void Awake()
     {
         if (Instance == null)
@@ -84,22 +87,22 @@ public class PlayerCharacter : MonoBehaviour
 
         startPos = transform.position;
 
-        GameObject dashCDGameObject = GameObject.FindWithTag("DashCD");
+    }
+
+    void Update()
+    {
+        dashCDGameObject = GameObject.FindWithTag("DashCD");
         if (dashCDGameObject != null)
         {
             DashCDImage = dashCDGameObject.GetComponent<Image>();
         }
 
-        GameObject getHitCDGameObject = GameObject.FindWithTag("GetHitCD");
+        getHitCDGameObject = GameObject.FindWithTag("GetHitCD");
         if (getHitCDGameObject != null)
         {
             GetHitCDImage = getHitCDGameObject.GetComponent<Image>();
         }
 
-    }
-
-    void Update()
-    {
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
