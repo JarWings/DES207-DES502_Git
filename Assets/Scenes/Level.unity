@@ -24133,17 +24133,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5f5a7153f74eaf42b8355230a8108d2, type: 3}
---- !u!114 &2064688833 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1643768341117221362, guid: a5f5a7153f74eaf42b8355230a8108d2, type: 3}
-  m_PrefabInstance: {fileID: 2064688832}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2064688834 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 993009206, guid: a5f5a7153f74eaf42b8355230a8108d2, type: 3}
@@ -24759,14 +24748,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 979783258, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: m_GravityScale
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: CDImage
-      value: 
-      objectReference: {fileID: 2064688833}
     - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
       propertyPath: DashCDImage
       value: 
@@ -24775,18 +24756,6 @@ PrefabInstance:
       propertyPath: GetHitCDImage
       value: 
       objectReference: {fileID: 2064688834}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: swingSounds.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: swingSounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: swingSounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: b4a457efd33e7e044878de18359dbba1, type: 3}
     - target: {fileID: 2956334580159221889, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -24834,10 +24803,6 @@ PrefabInstance:
     - target: {fileID: 2956334580159221900, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
       propertyPath: m_Name
       value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2956334580159221902, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c453421aa0414242a9e5bade032e497, type: 3}

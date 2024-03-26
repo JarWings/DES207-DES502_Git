@@ -13,8 +13,8 @@ public class PlayerCharacter : MonoBehaviour
     Animator anim;
 
     [Header("CD")]
-    public Image DashCDImage;
-    public Image GetHitCDImage;
+    private Image DashCDImage;
+    private Image GetHitCDImage;
 
     [Header("Basic Parameters")]
     public int maxHp;
@@ -83,6 +83,19 @@ public class PlayerCharacter : MonoBehaviour
         Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, false);
 
         startPos = transform.position;
+
+        GameObject dashCDGameObject = GameObject.FindWithTag("DashCD");
+        if (dashCDGameObject != null)
+        {
+            DashCDImage = dashCDGameObject.GetComponent<Image>();
+        }
+
+        GameObject getHitCDGameObject = GameObject.FindWithTag("GetHitCD");
+        if (getHitCDGameObject != null)
+        {
+            GetHitCDImage = getHitCDGameObject.GetComponent<Image>();
+        }
+
     }
 
     void Update()
