@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flickerSpeed: 20
-  buzzSound: {fileID: 8300000, guid: d34f6489644a3e74382a1b8c8197232d, type: 3}
+  buzzSound: {fileID: 8300000, guid: 559eb0c722b86b643ba54e97d917298c, type: 3}
 --- !u!1 &4307308968712278481
 GameObject:
   m_ObjectHideFlags: 0

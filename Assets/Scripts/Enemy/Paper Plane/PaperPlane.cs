@@ -27,15 +27,8 @@ public class PaperPlane : Enemy
         flySpeed += Random.Range(-5f, 2f);
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Invisible"));
-        if (hit.transform != null)
-        {
-            floorLevel = hit.point.y;
-        }
-        else
-        {
-            floorLevel = transform.position.y - 10f;
-        }
-
+		
+		floorLevel = hit.transform != null ? hit.point.y : transform.position.y - 10f;
         spawnPosition = transform.position;
     }
 
@@ -65,11 +58,7 @@ public class PaperPlane : Enemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!falling)
-        {
-            return;
-        }
-
+        if (!falling)	return;
         Miss();
     }
 
@@ -77,10 +66,7 @@ public class PaperPlane : Enemy
     {
         transform.position -= new Vector3(0f, 1f) * flySpeed * Time.deltaTime;
 
-        if(transform.position.y < floorLevel)
-        {
-            Miss();
-        }
+        if(transform.position.y < floorLevel)	Miss();
 
         DetectHits();
     }
@@ -89,10 +75,7 @@ public class PaperPlane : Enemy
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, hitRange, Vector2.down, hitRange, LayerMask.GetMask("Player"));
         
-        if(hit.transform != null && transform.position.y > hit.transform.position.y)
-        {
-            Hit(hit.transform);
-        }
+        if(hit.transform != null && transform.position.y > hit.transform.position.y)	Hit(hit.transform);
     }
 
     void Hit(Transform player)

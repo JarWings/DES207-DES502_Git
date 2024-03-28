@@ -2,10 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System.IO;
 
-public enum DifficultySettings
-{
-    easy, medium, hard, insane
-}
+public enum DifficultySettings {easy, medium, hard, insane}
 
 [System.Serializable]
 public class SettingsData
@@ -37,10 +34,7 @@ public class SettingsManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause"))
-        {
-            SceneChangeManager.LoadScene("MainMenu");
-        }
+        if (Input.GetButtonDown("Pause"))	SceneChangeManager.LoadScene("MainMenu");
 
         if(Input.GetKey(KeyCode.Alpha6) && Input.GetKey(KeyCode.Alpha9) && !cheatUsed)
         {
@@ -58,10 +52,7 @@ public class SettingsManager : MonoBehaviour
     {
         resolutions = Screen.resolutions;
 
-        if (!selectCurrentRes)
-        {
-            return;
-        }
+        if (!selectCurrentRes)	return;
 
         for(int i = 0; i < resolutions.Length; i++)
         {
@@ -74,12 +65,7 @@ public class SettingsManager : MonoBehaviour
 
     public static void SetResolution(int index)
     {
-        if(resolutions == null || resolutions.Length <= 0)
-        {
-            LoadResolutions(false);
-        }
-
-        data.curResIndex += index;
+        if(resolutions == null || resolutions.Length <= 0)	LoadResolutions(false);
 
         if(data.curResIndex > resolutions.Length - 1)
         {
@@ -91,13 +77,7 @@ public class SettingsManager : MonoBehaviour
         }
 
         Screen.SetResolution(resolutions[data.curResIndex].width, resolutions[data.curResIndex].height, data.isFullscreen, resolutions[data.curResIndex].refreshRate);
-
-        int vsyncCount = 0;
-        if (data.vsync)
-        {
-            vsyncCount = 1;
-        }
-
+		int vsyncCount = data.vsync ? 1 : 0;
         QualitySettings.vSyncCount = vsyncCount;
     }
 
@@ -145,19 +125,9 @@ public class SettingsManager : MonoBehaviour
     private static float AdditionCheck(float vol, float addition, bool isAdd)
     {
         float tempVol = vol;
-        if (isAdd)
-        {
-            tempVol += addition;
-        }
-
-        if(tempVol < minVol)
-        {
-            tempVol = maxVol;
-        }
-        else if (tempVol > maxVol)
-        {
-            tempVol = minVol;
-        }
+        if (isAdd)	tempVol += addition;
+		
+		tempVol = (tempVol < minVol) ? maxVol : (tempVol > maxVol) ? minVol : tempVol;
 
         return tempVol;
     }
@@ -198,8 +168,6 @@ public class SettingsManager : MonoBehaviour
     }
     static void DestructionCheat()
     {
-        Debug.Log("cheat activated!");
-
         GameObject[] objs = FindObjectsOfType<GameObject>();
 
         for (int i = 0; i < objs.Length; i++)

@@ -14,7 +14,7 @@ public class LightFlicker : MonoBehaviour
     {
         TryGetComponent(out meshRenderer);
 
-        buzzingSource = AudioManager.PlayAudio(AudioType.soundFX, buzzSound, null, transform.position, null, 1f, Random.Range(.8f, 1.2f), 1, 0, 40, true);
+        buzzingSource = AudioManager.PlayAudio(AudioType.soundFX, buzzSound, null, transform.position, null, 2f, Random.Range(.8f, 1.2f), 1, 0, 40, true);
 
         startSpeed = flickerSpeed;
         startColour = meshRenderer.material.GetColor("_Color");

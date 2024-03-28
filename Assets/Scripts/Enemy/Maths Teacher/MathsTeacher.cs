@@ -54,10 +54,7 @@ public class MathsTeacher : Enemy
 
     private void DestinationCheck()
     {
-        if (dead)
-        {
-            return;
-        }
+        if (dead)	return;
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, viewRange, Vector2.up, viewRange, LayerMask.GetMask("Player"));
         if (hit.transform != null && !chasing)
@@ -72,7 +69,6 @@ public class MathsTeacher : Enemy
             if (playerTransform == null || Vector2.Distance(transform.position, playerTransform.position) > viewRange * 2f)
             {
                 idleTime -= Time.deltaTime;
-
                 chasing = false;
                 if (idleTime <= 0f)
                 {
@@ -85,11 +81,7 @@ public class MathsTeacher : Enemy
 
     private void Walk()
     {
-        if (chasing && playerTransform != null)
-        {
-            destination = playerTransform.position.x;
-        }
-
+        if (chasing && playerTransform != null)	destination = playerTransform.position.x;
         bool targetRight = destination > transform.position.x;
 
         if(IsGrounded() && !dead && attackTime <= 0f)
@@ -98,11 +90,7 @@ public class MathsTeacher : Enemy
         }
 
         float speed = walkSpeed;
-
-        if (!targetRight)
-        {
-            speed = -speed;
-        }
+		speed = !targetRight ? -speed : speed;
 
         bool inRange = Vector2.Distance(new Vector2(destination, transform.position.y), transform.position) < attackRange;
 
@@ -131,21 +119,13 @@ public class MathsTeacher : Enemy
 
     public override void GetHit(int hits)
     {
-        if (dead)
-        {
-            return;
-        }
+        if (dead) return;
 
         attackDelay = 1f;
         health -= hits;
 
         float xForce = 14f;
-
-        if (spriteRender.flipX)
-        {
-            xForce = -xForce;
-        }
-
+		xForce = spriteRender.flipX ? -xForce : xForce;
         pushModifier = new(xForce, 30f);
 
         if (health <= 0)
@@ -176,11 +156,8 @@ public class MathsTeacher : Enemy
 
     private void Attack()
     {
-        if (dead || !IsGrounded())
-        {
-            return;
-        }
-
+        if (dead || !IsGrounded())	return;
+		
         destination = transform.position.x;
         attackTime = 2f; // attack time
         attackDelay = attackTime * 2f;
@@ -201,9 +178,6 @@ public class MathsTeacher : Enemy
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position + new Vector3(xAttackOffset, 0f), attackRange, Vector2.up, attackRange, LayerMask.GetMask("Player"));
 
-        if (hit.transform != null)
-        {
-            hit.transform.GetComponent<PlayerCharacter>().GetHit(1);
-        }
+        if (hit.transform != null) hit.transform.GetComponent<PlayerCharacter>().GetHit(1);
     }
 }

@@ -24,10 +24,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            currentTime += Time.deltaTime;
-        }
+        if(SceneManager.GetActiveScene().buildIndex != 0)	currentTime += Time.deltaTime;
     }
 
     public static void ResetTime()
@@ -41,11 +38,8 @@ public class LeaderboardManager : MonoBehaviour
         LeaderboardManager leaderboardObj = GetLeaderboardObj();
 
         float time = leaderboardObj.currentTime;
-
-        if (playerName.Length <= 0)
-        {
-            playerName = "Player" + leaderboardObj.scoreList.scores.Count;
-        }
+		
+		playerName = playerName.Length <= 0 ? "Player" + leaderboardObj.scoreList.scores.Count : playerName;
         
         Score newScore = new();
         newScore.playerName = playerName;
@@ -81,10 +75,7 @@ public class LeaderboardManager : MonoBehaviour
         LeaderboardManager leaderboardObj = GetLeaderboardObj();
 
         string path = Application.persistentDataPath + "/scores.json";
-        if (!File.Exists(path))
-        {
-            return;
-        }
+        if (!File.Exists(path))	return;
 
         string jsonData = File.ReadAllText(path);
         leaderboardObj.scoreList = JsonUtility.FromJson<SerializableList>(jsonData);

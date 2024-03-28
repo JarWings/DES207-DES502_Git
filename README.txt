@@ -229,3 +229,8 @@ Added more behaviour to the magic book, changed loading screen transition, fixed
 --Jiancheng
 ver.0.4.2
 Fixed the bug switching Scenes losting the CD image
+
+28/03/24
+--Michael
+ver.0.4.3
+Optimised some of my scripts, implemented new buzzing sound for lights.
