@@ -16,27 +16,16 @@ public class CollisionSound : MonoBehaviour
 
     private void Update()
     {
-        if(lastSoundTime > 0f)
-        {
-            lastSoundTime -= Time.deltaTime;
-        }
+        if (lastSoundTime > 0f) lastSoundTime -= Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(lastSoundTime > 0f)
-        {
-            return;
-        }
+        if (lastSoundTime > 0f) return;
 
-        if(rbody == null || rbody.velocity.magnitude > forceRequirement)
+        if (rbody == null || rbody.velocity.magnitude > forceRequirement)
         {
-            float mult = 1f;
-
-            if(rbody != null)
-            {
-                mult = 1f * Mathf.Clamp(rbody.velocity.magnitude / 6f, .8f, 1.4f);
-            }
+            float mult = rbody != null ? 1f * Mathf.Clamp(rbody.velocity.magnitude / 6f, .8f, 1.4f) : 1f;
 
             AudioManager.PlayAudio(AudioType.soundFX, null, collideSounds, transform.position, transform, 1f, Random.Range(.9f, 1.1f) * mult, 1, 0, 20);
             lastSoundTime = minRestTime;

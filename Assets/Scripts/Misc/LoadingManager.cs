@@ -6,14 +6,14 @@ using TMPro;
 
 public class LoadingManager : MonoBehaviour
 {
+    public static LoadingManager Instance;
+
     public List<string> Tips = new();
 
     [Header("UI")]
     public TMP_Text tipText;
     public Image leftPanel, rightPanel;
     public Image loadIcon;
-
-    public static LoadingManager Instance;
 
     private void Start()
     {

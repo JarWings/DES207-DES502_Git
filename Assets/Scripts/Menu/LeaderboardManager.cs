@@ -24,7 +24,7 @@ public class LeaderboardManager : MonoBehaviour
 
     private void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex != 0)	currentTime += Time.deltaTime;
+        if (SceneManager.GetActiveScene().buildIndex != 0) currentTime += Time.deltaTime;
     }
 
     public static void ResetTime()
@@ -38,29 +38,27 @@ public class LeaderboardManager : MonoBehaviour
         LeaderboardManager leaderboardObj = GetLeaderboardObj();
 
         float time = leaderboardObj.currentTime;
-		
-		playerName = playerName.Length <= 0 ? "Player" + leaderboardObj.scoreList.scores.Count : playerName;
-        
+
+        playerName = playerName.Length <= 0 ? "Player" + leaderboardObj.scoreList.scores.Count : playerName;
+
         Score newScore = new();
         newScore.playerName = playerName;
         newScore.playDate = System.DateTime.Now.ToString();
         newScore.time = time;
 
-        for(int i = 0; i < leaderboardObj.scoreList.scores.Count; i++)
+        for (int i = 0; i < leaderboardObj.scoreList.scores.Count; i++)
         {
             Score tempScore = leaderboardObj.scoreList.scores[i];
 
-            if(tempScore.playerName == playerName)
+            if (tempScore.playerName == playerName)
             {
-                if(time < tempScore.time)
+                if (time < tempScore.time)
                 {
-                    // better time, replace current score with new time
                     tempScore.time = time;
                     return;
                 }
                 else
                 {
-                    // worse time, don't add to leaderboard
                     return;
                 }
             }
@@ -75,7 +73,7 @@ public class LeaderboardManager : MonoBehaviour
         LeaderboardManager leaderboardObj = GetLeaderboardObj();
 
         string path = Application.persistentDataPath + "/scores.json";
-        if (!File.Exists(path))	return;
+        if (!File.Exists(path)) return;
 
         string jsonData = File.ReadAllText(path);
         leaderboardObj.scoreList = JsonUtility.FromJson<SerializableList>(jsonData);

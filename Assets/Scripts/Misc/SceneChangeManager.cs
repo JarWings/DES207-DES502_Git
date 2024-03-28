@@ -23,10 +23,6 @@ public class SceneChangeManager : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// Will probably support scene transitions in the future, as well as handling music changes.
-    /// </summary>
     public static void LoadScene(string sceneName)
     {
         if(SceneManager.GetActiveScene().name == sceneName)
@@ -47,14 +43,11 @@ public class SceneChangeManager : MonoBehaviour
 
             Rigidbody2D rbody = PlayerCharacter.Instance.transform.GetComponent<Rigidbody2D>();
 
-            rbody.isKinematic = false;
-            rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            bool isMenu = sceneName == "MainMenu";
 
-            if(sceneName == "MainMenu")
-            {
-                rbody.constraints = RigidbodyConstraints2D.FreezeAll;
-                rbody.velocity = Vector2.zero;
-            }
+            rbody.constraints = isMenu ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
+            rbody.velocity = isMenu ? Vector2.zero : rbody.velocity;
+            rbody.isKinematic = isMenu;
         }
 
         Time.timeScale = 1f;

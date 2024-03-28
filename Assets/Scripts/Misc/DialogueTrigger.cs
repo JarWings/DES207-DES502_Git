@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
         if(Physics2D.CircleCast(transform.position, talkRange, Vector2.up, talkRange, LayerMask.GetMask("Player")))
         {
             DialogueManager.DisplayDialogue(Dialogue, priority);
-            this.enabled = false;
+            enabled = false;
         }
     }
 

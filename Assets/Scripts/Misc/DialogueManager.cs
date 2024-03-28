@@ -19,7 +19,7 @@ public class Line
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager instance { get; private set; }
+    public static DialogueManager Instance;
 
     public int lineIndex = 0;
     public float characterDelay = .06f;
@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         dialogueBox.anchoredPosition = new Vector2(0, -180f);
         fadePanel.color = Color.clear;
@@ -53,10 +53,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (!inDialogue)
-        {
-            return;
-        }
+        if (!inDialogue) return;
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -72,27 +69,13 @@ public class DialogueManager : MonoBehaviour
 
                 if (currentLine.isPlayer)
                 {
-                    if(currentLine.talkSprite != null)
-                    {
-                        playerAvatar.color = Color.white;
-                    }
-
-                    if(npcAvatar.sprite != null)
-                    {
-                        npcAvatar.color = Color.grey;
-                    }
+                    playerAvatar.color = currentLine.talkSprite != null ? Color.white : Color.clear;
+                    npcAvatar.color = npcAvatar.sprite != null ? Color.grey : Color.clear;
                 }
                 else
                 {
-                    if (currentLine.talkSprite != null)
-                    {
-                        npcAvatar.color = Color.white;
-                    }
-
-                    if (playerAvatar.sprite != null)
-                    {
-                        playerAvatar.color = Color.grey;
-                    }
+                    npcAvatar.color = npcAvatar.sprite != null ? Color.white : Color.clear;
+                    playerAvatar.color = playerAvatar.sprite != null ? Color.grey : Color.clear;
                 }
 
                 dialogueBox.anchoredPosition = new Vector2(0, 150f);
@@ -106,17 +89,14 @@ public class DialogueManager : MonoBehaviour
 
     public static void DisplayDialogue(List<Line> lines, int priority)
     {
-        if((inDialogue && priority < instance.currentPriority) || lines == instance.currentDialogueLines)
-        {
-            return;
-        }
+        if ((inDialogue && priority < Instance.currentPriority) || lines == Instance.currentDialogueLines) return;
 
-        instance.playerAvatar.sprite = null;
-        instance.npcAvatar.sprite = null;
+        Instance.playerAvatar.sprite = null;
+        Instance.npcAvatar.sprite = null;
 
-        instance.lineIndex = 0;
-        instance.currentDialogueLines = lines;
-        instance.DisplayLine();
+        Instance.lineIndex = 0;
+        Instance.currentDialogueLines = lines;
+        Instance.DisplayLine();
         inDialogue = true;
 
         Time.timeScale = .0001f;
@@ -130,22 +110,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (dialogueSoundSource != null)
-        {
-            Destroy(dialogueSoundSource.gameObject);
-        }
+        if (dialogueSoundSource != null) Destroy(dialogueSoundSource.gameObject);
 
         Line currentLine = currentDialogueLines[lineIndex];
 
-        if(currentLine.talkEvent != null && currentLine.talkEvent.GetPersistentEventCount() > 0)
-        {
-            currentLine.talkEvent.Invoke();
-        }
+        if (currentLine.talkEvent != null && currentLine.talkEvent.GetPersistentEventCount() > 0) currentLine.talkEvent.Invoke();
 
-        if (currentLine.isPlayer)
-        {
-            currentLine.senderName = "Stuart Mitchell";
-        }
+        if (currentLine.isPlayer) currentLine.senderName = "Stuart Mitchell";
 
         StopAllCoroutines();
 
@@ -164,7 +135,7 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(ImageFade(playerAvatar, Color.white, 4f));
             }
 
-            if(npcAvatar.sprite != null)
+            if (npcAvatar.sprite != null)
             {
                 npcAvatar.rectTransform.anchoredPosition = new Vector2(-500f, 20f);
                 StartCoroutine(ImageFade(npcAvatar, Color.grey, 4f));
@@ -179,7 +150,7 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(ImageFade(npcAvatar, Color.white, 4f));
             }
 
-            if(currentLine.recieveSprite != null)
+            if (currentLine.recieveSprite != null)
             {
                 playerAvatar.sprite = currentLine.recieveSprite;
             }
@@ -208,13 +179,9 @@ public class DialogueManager : MonoBehaviour
         nameText.text = "";
         lineText.text = "";
 
-        if (dialogueSoundSource != null)
-        {
-            Destroy(dialogueSoundSource.gameObject);
-        }
+        if (dialogueSoundSource != null) Destroy(dialogueSoundSource.gameObject);
 
         currentDialogueLines = null;
-
         Time.timeScale = 1f;
 
         inDialogue = false;
@@ -222,7 +189,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator ImageFade(Image img, Color colour, float fadeSpeed)
     {
-        while(img.color != colour)
+        while (img.color != colour)
         {
             img.color = Color.Lerp(img.color, colour, Time.unscaledDeltaTime * fadeSpeed);
             yield return new WaitForEndOfFrame();
@@ -243,13 +210,8 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator ToggleDialogueUi(bool open)
     {
-        float posY = -180f;
-        if (open)
-        {
-            posY = 150f;
-        }
-
-        while(dialogueBox.anchoredPosition != new Vector2(0, posY))
+        float posY = open ? 150f : -180f;
+        while (dialogueBox.anchoredPosition != new Vector2(0, posY))
         {
             dialogueBox.anchoredPosition = new Vector2(0, Mathf.MoveTowards(dialogueBox.anchoredPosition.y, posY, openSpeed * Time.unscaledDeltaTime));
             yield return new WaitForEndOfFrame();

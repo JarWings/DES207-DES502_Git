@@ -53,7 +53,7 @@ public class MagicBook : Enemy
         }
         else
         {
-            if(Vector2.Distance(transform.position, playerTransform.position) > detectRange * 2f)
+            if (Vector2.Distance(transform.position, playerTransform.position) > detectRange * 2f)
             {
                 playerTransform = null;
             }
@@ -68,7 +68,7 @@ public class MagicBook : Enemy
 
     void Fly()
     {
-        if(Vector2.Distance(transform.position, destination) > hitRange)
+        if (Vector2.Distance(transform.position, destination) > hitRange)
         {
             sprite.flipX = (destination.x > transform.position.x);
             rbody.AddForce(flySpeed * Time.deltaTime * (destination - (Vector2)transform.position).normalized, ForceMode2D.Force);
@@ -79,7 +79,7 @@ public class MagicBook : Enemy
         {
             idleTime -= Time.deltaTime;
 
-            if(idleTime <= 0)	NewRandomDest();
+            if (idleTime <= 0) NewRandomDest();
 
             if (!attacking && playerTransform != null)
             {
@@ -126,7 +126,7 @@ public class MagicBook : Enemy
 
     public override void GetHit(int damage)
     {
-        if (dead)	return;
+        if (dead) return;
 
         base.GetHit(damage);
 
@@ -222,12 +222,12 @@ public class MagicBook : Enemy
             yield return new WaitForEndOfFrame();
         }
 
-        if (destroy)	Destroy(gameObject);
+        if (destroy) Destroy(gameObject);
     }
 
     private void EmptyDashFrames()
     {
-        for (int i = 0; i < dashFrames.Count; i++)	Destroy(dashFrames[i]);
+        for (int i = 0; i < dashFrames.Count; i++) Destroy(dashFrames[i]);
         dashFrames.Clear();
     }
 }

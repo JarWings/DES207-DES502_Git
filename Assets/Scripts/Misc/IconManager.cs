@@ -19,10 +19,7 @@ public class IconManager : MonoBehaviour
 
     public static void UpdateInteractIcon(SpriteRenderer renderer, Vector3 position, Sprite icon, float scale = .1f)
     {
-        if(renderer == null)
-        {
-            return;
-        }
+        if (renderer == null) return;
 
         renderer.enabled = (icon != null);
 

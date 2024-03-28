@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System;
 using System.IO;
-public enum SliderValue {master, soundFX, music, ui, res}
+public enum SliderValue { master, soundFX, music, ui, res }
 
 [System.Serializable]
 public class MenuButton
@@ -99,7 +99,7 @@ public class MainMenuManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
         SettingsManager.LoadResolutions(false);
 
         UpdateMenuFonts();
@@ -130,11 +130,11 @@ public class MainMenuManager : MonoBehaviour
 
         idleTime += Time.deltaTime;
 
-        if(idleTime > 30 && !displayingSplash && !splashChanging)
+        if (idleTime > 30 && !displayingSplash && !splashChanging)
         {
             StartCoroutine(ImageFill(splashImage, 1f));
         }
-		
+
         if (vertInput > .5f)
         {
             UpdateSelection(-1);
@@ -149,7 +149,7 @@ public class MainMenuManager : MonoBehaviour
         {
             vertHeld = false;
         }
-		
+
         if (hozInput > .5f)
         {
             SliderUse(1);
@@ -165,9 +165,9 @@ public class MainMenuManager : MonoBehaviour
             hozHeld = false;
         }
 
-        if (Input.GetButtonDown("Submit"))	ActivateSelection();
+        if (Input.GetButtonDown("Submit")) ActivateSelection();
 
-        if (Input.GetButtonDown("Cancel") && currentPageIndex != 0)	 ChangePage(0);
+        if (Input.GetButtonDown("Cancel") && currentPageIndex != 0) ChangePage(0);
     }
 
     IEnumerator ImageFill(Image img, float fillAmount)
@@ -182,9 +182,9 @@ public class MainMenuManager : MonoBehaviour
         }
 
         displayingSplash = fillAmount == 1f;
-		
-		AudioClip track = displayingSplash ? splashMusic : menuMusic;
-		MusicManager.ChangeTrack(track, true);
+
+        AudioClip track = displayingSplash ? splashMusic : menuMusic;
+        MusicManager.ChangeTrack(track, true);
 
         splashParent.SetActive(displayingSplash);
         splashChanging = false;
@@ -192,8 +192,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void MenuHighlightMove(RectTransform targetRect)
     {
-        if(targetRect == null || !SettingsManager.data.menuHighlight)	return;
-        if(highlightImage == null)	CreateHighlightSprite();
+        if (targetRect == null || !SettingsManager.data.menuHighlight) return;
+        if (highlightImage == null) CreateHighlightSprite();
 
         highlightImage.transform.SetParent(targetRect);
         highlightImage.transform.localRotation = Quaternion.Euler(Vector3.zero);
@@ -211,12 +211,12 @@ public class MainMenuManager : MonoBehaviour
 
     void RemoveButtons()
     {
-        if(highlightImage?.transform.parent != null)
+        if (highlightImage?.transform.parent != null)
         {
             highlightImage?.transform.SetParent(null);
         }
 
-        for (int i = 0; i < spawnedMenuButtons.Count; i++)	Destroy(spawnedMenuButtons[i]);
+        for (int i = 0; i < spawnedMenuButtons.Count; i++) Destroy(spawnedMenuButtons[i]);
 
         spawnedMenuButtons.Clear();
     }
@@ -229,7 +229,7 @@ public class MainMenuManager : MonoBehaviour
 
         MenuPage curPage = Pages[currentPageIndex];
 
-        if(curPage.menuButtons.Count <= maxButtonsPerPage)	currentSubPageIndex = 0;
+        if (curPage.menuButtons.Count <= maxButtonsPerPage) currentSubPageIndex = 0;
 
         int startIndex = currentSubPageIndex * maxButtonsPerPage;
         int endIndex = startIndex + maxButtonsPerPage;
@@ -292,7 +292,7 @@ public class MainMenuManager : MonoBehaviour
             {
                 if (SettingsManager.data.menuHighlight)
                 {
-                    if(highlightImage == null)	CreateHighlightSprite();
+                    if (highlightImage == null) CreateHighlightSprite();
                     MenuHighlightMove(tempButton.GetComponent<RectTransform>());
                 }
 
@@ -374,7 +374,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void UpdateSlider(float fillValue, float max = 100f)
     {
-        if (sliderImage == null)	return;
+        if (sliderImage == null) return;
 
         sliderImage.fillAmount = Mathf.Clamp(fillValue / max, 0f, 1f);
         sliderImage.color = Color.Lerp(Color.red, Color.green, sliderImage.fillAmount / 1f);
@@ -382,7 +382,7 @@ public class MainMenuManager : MonoBehaviour
 
     void SliderUse(int index)
     {
-        if (hozHeld || pageTurning)	return;
+        if (hozHeld || pageTurning) return;
 
         MenuPage curPage = Pages[currentPageIndex];
         MenuButton curButton = curPage.menuButtons[curPage.currentButtonIndex];
@@ -455,7 +455,7 @@ public class MainMenuManager : MonoBehaviour
     {
         string path = Application.persistentDataPath + "/gamesettings.json";
 
-        if (File.Exists(path))	File.Delete(path);
+        if (File.Exists(path)) File.Delete(path);
 
         SettingsManager.data = new();
         SettingsManager.LoadSettings();
@@ -473,9 +473,9 @@ public class MainMenuManager : MonoBehaviour
 
     private void UpdateMenuFonts()
     {
-		menuButtonPrefab.GetComponent<TMP_Text>().font = SettingsManager.data.simpleFont ? simpleButtonFont : defaultButtonFont;
-		pageTitleText.font = SettingsManager.data.simpleFont ? simpleButtonFont : defaultButtonFont;
-		buttonDescText.font = SettingsManager.data.simpleFont ? simpleButtonFont : defaultButtonFont;
+        menuButtonPrefab.GetComponent<TMP_Text>().font = SettingsManager.data.simpleFont ? simpleButtonFont : defaultButtonFont;
+        pageTitleText.font = SettingsManager.data.simpleFont ? simpleButtonFont : defaultButtonFont;
+        buttonDescText.font = SettingsManager.data.simpleFont ? simpleButtonFont : defaultButtonFont;
     }
 
     public void ToggleHighlight()
@@ -486,13 +486,13 @@ public class MainMenuManager : MonoBehaviour
 
     private void UpdateHighlightDisplay()
     {
-		if(highlightImage == null) return;
-		highlightImage.enabled = SettingsManager.data.menuHighlight;
+        if (highlightImage == null) return;
+        highlightImage.enabled = SettingsManager.data.menuHighlight;
     }
 
     void UpdateSelection(int index)
     {
-        if (vertHeld)	return;
+        if (vertHeld) return;
 
         MenuPage curPage = Pages[currentPageIndex];
 
@@ -505,7 +505,7 @@ public class MainMenuManager : MonoBehaviour
 
         if (curPage.currentButtonIndex > endIndex - 1)
         {
-			if(curPage.currentButtonIndex < curPage.menuButtons.Count)
+            if (curPage.currentButtonIndex < curPage.menuButtons.Count)
             {
                 currentSubPageIndex++;
             }
@@ -516,7 +516,7 @@ public class MainMenuManager : MonoBehaviour
         }
         else if (curPage.currentButtonIndex < startIndex)
         {
-			if(curPage.currentButtonIndex > 0)
+            if (curPage.currentButtonIndex > 0)
             {
                 currentSubPageIndex--;
             }
@@ -571,7 +571,7 @@ public class MainMenuManager : MonoBehaviour
     {
         pageImage.enabled = img != null && Pages[currentPageIndex].displayImage;
 
-        if (img == null)	return;
+        if (img == null) return;
 
         pageImage.sprite = img;
         pageImage.color = colour;
@@ -593,10 +593,10 @@ public class MainMenuManager : MonoBehaviour
             JournalEntry currentEntry = journalObj.EntryContainer.Entries[i];
             MenuButton newEntry = new();
 
-			string buttonName = currentEntry.Owned ? currentEntry.Title : new string('?', currentEntry.Title.Length);
-			string buttonDesc = currentEntry.Owned ? currentEntry.Description : new string('?', currentEntry.Description.Length);
+            string buttonName = currentEntry.Owned ? currentEntry.Title : new string('?', currentEntry.Title.Length);
+            string buttonDesc = currentEntry.Owned ? currentEntry.Description : new string('?', currentEntry.Description.Length);
 
-			Sprite tempImage = currentEntry.Owned ? currentEntry.Picture : currentEntry.missingImage;
+            Sprite tempImage = currentEntry.Owned ? currentEntry.Picture : currentEntry.missingImage;
             Color tempColour = currentEntry.Owned ? Color.white : Color.black;
 
             newEntry.buttonName = buttonName;
@@ -618,14 +618,14 @@ public class MainMenuManager : MonoBehaviour
 
     public void ChangePage(int page)
     {
-        if (page > Pages.Count || page < 0)	return;
+        if (page > Pages.Count || page < 0) return;
 
         currentSubPageIndex = 0;
 
-        if (leftPageDupe != null)	Destroy(leftPageDupe.gameObject);
-        if (rightPageDupe != null)	Destroy(rightPageDupe.gameObject);
+        if (leftPageDupe != null) Destroy(leftPageDupe.gameObject);
+        if (rightPageDupe != null) Destroy(rightPageDupe.gameObject);
 
-        if (highlightImage?.transform.parent != null)	highlightImage.transform.SetParent(null);
+        if (highlightImage?.transform.parent != null) highlightImage.transform.SetParent(null);
 
         StopAllCoroutines();
         StartCoroutine(PageAnimation(page));
@@ -711,7 +711,7 @@ public class MainMenuManager : MonoBehaviour
 
     void ActivateSelection()
     {
-        if (pageTurning)	return;
+        if (pageTurning) return;
 
         MenuPage curMenu = Pages[currentPageIndex];
         MenuButton button = curMenu.menuButtons[curMenu.currentButtonIndex];
@@ -722,7 +722,7 @@ public class MainMenuManager : MonoBehaviour
             button.SelectEvent.Invoke();
             tempButtonSound = activateSound;
         }
-        if (button.playSounds)	AudioManager.PlayAudio(AudioType.ui, tempButtonSound, null, Vector2.zero, null, 1, 1, 0);
+        if (button.playSounds) AudioManager.PlayAudio(AudioType.ui, tempButtonSound, null, Vector2.zero, null, 1, 1, 0);
     }
 
     public void LoadScene(string scene)
@@ -741,9 +741,9 @@ public class MainMenuManager : MonoBehaviour
     {
         string path = Application.persistentDataPath;
 
-        if(File.Exists(path + "/journal.json"))	File.Delete(path + "/journal.json");
+        if (File.Exists(path + "/journal.json")) File.Delete(path + "/journal.json");
 
-        if (File.Exists(path + "/scores.json"))	File.Delete(path + "/scores.json");
+        if (File.Exists(path + "/scores.json")) File.Delete(path + "/scores.json");
 
         ChangePage(0);
         LeaderboardManager.LoadScores();

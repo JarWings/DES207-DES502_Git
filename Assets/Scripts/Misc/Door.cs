@@ -27,10 +27,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag != "Player")
-        {
-            return;
-        }
+        if (!collision.CompareTag("Player")) return;
 
         if((!triggered || !oneTimeEvent) && !keyTriggersEvent)
         {
@@ -38,20 +35,13 @@ public class Door : MonoBehaviour
             triggered = true;
         }
 
-        if(playerRbody == null)
-        {
-            playerRbody = collision.GetComponent<Rigidbody2D>();
-        }
+        if(playerRbody == null) playerRbody = collision.GetComponent<Rigidbody2D>();
 
         atDoor = true;
 
         if(!triggered || destinationDoor != null)
         {
-            if(interactIcon == null)
-            {
-                interactIcon = IconManager.CreateSprite();
-            }
-
+            if(interactIcon == null) interactIcon = IconManager.CreateSprite();
             IconManager.UpdateInteractIcon(interactIcon, transform.position + new Vector3(0f, 2f), interactSprite);
         }
 
@@ -65,10 +55,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "Player")
-        {
-            return;
-        }
+        if (!collision.CompareTag("Player")) return;
         atDoor = false;
 
         if(!keyTriggersEvent)
@@ -97,10 +84,7 @@ public class Door : MonoBehaviour
 
     private void UseDoor()
     {
-        if(!atDoor || playerRbody == null || inputHeld)
-        {
-            return;
-        }
+        if (!atDoor || playerRbody == null || inputHeld) return;
 
         if(keyTriggersEvent && !triggered)
         {
@@ -114,10 +98,7 @@ public class Door : MonoBehaviour
             IconManager.UpdateInteractIcon(interactIcon, Vector2.zero, null);
         }
 
-        if (destinationDoor == null)
-        {
-            return;
-        }
+        if (destinationDoor == null) return;
 
         MoveEnemies();
 
@@ -135,10 +116,8 @@ public class Door : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if(destinationDoor == null)
-        {
-            return;
-        }
+        if (destinationDoor == null) return;
+
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, destinationDoor.transform.position);
     }
@@ -159,10 +138,7 @@ public class Door : MonoBehaviour
 
     private void MoveEnemies()
     {
-        if(destinationDoor == null)
-        {
-            return;
-        }
+        if (destinationDoor == null) return;
 
         Vector2 exitPos = destinationDoor.transform.position;
         RaycastHit2D[] enemies = Physics2D.CircleCastAll(exitPos, 5f, Vector2.up, 5f, LayerMask.GetMask("Enemy"));

@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 
 public class MusicManager : MonoBehaviour
 {
@@ -31,10 +30,7 @@ public class MusicManager : MonoBehaviour
 
                 changingTrack = false;
 
-                if (newTrack != null)
-                {
-                    ChangeTrack(newTrack, curLoop, curFadeSpeed);
-                }
+                if (newTrack != null) ChangeTrack(newTrack, curLoop, curFadeSpeed);
             }
         }
         else
@@ -77,10 +73,7 @@ public class MusicManager : MonoBehaviour
     {
         MusicManager globalMusicManager = GetMusicManager();
 
-        if (track == null && globalMusicManager.currentTrack == null)
-        {
-            return;
-        }
+        if (track == null && globalMusicManager.currentTrack == null) return;
 
         globalMusicManager.curFadeSpeed = fadeSpeed;
         globalMusicManager.curLoop = loop;
@@ -106,10 +99,7 @@ public class MusicManager : MonoBehaviour
     {
         MusicManager globalMusicManager = GetMusicManager();
 
-        if (globalMusicManager.currentTrack == null)
-        {
-            return;
-        }
+        if (globalMusicManager.currentTrack == null) return;
 
         globalMusicManager.StopAllCoroutines();
         globalMusicManager.StartCoroutine(AudioManager.FadeSource(globalMusicManager.currentTrack, vol, 1f));

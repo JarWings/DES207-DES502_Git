@@ -8,10 +8,7 @@ public class Trigger : MonoBehaviour
     private bool triggered = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Player")
-        {
-            return;
-        }
+        if (!collision.CompareTag("Player")) return;
 
         if (!triggered || !oneTimeEvent)
         {
@@ -22,10 +19,7 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "Player")
-        {
-            return;
-        }
+        if (!collision.CompareTag("Player")) return;
 
         if (!triggered || !oneTimeEvent)
         {

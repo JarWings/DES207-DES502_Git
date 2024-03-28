@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestructableObject : Enemy
@@ -24,7 +23,7 @@ public class DestructableObject : Enemy
         base.GetHit(damage);
         health -= damage;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Destroyed();
             return;
@@ -46,10 +45,7 @@ public class DestructableObject : Enemy
 
         AudioManager.PlayAudio(AudioType.soundFX, destroySound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80);
 
-        if(destroyPrefab != null)
-        {
-            Instantiate(destroyPrefab, transform.position, Quaternion.identity);
-        }
+        if (destroyPrefab != null) Instantiate(destroyPrefab, transform.position, Quaternion.identity);
 
         StopAllCoroutines();
         StartCoroutine(SpriteFade());
@@ -77,11 +73,7 @@ public class DestructableObject : Enemy
         while (shakeCount < totalShakes)
         {
             Vector3 targetPos = spawnPosition + (Vector3)Random.insideUnitCircle * Random.Range(.5f, 1f);
-
-            if(shakeCount >= totalShakes)
-            {
-                targetPos = spawnPosition;
-            }
+            if (shakeCount >= totalShakes) targetPos = spawnPosition;
 
             transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 64f);
             shakeCount++;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MathsTeacher : Enemy
@@ -54,7 +52,7 @@ public class MathsTeacher : Enemy
 
     private void DestinationCheck()
     {
-        if (dead)	return;
+        if (dead) return;
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, viewRange, Vector2.up, viewRange, LayerMask.GetMask("Player"));
         if (hit.transform != null && !chasing)
@@ -81,16 +79,13 @@ public class MathsTeacher : Enemy
 
     private void Walk()
     {
-        if (chasing && playerTransform != null)	destination = playerTransform.position.x;
+        if (chasing && playerTransform != null) destination = playerTransform.position.x;
         bool targetRight = destination > transform.position.x;
 
-        if(IsGrounded() && !dead && attackTime <= 0f)
-        {
-            spriteRender.flipX = targetRight;
-        }
+        if (IsGrounded() && !dead && attackTime <= 0f) spriteRender.flipX = targetRight;
 
         float speed = walkSpeed;
-		speed = !targetRight ? -speed : speed;
+        speed = !targetRight ? -speed : speed;
 
         bool inRange = Vector2.Distance(new Vector2(destination, transform.position.y), transform.position) < attackRange;
 
@@ -125,7 +120,7 @@ public class MathsTeacher : Enemy
         health -= hits;
 
         float xForce = 14f;
-		xForce = spriteRender.flipX ? -xForce : xForce;
+        xForce = spriteRender.flipX ? -xForce : xForce;
         pushModifier = new(xForce, 30f);
 
         if (health <= 0)
@@ -156,8 +151,8 @@ public class MathsTeacher : Enemy
 
     private void Attack()
     {
-        if (dead || !IsGrounded())	return;
-		
+        if (dead || !IsGrounded()) return;
+
         destination = transform.position.x;
         attackTime = 2f; // attack time
         attackDelay = attackTime * 2f;

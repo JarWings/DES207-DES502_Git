@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public enum EntryType {enemy, item, misc}
+public enum EntryType { enemy, item, misc }
 
 [System.Serializable]
 public class JournalEntry
@@ -42,7 +42,7 @@ public class JournalManager : MonoBehaviour
     {
         JournalManager manager = GetJournalObj();
 
-        if (index < 0 || index > manager.EntryContainer.Entries.Count)	return;
+        if (index < 0 || index > manager.EntryContainer.Entries.Count) return;
 
         manager.EntryContainer.Entries[index].Owned = true;
 
@@ -59,12 +59,12 @@ public class JournalManager : MonoBehaviour
             manager.EntryContainer.Entries[i].Owned = false;
         }
 
-        if (!File.Exists(path))	return;
+        if (!File.Exists(path)) return;
 
         string jsonData = File.ReadAllText(path);
         JournalListContainer savedList = JsonUtility.FromJson<JournalListContainer>(jsonData);
 
-        for(int i = 0; i < savedList.Entries.Count; i++)
+        for (int i = 0; i < savedList.Entries.Count; i++)
         {
             manager.EntryContainer.Entries[i].Owned = savedList.Entries[i].Owned;
         }
