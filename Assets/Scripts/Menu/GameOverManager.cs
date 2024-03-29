@@ -72,21 +72,24 @@ public class GameOverManager : MonoBehaviour
 	
 	public static void GameOver()
 	{
+		if(isOver) return;
 		Instance.uiGroup.alpha = 1f;
 		Instance.bgPanel.color = Color.black;
-		isOver = true;
 		
 		LeaderboardManager.allowTimer = false;
 		Instance.gameOverText.text = "Game Over! Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard.";
+	
+		isOver = true;
 	}
 	
 	public void SubmitScore()
 	{
-		LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
-		SceneChangeManager.LoadScene("MainMenu");
-		
+		isOver = false;
+
 		Instance.uiGroup.alpha = 0f;
 		Instance.bgPanel.color = Color.clear;
-		isOver = false;
+		
+		LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
+		SceneChangeManager.LoadScene("MainMenu");
 	}
 }

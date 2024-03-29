@@ -290,7 +290,6 @@ public class PlayerCharacter : MonoBehaviour
         if(hp <= 0)
         {
             GameOverManager.GameOver();
-			this.enabled = false;
         }
 
         //受伤时，向反方向弹飞

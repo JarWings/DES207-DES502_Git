@@ -31,9 +31,14 @@ public class SceneChangeManager : MonoBehaviour
         }
 
         PlayerCharacter.ResetPosition();
+		
+		bool isMenu = sceneName == "MainMenu";
+		LeaderboardManager.allowTimer = !isMenu;
 
         if(PlayerCharacter.Instance != null)
         {
+			PlayerCharacter.Instance.enabled = true;
+
             PlayerCharacter.Instance.hp = PlayerCharacter.Instance.maxHp;
             PlayerCharacter.Instance.transform.GetComponent<Collider2D>().enabled = true;
             PlayerCharacter.Instance.transform.GetComponent<SpriteRenderer>().enabled = true;
@@ -42,11 +47,7 @@ public class SceneChangeManager : MonoBehaviour
             PlayerCharacter.Instance.dashFrames.Clear();
 
             Rigidbody2D rbody = PlayerCharacter.Instance.transform.GetComponent<Rigidbody2D>();
-
-            bool isMenu = sceneName == "MainMenu";
 			
-			LeaderboardManager.allowTimer = !isMenu;
-
             rbody.constraints = isMenu ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
             rbody.velocity = isMenu ? Vector2.zero : rbody.velocity;
             rbody.isKinematic = isMenu;
