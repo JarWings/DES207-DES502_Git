@@ -44,6 +44,8 @@ public class SceneChangeManager : MonoBehaviour
             Rigidbody2D rbody = PlayerCharacter.Instance.transform.GetComponent<Rigidbody2D>();
 
             bool isMenu = sceneName == "MainMenu";
+			
+			LeaderboardManager.allowTimer = !isMenu;
 
             rbody.constraints = isMenu ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
             rbody.velocity = isMenu ? Vector2.zero : rbody.velocity;

@@ -289,7 +289,8 @@ public class PlayerCharacter : MonoBehaviour
 
         if(hp <= 0)
         {
-            SceneChangeManager.LoadScene("MainMenu");
+            GameOverManager.GameOver();
+			this.enabled = false;
         }
 
         //受伤时，向反方向弹飞

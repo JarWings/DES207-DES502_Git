@@ -234,3 +234,8 @@ Fixed the bug switching Scenes losting the CD image
 --Michael
 ver.0.4.3
 Optimised some of my scripts, implemented new buzzing sound for lights.
+
+29/03/24
+--Michael
+ver.0.4.4
+Added game over logic with name entry.

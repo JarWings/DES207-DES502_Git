@@ -20,24 +20,30 @@ public class SerializableList
 public class LeaderboardManager : MonoBehaviour
 {
     public SerializableList scoreList = new();
-    public float currentTime = 0f;
+    public static float currentTime = 0f;
+	
+	public static bool allowTimer =  false;
+
+	void Start()
+	{
+		allowTimer = !(SceneManager.GetActiveScene().name == "MainMenu");
+	}
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0) currentTime += Time.deltaTime;
+        if (allowTimer) currentTime += Time.deltaTime;
     }
 
     public static void ResetTime()
     {
-        LeaderboardManager leaderboardObj = GetLeaderboardObj();
-        leaderboardObj.currentTime = 0f;
+        currentTime = 0f;
     }
 
     public static void AddScore(string playerName)
     {
         LeaderboardManager leaderboardObj = GetLeaderboardObj();
 
-        float time = leaderboardObj.currentTime;
+        float time = currentTime;
 
         playerName = playerName.Length <= 0 ? "Player" + leaderboardObj.scoreList.scores.Count : playerName;
 
