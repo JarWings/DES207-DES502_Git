@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MusicManager : MonoBehaviour
@@ -94,6 +95,12 @@ public class MusicManager : MonoBehaviour
         globalMusicManager.currentTrack = AudioManager.PlayAudio(AudioType.music, track, null, Vector2.zero, globalMusicManager.transform, 1f, 1f, 0f, 0f, 0f, loop);
         globalMusicManager.curTime = track.length;
     }
+	
+	public static IEnumerator DelayTrackChange(AudioClip track, bool loop, float fadeSpeed, float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		ChangeTrack(track, loop, fadeSpeed);
+	}
 
     public static void ChangeVolume(float vol)
     {

@@ -239,3 +239,8 @@ Optimised some of my scripts, implemented new buzzing sound for lights.
 --Michael
 ver.0.4.4
 Added game over logic with name entry.
+
+29/03/24
+--Michael
+ver.0.4.5
+Added godmode cheat (hold keys: g, o, d), fixed bug with destruction cheat, added level new level music, added music function to manage delayed track changes, fixed other bugs.

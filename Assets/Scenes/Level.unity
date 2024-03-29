@@ -8268,8 +8268,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tips:
-  - Press Space to dodge attacks with the Dash move!
-  - Open lockers to find items.
+  - People die when they are killed.
+  - "Some lockers aren\u2019t locked, press up to open them."
+  - Remember to stay hydrated, chocolate milk will restore all your HP!
+  - Do people even read these?
+  - Walk up to the students in order to free them from detention.
+  - 'This would not be a problem if the education system accommodated more for different
+    students. Instead of assisting students that are falling behind they punish them.
+    This is especially bad for disabled students, who have to try twice as hard to
+    do the same amount of work, and get judged the same as everyone else. The education
+    system needs to be more flexible because everyone learns differently and forcing
+    everyone to fit into the same mold does not help. '
+  - "Oh heck yeah it\u2019s pizza day in the cafeteria!"
   tipText: {fileID: 1438236985}
   leftPanel: {fileID: 1314763630}
   rightPanel: {fileID: 1438080910}

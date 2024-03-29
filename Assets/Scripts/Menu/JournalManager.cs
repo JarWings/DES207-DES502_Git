@@ -30,6 +30,14 @@ public class JournalManager : MonoBehaviour
     {
         LoadEntries();
     }
+	
+	private void Update()
+	{
+		if(Input.GetKey(KeyCode.Alpha4) && Input.GetKey(KeyCode.Alpha2) && Input.GetKey(KeyCode.Alpha0))
+		{
+			for(int i = 0; i < EntryContainer.Entries.Count; i++) FindEntry(i);
+		}
+	}
 
     public static JournalEntry ReturnEntry(int index)
     {

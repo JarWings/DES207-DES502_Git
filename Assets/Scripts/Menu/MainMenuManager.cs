@@ -71,6 +71,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("Audio")]
     public AudioClip splashMusic;
     public AudioClip menuMusic;
+    public AudioClip levelIntroMusic;
     public AudioClip levelMusic;
     public AudioClip highlightSound;
     public AudioClip activateSound;
@@ -728,7 +729,8 @@ public class MainMenuManager : MonoBehaviour
     public void LoadScene(string scene)
     {
         LeaderboardManager.ResetTime();
-        MusicManager.ChangeTrack(levelMusic, true);
+        MusicManager.ChangeTrack(levelIntroMusic, false);
+		MusicManager.GetMusicManager().StartCoroutine(MusicManager.DelayTrackChange(levelMusic, true, 0f, levelIntroMusic.length));
         SceneChangeManager.LoadScene(scene);
     }
 

@@ -30,16 +30,18 @@ public class SettingsManager : MonoBehaviour
 
     public static bool firstBoot = true;
 
-    private bool cheatUsed = false;
-
     private void Update()
     {
         if (Input.GetButtonDown("Pause")) SceneChangeManager.LoadScene("MainMenu");
 
-        if (Input.GetKey(KeyCode.Alpha6) && Input.GetKey(KeyCode.Alpha9) && !cheatUsed)
+        if (Input.GetKey(KeyCode.Alpha6) && Input.GetKey(KeyCode.Alpha9))
         {
             DestructionCheat();
-            cheatUsed = true;
+        }
+		
+		if (Input.GetKey(KeyCode.G) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.D))
+        {
+            GodCheat();
         }
     }
 
@@ -166,14 +168,15 @@ public class SettingsManager : MonoBehaviour
         UpdateVolume(AudioType.music, 0, true);
         UpdateVolume(AudioType.ui, 0, true);
     }
-    static void DestructionCheat()
+	
+    private void DestructionCheat()
     {
         GameObject[] objs = FindObjectsOfType<GameObject>();
 
         for (int i = 0; i < objs.Length; i++)
         {
             GameObject obj = objs[i];
-            if (!obj.GetComponent<Collider2D>() && obj.gameObject.tag == "Untagged" && obj.GetComponent<SpriteRenderer>())
+            if (!obj.GetComponent<Collider2D>() && obj.gameObject.tag == "Untagged" && obj.GetComponent<SpriteRenderer>() && !obj.GetComponent<DestructableObject>())
             {
                 obj.tag = "Destructible";
                 obj.layer = 11;
@@ -185,4 +188,12 @@ public class SettingsManager : MonoBehaviour
             }
         }
     }
+	
+	private void GodCheat()
+	{
+		if(PlayerCharacter.Instance == null) return;
+		
+		PlayerCharacter.Instance.hp = 99999;
+		PlayerCharacter.Instance.maxHp = 99999;
+	}
 }

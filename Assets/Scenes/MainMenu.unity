@@ -846,7 +846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86.9, y: -214.11}
+  m_AnchoredPosition: {x: 53.6, y: -194.1}
   m_SizeDelta: {x: 169.5541, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914088175
@@ -2950,7 +2950,8 @@ MonoBehaviour:
   rightPageParent: {fileID: 307998622}
   splashMusic: {fileID: 8300000, guid: 99cd6ec347478614ea484f8e0aa2c6d3, type: 3}
   menuMusic: {fileID: 8300000, guid: 498b7e4bc68dc3a45a3dfba781373ac3, type: 3}
-  levelMusic: {fileID: 8300000, guid: f3031f767dbe16d4dba362e0955b9143, type: 3}
+  levelIntroMusic: {fileID: 8300000, guid: 6fd4da2092b81a345b0d31f0f10b7d01, type: 3}
+  levelMusic: {fileID: 8300000, guid: dd56910e40273f74388eb8e881fc355a, type: 3}
   highlightSound: {fileID: 8300000, guid: eb4cd019f7fad1e47a1674521338181f, type: 3}
   activateSound: {fileID: 8300000, guid: d48573c157c00984daca77ecd10b353e, type: 3}
   sliderUseSound: {fileID: 8300000, guid: 9a23c2845d870484885218c4b8e0723c, type: 3}
