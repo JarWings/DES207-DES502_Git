@@ -106,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
         UpdateMenuFonts();
         UpdateHighlightDisplay();
 
-        float fillAmount = SettingsManager.firstBoot ? 1f : 0f;
+        float fillAmount = SettingsManager.firstBoot ? 1f : 0f; // displays splash screen depending on if it's the first boot
 
         splashImage.fillAmount = fillAmount;
         StartCoroutine(ImageFill(splashImage, fillAmount));
@@ -131,7 +131,7 @@ public class MainMenuManager : MonoBehaviour
 
         idleTime += Time.deltaTime;
 
-        if (idleTime > 30 && !displayingSplash && !splashChanging)
+        if (idleTime > 30 && !displayingSplash && !splashChanging) // displays splash screen if the game has been idle for more than 30 seconds
         {
             StartCoroutine(ImageFill(splashImage, 1f));
         }
@@ -214,7 +214,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (highlightImage?.transform.parent != null)
         {
-            highlightImage?.transform.SetParent(null);
+            highlightImage.transform.SetParent(null);
         }
 
         for (int i = 0; i < spawnedMenuButtons.Count; i++) Destroy(spawnedMenuButtons[i]);
@@ -305,7 +305,7 @@ public class MainMenuManager : MonoBehaviour
                     switch (curButton.sliderValueType)
                     {
                         case SliderValue.master:
-                            sliderVal = (SettingsManager.data.masterVol + 80f) * 1.25f;
+                            sliderVal = (SettingsManager.data.masterVol + 80f) * 1.25f; // converts the audio in dB to 0-100 range
                             break;
                         case SliderValue.soundFX:
                             sliderVal = (SettingsManager.data.fxVol + 80f) * 1.25f;
@@ -388,7 +388,7 @@ public class MainMenuManager : MonoBehaviour
         MenuPage curPage = Pages[currentPageIndex];
         MenuButton curButton = curPage.menuButtons[curPage.currentButtonIndex];
 
-        if (((curButton.LeftEvent == null || curButton.LeftEvent.GetPersistentEventCount() == 0) && index == -1) || ((curButton.RightEvent == null || curButton.RightEvent.GetPersistentEventCount() == 0) && index == 1))
+        if (((curButton.LeftEvent == null || curButton.LeftEvent.GetPersistentEventCount() == 0) && index == -1) || ((curButton.RightEvent == null || curButton.RightEvent.GetPersistentEventCount() == 0) && index == 1)) //checks slider has events
         {
             return;
         }
@@ -542,7 +542,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void DisplayScores()
     {
-        ChangePage(7);
+        ChangePage(7); // opens the leaderboard page
 
         List<MenuButton> scoreButtons = Pages[7].menuButtons;
         scoreButtons.Clear();

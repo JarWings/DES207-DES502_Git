@@ -23,19 +23,16 @@ public class SceneChangeManager : MonoBehaviour
         }
     }
 
-    public static void LoadScene(string sceneName)
+    public static void LoadScene(string sceneName, bool resetPlayer = true)
     {
-        if(SceneManager.GetActiveScene().name == sceneName)
-        {
-            return;
-        }
+        if(SceneManager.GetActiveScene().name == sceneName) return; // prevents loading the active scene
 
         PlayerCharacter.ResetPosition();
 		
 		bool isMenu = sceneName == "MainMenu";
 		LeaderboardManager.allowTimer = !isMenu;
 
-        if(PlayerCharacter.Instance != null)
+        if(PlayerCharacter.Instance != null && resetPlayer) // resets player on scene changes
         {
 			PlayerCharacter.Instance.enabled = true;
 

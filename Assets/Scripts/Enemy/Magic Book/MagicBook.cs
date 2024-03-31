@@ -79,7 +79,7 @@ public class MagicBook : Enemy
         {
             idleTime -= Time.deltaTime;
 
-            if (idleTime <= 0) NewRandomDest();
+            if (idleTime <= 0) NewRandomDest(); // used for idle flying
 
             if (!attacking && playerTransform != null)
             {
@@ -142,7 +142,7 @@ public class MagicBook : Enemy
         }
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
 
-        rbody.AddForce(-destination.normalized * 5f, ForceMode2D.Impulse);
+        rbody.AddForce(-destination.normalized * 5f, ForceMode2D.Impulse); // used for knock-back effect
     }
 
     private void Die()
@@ -174,7 +174,7 @@ public class MagicBook : Enemy
         destination = playerTransform.position;
 
         rbody.velocity = Vector2.zero;
-        rbody.AddForce((destination - (Vector2)transform.position).normalized * 10f, ForceMode2D.Impulse);
+        rbody.AddForce((destination - (Vector2)transform.position).normalized * 10f, ForceMode2D.Impulse); // dashs towards player
     }
 
     IEnumerator DashEffect()

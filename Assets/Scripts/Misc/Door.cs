@@ -136,7 +136,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void MoveEnemies()
+    private void MoveEnemies() // prevents enemies attacking you the second you exit a door
     {
         if (destinationDoor == null) return;
 
@@ -146,7 +146,7 @@ public class Door : MonoBehaviour
         for(int i = 0; i < enemies.Length; i++)
         {
             Enemy enemy = enemies[i].transform.GetComponent<Enemy>();
-            enemy.ResetPosition();
+            enemy.ResetPosition(); // moves the enemy back to the point they spawned at
         }
     }
 

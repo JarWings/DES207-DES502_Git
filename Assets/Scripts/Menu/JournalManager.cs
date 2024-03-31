@@ -33,7 +33,7 @@ public class JournalManager : MonoBehaviour
 	
 	private void Update()
 	{
-		if(Input.GetKey(KeyCode.Alpha4) && Input.GetKey(KeyCode.Alpha2) && Input.GetKey(KeyCode.Alpha0))
+		if(Input.GetKey(KeyCode.Alpha4) && Input.GetKey(KeyCode.Alpha2) && Input.GetKey(KeyCode.Alpha0)) // cheat code to unlock all entries
 		{
 			for(int i = 0; i < EntryContainer.Entries.Count; i++) FindEntry(i);
 		}
@@ -88,7 +88,7 @@ public class JournalManager : MonoBehaviour
         File.WriteAllText(path, jsonData);
     }
 
-    public static JournalManager GetJournalObj()
+    public static JournalManager GetJournalObj() // replace with instance in future!
     {
         return GameObject.FindWithTag("Global").GetComponent<JournalManager>();
     }

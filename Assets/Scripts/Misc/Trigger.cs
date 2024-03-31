@@ -30,8 +30,7 @@ public class Trigger : MonoBehaviour
 
     public void EndLevel()
     {
-        LeaderboardManager.AddScore("");
-        SceneChangeManager.LoadScene("MainMenu");
+		GameOverManager.GameOver(true);
     }
 
     public void ChangeMusic(AudioClip track)

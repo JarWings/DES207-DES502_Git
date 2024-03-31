@@ -138,9 +138,9 @@ public class MathsTeacher : Enemy
     {
         dead = true;
 
-        gameObject.layer = 8;
+        gameObject.layer = 8; // prevents collision with the player
 
-        JournalManager.FindEntry(3);
+        JournalManager.FindEntry(3); // adds journal entry for the maths teacher
         AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
 
         anim.SetFloat("Speed", 0f);
@@ -154,7 +154,7 @@ public class MathsTeacher : Enemy
         if (dead || !IsGrounded()) return;
 
         destination = transform.position.x;
-        attackTime = 2f; // attack time
+        attackTime = 2f;
         attackDelay = attackTime * 2f;
 
         anim.SetTrigger("Attack");

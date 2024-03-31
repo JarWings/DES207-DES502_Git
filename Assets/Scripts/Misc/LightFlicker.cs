@@ -31,7 +31,7 @@ public class LightFlicker : MonoBehaviour
         if(meshRenderer.material.GetColor("_Color") != targetColour)
         {
             meshRenderer.material.SetColor("_Color", Color.Lerp(meshRenderer.material.GetColor("_Color"), targetColour, Time.deltaTime * flickerSpeed));
-            buzzingSource.volume = targetColour.a / meshRenderer.material.GetColor("_Color").a;
+            buzzingSource.volume = targetColour.a / meshRenderer.material.GetColor("_Color").a; // changes the volume of the buzzing based on how bright the light is
         }
         else
         {

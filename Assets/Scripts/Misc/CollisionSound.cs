@@ -25,7 +25,7 @@ public class CollisionSound : MonoBehaviour
 
         if (rbody == null || rbody.velocity.magnitude > forceRequirement)
         {
-            float mult = rbody != null ? 1f * Mathf.Clamp(rbody.velocity.magnitude / 6f, .8f, 1.4f) : 1f;
+            float mult = rbody != null ? 1f * Mathf.Clamp(rbody.velocity.magnitude / 6f, .8f, 1.4f) : 1f; // changes the pitch depending on the force of the impact
 
             AudioManager.PlayAudio(AudioType.soundFX, null, collideSounds, transform.position, transform, 1f, Random.Range(.9f, 1.1f) * mult, 1, 0, 20);
             lastSoundTime = minRestTime;

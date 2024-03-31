@@ -86,17 +86,7 @@ public class SettingsManager : MonoBehaviour
     public static void SetDifficulty(int index)
     {
         int curDifficulty = (int)data.difficulty;
-        curDifficulty += index;
-
-        if (curDifficulty > 3)
-        {
-            curDifficulty = 0;
-        }
-        else if (curDifficulty < 0)
-        {
-            curDifficulty = 3;
-        }
-
+		curDifficulty = (curDifficulty + 1) % 3;
         data.difficulty = (DifficultySettings)curDifficulty;
     }
 

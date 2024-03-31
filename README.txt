@@ -244,3 +244,8 @@ Added game over logic with name entry.
 --Michael
 ver.0.4.5
 Added godmode cheat (hold keys: g, o, d), fixed bug with destruction cheat, added level new level music, added music function to manage delayed track changes, fixed other bugs.
+
+31/03/24
+--Michael
+ver.0.4.6
+Added code comments, small optimisations.

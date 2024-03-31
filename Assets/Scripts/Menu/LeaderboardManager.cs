@@ -60,7 +60,7 @@ public class LeaderboardManager : MonoBehaviour
             {
                 if (time < tempScore.time)
                 {
-                    tempScore.time = time;
+                    tempScore.time = time; // replaces previous best time with new time if it's better and the name matches
                     return;
                 }
                 else
@@ -96,7 +96,7 @@ public class LeaderboardManager : MonoBehaviour
         File.WriteAllText(path, jsonData);
     }
 
-    public static LeaderboardManager GetLeaderboardObj()
+    public static LeaderboardManager GetLeaderboardObj() // replace with instance in future!
     {
         return GameObject.FindWithTag("Global").GetComponent<LeaderboardManager>();
     }

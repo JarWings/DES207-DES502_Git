@@ -8,7 +8,7 @@ public class Reflection : MonoBehaviour
 
     private void Start()
     {
-        TargetSprite = TargetSprite == null ? GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>() : TargetSprite;
+        TargetSprite = TargetSprite == null ? GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>() : TargetSprite; // if null sets it to player sprite, added to fix issue with losing reference to player on scene changes
         spriteRender.sortingOrder = TargetSprite.sortingOrder;
     }
 

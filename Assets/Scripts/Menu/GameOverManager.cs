@@ -55,7 +55,7 @@ public class GameOverManager : MonoBehaviour
 	
 	void SwitchCharacter(int input)
 	{
-		selectedIndex = (selectedIndex + input) % character.Length;
+		selectedIndex = (selectedIndex + input) % character.Length; // increments the selected character, flips back to 0 when it reaches the character entry length
 		
 		for(int i = 0; i < characterText.Length; i++) characterText[i].color = i == selectedIndex ? Color.green : Color.white;
 		FlipCharacter(0);
@@ -65,12 +65,12 @@ public class GameOverManager : MonoBehaviour
 	{
 		if(inputHeld) return;
 				
-		character[selectedIndex] = (character[selectedIndex] + input) % characters.Length;
-		character[selectedIndex] = character[selectedIndex] < 0 ? characters.Length - 1 : character[selectedIndex];
+		character[selectedIndex] = (character[selectedIndex] + input) % characters.Length; // increments the selected character
+		character[selectedIndex] = character[selectedIndex] < 0 ? characters.Length - 1 : character[selectedIndex]; // decrements the character 
 		characterText[selectedIndex].text = characters[character[selectedIndex]].ToString();
 	}
 	
-	public static void GameOver()
+	public static void GameOver(bool win = false)
 	{
 		if(isOver) return;
 		Instance.uiGroup.alpha = 1f;

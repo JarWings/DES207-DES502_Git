@@ -43,10 +43,7 @@ public class MusicManager : MonoBehaviour
                 if (curTime <= 0f)
                 {
                     List<AudioClip> tempList = currentPlaylist;
-                    if (tempList.Contains(newTrack))
-                    {
-                        tempList.Remove(newTrack);
-                    }
+                    if (tempList.Contains(newTrack)) tempList.Remove(newTrack);
 
                     AudioClip track = tempList[Random.Range(0, tempList.Count)];
                     ChangeTrack(track, false);
@@ -112,7 +109,7 @@ public class MusicManager : MonoBehaviour
         globalMusicManager.StartCoroutine(AudioManager.FadeSource(globalMusicManager.currentTrack, vol, 1f));
     }
 
-    public static MusicManager GetMusicManager()
+    public static MusicManager GetMusicManager() // replace with instance in future!
     {
         return GameObject.FindWithTag("Global").GetComponent<MusicManager>();
     }
