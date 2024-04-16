@@ -1,5 +1,3 @@
-hello world! this is a test.
-
 09/02/24
 --Jiancheng
 ver.0.0.0 
@@ -249,3 +247,8 @@ Added godmode cheat (hold keys: g, o, d), fixed bug with destruction cheat, adde
 --Michael
 ver.0.4.6
 Added code comments, small optimisations.
+
+16/04/24
+--Michael
+ver.0.4.7
+First implementation of multi-language support for the main menu interface and dialogue display. 

@@ -1363,7 +1363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -41.311108, y: 294.2}
+  m_AnchoredPosition: {x: -41.311035, y: 294.19995}
   m_SizeDelta: {x: -95.403, y: 46.5564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575753950
@@ -1583,8 +1583,10 @@ MonoBehaviour:
   Pages:
   - MenuName: Main
     menuButtons:
-    - buttonName: Play!
-      buttonDesc: Start playing!
+    - buttonName:
+      - Play
+      buttonDesc:
+      - Start the game!
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1612,8 +1614,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: TestMap
-      buttonDesc: Start playing!
+    - buttonName:
+      - TestMap
+      buttonDesc:
+      - Load the old test map, may be buggy!
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1641,8 +1645,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Journal
-      buttonDesc: View information about any enemies you've encountered.
+    - buttonName:
+      - Journal
+      buttonDesc:
+      - Read journal entries you've collected.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1670,8 +1676,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Options
-      buttonDesc: Customise visual, audio, and gameplay settings.
+    - buttonName:
+      - Options
+      buttonDesc:
+      - Change video, audio, and gameplay settings.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1699,8 +1707,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Leaderboard
-      buttonDesc: View highscores.
+    - buttonName:
+      - Leaderboard
+      buttonDesc:
+      - View the best times players have completed the game in.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1728,8 +1738,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Credits
-      buttonDesc: View the members of team Orion!
+    - buttonName:
+      - Credits
+      buttonDesc:
+      - View the members of Team Orion!
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1757,8 +1769,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Quit
-      buttonDesc: Close this application.
+    - buttonName:
+      - Quit
+      buttonDesc:
+      - Exit to windows.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1791,8 +1805,10 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Options
     menuButtons:
-    - buttonName: Audio
-      buttonDesc: Change game audio levels.
+    - buttonName:
+      - Audio
+      buttonDesc:
+      - Change music, sound FX, and UI volume sliders.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1820,8 +1836,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Visual
-      buttonDesc: Change resolution, graphics, and other visual settings.
+    - buttonName:
+      - Video
+      buttonDesc:
+      - Change resolution, v-sync, and other visual options.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1849,8 +1867,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Gameplay
-      buttonDesc: Change gameplay modifiers, such as the difficulty level.
+    - buttonName:
+      - Gameplay
+      buttonDesc:
+      - Change options relating to gameplay, such as difficulty.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1878,8 +1898,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Revert All Settings
-      buttonDesc: Resets all the settings to default values.
+    - buttonName:
+      - Revert all settings
+      buttonDesc:
+      - Reverts all settings to default.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1907,8 +1929,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Delete all data
-      buttonDesc: Deletes all save data, leaderboard scores, and journal entries.
+    - buttonName:
+      - Delete all game data
+      buttonDesc:
+      - Deletes all saved settings, journal entries, and leaderboard entries.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1936,8 +1960,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Back
-      buttonDesc: Return to the main menu.
+    - buttonName:
+      - Return to main menu
+      buttonDesc:
+      - Closes the settings menu.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -1982,8 +2008,10 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Team Orion
     menuButtons:
-    - buttonName: Jiancheng Feng
-      buttonDesc: Lead Programmer & Support Designer
+    - buttonName:
+      - Jiancheng Feng
+      buttonDesc:
+      - Programming.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -1999,8 +2027,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Jenna Black
-      buttonDesc: Lead Artist & Character Design
+    - buttonName:
+      - Michael Eaton
+      buttonDesc:
+      - Programming.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2016,8 +2046,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Steph Richard
-      buttonDesc: Environmental Artist & Ui Artist
+    - buttonName:
+      - Jenna Black
+      buttonDesc:
+      - Artist.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2033,8 +2065,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Vladyslava Liaskovska
-      buttonDesc: Animator & Concept Artist
+    - buttonName:
+      - Vladsylava Liaskovska
+      buttonDesc:
+      - Artist.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2050,8 +2084,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: David Esezobor
-      buttonDesc: Level Design
+    - buttonName:
+      - Steph Richard
+      buttonDesc:
+      - Artist.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2067,8 +2103,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Fraser Neilson
-      buttonDesc: Audio Design & Producer
+    - buttonName:
+      - Fraser Neilson
+      buttonDesc:
+      - Audio & Music Artist.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2084,8 +2122,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Michael Eaton
-      buttonDesc: Programmer & Documentation
+    - buttonName:
+      - David Esezobor
+      buttonDesc:
+      - Level Design.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2101,8 +2141,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: "Nicklas \xD8vrelid"
-      buttonDesc: Narrative Design, Dialogue, & Enemy Gameplay Design
+    - buttonName:
+      - "Nicklas \xD8vrelid"
+      buttonDesc:
+      - Narrative Designer.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2118,8 +2160,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Kristofer Rossvoll-Booth
-      buttonDesc: Narrative Designer
+    - buttonName:
+      - Kristofer Rossvoll-Booth
+      buttonDesc:
+      - Narrative Designer.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2135,8 +2179,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Back
-      buttonDesc: Return to the main menu.
+    - buttonName:
+      - Return to main menu
+      buttonDesc:
+      - Closes the credits page.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2169,8 +2215,9 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Quit?
     menuButtons:
-    - buttonName: Are you sure?
-      buttonDesc: 
+    - buttonName:
+      - Are you sure you want to quit?
+      buttonDesc: []
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2186,8 +2233,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Yes
-      buttonDesc: Returns to Windows.
+    - buttonName:
+      - Yes
+      buttonDesc:
+      - Closes the game.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2215,8 +2264,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: No
-      buttonDesc: Returns to the main menu.
+    - buttonName:
+      - No
+      buttonDesc:
+      - Returns to the main menu.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2249,8 +2300,10 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Audio Options
     menuButtons:
-    - buttonName: 'Master volume: <mastervol>'
-      buttonDesc: Change the volume of the game audio.
+    - buttonName:
+      - 'Master Volume: <mastervol>'
+      buttonDesc:
+      - Change the volume of all sound effects & music.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2290,8 +2343,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 1
       playSounds: 1
-    - buttonName: 'Sound FX volume: <fxvol>'
-      buttonDesc: Change the volume of the sound FX.
+    - buttonName:
+      - 'Sound FX Volume: <fxvol>'
+      buttonDesc:
+      - Change the volume of sound effects.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2355,8 +2410,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 1
       playSounds: 0
-    - buttonName: 'Music volume: <musicvol>'
-      buttonDesc: Change the volume of the music.
+    - buttonName:
+      - 'Music Volume: <musicvol>'
+      buttonDesc:
+      - Change the volume of the music.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2396,8 +2453,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 1
       playSounds: 1
-    - buttonName: 'Ui volume: <uivol>'
-      buttonDesc: Change the volume of the ui sound FX.
+    - buttonName:
+      - 'UI Volume: <uivol>'
+      buttonDesc:
+      - Change the volume of all user interface sound effects.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2437,8 +2496,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 1
       playSounds: 1
-    - buttonName: Back
-      buttonDesc: Returns to the options menu.
+    - buttonName:
+      - Return to options
+      buttonDesc:
+      - Closes the audio settings page.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2471,8 +2532,10 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Visual Options
     menuButtons:
-    - buttonName: 'Resolution: <resolution>'
-      buttonDesc: Change the resolution of the game window.
+    - buttonName:
+      - 'Resolution: <resolution>'
+      buttonDesc:
+      - Change the game window resolution.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2512,8 +2575,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 1
       playSounds: 1
-    - buttonName: 'Fullscreen: <fullscreen>'
-      buttonDesc: Toggle between windowed and fullscreen.
+    - buttonName:
+      - 'Fullscreen: <fullscreen>'
+      buttonDesc:
+      - Toggle if the game runs in fullscreen or windowed mode.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2553,8 +2618,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: 'V-Sync: <vsync>'
-      buttonDesc: Toggle v-sync.
+    - buttonName:
+      - 'V-Sync: <vsync>'
+      buttonDesc:
+      - Toggle if vsync is enabled.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2594,8 +2661,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: 'Simple Font: <font>'
-      buttonDesc: Toggle between stylised or system font.
+    - buttonName:
+      - 'Simple font: <font>'
+      buttonDesc:
+      - Toggles between a stylised or default font for better readability.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2635,8 +2704,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: 'Menu Highlight: <highlight>'
-      buttonDesc: Toggle highlighting which button you have selected.
+    - buttonName:
+      - 'Button Highlight: <highlight>'
+      buttonDesc:
+      - Toggle a high contrast highlight over selected options.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2676,8 +2747,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Back
-      buttonDesc: Returns to the options menu.
+    - buttonName:
+      - Return to options page.
+      buttonDesc:
+      - Closes the video settings page.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2710,9 +2783,53 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Gameplay Options
     menuButtons:
-    - buttonName: 'Difficulty: <difficulty>'
-      buttonDesc: Change how hard the game is, affects how much damage you take per
-        hit.
+    - buttonName:
+      - 'Language: <language>'
+      buttonDesc:
+      - Change the games displayed language.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangeLanguage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: -1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: ChangeLanguage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+      playSounds: 1
+    - buttonName:
+      - 'Difficulty: <difficulty>'
+      buttonDesc:
+      - Changes how difficult combat encounters are.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2752,8 +2869,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Back
-      buttonDesc: Returns to the options menu.
+    - buttonName:
+      - Return to options page
+      buttonDesc:
+      - Closes the gameplay settings page.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2786,8 +2905,10 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Leaderboard
     menuButtons:
-    - buttonName: Back
-      buttonDesc: Returns to the main menu.
+    - buttonName:
+      - Return to main menu
+      buttonDesc:
+      - Closes the leaderboard page.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2820,8 +2941,10 @@ MonoBehaviour:
     displayImage: 0
   - MenuName: Journal Entries
     menuButtons:
-    - buttonName: Back
-      buttonDesc: Returns to the main menu.
+    - buttonName:
+      - Return to main menu
+      buttonDesc:
+      - Closes the journal page.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2854,8 +2977,11 @@ MonoBehaviour:
     displayImage: 1
   - MenuName: Delete all data?
     menuButtons:
-    - buttonName: Are you sure?
-      buttonDesc: 
+    - buttonName:
+      - Are you sure you want to delete all saved data?
+      buttonDesc:
+      - Deletes all game data, such as saved settings, leaderboard entries, and journal
+        entries.
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -2871,8 +2997,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: Yes
-      buttonDesc: Deletes all save data, settings, and resets leaderboard.
+    - buttonName:
+      - Yes
+      buttonDesc:
+      - Deletes all game data.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2900,8 +3028,10 @@ MonoBehaviour:
       sliderMaxValue: 100
       displaySlider: 0
       playSounds: 1
-    - buttonName: No
-      buttonDesc: Returns to the main menu.
+    - buttonName:
+      - No
+      buttonDesc:
+      - Returns to the main menu.
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2997,7 +3127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -33.8129, y: 153.07913}
+  m_AnchoredPosition: {x: -33.81299, y: 153.0791}
   m_SizeDelta: {x: -110.3992, y: 211.7577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887202458

@@ -6,13 +6,14 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System;
 using System.IO;
+using System.Linq;
 public enum SliderValue { master, soundFX, music, ui, res }
 
 [System.Serializable]
 public class MenuButton
 {
-    public string buttonName;
-    public string buttonDesc;
+    public string[] buttonName;
+    public string[] buttonDesc;
 
     public UnityEvent SelectEvent;
     public UnityEvent LeftEvent;
@@ -251,7 +252,7 @@ public class MainMenuManager : MonoBehaviour
             GameObject tempButton = Instantiate(menuButtonPrefab, buttonParent.transform);
             TMP_Text buttonText = tempButton.GetComponent<TMP_Text>();
 
-            buttonText.text = curButton.buttonName;
+            buttonText.text = curButton.buttonName[SettingsManager.data.curLanguage];
             buttonText.color = buttonColour;
 
             if (curButton.SelectEvent == null || HasEvents(curButton)) // Button has no logic, probably being used as a header or "slider" (left/right events)
@@ -275,6 +276,7 @@ public class MainMenuManager : MonoBehaviour
             buttonText.text = buttonText.text.Replace("<vsync>", SettingsManager.data.vsync.ToString());
             buttonText.text = buttonText.text.Replace("<font>", SettingsManager.data.simpleFont.ToString());
             buttonText.text = buttonText.text.Replace("<highlight>", SettingsManager.data.menuHighlight.ToString());
+            buttonText.text = buttonText.text.Replace("<language>", SettingsManager.Languages[SettingsManager.data.curLanguage]);
 
             // gameplay labels
             buttonText.text = buttonText.text.Replace("<difficulty>", SettingsManager.data.difficulty.ToString());
@@ -447,6 +449,15 @@ public class MainMenuManager : MonoBehaviour
         SettingsManager.SetResolution(0);
     }
 
+    public void ChangeLanguage(int index) 
+    {
+        int langIndex = SettingsManager.data.curLanguage;
+        langIndex += index;
+
+        langIndex = langIndex > SettingsManager.Languages.Length - 1 ? 0 : langIndex < 0 ? SettingsManager.Languages.Length - 1 : 0;
+        SettingsManager.data.curLanguage = langIndex;
+    }
+
     public void SaveSettings()
     {
         SettingsManager.SaveSettings();
@@ -531,7 +542,7 @@ public class MainMenuManager : MonoBehaviour
 
         MenuButton currentButton = curPage.menuButtons[curPage.currentButtonIndex];
 
-        buttonDescText.text = currentButton.buttonDesc;
+        buttonDescText.text = currentButton.buttonDesc[SettingsManager.data.curLanguage];
         DisplayImage(currentButton.HighlightImage, currentButton.imageColour);
 
         // Highlight sound pitches up as you move down the menu
@@ -556,8 +567,11 @@ public class MainMenuManager : MonoBehaviour
             Score currentScore = leaderboardObj.scoreList.scores[i];
 
             MenuButton newScore = new();
-            newScore.buttonName = currentScore.playerName + "   -  " + TimeSpan.FromSeconds(currentScore.time).ToString(@"hh\:mm\:ss\:ff");
-            newScore.buttonDesc = currentScore.playDate;
+            newScore.buttonName = Enumerable.Repeat("", SettingsManager.Languages.Length).ToArray();
+            newScore.buttonDesc = Enumerable.Repeat("", SettingsManager.Languages.Length).ToArray();
+
+            newScore.buttonName[SettingsManager.data.curLanguage] = currentScore.playerName + "   -  " + TimeSpan.FromSeconds(currentScore.time).ToString(@"hh\:mm\:ss\:ff");
+            newScore.buttonDesc[SettingsManager.data.curLanguage] = currentScore.playDate;
 
             scoreButtons.Insert(0, newScore);
         }
@@ -565,7 +579,7 @@ public class MainMenuManager : MonoBehaviour
         scoreButtons.Add(Pages[1].menuButtons[Pages[1].menuButtons.Count - 1]);
 
         SpawnButtons();
-        buttonDescText.text = Pages[7].menuButtons[Pages[7].currentButtonIndex].buttonDesc;
+        buttonDescText.text = Pages[7].menuButtons[Pages[7].currentButtonIndex].buttonDesc[SettingsManager.data.curLanguage];
     }
 
     public void DisplayImage(Sprite img, Color colour)
@@ -594,14 +608,17 @@ public class MainMenuManager : MonoBehaviour
             JournalEntry currentEntry = journalObj.EntryContainer.Entries[i];
             MenuButton newEntry = new();
 
+            newEntry.buttonName = Enumerable.Repeat("", SettingsManager.Languages.Length).ToArray();
+            newEntry.buttonDesc = Enumerable.Repeat("", SettingsManager.Languages.Length).ToArray();
+
             string buttonName = currentEntry.Owned ? currentEntry.Title : new string('?', currentEntry.Title.Length);
             string buttonDesc = currentEntry.Owned ? currentEntry.Description : new string('?', currentEntry.Description.Length);
 
             Sprite tempImage = currentEntry.Owned ? currentEntry.Picture : currentEntry.missingImage;
             Color tempColour = currentEntry.Owned ? Color.white : Color.black;
 
-            newEntry.buttonName = buttonName;
-            newEntry.buttonDesc = buttonDesc;
+            newEntry.buttonName[SettingsManager.data.curLanguage] = buttonName;
+            newEntry.buttonDesc[SettingsManager.data.curLanguage] = buttonDesc;
             newEntry.HighlightImage = tempImage;
             newEntry.imageColour = tempColour;
 
@@ -613,7 +630,7 @@ public class MainMenuManager : MonoBehaviour
         SpawnButtons();
 
         MenuButton button = Pages[8].menuButtons[Pages[8].currentButtonIndex];
-        buttonDescText.text = button.buttonDesc;
+        buttonDescText.text = button.buttonDesc[SettingsManager.data.curLanguage];
         DisplayImage(button.HighlightImage, button.imageColour);
     }
 
@@ -644,7 +661,7 @@ public class MainMenuManager : MonoBehaviour
         pageImage.enabled = curPage.displayImage;
 
         pageTitleText.text = curPage.MenuName;
-        buttonDescText.text = curPage.menuButtons[curPage.currentButtonIndex].buttonDesc;
+        buttonDescText.text = curPage.menuButtons[curPage.currentButtonIndex].buttonDesc[SettingsManager.data.curLanguage];
 
         int startIndex = currentSubPageIndex * maxButtonsPerPage;
         int endIndex = startIndex + maxButtonsPerPage;

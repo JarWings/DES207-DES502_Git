@@ -8,9 +8,9 @@ using TMPro;
 [System.Serializable]
 public class Line
 {
-    public string senderName = "";
+    public string[] senderName;
     [TextArea(4, 20)]
-    public string message = "";
+    public string[] message;
     public AudioClip voiceClip;
     public Sprite talkSprite, recieveSprite;
     public bool isPlayer = false;
@@ -58,12 +58,12 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Line currentLine = currentDialogueLines[lineIndex];
-            if (lineText.text != currentLine.message)
+            if (lineText.text != currentLine.message[SettingsManager.data.curLanguage])
             {
                 StopAllCoroutines();
 
-                nameText.text = currentLine.senderName;
-                lineText.text = currentLine.message;
+                nameText.text = currentLine.senderName[SettingsManager.data.curLanguage];
+                lineText.text = currentLine.message[SettingsManager.data.curLanguage];
 
                 fadePanel.color = Color.black / 1.4f;
 
@@ -116,12 +116,10 @@ public class DialogueManager : MonoBehaviour
 
         if (currentLine.talkEvent != null && currentLine.talkEvent.GetPersistentEventCount() > 0) currentLine.talkEvent.Invoke();
 
-        if (currentLine.isPlayer) currentLine.senderName = "Stuart Mitchell";
-
         StopAllCoroutines();
 
-        nameText.text = currentLine.senderName;
-        StartCoroutine(FillText(lineText, currentLine.message));
+        nameText.text = currentLine.isPlayer ? "Stuart Mitchell" : currentLine.senderName[SettingsManager.data.curLanguage];
+        StartCoroutine(FillText(lineText, currentLine.message[SettingsManager.data.curLanguage]));
 
         StartCoroutine(ToggleDialogueUi(true));
         StartCoroutine(ImageFade(fadePanel, Color.black / 1.4f, 2f));

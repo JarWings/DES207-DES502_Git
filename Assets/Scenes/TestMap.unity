@@ -2629,6 +2629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maths Teacher (Encounter)
       objectReference: {fileID: 0}
+    - target: {fileID: 2575379291168242037, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -17669,9 +17673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkRange: 5
   Dialogue:
-  - senderName: Maths Teacher
-    message: Mister Mitchell!! What the devil do you think you're doing, return at
-      once to detention or so help me!
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: 7c44e5b05a34f904ead2952bc2d7f659, type: 3}
     recieveSprite: {fileID: 21300000, guid: 2315cc7cc5215344eab453f4132ce89e, type: 3}
@@ -17679,10 +17682,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: 
-    message: "Or what!? I\u2019ve realized the truth, the truth that everything about
-      you and this school are pure evil, that it's about time someone put an end
-      to this farce! "
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: cfbf2b8d31d3d164596979bc21ed410f, type: 3}
     recieveSprite: {fileID: 0}
@@ -17690,9 +17691,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: Maths Teacher
-    message: "An astute observation, a shame, much like when you're handing in your
-      homework however; you\u2019re too late!"
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: 83f44a666b4ab984e8f64668196099ed, type: 3}
     recieveSprite: {fileID: 21300000, guid: 2315cc7cc5215344eab453f4132ce89e, type: 3}
@@ -17700,9 +17700,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: 
-    message: "We\u2019ll see about that, cause I\u2019m about to calculate my way
-      to victory!"
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: de85c5f7802477848b10f8a0b43c9198, type: 3}
     recieveSprite: {fileID: 0}
@@ -17710,8 +17709,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: Maths Teacher
-    message: "That\u2019s strictly against school policy!"
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: 61c8aca28b613424c84810b1dbe492e1, type: 3}
     recieveSprite: {fileID: 21300000, guid: 2315cc7cc5215344eab453f4132ce89e, type: 3}
@@ -17719,8 +17718,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: 
-    message: Screw the rules, I have a sword! Beat that!
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: 161bda3e8ff2f21458aa0a67002f7dbc, type: 3}
     recieveSprite: {fileID: 0}
@@ -25761,6 +25760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Student (Tutorial)
       objectReference: {fileID: 0}
+    - target: {fileID: 2665772852872915563, guid: a228690627fc0474c9a25367cb451860, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2665772852872915565, guid: a228690627fc0474c9a25367cb451860, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -25839,8 +25842,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkRange: 5
   Dialogue:
-  - senderName: Student
-    message: Stuart... you gotta help us out. We're all stuck in detention.
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: 93d10661bbed3924c97239499c8d6fcd, type: 3}
     recieveSprite: {fileID: 21300000, guid: 161bda3e8ff2f21458aa0a67002f7dbc, type: 3}
@@ -25848,8 +25851,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: Student
-    message: Most of us are stuck in the class rooms, so check any unlocked doors.
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: 10795d905acb61b4aa9dee983fb1c67e, type: 3}
     recieveSprite: {fileID: 0}
@@ -25857,8 +25860,8 @@ MonoBehaviour:
     talkEvent:
       m_PersistentCalls:
         m_Calls: []
-  - senderName: 
-    message: Sure, I'll get you all out of here.
+  - senderName: []
+    message: []
     voiceClip: {fileID: 0}
     talkSprite: {fileID: 21300000, guid: de85c5f7802477848b10f8a0b43c9198, type: 3}
     recieveSprite: {fileID: 0}

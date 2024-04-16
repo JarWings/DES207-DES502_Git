@@ -17,6 +17,7 @@ public class SettingsData
 
     public bool simpleFont = false;
     public bool menuHighlight = false;
+    public int curLanguage = 0;
 
     // GAMEPLAY
     public DifficultySettings difficulty = DifficultySettings.easy;
@@ -24,6 +25,7 @@ public class SettingsData
 
 public class SettingsManager : MonoBehaviour
 {
+    public static string[] Languages = new string[] {"English"};
     public static SettingsData data = new();
     public static Resolution[] resolutions;
     public static float minVol = -80f, maxVol = 0f;
