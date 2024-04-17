@@ -45,6 +45,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [Header("Audio")]
     public AudioClip[] swingSounds;
+    public AudioClip hitSound;
 
     public  Vector3 startPos;
 
@@ -254,6 +255,8 @@ public class PlayerCharacter : MonoBehaviour
         if (isDashing) return;
         if (isInvincible) return; // 如果处于无敌状态，则不执行以下受伤逻辑
 
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f));
+
         int difficultyMultiplier = 1;
 
         switch (SettingsManager.data.difficulty)
@@ -293,7 +296,7 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         //受伤时，向反方向弹飞
-        Vector2 force = new Vector2(50 * HorizontalDir(faceLeft), 50);
+        Vector2 force = new (50 * HorizontalDir(faceLeft), 50);
         rigid.AddForce(force);
 
         outControlTime = 30;

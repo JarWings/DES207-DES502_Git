@@ -176,8 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3706bdf9bfe93224198a5e9a0a4cdf48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashCDImage: {fileID: 0}
-  GetHitCDImage: {fileID: 0}
   maxHp: 50
   hp: 0
   speed: 16
@@ -190,6 +188,7 @@ MonoBehaviour:
   swingSounds:
   - {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
   - {fileID: 8300000, guid: b4a457efd33e7e044878de18359dbba1, type: 3}
+  hitSound: {fileID: 8300000, guid: 396130e3cb6d49e4a8894cc172a11033, type: 3}
   startPos: {x: 0, y: 0, z: 0}
   attackDamage: 20
   attackRange: 4

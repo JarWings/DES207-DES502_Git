@@ -23,6 +23,7 @@ public class GameOverManager : MonoBehaviour
 	private char[] characters;
 	
 	private bool inputHeld = false;
+	public bool win = false;
 	
 	void Awake()
 	{
@@ -49,8 +50,17 @@ public class GameOverManager : MonoBehaviour
 			inputHeld = false;
 		}
 		
-		if(Input.GetButtonDown("Jump")) SwitchCharacter(1);
-		if(Input.GetKeyDown(KeyCode.Return)) SubmitScore();
+		if(Input.GetButtonDown("Jump") && win) SwitchCharacter(1);
+
+		if (Input.GetKeyDown(KeyCode.Return)) 
+		{
+			if (win) 
+			{
+				SubmitScore();
+			}
+
+			SceneChangeManager.LoadScene("MainMenu");
+		}
 	}
 	
 	void SwitchCharacter(int input)
@@ -70,15 +80,24 @@ public class GameOverManager : MonoBehaviour
 		characterText[selectedIndex].text = characters[character[selectedIndex]].ToString();
 	}
 	
-	public static void GameOver(bool win = false)
+	public static void GameOver(bool winState = false)
 	{
 		if(isOver) return;
+
+		Instance.win = winState;
+
 		Instance.uiGroup.alpha = 1f;
 		Instance.bgPanel.color = Color.black;
 		
 		LeaderboardManager.allowTimer = false;
-		Instance.gameOverText.text = "Game Over! Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard.";
-	
+		Instance.gameOverText.text = "Game Over! " + (Instance.win ? "Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard." : "Press ENTER to continue.");
+
+		for (int i = 0; i < Instance.characterText.Length; i++) 
+		{
+			Instance.characterText[i].enabled = Instance.win;
+		}
+
+
 		isOver = true;
 	}
 	
@@ -89,7 +108,7 @@ public class GameOverManager : MonoBehaviour
 		Instance.uiGroup.alpha = 0f;
 		Instance.bgPanel.color = Color.clear;
 		
-		LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
+		if(Instance.win) LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
 		SceneChangeManager.LoadScene("MainMenu");
 	}
 }

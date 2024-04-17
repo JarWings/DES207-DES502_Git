@@ -252,3 +252,8 @@ Added code comments, small optimisations.
 --Michael
 ver.0.4.7
 First implementation of multi-language support for the main menu interface and dialogue display. 
+
+17/04/24
+--Michael
+ver.0.4.8
+Implemented audio effects.

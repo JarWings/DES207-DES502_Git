@@ -4,14 +4,17 @@ using UnityEngine;
 public class DestructableObject : Enemy
 {
     public float health = 40;
+    private float maxHealth;
     private Collider2D col;
     private SpriteRenderer spriteRenderer;
 
     public GameObject destroyPrefab;
-    public AudioClip hitSound, destroySound;
+    public AudioClip hitSound;
 
     private void Start()
     {
+        maxHealth = health;
+
         spawnPosition = transform.position;
 
         TryGetComponent(out col);
@@ -31,7 +34,7 @@ public class DestructableObject : Enemy
 
         StopAllCoroutines();
         StartCoroutine(HitShake());
-        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80);
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, maxHealth / (health + maxHealth / 2f), 1, 0, 80);
     }
 
     private void Destroyed()
@@ -43,7 +46,7 @@ public class DestructableObject : Enemy
         rbody.AddForce(transform.up * Random.Range(8f, 12f), ForceMode2D.Impulse);
         rbody.AddTorque(Random.Range(40f, 80f));
 
-        AudioManager.PlayAudio(AudioType.soundFX, destroySound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80);
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, maxHealth / (health + maxHealth / 2f), 1, 0, 80);
 
         if (destroyPrefab != null) Instantiate(destroyPrefab, transform.position, Quaternion.identity);
 

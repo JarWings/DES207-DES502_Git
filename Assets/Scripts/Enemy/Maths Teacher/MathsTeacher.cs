@@ -12,7 +12,7 @@ public class MathsTeacher : Enemy
     [Header("Audio")]
     public AudioClip alertSound;
     public AudioClip attackSound;
-    public AudioClip hitSound;
+    public AudioClip[] hitSound;
     public AudioClip dieSound;
 
     private Transform playerTransform;
@@ -131,7 +131,7 @@ public class MathsTeacher : Enemy
 
         anim.SetTrigger("GetHit");
 
-        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
+        AudioManager.PlayAudio(AudioType.soundFX, null, hitSound, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
     }
 
     private void Die()

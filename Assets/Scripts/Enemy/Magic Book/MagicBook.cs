@@ -14,7 +14,7 @@ public class MagicBook : Enemy
     [Header("Audio")]
     public AudioClip detectSound;
     public AudioClip attackSound;
-    public AudioClip hitSound;
+    public AudioClip[] hitSound;
     public AudioClip dieSound;
 
     private Transform playerTransform;
@@ -140,7 +140,7 @@ public class MagicBook : Enemy
             Die();
             return;
         }
-        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
+        AudioManager.PlayAudio(AudioType.soundFX, null, hitSound, transform.position, null, 1f, 1f, 1f, 0f, 60f);
 
         rbody.AddForce(-destination.normalized * 5f, ForceMode2D.Impulse); // used for knock-back effect
     }

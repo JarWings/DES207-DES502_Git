@@ -8304,6 +8304,7 @@ MonoBehaviour:
   - {fileID: 1794749132}
   - {fileID: 1820831913}
   character: 000000000000000000000000
+  win: 0
 --- !u!1001 &759489035
 PrefabInstance:
   m_ObjectHideFlags: 0
