@@ -86,6 +86,8 @@ public class MainMenuManager : MonoBehaviour
 
     [HideInInspector] public float sliderValue;
 
+    public Animation flashAnim;
+
     public GameObject splashParent;
 
     private Image sliderImage;
@@ -106,6 +108,8 @@ public class MainMenuManager : MonoBehaviour
 
         UpdateMenuFonts();
         UpdateHighlightDisplay();
+
+        if (SettingsManager.firstBoot) flashAnim.Play();
 
         float fillAmount = SettingsManager.firstBoot ? 1f : 0f; // displays splash screen depending on if it's the first boot
 
@@ -186,7 +190,7 @@ public class MainMenuManager : MonoBehaviour
         displayingSplash = fillAmount == 1f;
 
         AudioClip track = displayingSplash ? splashMusic : menuMusic;
-        MusicManager.ChangeTrack(track, true);
+        if(MusicManager.GetCurrentTrack() != track) MusicManager.ChangeTrack(track, true);
 
         splashParent.SetActive(displayingSplash);
         splashChanging = false;
@@ -746,8 +750,13 @@ public class MainMenuManager : MonoBehaviour
     public void LoadScene(string scene)
     {
         LeaderboardManager.ResetTime();
-        MusicManager.ChangeTrack(levelIntroMusic, false);
-		MusicManager.GetMusicManager().StartCoroutine(MusicManager.DelayTrackChange(levelMusic, true, 0f, levelIntroMusic.length));
+
+        if (scene != "Intro") 
+        {
+            MusicManager.ChangeTrack(levelIntroMusic, false);
+            MusicManager.GetMusicManager().StartCoroutine(MusicManager.DelayTrackChange(levelMusic, true, 0f, levelIntroMusic.length));
+        }
+
         SceneChangeManager.LoadScene(scene);
     }
 

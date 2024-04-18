@@ -257,3 +257,8 @@ First implementation of multi-language support for the main menu interface and d
 --Michael
 ver.0.4.8
 Implemented audio effects.
+
+18/04/24
+--Michael
+ver.0.4.9
+Implemented more audio effects, opening video, and new music. Fixed bug with video resolution option not working, added flash transition to the video>menu change.

@@ -73,6 +73,8 @@ public class MusicManager : MonoBehaviour
 
         if (track == null && globalMusicManager.currentTrack == null) return;
 
+        if (track == null) globalMusicManager.currentTrack.Stop();
+
         globalMusicManager.curFadeSpeed = fadeSpeed;
         globalMusicManager.curLoop = loop;
 
@@ -99,14 +101,14 @@ public class MusicManager : MonoBehaviour
 		ChangeTrack(track, loop, fadeSpeed);
 	}
 
-    public static void ChangeVolume(float vol)
+    public static void ChangeVolume(float vol, float speed = 1f)
     {
         MusicManager globalMusicManager = GetMusicManager();
 
         if (globalMusicManager.currentTrack == null) return;
 
         globalMusicManager.StopAllCoroutines();
-        globalMusicManager.StartCoroutine(AudioManager.FadeSource(globalMusicManager.currentTrack, vol, 1f));
+        globalMusicManager.StartCoroutine(AudioManager.FadeSource(globalMusicManager.currentTrack, vol, speed));
     }
 
     public static MusicManager GetMusicManager() // replace with instance in future!

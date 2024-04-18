@@ -1127,6 +1127,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113216910}
   m_CullTransparentMesh: 1
+--- !u!1 &1169079751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1169079752}
+  - component: {fileID: 1169079754}
+  - component: {fileID: 1169079753}
+  - component: {fileID: 1169079755}
+  m_Layer: 5
+  m_Name: flashPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1169079752
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169079751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1643622307}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1169079753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169079751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1169079754
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169079751}
+  m_CullTransparentMesh: 1
+--- !u!111 &1169079755
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169079751}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a189f26dea31ba84e8964d01440ac880, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a189f26dea31ba84e8964d01440ac880, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1243308822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -41.311035, y: 294.19995}
+  m_AnchoredPosition: {x: -41.310974, y: 294.19995}
   m_SizeDelta: {x: -95.403, y: 46.5564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575753950
@@ -1560,6 +1653,7 @@ RectTransform:
   - {fileID: 37221003}
   - {fileID: 1542502247}
   - {fileID: 972959863}
+  - {fileID: 1169079752}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1631,6 +1725,37 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: TestMap
+              m_BoolArgument: 0
+            m_CallState: 2
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+      playSounds: 1
+    - buttonName:
+      - Intro
+      buttonDesc:
+      - Watch the opening cutscene
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 1643622308}
+            m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+            m_MethodName: LoadScene
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Intro
               m_BoolArgument: 0
             m_CallState: 2
       LeftEvent:
@@ -3078,9 +3203,9 @@ MonoBehaviour:
   highlightSprite: {fileID: 21300000, guid: 76d1cec968d54e84b8c83b2ac517c7ec, type: 3}
   leftPageParent: {fileID: 1113216911}
   rightPageParent: {fileID: 307998622}
-  splashMusic: {fileID: 8300000, guid: 99cd6ec347478614ea484f8e0aa2c6d3, type: 3}
+  splashMusic: {fileID: 8300000, guid: 191fd48fcafbbb94bbeb0cc15ade9349, type: 3}
   menuMusic: {fileID: 8300000, guid: 498b7e4bc68dc3a45a3dfba781373ac3, type: 3}
-  levelIntroMusic: {fileID: 8300000, guid: 6fd4da2092b81a345b0d31f0f10b7d01, type: 3}
+  levelIntroMusic: {fileID: 8300000, guid: acbeb9cc8dadfbe479cc5594986feae9, type: 3}
   levelMusic: {fileID: 8300000, guid: dd56910e40273f74388eb8e881fc355a, type: 3}
   highlightSound: {fileID: 8300000, guid: eb4cd019f7fad1e47a1674521338181f, type: 3}
   activateSound: {fileID: 8300000, guid: d48573c157c00984daca77ecd10b353e, type: 3}
@@ -3090,6 +3215,7 @@ MonoBehaviour:
   defaultButtonFont: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
   simpleButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   sliderValue: 0
+  flashAnim: {fileID: 1169079755}
   splashParent: {fileID: 348567990}
   splashImage: {fileID: 250762989}
 --- !u!1 &1887202456

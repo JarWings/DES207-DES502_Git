@@ -71,6 +71,8 @@ public class SettingsManager : MonoBehaviour
     {
         if (resolutions == null || resolutions.Length <= 0) LoadResolutions(false);
 
+        data.curResIndex += index;
+
         if (data.curResIndex > resolutions.Length - 1)
         {
             data.curResIndex = 0;
