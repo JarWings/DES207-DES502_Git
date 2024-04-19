@@ -32,7 +32,9 @@ public class SceneChangeManager : MonoBehaviour
 		bool isMenu = sceneName == "MainMenu";
 		LeaderboardManager.allowTimer = !isMenu;
 
-        if(PlayerCharacter.Instance != null && resetPlayer) // resets player on scene changes
+        if (GameOverManager.Instance != null) GameOverManager.isOver = false;
+
+        if (PlayerCharacter.Instance != null && resetPlayer) // resets player on scene changes
         {
 			PlayerCharacter.Instance.enabled = true;
 

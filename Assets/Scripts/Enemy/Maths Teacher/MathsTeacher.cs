@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MathsTeacher : Enemy
 {
@@ -116,11 +117,14 @@ public class MathsTeacher : Enemy
     {
         if (dead) return;
 
-        attackDelay = 1f;
+        attackDelay = .1f;
         health -= hits;
 
+        bool targetRight = destination > transform.position.x;
+        spriteRender.flipX = targetRight;
+
         float xForce = 24f;
-        xForce = spriteRender.flipX ? -xForce : xForce;
+        xForce = targetRight ? -xForce : xForce;
         pushModifier = new(xForce, 30f);
 
         if (health <= 0)
@@ -142,10 +146,22 @@ public class MathsTeacher : Enemy
 
         AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
 
+        spriteRender.color = Color.black;
+
+        StartCoroutine(SpriteFade(spriteRender, 1.4f, true));
+
         anim.SetFloat("Speed", 0f);
         anim.SetTrigger("GetHit");
+    }
 
-        Destroy(gameObject, 2);
+    IEnumerator SpriteFade(SpriteRenderer sprite, float rate, bool destroy = false)
+    {
+        while (sprite != null && sprite.color.a >.1f)
+        {
+            sprite.color = Color.Lerp(sprite.color, Color.clear, Time.deltaTime * rate);
+            if (destroy && sprite.color.a <= .1f) Destroy(gameObject);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     private void Attack()
@@ -153,8 +169,8 @@ public class MathsTeacher : Enemy
         if (dead || !IsGrounded()) return;
 
         destination = transform.position.x;
-        attackTime = 2f;
-        attackDelay = attackTime * 2f;
+        attackTime = 1.6f;
+        attackDelay = attackTime;
 
         anim.SetTrigger("Attack");
 

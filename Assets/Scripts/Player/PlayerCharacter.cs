@@ -299,10 +299,7 @@ public class PlayerCharacter : MonoBehaviour
         if (hp < 0) { hp = 0; }
         BarUIManager.Instance.SetPlayerHp(hp, maxHp);
 
-        if(hp <= 0)
-        {
-            GameOverManager.GameOver();
-        }
+        if(hp <= 0) GameOverManager.GameOver();
 
         //受伤时，向反方向弹飞
         Vector2 force = new (50 * HorizontalDir(faceLeft), 50);

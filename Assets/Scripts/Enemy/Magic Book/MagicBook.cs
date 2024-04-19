@@ -160,6 +160,8 @@ public class MagicBook : Enemy
 
         EmptyDashFrames();
 
+        sprite.color = Color.black;
+
         StopAllCoroutines();
         StartCoroutine(SpriteFade(sprite, .4f, true));
     }
@@ -216,13 +218,12 @@ public class MagicBook : Enemy
 
     IEnumerator SpriteFade(SpriteRenderer sprite, float rate, bool destroy = false)
     {
-        while (sprite != null && sprite.color.a > 0)
+        while (sprite != null && sprite.color.a > 0f)
         {
             sprite.color = Color.Lerp(sprite.color, Color.clear, Time.deltaTime * rate);
+            if(destroy && sprite.color.a <= .1f) Destroy(gameObject);
             yield return new WaitForEndOfFrame();
         }
-
-        if (destroy) Destroy(gameObject);
     }
 
     private void EmptyDashFrames()
