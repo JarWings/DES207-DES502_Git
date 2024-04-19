@@ -119,7 +119,7 @@ Rigidbody2D:
   m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
+  journalEntryName: 
   hp: 0
   maxHp: 40
   speed: 20
@@ -166,4 +167,4 @@ MonoBehaviour:
   prefabItem2: {fileID: 1192473809148084774, guid: 22303a075a361de45ac516c10d5e17c0, type: 3}
   invincibilityDuration: 0
   jumpHeight: 20
-  jumpInterval: 0.25
+  jumpInterval: 0.3

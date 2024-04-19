@@ -50,7 +50,7 @@ public class Mimic : Enemy
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (hp <= 0)
         {

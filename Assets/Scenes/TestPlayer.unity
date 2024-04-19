@@ -828,10 +828,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mimic
       objectReference: {fileID: 0}
-    - target: {fileID: 2575379291168242037, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6186,6 +6182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de37666809f715c4e9859d7ac2808a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverMusic: {fileID: 0}
   uiGroup: {fileID: 1171814775}
   bgPanel: {fileID: 1542068600}
   gameOverText: {fileID: 755293599}
@@ -8581,7 +8578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242037, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_RootOrder
