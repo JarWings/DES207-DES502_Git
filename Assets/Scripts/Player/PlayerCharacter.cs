@@ -118,9 +118,11 @@ public class PlayerCharacter : MonoBehaviour
             ReadyToDash();
         }
 
-        DashCDImage.fillAmount -= 1.0f / dashCoolDown * Time.deltaTime;
-        GetHitCDImage.fillAmount -= 1.0f / invincibilityDuration * Time.deltaTime;
-
+        if(DashCDImage!=null && GetHitCDImage != null)
+        {
+            DashCDImage.fillAmount -= 1.0f / dashCoolDown * Time.deltaTime;
+            GetHitCDImage.fillAmount -= 1.0f / invincibilityDuration * Time.deltaTime;
+        }
         // ¸üÐÂ¶¯»­×´Ì¬
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack && !DialogueManager.inDialogue && !isDashing)

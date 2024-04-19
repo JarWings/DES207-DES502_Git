@@ -828,26 +828,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mimic
       objectReference: {fileID: 0}
-    - target: {fileID: 2575379291168242037, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
-      propertyPath: maxHp
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
-      propertyPath: jumpHeight
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
-      propertyPath: jumpInterval
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
-      propertyPath: invincibilityDuration
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4688,17 +4668,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976576955}
   m_CullTransparentMesh: 1
---- !u!114 &993009206 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 993009206, guid: a5f5a7153f74eaf42b8355230a8108d2, type: 3}
-  m_PrefabInstance: {fileID: 1643768340515637040}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &995577538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5251,14 +5220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: DashCDImage
-      value: 
-      objectReference: {fileID: 1362776217}
-    - target: {fileID: 979783264, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
-      propertyPath: GetHitCDImage
-      value: 
-      objectReference: {fileID: 993009206}
     - target: {fileID: 2956334580159221889, guid: 6c453421aa0414242a9e5bade032e497, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6103,17 +6064,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1362776217 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1643768341301401513, guid: a5f5a7153f74eaf42b8355230a8108d2, type: 3}
-  m_PrefabInstance: {fileID: 1643768340515637040}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1394837777
 GameObject:
   m_ObjectHideFlags: 0
