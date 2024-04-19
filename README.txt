@@ -267,3 +267,8 @@ Implemented more audio effects, opening video, and new music. Fixed bug with vid
 --Jiancheng
 ver0.5.0
 Improved operating feel. Improved mimic code. Fixed some bugs
+
+19/04/24
+--Michael
+ver.0.5.1
+Added high quality video opening, fixed bugs, added new journal entries, added temp art for maths teacher and lift.
