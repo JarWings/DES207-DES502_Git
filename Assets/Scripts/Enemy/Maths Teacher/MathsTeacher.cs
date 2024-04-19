@@ -117,7 +117,7 @@ public class MathsTeacher : Enemy
     {
         if (dead) return;
 
-        attackDelay = .1f;
+        attackDelay = .3f;
         health -= hits;
 
         bool targetRight = destination > transform.position.x;
@@ -186,7 +186,7 @@ public class MathsTeacher : Enemy
 
         AudioManager.PlayAudio(AudioType.soundFX, attackSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
 
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position + new Vector3(xAttackOffset, 0f), attackRange, Vector2.up, attackRange, LayerMask.GetMask("Player"));
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position + new Vector3(xAttackOffset, 0f), attackRange / 1.4f, Vector2.up, attackRange / 1.4f, LayerMask.GetMask("Player"));
 
         if (hit.transform != null) hit.transform.GetComponent<PlayerCharacter>().GetHit(1);
     }

@@ -45,7 +45,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [Header("Audio")]
     public AudioClip[] swingSounds;
-    public AudioClip hitSound;
+    public AudioClip hitSound, dashSound;
 
     public  Vector3 startPos;
 
@@ -196,6 +196,7 @@ public class PlayerCharacter : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(DashEffect());
 
+        AudioManager.PlayAudio(AudioType.soundFX, dashSound, null, transform.position, null, .2f, 1f, 0f);
 
         DashCDImage.fillAmount = 1;
     }
@@ -264,7 +265,7 @@ public class PlayerCharacter : MonoBehaviour
         if (isDashing) return;
         if (isInvincible) return; // 如果处于无敌状态，则不执行以下受伤逻辑
 
-        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f));
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, .4f, Random.Range(.9f, 1.1f));
 
         int difficultyMultiplier = 1;
 

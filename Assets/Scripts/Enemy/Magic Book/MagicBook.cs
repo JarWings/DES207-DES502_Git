@@ -101,7 +101,7 @@ public class MagicBook : Enemy
         if (hit.transform != null)
         {
             playerTransform = hit.transform;
-            AudioManager.PlayAudio(AudioType.soundFX, detectSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
+            AudioManager.PlayAudio(AudioType.soundFX, detectSound, null, transform.position, null, 1f, 1f, 1f, 0f, 160f);
         }
     }
 
@@ -117,7 +117,7 @@ public class MagicBook : Enemy
 
     void Hit(Transform player)
     {
-        AudioManager.PlayAudio(AudioType.soundFX, attackSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
+        AudioManager.PlayAudio(AudioType.soundFX, attackSound, null, transform.position, null, 1f, 2f, 1f, 0f, 160f);
         player.GetComponent<PlayerCharacter>().GetHit(hitDamage);
 
         hitCooldown = 2f;

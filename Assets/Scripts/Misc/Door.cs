@@ -182,7 +182,7 @@ public class Door : MonoBehaviour
 
         bool unloaded = false;
 
-        AudioManager.PlayAudio(AudioType.soundFX, transitionStartSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 0, 0, 4000);
+        AudioManager.PlayAudio(AudioType.soundFX, transitionStartSound, null, transform.position, null, .5f, Random.Range(.9f, 1.1f), 0, 0, 4000);
 
         while (playerRbody.position != (Vector2)destinationDoor.transform.position)
         {
@@ -201,7 +201,7 @@ public class Door : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        AudioManager.PlayAudio(AudioType.soundFX, transitionEndSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 0, 0, 4000);
+        AudioManager.PlayAudio(AudioType.soundFX, transitionEndSound, null, transform.position, null, .4f, Random.Range(.9f, 1.1f), 0, 0, 4000);
 
         Destroy(elevatorObj);
 
