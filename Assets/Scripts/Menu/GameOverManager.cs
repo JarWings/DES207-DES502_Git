@@ -54,7 +54,7 @@ public class GameOverManager : MonoBehaviour
 		
 		if(Input.GetButtonDown("Jump") && win) SwitchCharacter(1);
 
-		if (Input.GetKeyDown(KeyCode.Return)) 
+		if (Input.GetButtonDown("Attack")) 
 		{
 			if (win) 
 			{
@@ -92,7 +92,7 @@ public class GameOverManager : MonoBehaviour
 		Instance.bgPanel.color = Color.black;
 		
 		LeaderboardManager.allowTimer = false;
-		Instance.gameOverText.text = "Game Over! " + (Instance.win ? "Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard." : "Press ENTER to continue.");
+		Instance.gameOverText.text = "Game Over! " + (Instance.win ? "Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard. Press the JUMP button to change character, and ATTACK to submit." : "Press the ATTACK button to continue.");
 
 		MusicManager.ChangeTrack(Instance.gameOverMusic, false, 2f);
 
