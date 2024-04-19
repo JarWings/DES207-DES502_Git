@@ -183,7 +183,7 @@ public class MainMenuManager : MonoBehaviour
 
         while (img.fillAmount != fillAmount)
         {
-            img.fillAmount = Mathf.MoveTowards(img.fillAmount, fillAmount, Time.deltaTime);
+            img.fillAmount = Mathf.MoveTowards(img.fillAmount, fillAmount, Time.deltaTime * 2f);
             yield return new WaitForEndOfFrame();
         }
 

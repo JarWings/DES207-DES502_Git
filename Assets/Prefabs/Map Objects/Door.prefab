@@ -161,4 +161,6 @@ MonoBehaviour:
   playerRbody: {fileID: 0}
   openSound: {fileID: 8300000, guid: 83ee6acc511a8be4fa8d659d44b794b5, type: 3}
   closeSound: {fileID: 8300000, guid: c420bbe3e4b36fe4fae49439be87c86b, type: 3}
+  transitionStartSound: {fileID: 8300000, guid: 9ac608c0dd2247d4dadd5d7e467c87eb, type: 3}
+  transitionEndSound: {fileID: 8300000, guid: 9ac608c0dd2247d4dadd5d7e467c87eb, type: 3}
   transitionSound: {fileID: 8300000, guid: 08afdbe5a2bb4f2409c79c2fae12d1d0, type: 3}

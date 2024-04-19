@@ -119,7 +119,7 @@ public class MathsTeacher : Enemy
         attackDelay = 1f;
         health -= hits;
 
-        float xForce = 14f;
+        float xForce = 24f;
         xForce = spriteRender.flipX ? -xForce : xForce;
         pushModifier = new(xForce, 30f);
 
@@ -140,7 +140,6 @@ public class MathsTeacher : Enemy
 
         gameObject.layer = 8; // prevents collision with the player
 
-        JournalManager.FindEntry(3); // adds journal entry for the maths teacher
         AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
 
         anim.SetFloat("Speed", 0f);

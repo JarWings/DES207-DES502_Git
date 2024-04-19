@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3f8cad7af4b7a4da2b2e45738ba9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  journalEntry: 6
+  journalEntry: chocolate milk
   amplitude: 10
   frequency: 8
   prefabItem: {fileID: 2014788277881227050}

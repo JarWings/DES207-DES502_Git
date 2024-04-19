@@ -35,7 +35,7 @@ public class JournalManager : MonoBehaviour
 	{
 		if(Input.GetKey(KeyCode.Alpha4) && Input.GetKey(KeyCode.Alpha2) && Input.GetKey(KeyCode.Alpha0)) // cheat code to unlock all entries
 		{
-			for(int i = 0; i < EntryContainer.Entries.Count; i++) FindEntry(i);
+			for(int i = 0; i < EntryContainer.Entries.Count; i++) FindEntry(EntryContainer.Entries[i].Title);
 		}
 	}
 
@@ -46,9 +46,18 @@ public class JournalManager : MonoBehaviour
         return manager.EntryContainer.Entries[index];
     }
 
-    public static void FindEntry(int index)
+    public static void FindEntry(string entry)
     {
         JournalManager manager = GetJournalObj();
+
+        int index = -1;
+
+        if (entry == "" || entry == null) return;
+
+        for (int i = 0; i < manager.EntryContainer.Entries.Count; i++) 
+        {
+            if (manager.EntryContainer.Entries[i].Title.ToLower() == entry.ToLower()) index = i;
+        }
 
         if (index < 0 || index > manager.EntryContainer.Entries.Count) return;
 
@@ -62,7 +71,7 @@ public class JournalManager : MonoBehaviour
         JournalManager manager = GetJournalObj();
         string path = Application.persistentDataPath + "/journal.json";
 
-        for (int i = 1; i < manager.EntryContainer.Entries.Count; i++)
+        for (int i = 3; i < manager.EntryContainer.Entries.Count; i++)
         {
             manager.EntryContainer.Entries[i].Owned = false;
         }
@@ -74,7 +83,7 @@ public class JournalManager : MonoBehaviour
 
         for (int i = 0; i < savedList.Entries.Count; i++)
         {
-            manager.EntryContainer.Entries[i].Owned = savedList.Entries[i].Owned;
+            manager.EntryContainer.Entries[i].Owned = savedList.Entries.Count >= i ? savedList.Entries[i].Owned : manager.EntryContainer.Entries[i].Owned;
         }
     }
 

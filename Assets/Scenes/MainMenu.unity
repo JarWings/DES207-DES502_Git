@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -770,8 +770,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -41.314, y: 114.53}
-  m_SizeDelta: {x: 206.9623, y: 206.9623}
+  m_AnchoredPosition: {x: -41.311, y: 119.2}
+  m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745651158
 MonoBehaviour:
@@ -793,9 +793,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e5f996c345509d944933ea96abd56af9, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1456,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -41.310974, y: 294.19995}
+  m_AnchoredPosition: {x: -33.813, y: 317.67}
   m_SizeDelta: {x: -95.403, y: 46.5564}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575753950
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1711,7 +1711,7 @@ MonoBehaviour:
     - buttonName:
       - TestMap
       buttonDesc:
-      - Load the old test map, may be buggy!
+      - Start the game!
       SelectEvent:
         m_PersistentCalls:
           m_Calls:
@@ -2338,26 +2338,8 @@ MonoBehaviour:
     currentButtonIndex: 0
     displayTitle: 1
     displayImage: 0
-  - MenuName: Quit?
+  - MenuName: Are you sure you want to quit?
     menuButtons:
-    - buttonName:
-      - Are you sure you want to quit?
-      buttonDesc: []
-      SelectEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      LeftEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      RightEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      HighlightImage: {fileID: 0}
-      imageColour: {r: 0, g: 0, b: 0, a: 0}
-      sliderValueType: 0
-      sliderMaxValue: 100
-      displaySlider: 0
-      playSounds: 1
     - buttonName:
       - Yes
       buttonDesc:
@@ -3253,8 +3235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -33.81299, y: 153.0791}
-  m_SizeDelta: {x: -110.3992, y: 211.7577}
+  m_AnchoredPosition: {x: -41.311, y: 175.81}
+  m_SizeDelta: {x: -110.3992, y: 237.1674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887202458
 MonoBehaviour:
@@ -3608,6 +3590,286 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[3].Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[6].Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[7].Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[8].Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[9].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[10].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[11].Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[1].Owned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[1].Title
+      value: Mr Ian Swole
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[2].Owned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[2].Title
+      value: "Mrs [Redacted] [Redacted]\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[3].Owned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[3].Title
+      value: Books of Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[4].Title
+      value: Measured Might
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[5].Title
+      value: Snackers
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[6].Title
+      value: "Mrs. Dorothy Schroter\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[7].Title
+      value: "Paper-Airplane\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[8].Title
+      value: "Headteacher Seymore Butts\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[9].Title
+      value: Chocolate Milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[10].Owned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[10].Title
+      value: Square Pizza
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[11].Owned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[11].Title
+      value: Square Pizza
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[1].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: cc90a2f28bcdf894dbad274233643e2e, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[2].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: af656d123aa636749b42f4b5e00dce3f, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[3].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: cbaf7c1c558e05f4ab3a927767fdb923, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[4].Picture
+      value: 
+      objectReference: {fileID: 1627946630, guid: dd51f3368bb675847ade8e0a81d30d25, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[5].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: a7289cedd338308419b249bb948801cf, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[6].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c44e5b05a34f904ead2952bc2d7f659, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[7].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: da63f7f7e4bb2f04196634c837b1000f, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[8].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 89fb52019a18b71478dc1a50290c7431, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[9].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: 12ec87d1800cb1a438ceb1c23887c766, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[10].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[11].Picture
+      value: 
+      objectReference: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[1].Description
+      value: "Alignment: Chaotic-Neutral\u200B\r\n\r\nDescription: All he desires
+        above all is to break you, humiliate you and turn you into nothing but his
+        well-trained fully capable minion. It is said in an age long past he was
+        the rising hero of his time, set to bring down the system but betrayed those
+        closest to him when he aligned himself with those he swore to destroy.\u200B\r\n   
+        Advice: DODGE!!!\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[2].Description
+      value: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: In the year [Redacted]
+        she came to the school with little, but her wits and a suitcase filled with
+        [Redacted]. Hired as a Chemistry teacher she went to work like an unfeeling
+        robot, monotone and lifeless. All students fear her and it is suspected even
+        the mighty hell lord the Headmaster does aswell.\u200B\r\n\r\nAdvice: \"What's
+        that smell? OH SHI-\" The last words spoken by a student who dared to wonder
+        into her classroom uninvited. Avoid spillages of any kind, hold your breath
+        and never [Redacted] or you will face a fate worse than death.\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[3].Description
+      value: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: No one truly knows
+        how they came to be, all that could be recalled when they emerged was at
+        first the students believed them to be answering their vocal prayers for
+        a miracle. That thought of them being a miracle died a quick death after
+        they swiftly attacked, poor Jimmy Bob never saw it coming.\u200B\r\n\r\nAdvice:
+        Being swift and precise with your strikes till tear them part easily but
+        beware that they may retreat and become a threat to others if not careful.\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[4].Description
+      value: "Alignment: Neutral-Good\u200B\r\n\r\nDescription: Unlike its fellow
+        brethren of the Googly-eyed variety this being has dedicated itself to fighting
+        back the forces of evil which reside in the school, equipped with a worthy
+        hero or close enough he shall thwart all that oppose the good of all!\u200B\r\n\r\nAdvice:
+        This mighty weapon, pun intended, has limited range in combat so keep distance
+        should you not want to feel its strikes. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[5].Description
+      value: "Alignment: Chaotic-Evil\u200B\r\n\r\nDescription: The Snackers were
+        rumored to be born from the desperate howls of students calling out for something
+        delicious once the lunch hall had stopped serving delicious pudding, from
+        that anguish they came but they were not kind creatures but ones of terror
+        seeking not to satiate the students but instead to feast upon them. Beware,
+        for once you hear the crinkling of crisp packets and the rattling of change
+        it is to late!\u200B\r\n\r\nAdvice: Despite their large frame of size they
+        show incredible swiftness once prey is near, capable of being upon victims
+        in a matter of seconds. It is also known they will primarily take the form
+        of vending machines, while they won't be every machine they very well could
+        be...\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[6].Description
+      value: "Alignment: Lawful-Evil\u200B\r\n\r\nDescription: An ancient and powerful
+        practitioner of the dark arts; Math. Once destined to reach great heights
+        only to fall low, never able to retain her glory she harshly punishes those
+        who show a modicum amount of talent for this ancient powers like she once
+        did. Be wary of her spontaneous nature to embarrass students by giving them,
+        so-called, simplistic equations.\u200B\r\n\r\nAdvice: Always hand in your
+        homework on time and show your working, if you don't? Only the Gods can save
+        you from her cold wrathful gaze. \u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[7].Description
+      value: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: Once said to be the
+        might of Gaia manifested these annoyances seek to make the lives of students
+        unbearable. Do not be fooled by their goofy exterior for inside only evil
+        exists.\u200B\r\n\r\nAdvice: While having incredibly weak constitution these
+        creatures are still vastly dangerous when in large groups, it would be wise
+        to pick them off one-by-one from a distance.\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[8].Description
+      value: "Alignment: Lawful-Evil\u200B\r\n\r\nDescription: Long ago this Headmaster
+        was a humble, kind man, until the years of servitude took its toll on his
+        mind twisting him into nothing more than a cruel monster. Now he gathers
+        the forces of evil to his side to ensure that this place of education is
+        nothing more than a pit of despair and anguish.\u200B\r\n\r\nAdvice: ...It's
+        already too late..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[9].Description
+      value: "This substance of chocolatey goodness is rumored to be manufactured
+        by using the life essence of chocolate slimes where they were sliced, diced
+        and condensed into these moderately sized cartons.\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[10].Description
+      value: Would you like some pizza with that grease?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[11].Description
+      value: Would you like some pizza with that grease?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[1].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: cc90a2f28bcdf894dbad274233643e2e, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[2].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: af656d123aa636749b42f4b5e00dce3f, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[3].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: cbaf7c1c558e05f4ab3a927767fdb923, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[4].missingImage
+      value: 
+      objectReference: {fileID: 1627946630, guid: dd51f3368bb675847ade8e0a81d30d25, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[5].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: a7289cedd338308419b249bb948801cf, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[6].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c44e5b05a34f904ead2952bc2d7f659, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[7].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: da63f7f7e4bb2f04196634c837b1000f, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[8].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 89fb52019a18b71478dc1a50290c7431, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[9].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 12ec87d1800cb1a438ceb1c23887c766, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[10].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
+    - target: {fileID: 5793490230942507784, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
+      propertyPath: EntryContainer.Entries.Array.data[11].missingImage
+      value: 
+      objectReference: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
     - target: {fileID: 6165610043949657485, guid: 66df4ef5a0fd6e34185ba25d807543bd, type: 3}
       propertyPath: m_Name
       value: GlobalManager

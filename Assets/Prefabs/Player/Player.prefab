@@ -189,6 +189,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
   - {fileID: 8300000, guid: b4a457efd33e7e044878de18359dbba1, type: 3}
   hitSound: {fileID: 8300000, guid: 396130e3cb6d49e4a8894cc172a11033, type: 3}
+  dashSound: {fileID: 8300000, guid: e960f000161b7894cb9c3274633b4f6d, type: 3}
   startPos: {x: 0, y: 0, z: 0}
   attackDamage: 20
   attackRange: 4

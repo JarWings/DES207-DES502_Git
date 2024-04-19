@@ -16,6 +16,7 @@ public class Door : MonoBehaviour
 
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip transitionStartSound, transitionEndSound;
     public AudioClip transitionSound;
 
     private SpriteRenderer spriteRenderer, interactIcon;
@@ -157,6 +158,8 @@ public class Door : MonoBehaviour
         StartCoroutine(AudioManager.FadeSource(elevatorMusic, 1f, 1f));
         MusicManager.ChangeVolume(.2f);
 
+        playerRbody.velocity = Vector2.zero;
+
         SpriteRenderer playerSprite = playerRbody.GetComponent<SpriteRenderer>();
         Collider2D playerCol = playerRbody.GetComponent<Collider2D>();
         PlayerController playerController = playerRbody.GetComponent<PlayerController>();
@@ -179,6 +182,8 @@ public class Door : MonoBehaviour
 
         bool unloaded = false;
 
+        AudioManager.PlayAudio(AudioType.soundFX, transitionStartSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 0, 0, 4000);
+
         while (playerRbody.position != (Vector2)destinationDoor.transform.position)
         {
             Vector2 movePos = Vector2.MoveTowards(playerRbody.position, destinationDoor.transform.position, Time.deltaTime * transitionSpeed);
@@ -196,6 +201,7 @@ public class Door : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        AudioManager.PlayAudio(AudioType.soundFX, transitionEndSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 0, 0, 4000);
 
         Destroy(elevatorObj);
 

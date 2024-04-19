@@ -124,6 +124,42 @@ MonoBehaviour:
         weakness is his inability digest dairy products...\u200B\r"
       Picture: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
       missingImage: {fileID: 21300000, guid: b4e6bf5e8cd374848881de28efae8473, type: 3}
+    - Title: Mr Ian Swole
+      Owned: 1
+      Type: 0
+      Description: "Alignment: Chaotic-Neutral\u200B\r\n\r\nDescription: All he desires
+        above all is to break you, humiliate you and turn you into nothing but his
+        well-trained fully capable minion. It is said in an age long past he was
+        the rising hero of his time, set to bring down the system but betrayed those
+        closest to him when he aligned himself with those he swore to destroy.\u200B\r\n   
+        Advice: DODGE!!!\u200B"
+      Picture: {fileID: 21300000, guid: cc90a2f28bcdf894dbad274233643e2e, type: 3}
+      missingImage: {fileID: 21300000, guid: cc90a2f28bcdf894dbad274233643e2e, type: 3}
+    - Title: "Mrs [Redacted] [Redacted]\u200B"
+      Owned: 1
+      Type: 0
+      Description: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: In the year
+        [Redacted] she came to the school with little, but her wits and a suitcase
+        filled with [Redacted]. Hired as a Chemistry teacher she went to work like
+        an unfeeling robot, monotone and lifeless. All students fear her and it is
+        suspected even the mighty hell lord the Headmaster does aswell.\u200B\r\n\r\nAdvice:
+        \"What's that smell? OH SHI-\" The last words spoken by a student who dared
+        to wonder into her classroom uninvited. Avoid spillages of any kind, hold
+        your breath and never [Redacted] or you will face a fate worse than death.\u200B"
+      Picture: {fileID: 21300000, guid: af656d123aa636749b42f4b5e00dce3f, type: 3}
+      missingImage: {fileID: 21300000, guid: af656d123aa636749b42f4b5e00dce3f, type: 3}
+    - Title: Books of Prey
+      Owned: 0
+      Type: 0
+      Description: "Alignment: Neutral-Evil\u200B\r\n\r\nDescription: No one truly
+        knows how they came to be, all that could be recalled when they emerged was
+        at first the students believed them to be answering their vocal prayers for
+        a miracle. That thought of them being a miracle died a quick death after
+        they swiftly attacked, poor Jimmy Bob never saw it coming.\u200B\r\n\r\nAdvice:
+        Being swift and precise with your strikes till tear them part easily but
+        beware that they may retreat and become a threat to others if not careful.\u200B"
+      Picture: {fileID: 21300000, guid: cbaf7c1c558e05f4ab3a927767fdb923, type: 3}
+      missingImage: {fileID: 21300000, guid: cbaf7c1c558e05f4ab3a927767fdb923, type: 3}
     - Title: Measured Might
       Owned: 0
       Type: 0
@@ -133,8 +169,8 @@ MonoBehaviour:
         with a worthy hero or close enough he shall thwart all that oppose the good
         of all!\u200B\r\n\r\nAdvice: This mighty weapon, pun intended, has limited
         range in combat so keep distance should you not want to feel its strikes. "
-      Picture: {fileID: 235108047, guid: 22e0b6a77b208ca4f9cb4d575fbdd6b5, type: 3}
-      missingImage: {fileID: 997674389, guid: 22e0b6a77b208ca4f9cb4d575fbdd6b5, type: 3}
+      Picture: {fileID: 1627946630, guid: dd51f3368bb675847ade8e0a81d30d25, type: 3}
+      missingImage: {fileID: 1627946630, guid: dd51f3368bb675847ade8e0a81d30d25, type: 3}
     - Title: Snackers
       Owned: 0
       Type: 0
@@ -173,8 +209,8 @@ MonoBehaviour:
         only evil exists.\u200B\r\n\r\nAdvice: While having incredibly weak constitution
         these creatures are still vastly dangerous when in large groups, it would
         be wise to pick them off one-by-one from a distance.\u200B"
-      Picture: {fileID: 0}
-      missingImage: {fileID: 0}
+      Picture: {fileID: 21300000, guid: da63f7f7e4bb2f04196634c837b1000f, type: 3}
+      missingImage: {fileID: 21300000, guid: da63f7f7e4bb2f04196634c837b1000f, type: 3}
     - Title: "Headteacher Seymore Butts\u200B"
       Owned: 0
       Type: 0
@@ -184,8 +220,8 @@ MonoBehaviour:
         he gathers the forces of evil to his side to ensure that this place of education
         is nothing more than a pit of despair and anguish.\u200B\r\n\r\nAdvice: ...It's
         already too late..."
-      Picture: {fileID: 0}
-      missingImage: {fileID: 0}
+      Picture: {fileID: 21300000, guid: 89fb52019a18b71478dc1a50290c7431, type: 3}
+      missingImage: {fileID: 21300000, guid: 89fb52019a18b71478dc1a50290c7431, type: 3}
     - Title: Chocolate Milk
       Owned: 0
       Type: 1
@@ -200,13 +236,6 @@ MonoBehaviour:
       Description: Would you like some pizza with that grease?
       Picture: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
       missingImage: {fileID: 21300000, guid: f902b3b193549d1479f896cf47c7e525, type: 3}
-    - Title: Spit Balls
-      Owned: 0
-      Type: 1
-      Description: These deadly projectiles were drenched in the tears of the tortured
-        students of Butts Wynde Academy for maximum damage.
-      Picture: {fileID: -1894098996, guid: ebe5f0071e0eda345bda0f050aff50ac, type: 3}
-      missingImage: {fileID: 100158481, guid: ebe5f0071e0eda345bda0f050aff50ac, type: 3}
 --- !u!114 &843332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreList:
     scores: []
-  currentTime: 0
 --- !u!114 &692122460
 MonoBehaviour:
   m_ObjectHideFlags: 0

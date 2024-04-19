@@ -10,7 +10,9 @@ public class GameOverManager : MonoBehaviour
 	public static GameOverManager Instance;
 	
 	public static bool isOver = false;
-	
+
+	public AudioClip gameOverMusic;
+
 	[Header("UI")]
 	public CanvasGroup uiGroup;
 	public Image bgPanel;
@@ -91,6 +93,8 @@ public class GameOverManager : MonoBehaviour
 		
 		LeaderboardManager.allowTimer = false;
 		Instance.gameOverText.text = "Game Over! " + (Instance.win ? "Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard." : "Press ENTER to continue.");
+
+		MusicManager.ChangeTrack(Instance.gameOverMusic, false, 2f);
 
 		for (int i = 0; i < Instance.characterText.Length; i++) 
 		{

@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d8d648d3b46e44bbec35e2091df5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPosition: {x: 0, y: 0, z: 0}
+  journalEntryName: "Paper-Airplane\u200B"
   detectRange: 10
   flySpeed: 10
   hitRange: 0.1

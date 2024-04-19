@@ -34,7 +34,7 @@ public class DestructableObject : Enemy
 
         StopAllCoroutines();
         StartCoroutine(HitShake());
-        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, maxHealth / (health + maxHealth / 2f), 1, 0, 80);
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, .5f, Random.Range(.9f, 1.1f), 1, 0, 80);
     }
 
     private void Destroyed()
@@ -46,7 +46,7 @@ public class DestructableObject : Enemy
         rbody.AddForce(transform.up * Random.Range(8f, 12f), ForceMode2D.Impulse);
         rbody.AddTorque(Random.Range(40f, 80f));
 
-        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, maxHealth / (health + maxHealth / 2f), 1, 0, 80);
+        AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, 1, Random.Range(.6f, .8f), 1, 0, 80);
 
         if (destroyPrefab != null) Instantiate(destroyPrefab, transform.position, Quaternion.identity);
 

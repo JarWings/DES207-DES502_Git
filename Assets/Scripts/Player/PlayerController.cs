@@ -19,6 +19,6 @@ public class PlayerController : MonoBehaviour
         attack = Input.GetButtonDown("Attack");
 
         //test function
-        getHurt = Input.GetKeyDown(KeyCode.H);
+        getHurt = Application.isEditor ? Input.GetKeyDown(KeyCode.H) : false;
     }
 }

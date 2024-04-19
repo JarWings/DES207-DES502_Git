@@ -32,19 +32,17 @@ public class SettingsManager : MonoBehaviour
 
     public static bool firstBoot = true;
 
+    private int defaultDmg;
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause")) SceneChangeManager.LoadScene("MainMenu");
 
-        if (Input.GetKey(KeyCode.Alpha6) && Input.GetKey(KeyCode.Alpha9))
-        {
-            DestructionCheat();
-        }
+        if (Input.GetKey(KeyCode.Alpha6) && Input.GetKey(KeyCode.Alpha9)) DestructionCheat();
 		
-		if (Input.GetKey(KeyCode.G) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.D))
-        {
-            GodCheat();
-        }
+		if (Input.GetKey(KeyCode.G) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.D)) GodCheat();
+
+        if (Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.R) && Input.GetKeyDown(KeyCode.D)) WeakCheat();
     }
 
     private void Start()
@@ -190,4 +188,12 @@ public class SettingsManager : MonoBehaviour
 		PlayerCharacter.Instance.hp = 99999;
 		PlayerCharacter.Instance.maxHp = 99999;
 	}
+
+    private void WeakCheat()
+    {
+        if (PlayerCharacter.Instance == null) return;
+
+        defaultDmg = PlayerCharacter.Instance.attackDamage > defaultDmg ? PlayerCharacter.Instance.attackDamage : defaultDmg;
+        PlayerCharacter.Instance.attackDamage = PlayerCharacter.Instance.attackDamage == defaultDmg ? 1 : defaultDmg;
+    }
 }

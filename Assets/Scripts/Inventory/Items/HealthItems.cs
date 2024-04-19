@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthItems : MonoBehaviour
 {
-    public int journalEntry = -1; // leave at -1 if there is no entry for this item
+    public string journalEntry; // leave blank if there is no entry for this item
     public float amplitude = 5f; // 旋转的振幅大小
     public float frequency = 5f; // 旋转的频率
     private float timer = 0; // 计时器，用于控制旋转的频率
