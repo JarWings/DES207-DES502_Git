@@ -331,7 +331,7 @@ public class PlayerCharacter : MonoBehaviour
         lastAttackTime = Time.time;
 
         // 使用OverlapCircleAll来获取范围内的所有敌人
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Destructible"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Destructible","EnemyNoCollision"));
         foreach (var hit in hits)
         {
             Enemy enemy = hit.GetComponent<Enemy>();

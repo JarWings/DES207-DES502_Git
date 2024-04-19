@@ -16,6 +16,7 @@ TagManager:
   - Destructible
   - DashCD
   - GetHitCD
+  - EnemyNoCollision
   layers:
   - Default
   - TransparentFX
