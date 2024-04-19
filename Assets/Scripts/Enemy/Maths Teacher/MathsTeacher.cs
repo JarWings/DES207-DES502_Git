@@ -175,7 +175,7 @@ public class MathsTeacher : Enemy
         anim.SetTrigger("Attack");
 
         float xForce = -44f;
-        float xAttackOffset = -2f;
+        float xAttackOffset = -attackRange;
         if (spriteRender.flipX)
         {
             xForce = -xForce;
