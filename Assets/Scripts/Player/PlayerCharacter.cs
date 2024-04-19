@@ -123,7 +123,7 @@ public class PlayerCharacter : MonoBehaviour
 
         // 更新动画状态
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
-        if (controller.attack && !DialogueManager.inDialogue)
+        if (controller.attack && !DialogueManager.inDialogue && !isDashing)
         {
             anim.SetTrigger("Attack");
             Attack();
@@ -181,6 +181,11 @@ public class PlayerCharacter : MonoBehaviour
 #region Dash
     private void ReadyToDash()
     {
+        if (isAttacking())
+        {
+            return;
+        }
+
         isDashing = true;
         dashTimeLeft = dashTime;
         lastDash = Time.time;
@@ -188,6 +193,7 @@ public class PlayerCharacter : MonoBehaviour
         EmptyDashFrames();
         StopAllCoroutines();
         StartCoroutine(DashEffect());
+
 
         DashCDImage.fillAmount = 1;
     }
@@ -199,6 +205,7 @@ public class PlayerCharacter : MonoBehaviour
             if (dashTimeLeft > 0)
             {
                 anim.SetBool("isDashing", true); // 开始冲刺动画
+               
                 // 关闭重力加速度
                 rigid.gravityScale = 10;
                 // 禁用碰撞体

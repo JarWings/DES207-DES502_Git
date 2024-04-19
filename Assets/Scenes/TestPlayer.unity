@@ -830,11 +830,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242037, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
       propertyPath: maxHp
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
+      propertyPath: jumpHeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
+      propertyPath: jumpInterval
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242038, guid: 69456c734ab3ce74db729edbc35d4e03, type: 3}
       propertyPath: invincibilityDuration
@@ -6232,6 +6240,7 @@ MonoBehaviour:
   - {fileID: 1414810004}
   - {fileID: 464286674}
   character: 000000000000000000000000
+  win: 0
 --- !u!4 &1397548254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 455038562575500753, guid: 2c1965c2d45b8e046923fcc3759c2a76, type: 3}
@@ -8618,7 +8627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242037, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2575379291168242040, guid: f1d54a14faaabad4082aa450518943bd, type: 3}
       propertyPath: m_RootOrder
@@ -9187,7 +9196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1852412707454528882, guid: a952e44e7b01a2d4e9e4d59833ceb88e, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1852412707454528882, guid: a952e44e7b01a2d4e9e4d59833ceb88e, type: 3}
       propertyPath: m_AnchorMax.x

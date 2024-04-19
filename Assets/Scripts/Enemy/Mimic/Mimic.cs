@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,11 @@ public class Mimic : Enemy
 
     Vector2 startPos;
 
+    public float jumpHeight ; // 跳跃的高度
+    public float jumpInterval ; // 跳跃的时间间隔
+    private float lastJumpTime; // 上次跳跃的时间记录
+
+
     void Start()
     {
         hp = maxHp;
@@ -39,6 +45,8 @@ public class Mimic : Enemy
         startPos = transform.position;
 
         spawnPosition = startPos;
+
+        lastJumpTime = Time.time; // 初始化上次跳跃时间
     }
 
 
@@ -87,21 +95,31 @@ public class Mimic : Enemy
             case MimicState.Run:
                 {
                     // 状态转移条件
-                    if ((faceRight && transform.position.x >= startPos.x + 5f || !faceRight && transform.position.x < startPos.x - 5f))
+                    if ((faceRight && transform.position.x >= startPos.x + 20f || !faceRight && transform.position.x < startPos.x - 20f))
                     {
+                        rigid.velocity = new Vector2(rigid.velocity.x, 0f);
                         Flip();
                         state = MimicState.Idle;
                         lastChangeStateTime = Time.time;
                         break;
                     }
 
-                    // 移动的持续逻辑
-                    Vector2 move = new Vector2(speed, rigid.velocity.y - 0.5f);
-                    if (!faceRight)
+                    else
                     {
-                        move.x *= -1;
-                    }
-                    rigid.velocity = move;
+                        // 移动的持续逻辑
+                        Vector2 move = new Vector2(speed, rigid.velocity.y - 0.5f);
+                        if (!faceRight)
+                        {
+                            move.x *= -1;
+                        }
+                        // 添加跳跃效果
+                        if (Time.time - lastJumpTime > jumpInterval)
+                        {
+                            move.y = jumpHeight; // 设置向上的速度来模拟跳跃
+                            lastJumpTime = Time.time; // 更新上次跳跃时间
+                        }
+                        rigid.velocity = move;
+                    }                 
                 }
                 break;
         }

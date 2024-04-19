@@ -262,3 +262,8 @@ Implemented audio effects.
 --Michael
 ver.0.4.9
 Implemented more audio effects, opening video, and new music. Fixed bug with video resolution option not working, added flash transition to the video>menu change.
+
+19/04/24
+--Jiancheng
+ver0.5.0
+Improved operating feel. Improved mimic code. Fixed some bugs
