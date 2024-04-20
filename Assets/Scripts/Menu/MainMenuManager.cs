@@ -97,6 +97,8 @@ public class MainMenuManager : MonoBehaviour
     public Image splashImage;
     private bool displayingSplash = true, splashChanging = false;
 
+    public GameObject loadParent;
+
     private float idleTime = 0f;
 
     private void Start()
@@ -749,6 +751,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadScene(string scene)
     {
+        loadParent.SetActive(true);
+
         LeaderboardManager.ResetTime();
 
         if (scene != "Intro") 

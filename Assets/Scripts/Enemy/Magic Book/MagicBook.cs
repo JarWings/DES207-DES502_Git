@@ -102,6 +102,8 @@ public class MagicBook : Enemy
         {
             playerTransform = hit.transform;
             AudioManager.PlayAudio(AudioType.soundFX, detectSound, null, transform.position, null, 1f, 1f, 1f, 0f, 160f);
+
+            JournalManager.FindEntry(journalEntryName);
         }
     }
 
@@ -127,8 +129,6 @@ public class MagicBook : Enemy
     public override void GetHit(int damage)
     {
         if (dead) return;
-
-        base.GetHit(damage);
 
         hitCooldown = 4f;
         health -= damage;

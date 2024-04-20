@@ -62,6 +62,8 @@ public class MathsTeacher : Enemy
             playerTransform = hit.transform;
 
             AudioManager.PlayAudio(AudioType.soundFX, alertSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
+
+            JournalManager.FindEntry(journalEntryName);
         }
         else
         {

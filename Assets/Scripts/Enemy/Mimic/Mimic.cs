@@ -134,6 +134,8 @@ public class Mimic : Enemy
             return;
         }
 
+        base.GetHit(damage);
+
         hp -= damage;
 
         if (hp <= 0)

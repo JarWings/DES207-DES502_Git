@@ -13,6 +13,8 @@ public class ItemData_SO : ScriptableObject
     public int itemAmount;
     public bool stackable;
 
+    public string JournalEntry = "";
+
     [TextArea]
     public string description = "";
 

@@ -10,6 +10,8 @@ public class ItemPickUp : MonoBehaviour
         {
             AudioManager.PlayAudio(AudioType.soundFX, pickupSound, null, Vector2.zero, null, .6f, 1, 0, 0, 2600);
 
+            JournalManager.FindEntry(itemData.JournalEntry);
+
             //TODO:将物品添加到背包
             InventoryManager.Instance.inventoryData.AddItem(itemData, itemData.itemAmount);
             InventoryManager.Instance.inventoryUI.RefreshUI();

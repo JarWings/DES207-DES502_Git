@@ -64,6 +64,8 @@ public class PaperPlane : Enemy
 
     void Fall()
     {
+        JournalManager.FindEntry(journalEntryName);
+
         transform.position -= new Vector3(0f, 1f) * flySpeed * Time.deltaTime;
 
         if (transform.position.y < floorLevel) Miss();
