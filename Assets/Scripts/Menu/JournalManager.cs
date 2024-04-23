@@ -54,14 +54,10 @@ public class JournalManager : MonoBehaviour
 
         if (entry == "" || entry == null) return;
 
-        print("finding entry: " + entry);
-
         for (int i = 0; i < manager.EntryContainer.Entries.Count; i++) 
         {
             if (manager.EntryContainer.Entries[i].Title.ToLower() == entry.ToLower()) index = i;
         }
-
-        print("index: " + index);
 
         if (index < 0 || index > manager.EntryContainer.Entries.Count) return;
 

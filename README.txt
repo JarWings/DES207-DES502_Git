@@ -272,3 +272,8 @@ Improved operating feel. Improved mimic code. Fixed some bugs
 --Michael
 ver.0.5.1
 Added high quality video opening, fixed bugs, added new journal entries, added temp art for maths teacher and lift.
+
+23/04/24
+--Michael
+ver.0.5.2
+Started boss implementation, including importing animations.
