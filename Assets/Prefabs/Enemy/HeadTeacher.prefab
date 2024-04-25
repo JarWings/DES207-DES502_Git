@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2942656027025647036}
   - component: {fileID: 2942656027025647035}
   - component: {fileID: 2942656027025647034}
-  m_Layer: 0
+  - component: {fileID: 1662850206}
+  - component: {fileID: 1662850205}
+  m_Layer: 9
   m_Name: HeadTeacher
-  m_TagString: Untagged
+  m_TagString: EnemyNoCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 80073afe9544df741bb1e3e27dcffd00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,3 +102,77 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   journalEntryName: "Headteacher Seymore Butts\u200B"
   health: 200
+  slamDelayTime: 4
+  warningSprite: {fileID: 21300000, guid: 5a872a69cde1a764a8bfde085ab67272, type: 3}
+  warningIconScale: 0.4
+  Debris:
+  - {fileID: 21300000, guid: 77f9562e08d01d2458a1d75e6bd71138, type: 3}
+  - {fileID: 21300000, guid: a0e1c816c31e3be47b7b89c01edd3209, type: 3}
+  - {fileID: 21300000, guid: 650f817cebe5c8242bcaba51790ae5f2, type: 3}
+  - {fileID: 21300000, guid: c5f232b44f0407f4d988176723bd8fd0, type: 3}
+  - {fileID: 21300000, guid: 115d59b0370d64e4c8dac5c8874c2bbc, type: 3}
+  - {fileID: 21300000, guid: e88245f6c9d61aa45805b6670d1003c2, type: 3}
+  - {fileID: 21300000, guid: df82203c50943f54dab7ecfd6e9d9541, type: 3}
+  - {fileID: 21300000, guid: 3f38921d02558244ebf2296913cc9f76, type: 3}
+  debrisScale: 0.1
+  fallSpeed: 34
+  debrisDamage: 5
+  shoutDelayTime: 2
+  shoutSprite: {fileID: 21300000, guid: 2a68cec9f7e18c0439114d6030d0ec78, type: 3}
+  shoutSpriteScale: 1
+  shoutDamage: 10
+  shoutDist: 24
+  shoutSpeed: 16
+  shoutOffset: {x: 0, y: 0, z: 0}
+  shoutSound: {fileID: 8300000, guid: 235332096473a2949ac4f4290411c470, type: 3}
+  slamSound: {fileID: 8300000, guid: b4be612858a3d634c94bee3c09710e80, type: 3}
+  hitSound: {fileID: 0}
+  dieSound: {fileID: 0}
+  player: {fileID: 0}
+--- !u!61 &1662850206
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942656027025647033}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.016605377, y: 3.5042262}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.8, y: 10.8}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.578102, y: 16.147682}
+  m_EdgeRadius: 0
+--- !u!95 &1662850205
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942656027025647033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fed2a6226cb47a4db6b121ba12b4037, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

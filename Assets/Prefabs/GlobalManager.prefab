@@ -220,8 +220,8 @@ MonoBehaviour:
         he gathers the forces of evil to his side to ensure that this place of education
         is nothing more than a pit of despair and anguish.\u200B\r\n\r\nAdvice: ...It's
         already too late..."
-      Picture: {fileID: 21300000, guid: 89fb52019a18b71478dc1a50290c7431, type: 3}
-      missingImage: {fileID: 21300000, guid: 89fb52019a18b71478dc1a50290c7431, type: 3}
+      Picture: {fileID: 21300000, guid: 49198b5fc31f556489a14258c7800fdb, type: 3}
+      missingImage: {fileID: 21300000, guid: b2e9c29d71c862f41af62dc556a8db97, type: 3}
     - Title: Chocolate Milk
       Owned: 0
       Type: 1

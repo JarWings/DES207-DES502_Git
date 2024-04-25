@@ -6,7 +6,12 @@ public class HeadTeacher : Enemy
 {
     public float health = 200;
 
+    private int slamsTillWin;
+
     [Header("Slam")]
+    public float slamDelayTime = 4f;
+    private float curSlamTime = 0f;
+
     public Sprite warningSprite;
     private GameObject warnObj;
     public float warningIconScale = .4f;
@@ -16,6 +21,9 @@ public class HeadTeacher : Enemy
     public int debrisDamage = 5;
 
     [Header("Shout")]
+    public float shoutDelayTime = 2f;
+    private float curShoutTime = 0f;
+
     public Sprite shoutSprite;
     public float shoutSpriteScale = 1f;
     public int shoutDamage = 10;
@@ -26,24 +34,31 @@ public class HeadTeacher : Enemy
     public AudioClip shoutSound;
     public AudioClip slamSound, hitSound, dieSound;
 
-    public PlayerCharacter player;
-    private bool alive = true;
+    private bool alive = true, shouting = false, slamming = false;
     private Animator anim;
+    private SpriteRenderer sRenderer;
 
     private void Awake()
     {
         TryGetComponent(out anim);
+        TryGetComponent(out sRenderer);
     }
     private void Update()
     {
-        if (!alive) return;
+        if (!alive || Vector2.Distance(transform.position, PlayerCharacter.Instance.transform.position) > shoutDist) return;
 
-        if (Input.GetKeyDown(KeyCode.Y)) Shout();
-        if (Input.GetKeyDown(KeyCode.U)) Slam();
+        curSlamTime = Mathf.MoveTowards(curSlamTime, 0f, Time.deltaTime);
+        curShoutTime = Mathf.MoveTowards(curShoutTime, 0f, Time.deltaTime);
+
+        if (Time.frameCount % 2 == 0 && curShoutTime <= 0f && !slamming) Shout();
+        if (Time.frameCount % 3 == 0 && curSlamTime <= 0f && !shouting) Slam();
     }
 
     void Shout()
     {
+        curShoutTime = Random.Range(shoutDelayTime, shoutDelayTime * 2f);
+        shouting = true;
+
         AudioManager.PlayAudio(AudioType.soundFX, shoutSound, null, transform.position, null, 1f, Random.Range(.9f, 1.1f));
         anim.SetTrigger("shout");
         StartCoroutine(ShoutProjectile());
@@ -52,6 +67,7 @@ public class HeadTeacher : Enemy
     IEnumerator ShoutProjectile() 
     {
         yield return new WaitForSeconds(.4f);
+        shouting = false;
 
         GameObject shoutObj = new("shout proj");
         shoutObj.transform.localScale = Vector3.one * shoutSpriteScale;
@@ -60,14 +76,15 @@ public class HeadTeacher : Enemy
         shoutSpriteRender.sortingOrder = 1;
 
         Transform proj = Instantiate(shoutObj, transform.position + shoutOffset, transform.rotation).transform;
+        proj.GetComponent<SpriteRenderer>().flipX = sRenderer.flipX;
 
-        while (proj.position.x < (-transform.right * shoutDist).x) 
+        while (proj.position.x < (sRenderer.flipX ? -transform.right : transform.right * shoutDist).x) 
         {
-            proj.Translate(-proj.right * shoutSpeed * Time.deltaTime);
+            proj.Translate(sRenderer.flipX ? proj.right : -proj.right * shoutSpeed * Time.deltaTime);
 
-            if (Vector2.Distance(proj.position, player.transform.position) < .6f) 
+            if (Vector2.Distance(proj.position, PlayerCharacter.Instance.transform.position) < .6f) 
             {
-                player.GetHit(shoutDamage);
+                PlayerCharacter.Instance.GetHit(shoutDamage);
             }
 
             yield return new WaitForEndOfFrame();
@@ -78,6 +95,12 @@ public class HeadTeacher : Enemy
 
     void Slam() 
     {
+        slamming = true;
+
+        slamsTillWin++;
+
+        curSlamTime = Random.Range(slamDelayTime, slamDelayTime * 2f);
+
         AudioManager.PlayAudio(AudioType.soundFX, slamSound, null, transform.position, null, 1f, Random.Range(.9f, 1.1f));
         anim.SetTrigger("slam");
         StartCoroutine(SlamProjectiles());
@@ -106,7 +129,7 @@ public class HeadTeacher : Enemy
             SpriteRenderer debrisSprite = debrisObj.AddComponent<SpriteRenderer>();
             debrisSprite.sprite = Debris[Random.Range(0, Debris.Length)];
             debrisObj.transform.localScale = Vector3.one * debrisScale;
-            debrisObj.transform.position = (transform.position + -transform.right * 5f) + new Vector3((Time.frameCount % 10 == 0) ? player.transform.position.x - transform.position.x : Random.Range(-10f, 10f), Random.Range(10f, 26f));
+            debrisObj.transform.position = (transform.position + (sRenderer.flipX ? transform.right : -transform.right) * 5f) + new Vector3((Time.frameCount % 10 == 0) ? PlayerCharacter.Instance.transform.position.x - transform.position.x : Random.Range(-10f, 10f), Random.Range(20f, 36f));
             debrisSprite.sortingOrder = 10;
             projectileTransforms.Add(debrisObj.transform);
         }
@@ -115,7 +138,7 @@ public class HeadTeacher : Enemy
 
         for (int c = 0; c < cols.Length; c++) 
         {
-            if (cols[c].GetComponent<Rigidbody2D>()) cols[c].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-.4f, .4f), 1) * 4200f * Time.deltaTime, ForceMode2D.Impulse);
+            if (cols[c].GetComponent<Rigidbody2D>()) cols[c].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-.4f, .4f), 1) * 4200f * Time.deltaTime);
         }
 
         for (int d = 0; d < projectileTransforms.Count; d++) 
@@ -137,9 +160,9 @@ public class HeadTeacher : Enemy
                 projectileTransforms[d].Translate(-Vector3.up * fallSpeed * Time.deltaTime, Space.World);
                 projectileTransforms[d].Rotate(transform.forward * (d % 2 == 0 ? -64f : 64f) * Time.deltaTime);
 
-                if (Vector2.Distance(projectileTransforms[d].position, player.transform.position) < 1.2f)
+                if (Vector2.Distance(projectileTransforms[d].position, PlayerCharacter.Instance.transform.position) < 1.2f)
                 {
-                    player.GetHit(debrisDamage);
+                    PlayerCharacter.Instance.GetHit(debrisDamage);
                 }
 
 
@@ -148,6 +171,14 @@ public class HeadTeacher : Enemy
 
             warningObj.SetActive(false);
             Destroy(projectileTransforms[d].gameObject);
+        }
+
+        yield return new WaitForSeconds(.5f);
+        slamming = false;
+
+        if (slamsTillWin > 8)
+        {
+            GameOverManager.GameOver(true);
         }
     }
 

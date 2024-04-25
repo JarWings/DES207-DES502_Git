@@ -190,6 +190,6 @@ public class MathsTeacher : Enemy
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position + new Vector3(xAttackOffset, 0f), attackRange / 1.4f, Vector2.up, attackRange / 1.4f, LayerMask.GetMask("Player"));
 
-        if (hit.transform != null) hit.transform.GetComponent<PlayerCharacter>().GetHit(1);
+        if (hit.transform != null) hit.transform.GetComponent<PlayerCharacter>().GetHit(attackDamage);
     }
 }

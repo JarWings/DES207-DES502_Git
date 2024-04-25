@@ -277,3 +277,8 @@ Added high quality video opening, fixed bugs, added new journal entries, added t
 --Michael
 ver.0.5.2
 Started boss implementation, including importing animations.
+
+25/04/24
+--Michael
+ver.0.5.3
+Implemented new student sprites that are randomised throughout the level, continued work on the final boss, fixed some bugs.

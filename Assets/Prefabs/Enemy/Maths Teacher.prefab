@@ -162,7 +162,7 @@ MonoBehaviour:
   journalEntryName: "Mrs. Dorothy Schroter\u200B"
   health: 80
   walkSpeed: 10
-  attackDamage: 20
+  attackDamage: 5
   attackRange: 6
   viewRange: 8
   alertSound: {fileID: 0}

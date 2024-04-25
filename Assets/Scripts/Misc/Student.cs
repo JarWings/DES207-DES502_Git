@@ -4,7 +4,10 @@ using UnityEngine;
 public class Student : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
-    public Sprite rescuedSprite;
+    public Sprite[] defaultSprites;
+    public Sprite[] rescuedSprites;
+
+    private int spriteIndex = 0;
 
     public float fadeSpeed = 1.5f;
 
@@ -14,7 +17,14 @@ public class Student : MonoBehaviour
 
     private void Start()
     {
+        spriteIndex = Random.Range(0, defaultSprites.Length);
+        UpdateSprite();
         StudentManager.AddToTotalStudents();
+    }
+
+    private void UpdateSprite() 
+    {
+        spriteRenderer.sprite = rescued ? rescuedSprites[spriteIndex] : defaultSprites[spriteIndex];
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +37,7 @@ public class Student : MonoBehaviour
     {
         rescued = true;
 
-        spriteRenderer.sprite = rescuedSprite;
+        UpdateSprite();
         StartCoroutine(SpriteFade());
         AudioManager.PlayAudio(AudioType.soundFX, rescueSound, null, transform.position, null, 1, 1, 1, 0, 100);
         StudentManager.FindStudent();

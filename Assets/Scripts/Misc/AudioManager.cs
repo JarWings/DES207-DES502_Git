@@ -17,7 +17,6 @@ public class AudioManager : MonoBehaviour
 
     #region function summary
     /// <param name="type">The type of audio effect this is, used for individual volume control.</param>
-    /// <param name="clip">The sound to be played.</param>
     /// <param name="randomClipSet">Plays a random sound from this array, clip will be ignored.</param>
     /// <param name="origin">Where the sound originates from in the scene, pass vector.zero if using a 2D sound.</param>
     /// <param name="parent">Transform this sound is attached to, pass as null if no parent is needed.</param>
@@ -25,7 +24,6 @@ public class AudioManager : MonoBehaviour
     /// <param name="pitch">The pitch of the sound, use values 0f to 1f. Use Random.Range(min, max) for randomisation.</param>
     /// <param name="spatial">For 2D sounds set to 0f, for 3D sounds set to 1f.</param>
     /// <param name="stereoPan">0f for default, -1f for left, 1f for right pan.</param>
-    /// <param name="distance">How far the sound can be heard from.</param>
     /// <param name="loop">Set to true for sound looping, false for one-time. Assign this function to an AudioSource variable in order to stop the loop later.</param>
     /// <param name="delay">How long before the sound plays, leave at 0f for instant playback.</param>
     /// <param name="randomStart">Set to true if you want the sound to start from a random point within the clip.</param>
@@ -94,7 +92,7 @@ public class AudioManager : MonoBehaviour
 
     public static IEnumerator FadeSource(AudioSource source, float targetVolume, float speed = 2f, bool destroyOnEnd = false)
     {
-        while (source.volume != targetVolume && source != null)
+        while (source != null && source.volume != targetVolume)
         {
             source.volume = Mathf.MoveTowards(source.volume, targetVolume, Time.deltaTime * speed);
             yield return new WaitForEndOfFrame();

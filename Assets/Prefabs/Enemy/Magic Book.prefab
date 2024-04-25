@@ -105,7 +105,7 @@ MonoBehaviour:
   detectRange: 5
   flySpeed: 150
   hitRange: 2.5
-  hitDamage: 10
+  hitDamage: 8
   detectSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: e960f000161b7894cb9c3274633b4f6d, type: 3}
   hitSound:
