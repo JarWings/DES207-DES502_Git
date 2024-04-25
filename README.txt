@@ -282,3 +282,8 @@ Started boss implementation, including importing animations.
 --Michael
 ver.0.5.3
 Implemented new student sprites that are randomised throughout the level, continued work on the final boss, fixed some bugs.
+
+25/04/24
+--Michael
+ver.0.5.4
+Added more assets to the main level, added dpad support to the inventory and limited it to two items.

@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum DPadInput { none, north, east, south, west}
 
 public class ActionButton : MonoBehaviour
 {
     public KeyCode actionKey;
     public KeyCode controllerKey;
+    public DPadInput dpadKey;
     private SlotHolder currentSlotHolder;
 
     private void Awake()
@@ -15,7 +16,10 @@ public class ActionButton : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(actionKey) || Input.GetKeyDown(controllerKey)) && currentSlotHolder.itemUI.GetItem()) 
+        float dpadhoz = Input.GetAxis("DPADHorizontal");
+        float dpadvert = Input.GetAxis("DPADVertical");
+
+        if ((Input.GetKeyDown(actionKey) || Input.GetKeyDown(controllerKey) || dpadKey == DPadInput.north && dpadvert == 1f || dpadKey == DPadInput.south && dpadvert == -1f || dpadKey == DPadInput.east && dpadhoz == 1f || dpadKey == DPadInput.west && dpadhoz == -1f) && currentSlotHolder.itemUI.GetItem()) 
         {
             currentSlotHolder.UseItem();
         }

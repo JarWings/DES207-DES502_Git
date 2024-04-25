@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a2b7af64fa5d29c439cc2c401563f320, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f482daa6094e2f4fac6ecbed3cbb7ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
+  journalEntryName: 
   health: 40
   destroyPrefab: {fileID: 0}
   hitSound: {fileID: 8300000, guid: b4be612858a3d634c94bee3c09710e80, type: 3}
