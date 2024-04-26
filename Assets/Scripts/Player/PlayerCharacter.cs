@@ -262,10 +262,11 @@ public class PlayerCharacter : MonoBehaviour
 
     public void GetHit(int damage)
     {
-        if (isDashing) return;
+        if (isDashing||isInvincible) return;
         if (isInvincible) return; // 如果处于无敌状态，则不执行以下受伤逻辑
 
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, .4f, Random.Range(.9f, 1.1f));
+        StartCoroutine(FlashSprite(2.0f, 0.2f)); // 持续闪烁1秒，每0.1秒切换一次颜色
 
         int difficultyMultiplier = 1;
 
@@ -307,6 +308,27 @@ public class PlayerCharacter : MonoBehaviour
         rigid.AddForce(force);
 
         outControlTime = 30;
+    }
+
+    IEnumerator FlashSprite(float flashDuration, float interval)
+    {
+        float elapsedTime = 0f;
+        bool isWhite = false;
+
+        while (elapsedTime < flashDuration)
+        {
+            // Toggle the color between white and default
+            playerSprite.color = isWhite ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f); // Assuming the default color is white
+            isWhite = !isWhite;
+
+            // Wait for a short interval before changing the color again
+            yield return new WaitForSeconds(interval);
+
+            elapsedTime += interval;
+        }
+
+        // Ensure the sprite color is set back to normal after the flashing ends
+        playerSprite.color = new Color(1f, 1f, 1f, 1f); // Set color to default
     }
 
     public void Health(int health)

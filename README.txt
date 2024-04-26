@@ -287,3 +287,8 @@ Implemented new student sprites that are randomised throughout the level, contin
 --Michael
 ver.0.5.4
 Added more assets to the main level, added dpad support to the inventory and limited it to two items.
+
+26/04/24
+--Jiancheng
+ver.0.5.5
+Modified the injury flashing effect.
