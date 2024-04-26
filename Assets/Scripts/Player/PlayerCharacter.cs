@@ -418,6 +418,8 @@ public class PlayerCharacter : MonoBehaviour
             StartCoroutine(SpriteFade(dashFrame, 16f));
             yield return new WaitForSeconds(.03f);
         }
+
+        playerSprite.color = Color.white;
     }
 
     IEnumerator SpriteFade(SpriteRenderer sprite, float rate)

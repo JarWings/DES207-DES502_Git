@@ -13,7 +13,7 @@ public class Line
     public string[] message;
     public AudioClip voiceClip;
     public Sprite talkSprite, recieveSprite;
-    public bool isPlayer = false;
+    public bool isPlayer = false, flipTalk = false, flipRecieve = false;
     public UnityEvent talkEvent;
 }
 
@@ -62,7 +62,7 @@ public class DialogueManager : MonoBehaviour
             {
                 StopAllCoroutines();
 
-                nameText.text = currentLine.senderName[SettingsManager.data.curLanguage];
+                nameText.text = currentLine.isPlayer ? "Stuart Mitchell" : currentLine.senderName[SettingsManager.data.curLanguage];
                 lineText.text = currentLine.message[SettingsManager.data.curLanguage];
 
                 fadePanel.color = Color.black / 1.4f;
@@ -130,6 +130,7 @@ public class DialogueManager : MonoBehaviour
             {
                 playerAvatar.rectTransform.anchoredPosition = new Vector2(500f, 40f);
                 playerAvatar.sprite = currentLine.talkSprite;
+                playerAvatar.transform.localScale = currentLine.flipTalk ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
                 StartCoroutine(ImageFade(playerAvatar, Color.white, 4f));
             }
 
@@ -145,6 +146,8 @@ public class DialogueManager : MonoBehaviour
             {
                 npcAvatar.rectTransform.anchoredPosition = new Vector2(-500f, 40f);
                 npcAvatar.sprite = currentLine.talkSprite;
+                npcAvatar.transform.localScale = currentLine.flipRecieve ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+
                 StartCoroutine(ImageFade(npcAvatar, Color.white, 4f));
             }
 

@@ -20,4 +20,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, talkRange);
     }
+
+    public void TriggerMusic(AudioClip music) 
+    {
+        MusicManager.ChangeTrack(music, true);
+    }
 }

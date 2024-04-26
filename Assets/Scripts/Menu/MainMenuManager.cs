@@ -297,8 +297,13 @@ public class MainMenuManager : MonoBehaviour
                 buttonText.text += " >";
             }
 
+            buttonText.rectTransform.Rotate(Vector3.forward, i * i % 3 == 0 ? -2.4f : 2.4f);
+
             if (selected)
             {
+                buttonText.characterSpacing = 4.2f;
+                buttonText.fontStyle = FontStyles.Underline;
+
                 if (SettingsManager.data.menuHighlight)
                 {
                     if (highlightImage == null) CreateHighlightSprite();
@@ -336,7 +341,6 @@ public class MainMenuManager : MonoBehaviour
             else
             {
                 buttonText.color /= 1.4f;
-                buttonText.fontSize /= 1.6f;
             }
 
             spawnedMenuButtons.Add(tempButton);

@@ -127,5 +127,6 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   journalEntryName: 
   health: 40
-  destroyPrefab: {fileID: 0}
+  prefabOnly: 1
+  destroyPrefab: {fileID: 1057179869185769755, guid: b49efee78afc58040a702f4a691af3de, type: 3}
   hitSound: {fileID: 8300000, guid: b4be612858a3d634c94bee3c09710e80, type: 3}

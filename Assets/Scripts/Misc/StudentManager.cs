@@ -5,6 +5,8 @@ public class StudentManager : MonoBehaviour
 {
     public static StudentManager Instance;
 
+    public GameObject blockObject;
+
     public TMP_Text studentCounterText;
     public int foundStudents = 0, totalStudents = 0;
 
@@ -23,6 +25,8 @@ public class StudentManager : MonoBehaviour
     {
         Instance.foundStudents++;
         Instance.UpdateCounterUi();
+
+        if (Instance.foundStudents >= Instance.totalStudents) Instance.blockObject.SetActive(false);
     }
 
     public void UpdateCounterUi()

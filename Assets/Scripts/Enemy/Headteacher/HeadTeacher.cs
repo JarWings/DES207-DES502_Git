@@ -80,7 +80,7 @@ public class HeadTeacher : Enemy
 
         while (proj.position.x < (sRenderer.flipX ? -transform.right : transform.right * shoutDist).x) 
         {
-            proj.Translate(sRenderer.flipX ? proj.right : -proj.right * shoutSpeed * Time.deltaTime);
+            proj.Translate((sRenderer.flipX ? proj.right : -proj.right) * shoutSpeed * Time.deltaTime);
 
             if (Vector2.Distance(proj.position, PlayerCharacter.Instance.transform.position) < .6f) 
             {

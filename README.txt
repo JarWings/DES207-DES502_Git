@@ -292,3 +292,8 @@ Added more assets to the main level, added dpad support to the inventory and lim
 --Jiancheng
 ver.0.5.5
 Modified the injury flashing effect.
+
+26/04/24
+--Michael
+ver.0.5.6
+Implemented many more assets to the level, added new ui assets, added dialogue, changed font, fixed bugs.

@@ -8,6 +8,8 @@ public class DestructableObject : Enemy
     private Collider2D col;
     private SpriteRenderer spriteRenderer;
 
+    public bool prefabOnly = false;
+
     public GameObject destroyPrefab;
     public AudioClip hitSound;
 
@@ -29,7 +31,7 @@ public class DestructableObject : Enemy
         if (health <= 0)
         {
             Destroyed();
-            return;
+            if(prefabOnly) return;
         }
 
         StopAllCoroutines();
@@ -48,7 +50,11 @@ public class DestructableObject : Enemy
 
         AudioManager.PlayAudio(AudioType.soundFX, hitSound, null, transform.position, null, .5f, Random.Range(.6f, .8f), 1, 0, 80);
 
-        if (destroyPrefab != null) Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+        if (destroyPrefab != null) 
+        {
+            Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
 
         StopAllCoroutines();
         StartCoroutine(SpriteFade());

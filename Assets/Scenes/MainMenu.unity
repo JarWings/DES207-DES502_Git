@@ -184,7 +184,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press 'Space' or the 'A Button' to Start!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9efc251f8e571f9439646a0211119b33, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   m_sharedMaterial: {fileID: 4436518229417755849, guid: 9efc251f8e571f9439646a0211119b33, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &34127798
@@ -1047,8 +1047,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1/8
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
-  m_sharedMaterial: {fileID: 8742826138126900317, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
+  m_sharedMaterial: {fileID: -5717779701874988148, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1220,7 +1220,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Loading...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1032659604
@@ -1792,8 +1792,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Anarchy Academy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
-  m_sharedMaterial: {fileID: 8742826138126900317, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
+  m_sharedMaterial: {fileID: -5717779701874988148, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1823,7 +1823,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -2582,6 +2582,25 @@ MonoBehaviour:
       - Kristofer Rossvoll-Booth
       buttonDesc:
       - Narrative Designer.
+      SelectEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      LeftEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      RightEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      HighlightImage: {fileID: 0}
+      imageColour: {r: 0, g: 0, b: 0, a: 0}
+      sliderValueType: 0
+      sliderMaxValue: 100
+      displaySlider: 0
+      playSounds: 1
+    - buttonName:
+      - David Mergens - QEDaveMergens
+      buttonDesc:
+      - Text font
       SelectEvent:
         m_PersistentCalls:
           m_Calls: []
@@ -3487,7 +3506,7 @@ MonoBehaviour:
   sliderUseSound: {fileID: 8300000, guid: 9a23c2845d870484885218c4b8e0723c, type: 3}
   errorSound: {fileID: 8300000, guid: bec16409fe2cad743821d62884924307, type: 3}
   pageChangeSound: {fileID: 8300000, guid: 5bb08a5926f995d47a07f5407bb9cd6d, type: 3}
-  defaultButtonFont: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
+  defaultButtonFont: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   simpleButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   sliderValue: 0
   flashAnim: {fileID: 1169079755}
@@ -3554,8 +3573,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Team Orion
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
-  m_sharedMaterial: {fileID: 8742826138126900317, guid: 50593a093906f3e49ad580a530afe9ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
+  m_sharedMaterial: {fileID: -5717779701874988148, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3783,6 +3802,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2062616131}
     m_Modifications:
+    - target: {fileID: 5165103811292100992, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
+    - target: {fileID: 5165103811292100992, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5165103811292100993, guid: 232f51850f150a2479b02eaf82cbee2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
