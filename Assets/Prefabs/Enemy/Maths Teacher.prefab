@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
   journalEntryName: "Mrs. Dorothy Schroter\u200B"
-  health: 80
+  health: 60
   walkSpeed: 10
   attackDamage: 5
   attackRange: 6

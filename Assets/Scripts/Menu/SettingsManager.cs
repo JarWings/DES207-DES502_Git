@@ -43,6 +43,10 @@ public class SettingsManager : MonoBehaviour
 		if (Input.GetKey(KeyCode.G) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.D)) GodCheat();
 
         if (Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.R) && Input.GetKeyDown(KeyCode.D)) WeakCheat();
+        
+        if (Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P) && Input.GetKeyDown(KeyCode.E)) StudentCheat();
+        
+        if (Input.GetKey(KeyCode.O) && Input.GetKeyDown(KeyCode.P)) DashCheat();
     }
 
     private void Start()
@@ -195,5 +199,22 @@ public class SettingsManager : MonoBehaviour
 
         defaultDmg = PlayerCharacter.Instance.attackDamage > defaultDmg ? PlayerCharacter.Instance.attackDamage : defaultDmg;
         PlayerCharacter.Instance.attackDamage = PlayerCharacter.Instance.attackDamage == defaultDmg ? 1 : defaultDmg;
+    }
+
+    private void StudentCheat() 
+    {
+        if (StudentManager.Instance == null) return;
+
+        for (int i = 0; i < StudentManager.Instance.totalStudents; i++) 
+        {
+            StudentManager.FindStudent();
+        }
+    }
+
+    private void DashCheat() 
+    {
+        if (PlayerCharacter.Instance == null) return;
+
+        PlayerCharacter.Instance.dashCoolDown = .1f;
     }
 }

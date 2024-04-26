@@ -20,11 +20,13 @@ public class HeadTeacher : Enemy
     public float fallSpeed = 5;
     public int debrisDamage = 5;
 
+    public Crack[] cracks;
+
     [Header("Shout")]
     public float shoutDelayTime = 2f;
     private float curShoutTime = 0f;
 
-    public Sprite shoutSprite;
+    public Sprite[] shoutSprites;
     public float shoutSpriteScale = 1f;
     public int shoutDamage = 10;
     public float shoutDist = 24, shoutSpeed;
@@ -72,11 +74,11 @@ public class HeadTeacher : Enemy
         GameObject shoutObj = new("shout proj");
         shoutObj.transform.localScale = Vector3.one * shoutSpriteScale;
         SpriteRenderer shoutSpriteRender = shoutObj.AddComponent<SpriteRenderer>();
-        shoutSpriteRender.sprite = shoutSprite;
+        shoutSpriteRender.sprite = shoutSprites[Random.Range(0, shoutSprites.Length)];
         shoutSpriteRender.sortingOrder = 1;
 
         Transform proj = Instantiate(shoutObj, transform.position + shoutOffset, transform.rotation).transform;
-        proj.GetComponent<SpriteRenderer>().flipX = sRenderer.flipX;
+        proj.GetComponent<SpriteRenderer>().flipX = !sRenderer.flipX;
 
         while (proj.position.x < (sRenderer.flipX ? -transform.right : transform.right * shoutDist).x) 
         {
@@ -110,7 +112,7 @@ public class HeadTeacher : Enemy
     {
         yield return new WaitForSeconds(.5f);
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 20f, LayerMask.GetMask("Destructible"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 40f, LayerMask.GetMask("Destructible"));
         foreach (var hit in hits)
         {
             Enemy enemy = hit.GetComponent<Enemy>();
@@ -134,11 +136,16 @@ public class HeadTeacher : Enemy
             projectileTransforms.Add(debrisObj.transform);
         }
 
+        for (int p = 0; p < cracks.Length; p++) 
+        {
+            if(slamsTillWin % 2 == 0) cracks[p].NextCrack();
+        }
+
         Collider2D[] cols = Physics2D.OverlapBoxAll(transform.position, Vector2.one * 40f, 360f);
 
         for (int c = 0; c < cols.Length; c++) 
         {
-            if (cols[c].GetComponent<Rigidbody2D>()) cols[c].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-.4f, .4f), 1) * 4200f * Time.deltaTime);
+            if (cols[c].GetComponent<Rigidbody2D>()) cols[c].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-.4f, .4f), 1) * 4200f * Time.deltaTime, ForceMode2D.Impulse);
         }
 
         for (int d = 0; d < projectileTransforms.Count; d++) 

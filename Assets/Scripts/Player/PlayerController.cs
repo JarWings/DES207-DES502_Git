@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,6 +17,6 @@ public class PlayerController : MonoBehaviour
         attack = Input.GetButtonDown("Attack");
 
         //test function
-        getHurt = Application.isEditor ? Input.GetKeyDown(KeyCode.H) : false;
+        getHurt = Application.isEditor && Input.GetKeyDown(KeyCode.H);
     }
 }

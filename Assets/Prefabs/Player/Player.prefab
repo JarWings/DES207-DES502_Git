@@ -182,7 +182,7 @@ MonoBehaviour:
   faceLeft: 0
   isFullHealth: 0
   dashTime: 0.15
-  dashCoolDown: 0.5
+  dashCoolDown: 2
   dashSpeed: 80
   invincibilityDuration: 2
   swingSounds:
@@ -193,5 +193,5 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   attackDamage: 20
   attackRange: 4
-  attackCooldown: 0.5
+  attackCooldown: 0.4
   dashFrames: []

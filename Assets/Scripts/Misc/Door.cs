@@ -50,7 +50,7 @@ public class Door : MonoBehaviour
         {
             AudioManager.PlayAudio(AudioType.soundFX, openSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 1, 0, 40);
             anim.SetTrigger("Open");
-            spriteRenderer.sortingOrder = -2;
+            //spriteRenderer.sortingOrder = -2;
         }
     }
 
@@ -63,7 +63,7 @@ public class Door : MonoBehaviour
         {
             AudioManager.PlayAudio(AudioType.soundFX, closeSound, null, transform.position, null, 1, Random.Range(.9f, 1.1f), 1, 0, 40);
             anim.SetTrigger("Close");
-            spriteRenderer.sortingOrder = -3;
+            //spriteRenderer.sortingOrder = -3;
         }
 
         IconManager.UpdateInteractIcon(interactIcon, Vector2.zero, null);
@@ -190,7 +190,7 @@ public class Door : MonoBehaviour
             elevatorObj.transform.position = movePos;
             playerRbody.position = movePos;
 
-            if(Vector2.Distance(playerRbody.position, (Vector2)destinationDoor.transform.position) < 6f && !unloaded)
+            if(Vector2.Distance(playerRbody.position, destinationDoor.transform.position) < 6f && !unloaded)
             {
                 MoveEnemies();
 

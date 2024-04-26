@@ -297,3 +297,8 @@ Modified the injury flashing effect.
 --Michael
 ver.0.5.6
 Implemented many more assets to the level, added new ui assets, added dialogue, changed font, fixed bugs.
+
+27/04/24
+--Michael
+ver.0.5.7
+Added wall cracks to boss battle, imported more art assets, continued work on level layout, replaced boss shout sprites, added final maths teacher attack animation, added game over screen and temp win screen, fixed bugs.

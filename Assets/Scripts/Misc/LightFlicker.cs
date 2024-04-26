@@ -3,6 +3,7 @@ using UnityEngine;
 public class LightFlicker : MonoBehaviour
 {
     public float flickerSpeed = 1f;
+    public float spinSpeed = 0f;
     private float startSpeed;
 
     public AudioClip buzzSound;
@@ -23,6 +24,7 @@ public class LightFlicker : MonoBehaviour
 
     void Update()
     {
+        meshRenderer.transform.parent.Rotate(Vector3.forward * spinSpeed * Time.deltaTime);
         Flicker();
     }
 

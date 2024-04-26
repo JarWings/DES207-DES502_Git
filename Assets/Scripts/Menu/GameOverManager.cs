@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Collections;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -10,10 +11,12 @@ public class GameOverManager : MonoBehaviour
 	public static bool isOver = false;
 
 	public AudioClip gameOverMusic;
+	public GameObject diePrefab;
 
 	[Header("UI")]
 	public CanvasGroup uiGroup;
 	public Image bgPanel;
+	public Sprite winsprite, losesprite;
 	public TMP_Text gameOverText;
 	public TMP_Text[] characterText;
 	public int[] character;
@@ -38,6 +41,12 @@ public class GameOverManager : MonoBehaviour
 	
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.C)) 
+		{
+			Cursor.visible = !Cursor.visible;
+			Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
+		}
+
 		if(!isOver) return;
 		
 		float vert = Input.GetAxisRaw("Vertical");
@@ -84,13 +93,23 @@ public class GameOverManager : MonoBehaviour
 	{
 		if(isOver) return;
 
+		PlayerCharacter.Instance.enabled = false;
+
+		if (!winState) 
+		{
+			PlayerCharacter.Instance.transform.GetComponent<SpriteRenderer>().enabled = true;
+			Instantiate(Instance.diePrefab, PlayerCharacter.Instance.transform.position, Instance.transform.rotation);
+		}
+
 		Instance.win = winState;
 
-		Instance.uiGroup.alpha = 1f;
-		Instance.bgPanel.color = Color.black;
+		Instance.StartCoroutine(Instance.FadeCanvas(Instance.uiGroup, 1f));
+
+		Instance.bgPanel.sprite = winState ? Instance.winsprite : Instance.losesprite;
+		Instance.bgPanel.color = Color.white;
 		
 		LeaderboardManager.allowTimer = false;
-		Instance.gameOverText.text = "Game Over! " + (Instance.win ? "Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard. Press the JUMP button to change character, and ATTACK to submit." : "Press the ATTACK button to continue.");
+		Instance.gameOverText.text = (Instance.win ? "Congratulations! Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard. Press the JUMP button to change character, and ATTACK to submit." : "Press the ATTACK button to continue.");
 
 		MusicManager.ChangeTrack(Instance.gameOverMusic, false, 2f);
 
@@ -99,15 +118,23 @@ public class GameOverManager : MonoBehaviour
 			Instance.characterText[i].enabled = Instance.win;
 		}
 
-
 		isOver = true;
+	}
+
+	IEnumerator FadeCanvas(CanvasGroup group, float level) 
+	{
+		while (group != null && group.alpha != level) 
+		{
+			group.alpha = Mathf.MoveTowards(group.alpha, level, Time.unscaledDeltaTime);
+			yield return new WaitForEndOfFrame();
+		}
 	}
 	
 	public void SubmitScore()
 	{
 		isOver = false;
 
-		Instance.uiGroup.alpha = 0f;
+		Instance.StartCoroutine(Instance.FadeCanvas(Instance.uiGroup, 0f));
 		Instance.bgPanel.color = Color.clear;
 		
 		if(Instance.win) LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());

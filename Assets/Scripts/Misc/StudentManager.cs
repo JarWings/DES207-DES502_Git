@@ -31,6 +31,6 @@ public class StudentManager : MonoBehaviour
 
     public void UpdateCounterUi()
     {
-        studentCounterText.text = foundStudents + "/" + totalStudents;
+        studentCounterText.text = foundStudents + "\n  /\n   " + totalStudents;
     }
 }

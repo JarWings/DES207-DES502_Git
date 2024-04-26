@@ -54,7 +54,7 @@ public class LoadingManager : MonoBehaviour
     {
         while (img.fillAmount != target)
         {
-            img.fillAmount = Mathf.MoveTowards(img.fillAmount, target, Time.deltaTime * speed);
+            img.fillAmount = Mathf.MoveTowards(img.fillAmount, target, Time.unscaledDeltaTime * speed);
             yield return new WaitForEndOfFrame();
         }
     }

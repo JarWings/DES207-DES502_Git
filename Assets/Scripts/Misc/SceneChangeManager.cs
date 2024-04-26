@@ -34,6 +34,8 @@ public class SceneChangeManager : MonoBehaviour
 
         if (GameOverManager.Instance != null) GameOverManager.isOver = false;
 
+        if (DialogueManager.Instance != null) DialogueManager.Instance.EndDialogue();
+
         if (PlayerCharacter.Instance != null && resetPlayer) // resets player on scene changes
         {
 			PlayerCharacter.Instance.enabled = true;

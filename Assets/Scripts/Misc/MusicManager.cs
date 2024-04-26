@@ -107,7 +107,7 @@ public class MusicManager : MonoBehaviour
 
         if (globalMusicManager.currentTrack == null) return;
 
-        globalMusicManager.StopAllCoroutines();
+        //globalMusicManager.StopAllCoroutines();
         globalMusicManager.StartCoroutine(AudioManager.FadeSource(globalMusicManager.currentTrack, vol, speed));
     }
 

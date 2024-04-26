@@ -55,7 +55,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!inDialogue) return;
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Jump"))
         {
             Line currentLine = currentDialogueLines[lineIndex];
             if (lineText.text != currentLine.message[SettingsManager.data.curLanguage])
@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
         dialogueSoundSource = AudioManager.PlayAudio(AudioType.soundFX, currentLine.voiceClip, null, Vector2.zero, null, 1, 1, 0);
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         StopAllCoroutines();
 

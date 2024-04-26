@@ -23,6 +23,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerMusic(AudioClip music) 
     {
-        MusicManager.ChangeTrack(music, true);
+        MusicManager.ChangeTrack(music, true, 1.2f);
     }
 }
