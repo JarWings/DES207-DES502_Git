@@ -17,6 +17,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 7f7c082b2c912654dba242993bcfc82f, type: 3}
   itemAmount: 1
   stackable: 1
+  JournalEntry: Square Pizza
   description: "The Square Mini Pizza,\n a rare find baked with mastery, \noffers
     a slice of strength."
   useableData: {fileID: 11400000, guid: c0ad338c63c7f884db23c81a54747d40, type: 2}

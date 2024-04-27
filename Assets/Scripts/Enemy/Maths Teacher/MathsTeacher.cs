@@ -96,7 +96,7 @@ public class MathsTeacher : Enemy
         {
             speed = 0f;
 
-            if (inRange && attackDelay <= 0f && attackTime <= 0f && chasing)
+            if (inRange && attackDelay <= 0f && attackTime <= 0f && chasing && Time.frameCount % 60 == 0)
             {
                 Attack();
             }
