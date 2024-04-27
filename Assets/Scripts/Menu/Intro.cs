@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using System.Collections;
 
@@ -19,9 +20,9 @@ public class Intro : MonoBehaviour
 
     IEnumerator VideoPlay() 
     {
-        SettingsManager.firstBoot = true;
+        if(SceneManager.GetActiveScene().buildIndex == 0) SettingsManager.firstBoot = true;
 
-        yield return new WaitForSeconds(1f);
+        if(SettingsManager.firstBoot)  yield return new WaitForSeconds(1f);
 
         vidPlayer.Play();
 

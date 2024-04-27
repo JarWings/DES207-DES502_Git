@@ -145,7 +145,7 @@ public class HeadTeacher : Enemy
 
         for (int c = 0; c < cols.Length; c++) 
         {
-            if (cols[c].GetComponent<Rigidbody2D>()) cols[c].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-.4f, .4f), 1) * 4200f * Time.deltaTime, ForceMode2D.Impulse);
+            if (cols[c].GetComponent<Rigidbody2D>()) cols[c].GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-.4f, .4f), 1) * 320f * Time.deltaTime, ForceMode2D.Impulse);
         }
 
         for (int d = 0; d < projectileTransforms.Count; d++) 

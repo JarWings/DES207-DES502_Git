@@ -10205,8 +10205,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -219.24, y: 119.77}
-  m_SizeDelta: {x: -1758.481, y: 239.542}
+  m_AnchoredPosition: {x: -219.24005, y: 96.08411}
+  m_SizeDelta: {x: -1758.481, y: 192.1702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349877145
 MonoBehaviour:
@@ -14686,7 +14686,19 @@ MonoBehaviour:
     flipRecieve: 0
     talkEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 515769423}
+          m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+          m_MethodName: FindJournal
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Measured Might
+            m_BoolArgument: 0
+          m_CallState: 2
   - senderName:
     - Measured Might
     message:
@@ -42721,7 +42733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 500}
+  m_AnchoredPosition: {x: 0, y: 412}
   m_SizeDelta: {x: 0, y: 447.588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622699324
@@ -42785,7 +42797,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30.06
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -46622,8 +46634,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 119.76999}
-  m_SizeDelta: {x: -1758.481, y: 239.542}
+  m_AnchoredPosition: {x: 0, y: 96.08411}
+  m_SizeDelta: {x: -1758.481, y: 192.1702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1794749132
 MonoBehaviour:
@@ -47729,8 +47741,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 219.24, y: 119.77}
-  m_SizeDelta: {x: -1758.481, y: 239.542}
+  m_AnchoredPosition: {x: 219.23999, y: 96.08411}
+  m_SizeDelta: {x: -1758.481, y: 192.1702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1820831913
 MonoBehaviour:

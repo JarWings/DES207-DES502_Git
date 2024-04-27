@@ -66,6 +66,7 @@ public class GameOverManager : MonoBehaviour
 			if (win) 
 			{
 				SubmitScore();
+				return;
 			}
 
 			SceneChangeManager.LoadScene("MainMenu");
@@ -138,6 +139,6 @@ public class GameOverManager : MonoBehaviour
 		Instance.bgPanel.color = Color.clear;
 		
 		if(Instance.win) LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
-		SceneChangeManager.LoadScene("MainMenu");
+		SceneChangeManager.LoadScene("Outro");
 	}
 }

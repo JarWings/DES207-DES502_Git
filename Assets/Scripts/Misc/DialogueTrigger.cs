@@ -25,4 +25,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         MusicManager.ChangeTrack(music, true, 1.2f);
     }
+
+    public void FindJournal(string journal) 
+    {
+        JournalManager.FindEntry(journal);
+    }
 }
