@@ -297,7 +297,7 @@ public class MainMenuManager : MonoBehaviour
                 buttonText.text += " >";
             }
 
-            buttonText.rectTransform.Rotate(Vector3.forward, i * i % 3 == 0 ? -2.4f : 2.4f);
+            if(!SettingsManager.data.simpleFont) buttonText.rectTransform.Rotate(Vector3.forward, i * i % 3 == 0 ? -2.4f : 2.4f);
 
             if (selected)
             {

@@ -2789,7 +2789,7 @@ MonoBehaviour:
             m_MethodName: PlaySoundFX
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 8300000, guid: 6c24bd0527b06364d8fb16ff4b15de07, type: 3}
+              m_ObjectArgument: {fileID: 8300000, guid: c5358462ca1e7b445a63e41eacb522ce, type: 3}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
               m_IntArgument: 0
               m_FloatArgument: 0
@@ -2816,7 +2816,7 @@ MonoBehaviour:
             m_MethodName: PlaySoundFX
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 8300000, guid: 6c24bd0527b06364d8fb16ff4b15de07, type: 3}
+              m_ObjectArgument: {fileID: 8300000, guid: c5358462ca1e7b445a63e41eacb522ce, type: 3}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
               m_IntArgument: 0
               m_FloatArgument: 0
@@ -3503,9 +3503,9 @@ MonoBehaviour:
   levelMusic: {fileID: 8300000, guid: dd56910e40273f74388eb8e881fc355a, type: 3}
   highlightSound: {fileID: 8300000, guid: eb4cd019f7fad1e47a1674521338181f, type: 3}
   activateSound: {fileID: 8300000, guid: d48573c157c00984daca77ecd10b353e, type: 3}
-  sliderUseSound: {fileID: 8300000, guid: 9a23c2845d870484885218c4b8e0723c, type: 3}
+  sliderUseSound: {fileID: 8300000, guid: eb4cd019f7fad1e47a1674521338181f, type: 3}
   errorSound: {fileID: 8300000, guid: bec16409fe2cad743821d62884924307, type: 3}
-  pageChangeSound: {fileID: 8300000, guid: 5bb08a5926f995d47a07f5407bb9cd6d, type: 3}
+  pageChangeSound: {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
   defaultButtonFont: {fileID: 11400000, guid: 7b60f40c6415efe40ab386b190090987, type: 2}
   simpleButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   sliderValue: 0

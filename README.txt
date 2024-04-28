@@ -302,3 +302,7 @@ Implemented many more assets to the level, added new ui assets, added dialogue, 
 --Michael
 ver.0.5.7
 Added wall cracks to boss battle, imported more art assets, continued work on level layout, replaced boss shout sprites, added final maths teacher attack animation, added game over screen and temp win screen, fixed bugs.
+
+28/04/24
+ver.0.5.8
+Fixed bugs with not getting the chocolate milk or pizza journal entries, added flying book animation, removed any placeholder sounds, added some unused art assets to level, fixed simple font having rotation offset.

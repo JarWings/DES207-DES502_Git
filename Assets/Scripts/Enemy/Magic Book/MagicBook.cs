@@ -21,6 +21,7 @@ public class MagicBook : Enemy
     private SpriteRenderer sprite;
     private Rigidbody2D rbody;
     private Collider2D col;
+    private Animator anim;
 
     private float hitCooldown = 0, idleTime = 0f;
     private bool dead = false, attacking = false;
@@ -33,6 +34,7 @@ public class MagicBook : Enemy
         TryGetComponent(out sprite);
         TryGetComponent(out rbody);
         TryGetComponent(out col);
+        TryGetComponent(out anim);
 
         spawnPosition = transform.position;
         NewRandomDest();
@@ -147,6 +149,7 @@ public class MagicBook : Enemy
 
     private void Die()
     {
+        anim.enabled = false;
         AudioManager.PlayAudio(AudioType.soundFX, dieSound, null, transform.position, null, 1f, 1f, 1f, 0f, 60f);
         dead = true;
 
