@@ -83,7 +83,7 @@ public class JournalManager : MonoBehaviour
 
         for (int i = 0; i < savedList.Entries.Count; i++)
         {
-            manager.EntryContainer.Entries[i].Owned = savedList.Entries.Count >= i ? savedList.Entries[i].Owned : manager.EntryContainer.Entries[i].Owned;
+            manager.EntryContainer.Entries[i].Owned = savedList.Entries[i].Owned;
         }
     }
 

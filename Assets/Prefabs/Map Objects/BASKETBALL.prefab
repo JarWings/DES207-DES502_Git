@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d5f223c3495444e9a03eb4a00320f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collideSounds:
-  - {fileID: 8300000, guid: 9a4b954e080f6984aad6ff70186d4cfa, type: 3}
+  collideSounds: []
   forceRequirement: 0.2
   minRestTime: 0.2

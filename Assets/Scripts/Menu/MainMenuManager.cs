@@ -261,7 +261,7 @@ public class MainMenuManager : MonoBehaviour
             buttonText.text = curButton.buttonName[SettingsManager.data.curLanguage];
             buttonText.color = buttonColour;
 
-            if (curButton.SelectEvent == null || HasEvents(curButton)) // Button has no logic, probably being used as a header or "slider" (left/right events)
+            if (curButton.SelectEvent == null || HasEvents(curButton)) // Button has no logic, probably being used as a header or slider
             {
                 buttonText.color = headerColour;
             }

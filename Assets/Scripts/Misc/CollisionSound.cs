@@ -21,7 +21,7 @@ public class CollisionSound : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (lastSoundTime > 0f) return;
+        if (lastSoundTime > 0f || collideSounds == null || collideSounds.Length <= 0) return;
 
         if (rbody == null || rbody.velocity.magnitude > forceRequirement)
         {
