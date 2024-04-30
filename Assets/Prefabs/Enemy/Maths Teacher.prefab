@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2575379291168242037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.3, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.32, y: 0.32, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -163,7 +163,7 @@ MonoBehaviour:
   health: 60
   walkSpeed: 10
   attackDamage: 5
-  attackRange: 6
+  attackRange: 5
   viewRange: 8
   alertSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}

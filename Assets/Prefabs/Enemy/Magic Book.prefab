@@ -108,7 +108,7 @@ MonoBehaviour:
   hitRange: 2.5
   hitDamage: 8
   detectSound: {fileID: 0}
-  attackSound: {fileID: 8300000, guid: e960f000161b7894cb9c3274633b4f6d, type: 3}
+  attackSound: {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
   hitSound:
   - {fileID: 8300000, guid: c5358462ca1e7b445a63e41eacb522ce, type: 3}
   - {fileID: 8300000, guid: 24e42981adbe8aa4e8b8bc8aeb5878c8, type: 3}

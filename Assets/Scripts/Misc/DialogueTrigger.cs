@@ -7,6 +7,9 @@ public class DialogueTrigger : MonoBehaviour
     public List<Line> Dialogue = new();
     public int priority = 0;
 
+    public AudioClip introMusic;
+    public AudioClip mainMusic;
+
     private void Update()
     {
         if(Physics2D.CircleCast(transform.position, talkRange, Vector2.up, talkRange, LayerMask.GetMask("Player")))
@@ -29,5 +32,11 @@ public class DialogueTrigger : MonoBehaviour
     public void FindJournal(string journal) 
     {
         JournalManager.FindEntry(journal);
+    }
+
+    public void IntroMainMusic()
+    {
+        MusicManager.ChangeTrack(introMusic, false, 0f);
+        MusicManager.GetMusicManager().StartCoroutine(MusicManager.DelayTrackChange(mainMusic, true, 0f, introMusic.length));
     }
 }

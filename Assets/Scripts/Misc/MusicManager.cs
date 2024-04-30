@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
     {
         if (changingTrack)
         {
-            if (currentTrack != null && currentTrack.volume > 0)
+            if (currentTrack != null && currentTrack.volume > 0 && curFadeSpeed > 0f)
             {
                 currentTrack.volume -= Time.unscaledDeltaTime * curFadeSpeed;
             }
@@ -97,7 +97,7 @@ public class MusicManager : MonoBehaviour
 	
 	public static IEnumerator DelayTrackChange(AudioClip track, bool loop, float fadeSpeed, float delay)
 	{
-		yield return new WaitForSeconds(delay);
+		yield return new WaitForSecondsRealtime(delay);
 		ChangeTrack(track, loop, fadeSpeed);
 	}
 

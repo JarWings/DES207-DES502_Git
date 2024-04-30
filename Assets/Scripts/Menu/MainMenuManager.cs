@@ -759,9 +759,9 @@ public class MainMenuManager : MonoBehaviour
 
         LeaderboardManager.ResetTime();
 
-        if (scene != "Intro") 
+        if (scene == "Level") 
         {
-            MusicManager.ChangeTrack(levelIntroMusic, false);
+            MusicManager.ChangeTrack(levelIntroMusic, false, 0f);
             MusicManager.GetMusicManager().StartCoroutine(MusicManager.DelayTrackChange(levelMusic, true, 0f, levelIntroMusic.length));
         }
 

@@ -196,7 +196,7 @@ public class PlayerCharacter : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(DashEffect());
 
-        AudioManager.PlayAudio(AudioType.soundFX, dashSound, null, transform.position, null, .2f, 1f, 0f);
+        AudioManager.PlayAudio(AudioType.soundFX, dashSound, null, transform.position, null, .7f, 1f, 0f);
 
         DashCDImage.fillAmount = 1;
     }

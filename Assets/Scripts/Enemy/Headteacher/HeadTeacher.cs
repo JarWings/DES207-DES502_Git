@@ -45,6 +45,7 @@ public class HeadTeacher : Enemy
         TryGetComponent(out anim);
         TryGetComponent(out sRenderer);
     }
+
     private void Update()
     {
         if (!alive || Vector2.Distance(transform.position, PlayerCharacter.Instance.transform.position) > shoutDist) return;
