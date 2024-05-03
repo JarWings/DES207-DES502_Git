@@ -132,7 +132,7 @@ public class HeadTeacher : Enemy
             SpriteRenderer debrisSprite = debrisObj.AddComponent<SpriteRenderer>();
             debrisSprite.sprite = Debris[Random.Range(0, Debris.Length)];
             debrisObj.transform.localScale = Vector3.one * debrisScale;
-            debrisObj.transform.position = (transform.position + (sRenderer.flipX ? transform.right : -transform.right) * 5f) + new Vector3((Time.frameCount % 10 == 0) ? PlayerCharacter.Instance.transform.position.x - transform.position.x : Random.Range(-10f, 10f), Random.Range(20f, 36f));
+            debrisObj.transform.position = (PlayerCharacter.Instance.transform.position + new Vector3(Random.Range(-6f, 6f), Random.Range(20f, 36f)));
             debrisSprite.sortingOrder = 10;
             projectileTransforms.Add(debrisObj.transform);
         }
@@ -173,7 +173,6 @@ public class HeadTeacher : Enemy
                     PlayerCharacter.Instance.GetHit(debrisDamage);
                 }
 
-
                 yield return new WaitForEndOfFrame();
             }
 
@@ -184,7 +183,7 @@ public class HeadTeacher : Enemy
         yield return new WaitForSeconds(.5f);
         slamming = false;
 
-        if (slamsTillWin > 8)
+        if (slamsTillWin > 12)
         {
             GameOverManager.GameOver(true);
         }
@@ -198,7 +197,6 @@ public class HeadTeacher : Enemy
     void Die() 
     {
         alive = false;
-
         anim.SetTrigger("die");
     }
 }

@@ -10,7 +10,7 @@ public class GameOverManager : MonoBehaviour
 	
 	public static bool isOver = false;
 
-	public AudioClip gameOverMusic;
+	public AudioClip gameOverMusic, victoryMusic;
 	public GameObject diePrefab;
 
 	[Header("UI")]
@@ -95,6 +95,8 @@ public class GameOverManager : MonoBehaviour
 		if(isOver) return;
 
 		PlayerCharacter.Instance.enabled = false;
+		PlayerCharacter.Instance.GetComponent<Collider2D>().enabled = false;
+		PlayerCharacter.Instance.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
 		if (!winState) 
 		{
@@ -112,7 +114,7 @@ public class GameOverManager : MonoBehaviour
 		LeaderboardManager.allowTimer = false;
 		Instance.gameOverText.text = (Instance.win ? "Congratulations! Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard. Press the JUMP button to change character, and ATTACK to submit." : "Press the ATTACK button to continue.");
 
-		MusicManager.ChangeTrack(Instance.gameOverMusic, false, 2f);
+		MusicManager.ChangeTrack(winState == false ? Instance.gameOverMusic : Instance.victoryMusic, false, 2f);
 
 		for (int i = 0; i < Instance.characterText.Length; i++) 
 		{
