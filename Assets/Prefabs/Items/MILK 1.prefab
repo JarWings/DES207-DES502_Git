@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7954027696535920618}
   - component: {fileID: 3999172094602410473}
   - component: {fileID: 3093777046370879650}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MILK 1
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -164,4 +164,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5

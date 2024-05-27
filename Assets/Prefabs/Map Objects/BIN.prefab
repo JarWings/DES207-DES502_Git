@@ -125,6 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
+  journalEntryName: 
   health: 80
+  prefabOnly: 0
   destroyPrefab: {fileID: 3224616714980580839, guid: e342c193ba8a3d943b4e8513e0a2e174, type: 3}
+  hitPrefab: {fileID: 3224616714980580839, guid: 26c7749453a66d945abd5a38b0000e23, type: 3}
   hitSound: {fileID: 8300000, guid: b4be612858a3d634c94bee3c09710e80, type: 3}

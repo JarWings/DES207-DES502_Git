@@ -15,7 +15,7 @@ public class GameOverManager : MonoBehaviour
 
 	[Header("UI")]
 	public CanvasGroup uiGroup;
-	public Image bgPanel;
+	public Image bgPanel, heldBarFill;
 	public Sprite winsprite, losesprite;
 	public TMP_Text gameOverText;
 	public TMP_Text[] characterText;
@@ -27,6 +27,8 @@ public class GameOverManager : MonoBehaviour
 	
 	private bool inputHeld = false;
 	public bool win = false;
+
+	private float attackHeldTime = 0f;
 	
 	void Awake()
 	{
@@ -61,8 +63,13 @@ public class GameOverManager : MonoBehaviour
 		
 		if(Input.GetButtonDown("Jump") && win) SwitchCharacter(1);
 
-		if (Input.GetButtonDown("Attack")) 
+		attackHeldTime = Input.GetButton("Attack") ? attackHeldTime + Time.unscaledDeltaTime / 2f : 0f;
+		heldBarFill.fillAmount = attackHeldTime / 1f;
+
+		if (attackHeldTime >= 1f) 
 		{
+			attackHeldTime = 0f;
+
 			if (win) 
 			{
 				SubmitScore();
@@ -110,9 +117,11 @@ public class GameOverManager : MonoBehaviour
 
 		Instance.bgPanel.sprite = winState ? Instance.winsprite : Instance.losesprite;
 		Instance.bgPanel.color = Color.white;
-		
+		Instance.heldBarFill.enabled = true;
+
+
 		LeaderboardManager.allowTimer = false;
-		Instance.gameOverText.text = (Instance.win ? "Congratulations! Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard. Press the JUMP button to change character, and ATTACK to submit." : "Press the ATTACK button to continue.");
+		Instance.gameOverText.text = (Instance.win ? "Congratulations! Your time: " + TimeSpan.FromSeconds(LeaderboardManager.currentTime).ToString(@"hh\:mm\:ss\:ff") + "\nEnter your name for the leaderboard. Press the DASH button to change character, and hold ATTACK to submit." : "Hold the ATTACK button to continue.");
 
 		MusicManager.ChangeTrack(winState == false ? Instance.gameOverMusic : Instance.victoryMusic, false, 2f);
 
@@ -139,8 +148,9 @@ public class GameOverManager : MonoBehaviour
 
 		Instance.StartCoroutine(Instance.FadeCanvas(Instance.uiGroup, 0f));
 		Instance.bgPanel.color = Color.clear;
-		
-		if(Instance.win) LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
+		Instance.heldBarFill.enabled = false;
+
+		if (Instance.win) LeaderboardManager.AddScore(characters[character[0]].ToString() + characters[character[1]].ToString() + characters[character[2]].ToString());
 		SceneChangeManager.LoadScene("Outro");
 	}
 }

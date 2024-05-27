@@ -7,7 +7,7 @@ public class PlayerCharacter : MonoBehaviour
 {
     public static PlayerCharacter Instance { get; private set; } // 单例模式的静态实例
 
-    SpriteRenderer playerSprite;
+    SpriteRenderer playerSprite, shadowSprite;
     PlayerController controller;
     Rigidbody2D rigid;
     Animator anim;
@@ -63,15 +63,7 @@ public class PlayerCharacter : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); 
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject); 
-        }
+        Instance = this;
         isFullHealth = true;
     }
 
@@ -81,6 +73,7 @@ public class PlayerCharacter : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
+        shadowSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         hp = maxHp;
 
         Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
@@ -92,6 +85,8 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
+        Shadow();
+
         dashCDGameObject = GameObject.FindWithTag("DashCD");
         if (dashCDGameObject != null)
         {
@@ -127,7 +122,6 @@ public class PlayerCharacter : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(controller.h));
         if (controller.attack && !DialogueManager.inDialogue && !isDashing)
         {
-            anim.SetTrigger("Attack");
             Attack();
         }
 
@@ -140,16 +134,33 @@ public class PlayerCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Dash();
+
         if (!isAttacking())
         {
             Move(controller.h);
-            Dash();
         }
-        else
+        else if(!isDashing)
         {
             rigid.velocity = new Vector2(0, 0);
         }
         outControlTime--;
+    }
+
+    private void Shadow() 
+    {
+        shadowSprite.enabled = playerSprite.enabled;
+        if (!shadowSprite.enabled) return;
+
+        Vector2 shadowPos = (Vector2)transform.position - new Vector2(0, 6.52f);
+
+        shadowSprite.flipX = playerSprite.flipX;
+        shadowSprite.sprite = playerSprite.sprite;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Invisible"));
+        if (hit.transform != null) shadowPos = hit.point - new Vector2(0, 3.26f);
+
+        shadowSprite.transform.position = shadowPos;
     }
 
     public static void ResetPosition()
@@ -207,14 +218,15 @@ public class PlayerCharacter : MonoBehaviour
         {
             if (dashTimeLeft > 0)
             {
-                anim.SetBool("isDashing", true); // 开始冲刺动画
-               
+                if(!isAttacking()) anim.SetBool("isDashing", true); // 开始冲刺动画
+                bool attack = Time.time - lastAttackTime < attackCooldown;
+
                 // 关闭重力加速度
                 rigid.gravityScale = 10;
                 // 禁用碰撞体
-                Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
-                Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, true);
-                rigid.velocity = new Vector2(dashSpeed * HorizontalDir(faceLeft), rigid.velocity.y);
+                if (!attack) Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+                if (!attack) Physics2D.IgnoreLayerCollision(playerLayer, enemyHitLayer, true);
+                rigid.velocity = new Vector2((attack ? dashSpeed / 3f : dashSpeed) * HorizontalDir(faceLeft), rigid.velocity.y);
                 dashTimeLeft -= Time.deltaTime;
             }
             else
@@ -286,6 +298,8 @@ public class PlayerCharacter : MonoBehaviour
                 break;
         }
 
+        CameraManager.Shake(1f);
+
         GetHitCDImage.fillAmount = 1;
         // 受伤后进入无敌状态
         isInvincible = true;
@@ -347,8 +361,15 @@ public class PlayerCharacter : MonoBehaviour
         // 检查是否超过冷却时间
         if (Time.time - lastAttackTime < attackCooldown) return;
 
+        CameraManager.Shake(.5f);
+
         // 执行攻击，并更新上一次攻击时间
         lastAttackTime = Time.time;
+
+        anim.SetTrigger("Attack");
+
+        isDashing = true;
+        dashTimeLeft = .2f;
 
         // 使用OverlapCircleAll来获取范围内的所有敌人
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy", "Destructible","EnemyNoCollision"));

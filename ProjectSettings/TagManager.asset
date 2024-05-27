@@ -31,8 +31,8 @@ TagManager:
   - EnemyHit
   - Destructible
   - EnemyBlock
-  - 
-  - 
+  - Item
+  - PlayerBlock
   - 
   - 
   - 

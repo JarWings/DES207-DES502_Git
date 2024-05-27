@@ -10,7 +10,7 @@ public class DestructableObject : Enemy
 
     public bool prefabOnly = false;
 
-    public GameObject destroyPrefab;
+    public GameObject destroyPrefab, hitPrefab;
     public AudioClip hitSound;
 
     private void Start()
@@ -33,6 +33,8 @@ public class DestructableObject : Enemy
             Destroyed();
             if(prefabOnly) return;
         }
+
+        if(hitPrefab != null) Instantiate(hitPrefab, transform.position, Quaternion.identity);
 
         StopAllCoroutines();
         StartCoroutine(HitShake());

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4996624888441770177}
   - component: {fileID: 8385670540088162520}
   - component: {fileID: 5720232987949668146}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PIZZA 1
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -164,4 +164,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5

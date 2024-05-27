@@ -102,11 +102,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
   journalEntryName: books of prey
-  health: 50
-  detectRange: 5
+  health: 40
+  detectRange: 18
   flySpeed: 150
   hitRange: 2.5
   hitDamage: 8
+  hitPrefab: {fileID: 1057179869185769755, guid: b49efee78afc58040a702f4a691af3de, type: 3}
   detectSound: {fileID: 0}
   attackSound: {fileID: 8300000, guid: 2d94d10e93627614792b4f5d1b1eefdb, type: 3}
   hitSound:

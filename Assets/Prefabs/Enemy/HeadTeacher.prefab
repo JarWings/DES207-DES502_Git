@@ -114,11 +114,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e88245f6c9d61aa45805b6670d1003c2, type: 3}
   - {fileID: 21300000, guid: df82203c50943f54dab7ecfd6e9d9541, type: 3}
   - {fileID: 21300000, guid: 3f38921d02558244ebf2296913cc9f76, type: 3}
-  debrisScale: 0.1
+  debrisScale: 0.14
   fallSpeed: 34
   debrisDamage: 5
+  dustParticles: {fileID: 0}
+  cracks: []
+  enemies:
+  - {fileID: 833738142612683333, guid: 85fa6153d8317e64fb77760506655217, type: 3}
   shoutDelayTime: 2
-  shoutSprite: {fileID: 21300000, guid: 2a68cec9f7e18c0439114d6030d0ec78, type: 3}
+  shoutSprites: []
   shoutSpriteScale: 1
   shoutDamage: 10
   shoutDist: 24
@@ -128,7 +132,6 @@ MonoBehaviour:
   slamSound: {fileID: 8300000, guid: b4be612858a3d634c94bee3c09710e80, type: 3}
   hitSound: {fileID: 0}
   dieSound: {fileID: 0}
-  player: {fileID: 0}
 --- !u!61 &1662850206
 BoxCollider2D:
   m_ObjectHideFlags: 0

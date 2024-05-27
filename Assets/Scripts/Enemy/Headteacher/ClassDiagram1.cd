@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MenuButton">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAAAAAAAAAgCAAAAAAAVBFAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MainMenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuPage">
+    <Position X="14.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAECAACAAAAAAAAAAACAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MainMenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuManager">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>lxxkqGAwECILyAQgl5AgDYGBIAUQAUEhFChEomSSAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MainMenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="13.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Enum Name="SliderValue">
+    <Position X="16.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAIABEAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MainMenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

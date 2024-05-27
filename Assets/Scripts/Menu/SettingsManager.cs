@@ -44,7 +44,7 @@ public class SettingsManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.R) && Input.GetKeyDown(KeyCode.D)) WeakCheat();
         
-        if (Input.GetKey(KeyCode.N) && Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P) && Input.GetKeyDown(KeyCode.E)) StudentCheat();
+        if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.G)) StudentCheat();
         
         if (Input.GetKey(KeyCode.O) && Input.GetKeyDown(KeyCode.P)) DashCheat();
     }
@@ -203,12 +203,14 @@ public class SettingsManager : MonoBehaviour
 
     private void StudentCheat() 
     {
-        if (StudentManager.Instance == null) return;
+        if (StudentManager.Instance == null || PlayerCharacter.Instance == null) return;
 
-        for (int i = 0; i < StudentManager.Instance.totalStudents; i++) 
+        for (int i = 0; i < StudentManager.Instance.totalStudents - StudentManager.Instance.foundStudents; i++) 
         {
             StudentManager.FindStudent();
         }
+
+        PlayerCharacter.Instance.transform.position = new Vector2(-32f, -418f);
     }
 
     private void DashCheat() 

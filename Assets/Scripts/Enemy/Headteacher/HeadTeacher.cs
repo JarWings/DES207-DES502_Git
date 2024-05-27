@@ -10,7 +10,7 @@ public class HeadTeacher : Enemy
 
     [Header("Slam")]
     public float slamDelayTime = 4f;
-    private float curSlamTime = 0f;
+    private float curSlamTime = 2f;
 
     public Sprite warningSprite;
     private GameObject warnObj;
@@ -19,12 +19,14 @@ public class HeadTeacher : Enemy
     public float debrisScale = .4f;
     public float fallSpeed = 5;
     public int debrisDamage = 5;
+    public ParticleSystem dustParticles;
 
     public Crack[] cracks;
+    public GameObject[] enemies;
 
     [Header("Shout")]
     public float shoutDelayTime = 2f;
-    private float curShoutTime = 0f;
+    private float curShoutTime = 5f;
 
     public Sprite[] shoutSprites;
     public float shoutSpriteScale = 1f;
@@ -46,6 +48,11 @@ public class HeadTeacher : Enemy
         TryGetComponent(out sRenderer);
     }
 
+    private void Start()
+    {
+        CameraManager.SetFOV(75);
+    }
+
     private void Update()
     {
         if (!alive || Vector2.Distance(transform.position, PlayerCharacter.Instance.transform.position) > shoutDist) return;
@@ -57,10 +64,20 @@ public class HeadTeacher : Enemy
         if (Time.frameCount % 3 == 0 && curSlamTime <= 0f && !shouting) Slam();
     }
 
+    void SpawnEnemy()
+    {
+        Vector2 pos = (Vector2)PlayerCharacter.Instance.transform.position + (Vector2)Random.onUnitSphere * 30f;
+        GameObject enemy = enemies[Random.Range(0, enemies.Length)];
+
+        Instantiate(enemy, enemy.name == "Magic Book" ? pos : new Vector2(transform.position.x + Random.Range(32f, 44f), PlayerCharacter.Instance.transform.position.y), transform.rotation);
+    }
+
     void Shout()
     {
         curShoutTime = Random.Range(shoutDelayTime, shoutDelayTime * 2f);
         shouting = true;
+
+        if (Time.frameCount % 2 == 0) SpawnEnemy();
 
         AudioManager.PlayAudio(AudioType.soundFX, shoutSound, null, transform.position, null, 1f, Random.Range(.9f, 1.1f));
         anim.SetTrigger("shout");
@@ -102,6 +119,8 @@ public class HeadTeacher : Enemy
 
         slamsTillWin++;
 
+        CameraManager.Shake(4f);
+
         curSlamTime = Random.Range(slamDelayTime, slamDelayTime * 2f);
 
         AudioManager.PlayAudio(AudioType.soundFX, slamSound, null, transform.position, null, 1f, Random.Range(.9f, 1.1f));
@@ -113,6 +132,8 @@ public class HeadTeacher : Enemy
     {
         yield return new WaitForSeconds(.5f);
 
+        dustParticles.Emit(34);
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 40f, LayerMask.GetMask("Destructible"));
         foreach (var hit in hits)
         {
@@ -123,7 +144,7 @@ public class HeadTeacher : Enemy
             }
         }
 
-        int projectileCount = Random.Range(4, 8);
+        int projectileCount = Random.Range(2, 4);
         List<Transform> projectileTransforms = new();
 
         for (int i = 0; i < projectileCount; i++) 
@@ -186,6 +207,7 @@ public class HeadTeacher : Enemy
         if (slamsTillWin > 12)
         {
             GameOverManager.GameOver(true);
+            this.enabled = false;
         }
     }
 

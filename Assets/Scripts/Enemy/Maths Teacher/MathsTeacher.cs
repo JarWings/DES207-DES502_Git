@@ -119,15 +119,17 @@ public class MathsTeacher : Enemy
     {
         if (dead) return;
 
-        attackDelay = .3f;
+        StopAllCoroutines();
+
+        attackDelay = .6f;
         health -= hits;
 
         bool targetRight = destination > transform.position.x;
         spriteRender.flipX = targetRight;
 
-        float xForce = 24f;
+        float xForce = 44f;
         xForce = targetRight ? -xForce : xForce;
-        pushModifier = new(xForce, 30f);
+        pushModifier = new(xForce, 10f);
 
         if (health <= 0)
         {
@@ -166,6 +168,14 @@ public class MathsTeacher : Enemy
         }
     }
 
+    IEnumerator AttackDelay(float xAttackOffset)
+    {
+        yield return new WaitForSeconds(.2f);
+
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position + new Vector3(xAttackOffset, 0f), attackRange / 1.4f, Vector2.up, attackRange / 1.4f, LayerMask.GetMask("Player"));
+        if (hit.transform != null) hit.transform.GetComponent<PlayerCharacter>().GetHit(attackDamage);
+    }
+
     private void Attack()
     {
         if (dead || !IsGrounded()) return;
@@ -188,8 +198,6 @@ public class MathsTeacher : Enemy
 
         AudioManager.PlayAudio(AudioType.soundFX, attackSound, null, transform.position, null, 1, Random.Range(.8f, 1.2f), 1, 0, 80f);
 
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position + new Vector3(xAttackOffset, 0f), attackRange / 1.4f, Vector2.up, attackRange / 1.4f, LayerMask.GetMask("Player"));
-
-        if (hit.transform != null) hit.transform.GetComponent<PlayerCharacter>().GetHit(attackDamage);
+        StartCoroutine(AttackDelay(xAttackOffset));
     }
 }

@@ -11,6 +11,8 @@ public class MagicBook : Enemy
     public float hitRange = 2f;
     public int hitDamage = 10;
 
+    public GameObject hitPrefab;
+
     [Header("Audio")]
     public AudioClip detectSound;
     public AudioClip attackSound;
@@ -131,6 +133,8 @@ public class MagicBook : Enemy
     public override void GetHit(int damage)
     {
         if (dead) return;
+
+        Instantiate(hitPrefab, transform.position, transform.rotation);
 
         hitCooldown = 4f;
         health -= damage;

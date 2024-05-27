@@ -129,4 +129,5 @@ MonoBehaviour:
   health: 40
   prefabOnly: 1
   destroyPrefab: {fileID: 1057179869185769755, guid: b49efee78afc58040a702f4a691af3de, type: 3}
+  hitPrefab: {fileID: 3224616714980580839, guid: 26c7749453a66d945abd5a38b0000e23, type: 3}
   hitSound: {fileID: 8300000, guid: b4be612858a3d634c94bee3c09710e80, type: 3}
